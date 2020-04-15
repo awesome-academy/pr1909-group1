@@ -5,17 +5,22 @@
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
     <div class="form-inputs">
-        <%= f.input :name,
+        <%= f.input :first_name,
                     required: true,
                     autofocus: true,
-                    label: 'Your name',
-                    input_html: { autocomplete: "name" }%>
+                    label: 'First Name',
+                    input_html: { autocomplete: "first_name" }%>
+        <%= f.input :last_name,
+                    required: true,
+                    autofocus: true,
+                    label: 'Last Name',
+                    input_html: { autocomplete: "last_name" }%>
         <%= f.input :email,
                     required: true,
                     autofocus: true,
                     input_html: { autocomplete: "email" }%>
         <%= f.input :user_type,
-                    collection: User::USER_TYPE,
+                    collection: Settings.u_type,
                     prompt: "Select Employer or Candidate",
                     label: 'You are?',
                     error: 'User functionality is required, please select ' %>
@@ -36,4 +41,3 @@
     <%= render "devise/shared/links" %>
   </div>
 </div>
-  
