@@ -1,6 +1,5 @@
 class CandidatesController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update]
-  # before_action :check_authorization, only: [:edit, :update]
   before_action :get_candidate, only: [:show, :edit, :update, :destroy]
 
   # GET /candidates
@@ -70,12 +69,6 @@ class CandidatesController < ApplicationController
   end
 
   def candidate_params
-    params.require(:candidate).permit(:user_id, :candidate_name, :date_of_birth, :phone, :avatar, :cv)
+    params.require(:candidate).permit(:user_id, :candidate_fullname, :date_of_birth, :phone, :avatar, :cv)
   end
-
-  # def check_authorization
-  #   unless current_user.id == Candidate.find(params[:id]).user_id
-  #     redirect_to root_url
-  #   end
-  # end
 end

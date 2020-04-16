@@ -15,17 +15,17 @@
 
   <tbody>
     <% @candidates.each do |candidate| %>
-    <tr>
-      <td><%= candidate.user_id %></td>
-      <td><%= candidate.candidate_name %></td>
-      <td><%= candidate.date_of_birth %></td>
-      <td><%= candidate.phone %></td>
-      <td><%= candidate.avatar %></td>
-      <td><%= candidate.cv %></td>
-      <td><%= link_to 'Show', candidate %></td>
-      <td><%= link_to 'Edit', edit_candidate_path(candidate) %></td>
-      <td><%= link_to 'Destroy', candidate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
+      <tr>
+        <td><%= candidate.user_id %></td>
+        <td><%= candidate.candidate_fullname %></td>
+        <td><%= candidate.date_of_birth %></td>
+        <td><%= candidate.phone %></td>
+        <td><%= candidate.avatar %></td>
+        <td><%= candidate.cv %></td>
+        <td><%= link_to 'Show', candidate %></td>
+        <td><%= link_to 'Edit', edit_candidate_path(candidate) %></td>
+        <td><%= link_to 'Destroy', candidate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
     <% end %>
   </tbody>
 </table>
