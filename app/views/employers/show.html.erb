@@ -15,7 +15,7 @@
 
 <p>
   <strong>Company description:</strong>
-  <%= @employer.company_description %>
+  <%= raw(@employer.company_description) %>
 </p>
 
 <%= link_to 'Edit', edit_employer_path(@employer) %> |

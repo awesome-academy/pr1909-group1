@@ -14,7 +14,7 @@
     <strong>
       <%= f.input :post_title, as: :string %>
     </strong>
-    <%= f.input :job_description %>
+    <%= f.input :job_description, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } } %>
     <%= f.input :job_expired_date %>
   </div>
 

@@ -7,7 +7,7 @@
   <strong>Company Logo</strong> <%= f.file_field :company_logo %>
   <%= f.input :company_name %>
   <%= f.input :company_size %>
-  <%= f.input :company_description %>
+  <%= f.input :company_description, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } } %>
 </div>
 
 <div class="form-actions">
