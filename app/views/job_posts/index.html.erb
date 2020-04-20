@@ -23,14 +23,13 @@
     <% @job_posts.each do |job_post| %>
       <tr>
         <td><%= job_post.employer_id %></td>
-        <td><%= job_post.job_location %></td>
-        <td><%= job_post.job_type %></td>
+        <td><%= JobPost.job_location_views.key(job_post.job_location) %></td>
+        <td><%= JobPost.job_type_views.key(job_post.job_type) %></td>
         <td><%= job_post.job_status %></td>
         <td><%= job_post.post_priority %></td>
         <td><%= job_post.salary_min %></td>
         <td><%= job_post.salary_max %></td>
         <td><%= job_post.post_title %></td>
-        <td><%= job_post.job_description %></td>
         <td><%= job_post.job_expired_date %></td>
         <td><%= link_to 'Show', job_post %></td>
         <td><%= link_to 'Edit', edit_job_post_path(job_post) %></td>

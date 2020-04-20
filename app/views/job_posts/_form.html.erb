@@ -4,14 +4,16 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.association :employer %>
-    <%= f.input :job_location %>
-    <%= f.input :job_type %>
-    <%= f.input :job_status %>
-    <%= f.input :post_priority %>
+    <%= f.input :job_location,
+                collection: JobPost.job_location_views%>
+    <%= f.input :job_type,
+                collection: JobPost.job_type_views,
+                prompt: "Select Job Type" %>
     <%= f.input :salary_min %>
     <%= f.input :salary_max %>
-    <%= f.input :post_title %>
+    <strong>
+      <%= f.input :post_title, as: :string %>
+    </strong>
     <%= f.input :job_description %>
     <%= f.input :job_expired_date %>
   </div>

@@ -2,42 +2,29 @@
 
 <p>
   <strong>Employer:</strong>
-  <%= @job_post.employer_id %>
-</p>
-
-<p>
-  <strong>Job location:</strong>
-  <%= @job_post.job_location %>
-</p>
-
-<p>
-  <strong>Job type:</strong>
-  <%= @job_post.job_type %>
-</p>
-
-<p>
-  <strong>Job status:</strong>
-  <%= @job_post.job_status %>
-</p>
-
-<p>
-  <strong>Post priority:</strong>
-  <%= @job_post.post_priority %>
-</p>
-
-<p>
-  <strong>Salary min:</strong>
-  <%= @job_post.salary_min %>
-</p>
-
-<p>
-  <strong>Salary max:</strong>
-  <%= @job_post.salary_max %>
+  <%= @job_post.employer.user.first_name %>
 </p>
 
 <p>
   <strong>Post title:</strong>
   <%= @job_post.post_title %>
+</p>
+
+<p>
+  <strong>Job location:</strong>
+  <%= JobPost.job_location_views.key(@job_post.job_location) %>
+</p>
+
+<p>
+  <strong>Job type:</strong>
+  <%= Settings.job_type.view.to_h.key(@job_post.job_type) %>
+</p>
+
+<p>
+  <strong>Salary:</strong>
+  <%= @job_post.salary_min %>
+  -
+  <%= @job_post.salary_max %>
 </p>
 
 <p>
@@ -50,5 +37,7 @@
   <%= @job_post.job_expired_date %>
 </p>
 
-<%= link_to 'Edit', edit_job_post_path(@job_post) %> |
+<% if current_user.employer.id == @job_post.employer.id %>
+   | <%= link_to "Edit", edit_job_post_path(@job_post) %>
+<% end %>
 <%= link_to 'Back', job_posts_path %>

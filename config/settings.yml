@@ -8,7 +8,7 @@
 
   job_type:
     general: { full_time: 1, part_time: 2, freelance: 3, contract: 4 }
-    view: {"Full time": "full_time", "Part time": "part_time", "Contract": "contract"}
+    view: {"Full time": "full_time", "Part time": "part_time", "Freelance": "freelance", "Contract": "contract"}
 
   job_status:
     general: { pending: 1, accepted: 2, rejected: 3, expired: 4 }
