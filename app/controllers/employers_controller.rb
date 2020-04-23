@@ -1,17 +1,17 @@
 class EmployersController < ApplicationController
   before_action :set_employer, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:edit, :update]
+  before_action :authenticate_user!
+  before_action :check_authorization, only: [:edit, :update]
 
   # GET /employers
   # GET /employers.json
   def index
-    @employers = Employer.all
+    @employers = Employer.all.paginate(page: params[:page], per_page: Settings.perpage)
   end
 
   # GET /employers/1
   # GET /employers/1.json
   def show
-    @employer = Employer.find_by(params[:id])
   end
 
   # GET /employers/new
@@ -27,7 +27,6 @@ class EmployersController < ApplicationController
   # POST /employers.json
   def create
     @employer = Employer.new(employer_params)
-
     respond_to do |format|
       if @employer.save
         format.html { redirect_to @employer, notice: 'Employer was successfully created.' }
@@ -70,6 +69,14 @@ class EmployersController < ApplicationController
   end
 
   def employer_params
-    params.require(:employer).permit(:user_id, :company_logo, :company_name, :company_size, :company_description)
+    params.require(:employer).permit(:user_id, :company_logo, :company_name, :company_size, :company_description,
+                                     user_attributes: [:id, :first_name, :last_name])
+  end
+
+  def check_authorization
+    unless current_user.id == @employer.user_id
+      flash[:notice] = "You don't have permission to edit this page"
+      redirect_to root_url
+    end
   end
 end

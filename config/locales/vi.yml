@@ -5,17 +5,16 @@ vi:
       home: 'Trang chủ'
       log_in: 'Đăng nhập'
       sign_up: 'Đăng ký'
+      account_setting: 'Thiết lập tài khoản'
       profile: 'Hồ sơ'
       log_out:  'Đăng xuất'
     footer:
       about: 'Thông tin thêm'
-
       about_us: 'Về chúng tôi'
       contact_us: 'Liên hệ với chúng tôi'
       contribute: 'Đóng góp'
       privacy_policy: ' Chính sách bảo mật'
       sitemap:  'Sơ đồ trang web'
-
       jobs_by_type: 'Việc làm theo hình thức'
       jobs_by_city: 'Việc làm theo thành phố'
       quick_links: 'Đường dẫn nhanh'
@@ -37,13 +36,15 @@ vi:
     back: 'Trở về'
     delete: 'Xóa'
     show: 'Xem'
-
+    cancel: 'Huỷ'
+    action: 'Thao tác'
+    update: 'Cập nhật'
+    
 #view candidate
   candidate:
     candidates: 'Tất cả ứng viên'
     dob: 'Ngày sinh'
     phone: 'Điện thoại'
-
     show:
       profile: 'Hồ sơ ứng viên'
       contact: 'Liên hệ'
@@ -74,3 +75,15 @@ vi:
     salary_max: 'Lương Tối Đa'
     create_post: 'Tạo bài đăng mới'
     edit_post: 'Sửa Bài Đăng'
+    
+#view employer
+  employer:
+    employers: 'Tất cả nhà tuyển dụng'
+    logo: 'Logo công ty'
+    name: 'Tên công ty'
+    size: 'Quy mô công ty'
+    description: 'Mô tả'
+    show:
+      profile: 'Hồ sơ công ty'
+    edit:
+      editing: 'Chỉnh sửa nhà tuyển dụng'
