@@ -39,7 +39,7 @@ en:
     cancel: 'Cancel'
     action: 'Actions'
     update: 'Update'
-    
+
 #view candidate
   candidate:
     candidates: 'Candidates'
