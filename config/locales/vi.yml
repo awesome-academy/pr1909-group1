@@ -7,7 +7,7 @@ vi:
       sign_up: 'Đăng ký'
       profile: 'Hồ sơ'
       log_out:  'Đăng xuất'
-    footer: 
+    footer:
       about: 'Thông tin thêm'
 
       about_us: 'Về chúng tôi'
@@ -37,7 +37,7 @@ vi:
     back: 'Trở về'
     delete: 'Xóa'
     show: 'Xem'
-    
+
 #view candidate
   candidate:
     candidates: 'Tất cả ứng viên'
@@ -55,3 +55,19 @@ vi:
   user:
     first_name: 'Tên'
     last_name: 'Họ'
+
+#view search
+  search:
+    label: 'Tìm Việc'
+    prompt:
+      location: 'Địa Điểm'
+      job_type: 'Loại Công Việc'
+      salary_min: 'Lương Tối Thiểu'
+      salary_max: 'Lương Tối Đa'
+    btn_search: 'Tìm Kiếm'
+
+  job_post:
+    new_job: 'Đăng bài'
+    apply: 'Ứng Tuyển'
+    edit: 'Sửa'
+    destroy: 'Xóa'

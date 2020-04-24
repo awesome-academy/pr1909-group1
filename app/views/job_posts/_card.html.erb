@@ -12,7 +12,8 @@
         <p class="location"><%= JobPost.job_location_views.key(job_post.job_location) %></p>
       </div>
       <div class="apply_btn">
-          <a href="#" class="btn btn-primary">Apply</a>
+          <a href="#" class="btn btn-primary">
+            <%= t('job_post.apply')%> </a>
               <!-- TODO: Apply Activity -->
       </div>
       <% if authenticate_employer job_post %>
