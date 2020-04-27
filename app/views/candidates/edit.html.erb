@@ -1,15 +1,15 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     
-      <h1> <%= t('candidate.edit.Editing') %></h1>
+      <h1> <%= t('candidate.edit.editing') %></h1>
 
       <%= render 'form', candidate: @candidate %>
 
     
     <div class="btn-candidate"> 
-      <%= link_to t('common.Show'), @candidate , class: "btn btn-success btn-sm" %>
+      <%= link_to t('common.show'), @candidate , class: "btn btn-success btn-sm" %>
 
-      <%= link_to t('common.Back'), candidates_path, class: "btn btn-danger btn-sm" %>
+      <%= link_to t('common.back'), candidates_path, class: "btn btn-danger btn-sm" %>
     </div>
   </div>
 </div>

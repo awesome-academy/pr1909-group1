@@ -1,13 +1,13 @@
-<h1><%= t('candidate.Candidates') %></h1>
+<h1><%= t('candidate.candidates') %></h1>
 
 <table class="table table-hover">
   <thead>
     <tr>
       <th>Avatar</th>
-      <th><%= t('user.First Name') %></th>
-      <th><%= t('user.Last Name') %></th>
-      <th><%= t('candidate.Date of birth') %></th>
-      <th><%= t('candidate.Phone') %></th>
+      <th><%= t('user.first_name') %></th>
+      <th><%= t('user.last_name') %></th>
+      <th><%= t('candidate.dob') %></th>
+      <th><%= t('candidate.phone') %></th>
       <th>Cv</th>
       <th colspan="3"></th>
     </tr>
@@ -23,10 +23,10 @@
         <td><%= candidate.date_of_birth %></td>
         <td><%= candidate.phone %></td>
         <td><%= candidate.cv %></td>
-        <td><%= link_to t('common.Show'), candidate, class: "btn btn-success btn-sm" %></td>
+        <td><%= link_to t('common.show'), candidate, class: "btn btn-success btn-sm" %></td>
         <% if current_user.id == candidate.user_id %>
-          <td><%= link_to t('common.Edit'), edit_candidate_path(candidate), class: "btn btn-primary btn-sm" %></td>
-          <td><%= link_to t('common.Delete'), candidate, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %></td>
+          <td><%= link_to t('common.edit'), edit_candidate_path(candidate), class: "btn btn-primary btn-sm" %></td>
+          <td><%= link_to t('common.delete'), candidate, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %></td>
         <% end %>
       </tr>
     <% end %>

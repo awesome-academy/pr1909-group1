@@ -1,6 +1,6 @@
 class CandidatesController < ApplicationController
   before_action :authenticate_user!
-  before_action :get_candidate, only: [:show, :edit, :update, :destroy]
+  before_action :get_candidate, except: [:new, :index, :created]
   before_action :check_authorization, only: [:edit, :update]
 
   # GET /candidates

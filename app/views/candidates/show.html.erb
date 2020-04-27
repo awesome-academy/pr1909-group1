@@ -2,11 +2,11 @@
   <div class="col-md-6 col-md-offset-3">
     <div class="card">
 
-      <h2><%= t('candidate.show.Profile') %></h2>
+      <h2><%= t('candidate.show.profile') %></h2>
 
-        <div class="avatar-show">
-          <%= image_tag @candidate.avatar.url(:show), class: "image" %>
-        </div>
+      <div class="avatar-show">
+        <%= image_tag @candidate.avatar.url(:show), class: "image" %>
+      </div>
 
       <h2><%= @candidate.user.first_name %> <%= @candidate.user.last_name %></h2>
 
@@ -14,7 +14,7 @@
 
       <h6><%= @candidate.phone %></h6>
 
-      <a href="<%= @candidate.cv %>" download><%= t('candidate.show.Download') %></a> 
+      <%= link_to t('candidate.show.download'), @candidate.cv.url, download: @candidate.cv.filename %>
 
       <div>
         <ul class="social-icons">
@@ -25,17 +25,17 @@
         </ul>
       </div>
 
-      <p><button><%= t('candidate.show.Contact') %></button></p>
+      <p><button><%= t('candidate.show.contact') %></button></p>
 
       <div>
         <% if current_user.id == @candidate.user_id %>
-          <%= link_to t('common.Edit'), edit_candidate_path(@candidate), class: "btn btn-primary btn-sm" %>
+        <%= link_to t('common.edit'), edit_candidate_path(@candidate), class: "btn btn-primary btn-sm" %>
         <% end %>
 
-        <%= link_to t('common.Back'), root_path, class: "btn btn-danger btn-sm" %>
+        <%= link_to t('common.back'), root_path, class: "btn btn-danger btn-sm" %>
       </div>
 
     </div>
-    
+
   </div>
 </div>
