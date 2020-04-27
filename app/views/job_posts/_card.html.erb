@@ -11,10 +11,7 @@
         <h5><%= link_to job_post.employer.company_name, job_post.employer %></h5>
         <p><%= JobPost.job_location_views.key(job_post.job_location) %></p>
       </div>
-      <div class="apply-btn">
-        <%= link_to t('job_post.apply'), "#", class: "btn btn-primary" %> 
-              <!-- TODO: Apply Activity -->
-      </div>
+
       <% if authenticate_employer job_post %>
         <%= link_to t('common.edit'), edit_job_post_path(job_post) %>
         <%= link_to t('common.delete'), job_post, method: :delete, data: { confirm: t('job_post.confirm') } %>

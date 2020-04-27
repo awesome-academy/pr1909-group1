@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     root 'job_posts#index'
 
     get "/blog", to: "blog#index"
+    resources :apply_activities, only: [:create, :destroy]
     resources :employers
     resources :candidates
     resources :job_posts

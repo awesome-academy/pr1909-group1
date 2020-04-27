@@ -75,6 +75,8 @@ en:
     salary_max: 'Salary Max'
     create_post: 'New Job Post'
     edit_post: 'Editing Job Post'
+    cancel: 'Cancel Application'
+    confirm: 'Are you sure?'
 
 #view employer
   employer:

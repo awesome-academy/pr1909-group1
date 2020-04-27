@@ -1,0 +1,6 @@
+<%= form_for(current_user.candidate.apply_activities.build, remote: true) do |f| %>
+  <div><%= hidden_field_tag :job_post_id, @job_post.id %></div>
+  <div class="actions">
+    <%= f.submit t('job_post.apply'), class: "btn btn-primary" %>
+  </div>
+<% end %>
