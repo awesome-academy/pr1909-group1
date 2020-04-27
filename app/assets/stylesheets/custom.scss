@@ -4,6 +4,7 @@
 @import "font-awesome";
 @import "header";
 @import "footer";
+@import "candidate";
 
 * {
   margin: 0;
@@ -33,6 +34,7 @@ body {
     height: 500px;
   }
 }
+
 //custom common
 .bg-form {
   background-color: #f5f5f5;

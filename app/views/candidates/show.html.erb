@@ -1,30 +1,41 @@
-<%= image_tag @candidate.avatar.url(:thumb) if @candidate.avatar? %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="card">
 
-<p>
-  <strong>First Name:</strong>
-  <%= @candidate.user.first_name %>
-</p>
+      <h2><%= t('candidate.show.profile') %></h2>
 
-<p>
-  <strong>Last Name:</strong>
-  <%= @candidate.user.last_name %>
-</p>
+      <div class="avatar-show">
+        <%= image_tag @candidate.avatar.url(:show), class: "image" %>
+      </div>
 
-<p>
-  <strong>Date of birth:</strong>
-  <%= @candidate.date_of_birth %>
-</p>
+      <h2><%= @candidate.user.first_name %> <%= @candidate.user.last_name %></h2>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @candidate.phone %>
-</p>
+      <h4><%= @candidate.date_of_birth %></h4>
 
+      <h6><%= @candidate.phone %></h6>
 
-<a href="<%= @candidate.cv %>" download>Download CV</a> 
-<p>
+      <%= link_to t('candidate.show.download'), @candidate.cv.url, download: @candidate.cv.filename %>
 
-<% if current_user.id == @candidate.user_id %>
-  <%= link_to 'Edit', edit_candidate_path(@candidate) %>|
-<% end %>
-<%= link_to 'Back', root_path %>
+      <div>
+        <ul class="social-icons">
+          <li><%= link_to '', '#', class: "facebook fab fa-facebook" %></li>
+          <li><%= link_to '', '#', class: "twitter fab fa-twitter" %></li>
+          <li><%= link_to '', '#', class: "github fab fa-github" %></li>
+          <li><%= link_to '', '#', class: "linkedin fab fa-linkedin" %></li>
+        </ul>
+      </div>
+
+      <p><button><%= t('candidate.show.contact') %></button></p>
+
+      <div>
+        <% if current_user.id == @candidate.user_id %>
+        <%= link_to t('common.edit'), edit_candidate_path(@candidate), class: "btn btn-primary btn-sm" %>
+        <% end %>
+
+        <%= link_to t('common.back'), root_path, class: "btn btn-danger btn-sm" %>
+      </div>
+
+    </div>
+
+  </div>
+</div>

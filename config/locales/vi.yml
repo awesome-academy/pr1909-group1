@@ -2,27 +2,27 @@ vi:
 #view layouts
   layouts:
     header:
-      Home: 'Trang chủ'
-      Log in: 'Đăng nhập'
-      Sign up: 'Đăng ký'
-      Profile: 'Hồ sơ'
-      Log out:  'Đăng xuất'
+      home: 'Trang chủ'
+      log_in: 'Đăng nhập'
+      sign_up: 'Đăng ký'
+      profile: 'Hồ sơ'
+      log_out:  'Đăng xuất'
     footer: 
-      About: 'Thông tin thêm'
+      about: 'Thông tin thêm'
 
-      About Us: 'Về chúng tôi'
-      Contact Us: 'Liên hệ với chúng tôi'
-      Contribute: 'Đóng góp'
-      Privacy Policy: ' Chính sách bảo mật'
-      Sitemap:  'Sơ đồ trang web'
+      about_us: 'Về chúng tôi'
+      contact_us: 'Liên hệ với chúng tôi'
+      contribute: 'Đóng góp'
+      privacy_policy: ' Chính sách bảo mật'
+      sitemap:  'Sơ đồ trang web'
 
-      Jobs by Type: 'Việc làm theo hình thức'
-      Jobs by City: 'Việc làm theo thành phố'
-      Quick Links: 'Đường dẫn nhanh'
-      Vision:  'JobUp là một nền tảng kết nối giữa nhà tuyển dụng và ứng viên trong ngành IT.
+      jobs_by_type: 'Việc làm theo hình thức'
+      jobs_by_city: 'Việc làm theo thành phố'
+      quick_links: 'Đường dẫn nhanh'
+      vision:  'JobUp là một nền tảng kết nối giữa nhà tuyển dụng và ứng viên trong ngành IT.
                 Nó dành cho các nhà tuyển dụng tìm kiếm được ứng viên phù hợp
                 và cho các ừng viên có thể tìm kiếm, ứng tuyển được công việc phù hợp'
-      Copyright: 'Bản quyền'
+      copyright: 'Bản quyền'
 
 #view devise
   devise:
@@ -30,3 +30,28 @@ vi:
       prompt: 'Lựa chọn Nhà tuyển dụng hoặc ứng viên'
       label: 'Bạn là?'
       error: 'Yêu cầu chức năng người dùng, vui lòng chọn'
+
+#view common
+  common:
+    edit: 'Chỉnh sửa'
+    back: 'Trở về'
+    delete: 'Xóa'
+    show: 'Xem'
+    
+#view candidate
+  candidate:
+    candidates: 'Tất cả ứng viên'
+    dob: 'Ngày sinh'
+    phone: 'Điện thoại'
+
+    show:
+      profile: 'Hồ sơ ứng viên'
+      contact: 'Liên hệ'
+      download: 'Tải xuống CV'
+    edit:
+      editing: 'Chỉnh sửa ứng viên'
+
+#view user
+  user:
+    first_name: 'Tên'
+    last_name: 'Họ'

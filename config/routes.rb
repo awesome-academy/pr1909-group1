@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   scope "(:locale)", locale: /en|vi/ do
     root 'job_posts#index'
 
-    get "/blog",to: "blog#index"
+    get "/blog", to: "blog#index"
     resources :employers
     resources :candidates
     resources :job_posts

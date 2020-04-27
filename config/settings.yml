@@ -12,3 +12,5 @@
 
   job_status:
     general: { pending: 1, accepted: 2, rejected: 3, expired: 4 }
+ 
+  perpage: 10

@@ -1,12 +1,14 @@
 class CandidatesController < ApplicationController
-  before_action :authenticate_user!, only: [:edit, :update]
-  before_action :get_candidate, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :get_candidate, except: [:new, :index, :created]
   before_action :check_authorization, only: [:edit, :update]
 
   # GET /candidates
   # GET /candidates.json
   def index
-    @candidates = Candidate.all
+    return @candidates = Candidate.all.paginate(page: params[:page], per_page: Settings.perpage) if current_user.admin?
+    redirect_to root_path
+    flash[:notice] = "You don't have permission to show this page"
   end
 
   # GET /candidates/1
@@ -74,7 +76,7 @@ class CandidatesController < ApplicationController
   end
 
   def check_authorization
-    unless current_user.id == Candidate.find(params[:id]).user_id
+    unless current_user.id == @candidate.user_id
       flash[:notice] = "You don't have permission to edit this page"
       redirect_to root_url
     end
