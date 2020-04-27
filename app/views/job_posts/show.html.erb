@@ -1,41 +1,42 @@
 <p>
-  <strong>Employer:</strong>
-  <%= @job_post.employer.user.first_name %>
+  <strong><%= @job_post.post_title %></strong>
+</p>
+<br>
+<br>
+<p>
+  <strong>Company:</strong>
+  <%= @job_post.employer.company_name %>
 </p>
 
 <p>
-  <strong>Post title:</strong>
-  <%= @job_post.post_title %>
+  <strong><%= t('job_post.location')%></strong>
+  <%= JobPost.job_location_views.key(@job_post.job_location) %>
 </p>
 
 <p>
-  <strong>Job location:</strong>
-  <%= @job_post.job_location %>
+  <strong><%= t('job_post.job_type')%></strong>
+  <%= JobPost.job_type_views.key(@job_post.job_type) %>
 </p>
 
 <p>
-  <strong>Job type:</strong>
-  <%= @job_post.job_type %>
-</p>
-
-<p>
-  <strong>Salary:</strong>
+  <strong><%= t('job_post.salary')%></strong>
   <%= @job_post.salary_min %>
 -
   <%= @job_post.salary_max %>
 </p>
 
 <p>
-  <strong>Job description:</strong>
+  <strong><%= t('job_post.job_desc')%></strong>
   <%= raw(@job_post.job_description) %>
 </p>
 
 <p>
-  <strong>Job expired date:</strong>
+  <strong><%= t('job_post.expired_date')%></strong>
   <%= @job_post.job_expired_date %>
 </p>
 
 <% if authenticate_employer @job_post %>
-   | <%= link_to "Edit", edit_job_post_path(@job_post) %>
+   | <%= link_to t('common.edit'), edit_job_post_path(@job_post) %>
+     <%= link_to t('common.delete'), job_post, method: :delete, data: { confirm: t.('job_post.confirm') } %>
 <% end %>
-<%= link_to 'Back', job_posts_path %>
+<%= link_to t('common.back'), job_posts_path %>

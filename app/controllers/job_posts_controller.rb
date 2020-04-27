@@ -4,7 +4,8 @@ class JobPostsController < ApplicationController
   before_action :authenticated_employer, only: [:edit, :update, :destroy]
 
   def index
-    @job_posts = JobPost.all
+    @q = JobPost.ransack params[:q]
+    @job_posts = @q.result(distinct: true).paginate(page: params[:page], per_page: Settings.perpage)
   end
 
   # GET /job_posts/1

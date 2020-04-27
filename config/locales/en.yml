@@ -6,7 +6,7 @@ en:
       sign_up: 'Sign up'
       profile: 'Profile'
       log_out:  'Log out'
-    footer: 
+    footer:
       about: 'About'
 
       about_us: 'About Us'
@@ -18,11 +18,11 @@ en:
       jobs_by_type: 'Jobs by Type'
       jobs_by_city: 'Jobs by City'
       quick_links: 'Quick Links'
-      vision: ' JobUp is a platform connecting employers and IT candidates. 
-              It is for employers who are looking for suitable candidates and 
+      vision: ' JobUp is a platform connecting employers and IT candidates.
+              It is for employers who are looking for suitable candidates and
               for job seekers who can find suitable jobs '
       copyright: 'Copyright '
-              
+
 #view devise
   devise:
     new:
@@ -36,7 +36,7 @@ en:
     back: 'Back'
     delete: 'Delete'
     show: 'Show'
-    
+
 #view candidate
   candidate:
     candidates: 'Candidates'
@@ -54,3 +54,23 @@ en:
   user:
     frst_name: 'First Name'
     last_name: 'Last Name'
+
+#view search
+  search:
+    label: 'Search Job'
+    btn_search: 'Search'
+
+  job_post:
+    new_job: 'New Job Post'
+    apply: 'Apply'
+    select_job_type: 'Select Job Type'
+    salary: 'Salary'
+    expired_date: 'Job expired date'
+    job_desc: 'Job Description'
+    location: 'Job Location'
+    job_type: 'Job Type'
+    salary_min: 'Salary Min'
+    salary_max: 'Salary Max'
+    create_post: 'New Job Post'
+    edit_post: 'Editing Job Post'
+

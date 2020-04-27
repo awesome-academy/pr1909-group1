@@ -1,0 +1,24 @@
+<% @job_posts.each do |job_post| %>
+    <div class="card_job">
+      <div class="title">
+        <h4 class="job_title"><%= link_to job_post.post_title, job_post %>
+          <span class="job_type">
+            <%= JobPost.job_type_views.key(job_post.job_type) %>
+          </span>
+        </h4>
+      </div>
+      <div class="card-body">
+        <h5 class="company_name"><%= link_to job_post.employer.company_name, job_post.employer %></h5>
+        <p class="location"><%= JobPost.job_location_views.key(job_post.job_location) %></p>
+      </div>
+      <div class="apply_btn">
+          <a href="#" class="btn btn-primary">
+            <%= t('job_post.apply')%> </a>
+              <!-- TODO: Apply Activity -->
+      </div>
+      <% if authenticate_employer job_post %>
+        <%= link_to t('common.edit'), edit_job_post_path(job_post) %>
+        <%= link_to t('common.delete'), job_post, method: :delete, data: { confirm: t('job_post.confirm') } %>
+      <% end %>
+    </div>
+<% end %>

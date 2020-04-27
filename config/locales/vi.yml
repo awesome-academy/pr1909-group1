@@ -7,7 +7,7 @@ vi:
       sign_up: 'Đăng ký'
       profile: 'Hồ sơ'
       log_out:  'Đăng xuất'
-    footer: 
+    footer:
       about: 'Thông tin thêm'
 
       about_us: 'Về chúng tôi'
@@ -37,7 +37,7 @@ vi:
     back: 'Trở về'
     delete: 'Xóa'
     show: 'Xem'
-    
+
 #view candidate
   candidate:
     candidates: 'Tất cả ứng viên'
@@ -55,3 +55,22 @@ vi:
   user:
     first_name: 'Tên'
     last_name: 'Họ'
+
+#view search
+  search:
+    label: 'Tìm Việc'
+    btn_search: 'Tìm Kiếm'
+
+  job_post:
+    new_job: 'Đăng bài'
+    apply: 'Ứng Tuyển'
+    select_job_type: 'Chọn loại Công việc'
+    salary: 'Mức lương'
+    expired_date: 'Ngày hết hạn'
+    job_desc: 'Mô tả Công việc'
+    location: 'Địa điểm làm việc'
+    job_type: 'Loại công việc'
+    salary_min: 'Lương Tối Thiểu'
+    salary_max: 'Lương Tối Đa'
+    create_post: 'Tạo bài đăng mới'
+    edit_post: 'Sửa Bài Đăng'
