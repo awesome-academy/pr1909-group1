@@ -75,6 +75,8 @@ vi:
     salary_max: 'Lương Tối Đa'
     create_post: 'Tạo bài đăng mới'
     edit_post: 'Sửa Bài Đăng'
+    cancel: 'Hủy Ứng Tuyển'
+    confirm: 'Bạn có chắc không?'
 
 #view employer
   employer:
