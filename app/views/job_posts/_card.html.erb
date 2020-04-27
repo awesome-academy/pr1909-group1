@@ -17,8 +17,8 @@
               <!-- TODO: Apply Activity -->
       </div>
       <% if authenticate_employer job_post %>
-        <%= link_to "Edit", edit_job_post_path(job_post) %>
-        <%= link_to 'Destroy', job_post, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to t('job_post.edit'), edit_job_post_path(job_post) %>
+        <%= link_to t('job_post.destroy'), job_post, method: :delete, data: { confirm: t('job_post.confirm') } %>
       <% end %>
     </div>
 <% end %>

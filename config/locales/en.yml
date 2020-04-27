@@ -58,11 +58,6 @@ en:
 #view search
   search:
     label: 'Search Job'
-    prompt:
-      location: 'Job Location'
-      job_type: 'Job Type'
-      salary_min: 'Salary Min'
-      salary_max: 'Salary Max'
     btn_search: 'Search'
 
   job_post:
@@ -70,3 +65,16 @@ en:
     apply: 'Apply'
     edit: 'Edit'
     destroy: 'Destroy'
+    back: 'Back'
+    select_job_type: 'Select Job Type'
+    salary: 'Salary'
+    expired_date: 'Job expired date'
+    job_desc: 'Job Description'
+    location: 'Job Location'
+    job_type: 'Job Type'
+    salary_min: 'Salary Min'
+    salary_max: 'Salary Max'
+    create_post: 'New Job Post'
+    show: 'Show'
+    edit_post: 'Editing Job Post'
+

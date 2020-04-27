@@ -71,3 +71,5 @@ vi:
     apply: 'Ứng Tuyển'
     edit: 'Sửa'
     destroy: 'Xóa'
+    back: 'Trở về'
+    select_job_type: 'Chọn loại Công việc'
