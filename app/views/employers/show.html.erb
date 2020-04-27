@@ -1,22 +1,26 @@
+
+<h2><%= t('employer.show.profile') %></h2>
+
 <p>
-  <strong>Company logo:</strong>
-  <%= image_tag @employer.company_logo.url(:thumb) if @employer.company_logo? %>
+  <%= image_tag @employer.company_logo.url(:show) %>
 </p>
 
 <p>
-  <strong>Company name:</strong>
+  <strong><%= t('employer.name') %></strong>
   <%= @employer.company_name %>
 </p>
 
 <p>
-  <strong>Company size:</strong>
+  <strong><%= t('employer.size') %></strong>
   <%= @employer.company_size %>
 </p>
 
 <p>
-  <strong>Company description:</strong>
+  <strong><%= t('employer.description') %></strong>
   <%= raw(@employer.company_description) %>
 </p>
 
-<%= link_to 'Edit', edit_employer_path(@employer) %> |
-<%= link_to 'Back', employers_path %>
+<% if current_user.id == @employer.user_id %>
+  <%= link_to t('common.edit'), edit_employer_path(@employer) %> 
+<% end %>
+

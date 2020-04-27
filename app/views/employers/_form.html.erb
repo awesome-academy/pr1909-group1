@@ -3,11 +3,10 @@
 <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
 <div class="form-inputs">
-  <%= f.association :user %>
-  <strong>Company Logo</strong> <%= f.file_field :company_logo %>
-  <%= f.input :company_name %>
-  <%= f.input :company_size %>
-  <%= f.input :company_description, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } } %>
+  <%= f.input :company_logo, as: :file, label: t('employer.logo') %>
+  <%= f.input :company_name, label: t('employer.name') %>
+  <%= f.input :company_size, label: t('employer.size') %>
+  <%= f.input :company_description, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' }} , label: t('employer.description') %>
 </div>
 
 <div class="form-actions">

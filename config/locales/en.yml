@@ -1,20 +1,20 @@
 en:
+#view layouts
   layouts:
     header:
       home: 'Home'
       log_in: 'Log in'
       sign_up: 'Sign up'
+      account_setting: 'Account settings'
       profile: 'Profile'
       log_out:  'Log out'
     footer:
       about: 'About'
-
       about_us: 'About Us'
       contact_us: 'Contact Us'
       contribute: 'Contribute'
       privacy_policy: 'Privacy Policy'
       sitemap:  'Sitemap'
-
       jobs_by_type: 'Jobs by Type'
       jobs_by_city: 'Jobs by City'
       quick_links: 'Quick Links'
@@ -36,13 +36,15 @@ en:
     back: 'Back'
     delete: 'Delete'
     show: 'Show'
-
+    cancel: 'Cancel'
+    action: 'Actions'
+    update: 'Update'
+    
 #view candidate
   candidate:
     candidates: 'Candidates'
     dob: 'Date of birth'
     phone: 'Phone'
-
     show:
       profile: 'Profile Candidate'
       contact: 'Contact'
@@ -74,3 +76,14 @@ en:
     create_post: 'New Job Post'
     edit_post: 'Editing Job Post'
 
+#view employer
+  employer:
+    employers: 'Employers'
+    logo: 'Company Logo'
+    name: 'Company Name'
+    size: 'Company Size'
+    description: 'Description'
+    show:
+      profile: 'Company Profile'
+    edit:
+      editing: 'Editing Employer'

@@ -21,6 +21,10 @@ class CompanyLogoUploader < CarrierWave::Uploader::Base
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
 
+  def default_url
+    'default/default_logo.jpg'
+  end
+
   # Process files as they are uploaded:
   # process scale: [200, 300]
   #
@@ -31,6 +35,10 @@ class CompanyLogoUploader < CarrierWave::Uploader::Base
   # Create different versions of your uploaded files:
   version :thumb do
     process resize_to_fit: [80, 80]
+  end
+
+  version :show do
+    process resize_to_fit: [300, 300]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

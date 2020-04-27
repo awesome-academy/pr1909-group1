@@ -20,7 +20,7 @@
                 start_year: Date.today.year - 70,end_year: Date.today.year - 17,order: [:day, :month, :year] %>
     <%= f.input :phone, label: t('candidate.phone') %>
 
-    <%= f.input :cv, as: :file %>
+    <%= f.input :cv, as: :file, label: "CV" %>
   </div>
 
   <div class="form-actions">
