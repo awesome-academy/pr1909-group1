@@ -63,9 +63,6 @@ en:
   job_post:
     new_job: 'New Job Post'
     apply: 'Apply'
-    edit: 'Edit'
-    destroy: 'Destroy'
-    back: 'Back'
     select_job_type: 'Select Job Type'
     salary: 'Salary'
     expired_date: 'Job expired date'
@@ -75,6 +72,5 @@ en:
     salary_min: 'Salary Min'
     salary_max: 'Salary Max'
     create_post: 'New Job Post'
-    show: 'Show'
     edit_post: 'Editing Job Post'
 

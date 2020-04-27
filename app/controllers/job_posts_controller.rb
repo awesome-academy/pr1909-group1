@@ -5,7 +5,7 @@ class JobPostsController < ApplicationController
 
   def index
     @q = JobPost.ransack params[:q]
-    @job_posts = @q.result(distinct: true).page(params[:page])
+    @job_posts = @q.result(distinct: true).paginate(page: params[:page], per_page: Settings.perpage)
   end
 
   # GET /job_posts/1

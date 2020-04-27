@@ -64,9 +64,6 @@ vi:
   job_post:
     new_job: 'Đăng bài'
     apply: 'Ứng Tuyển'
-    edit: 'Sửa'
-    destroy: 'Xóa'
-    back: 'Trở về'
     select_job_type: 'Chọn loại Công việc'
     salary: 'Mức lương'
     expired_date: 'Ngày hết hạn'
@@ -76,5 +73,4 @@ vi:
     salary_min: 'Lương Tối Thiểu'
     salary_max: 'Lương Tối Đa'
     create_post: 'Tạo bài đăng mới'
-    show: 'Xem'
     edit_post: 'Sửa Bài Đăng'

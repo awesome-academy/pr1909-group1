@@ -1,8 +1,6 @@
-<<<<<<< HEAD
-<h1>Job Posts</h1>
-=======
 <p id="notice"><%= notice %></p>
->>>>>>> add I18N to view
+
+<h1>Job Posts</h1>
 
 <%= search_form_for(@q) do |f| %>
   <%= f.label t('search.label') %>
@@ -28,6 +26,9 @@
 
   <%= render "job_posts/card" %>
 
+<div class="paginate">
+  <%= will_paginate @candidate %>
+</div>
 <br>
 <% if is_employer? %>
   <%= link_to t('job_post.new_job'), new_job_post_path %>

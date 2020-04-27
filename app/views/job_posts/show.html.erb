@@ -36,7 +36,7 @@
 </p>
 
 <% if authenticate_employer @job_post %>
-   | <%= link_to t('job_post.edit'), edit_job_post_path(@job_post) %>
-     <%= link_to t('job_post.destroy'), job_post, method: :delete, data: { confirm: t.('job_post.confirm') } %>
+   | <%= link_to t('common.edit'), edit_job_post_path(@job_post) %>
+     <%= link_to t('common.delete'), job_post, method: :delete, data: { confirm: t.('job_post.confirm') } %>
 <% end %>
-<%= link_to t('job_post.back'), job_posts_path %>
+<%= link_to t('common.back'), job_posts_path %>

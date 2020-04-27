@@ -1,5 +1,5 @@
 <% @job_posts.each do |job_post| %>
-    <div class="card">
+    <div class="card_job">
       <div class="title">
         <h4 class="job_title"><%= link_to job_post.post_title, job_post %>
           <span class="job_type">
@@ -17,8 +17,8 @@
               <!-- TODO: Apply Activity -->
       </div>
       <% if authenticate_employer job_post %>
-        <%= link_to t('job_post.edit'), edit_job_post_path(job_post) %>
-        <%= link_to t('job_post.destroy'), job_post, method: :delete, data: { confirm: t('job_post.confirm') } %>
+        <%= link_to t('common.edit'), edit_job_post_path(job_post) %>
+        <%= link_to t('common.delete'), job_post, method: :delete, data: { confirm: t('job_post.confirm') } %>
       <% end %>
     </div>
 <% end %>
