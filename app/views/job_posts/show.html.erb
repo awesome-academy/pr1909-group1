@@ -1,6 +1,6 @@
 <p>
-  <strong>Employer:</strong>
-  <%= @job_post.employer.user.first_name %>
+  <strong>Company:</strong>
+  <%= @job_post.employer.company_name %>
 </p>
 
 <p>
@@ -10,12 +10,12 @@
 
 <p>
   <strong>Job location:</strong>
-  <%= @job_post.job_location %>
+  <%= JobPost.job_location_views.key(@job_post.job_location) %>
 </p>
 
 <p>
   <strong>Job type:</strong>
-  <%= @job_post.job_type %>
+  <%= JobPost.job_type_views.key(@job_post.job_type) %>
 </p>
 
 <p>

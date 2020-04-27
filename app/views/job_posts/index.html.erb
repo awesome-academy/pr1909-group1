@@ -1,45 +1,30 @@
 <h1>Job Posts</h1>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Employer</th>
-      <th>Job location</th>
-      <th>Job type</th>
-      <th>Job status</th>
-      <th>Post priority</th>
-      <th>Salary min</th>
-      <th>Salary max</th>
-      <th>Post title</th>
-      <th>Job description</th>
-      <th>Job expired date</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<%= search_form_for(@q) do |f| %>
+  <%= f.label "Search Job: " %>
+  <%= f.search_field :post_title_cont %>
+  <%= f.select :job_location_eq,
+               Settings.job_location.search.to_h,
+               prompt: "Job Location",
+               include_blank: true %>
+  <%= f.select :job_type_eq,
+               Settings.job_type.search.to_h,
+               prompt: "Job Type",
+               include_blank: true %>
+  <%= f.select :salary_min_gteq,
+               Settings.salary_min.to_a,
+               prompt: "Salary Min",
+               include_blank: true %>
+  <%= f.select :salary_max_lteq,
+               Settings.salary_max.to_a,
+               prompt: "Salary Max",
+               include_blank: true %>
+  <%= f.submit %>
+<% end %>
 
-  <tbody>
-    <% @job_posts.each do |job_post| %>
-      <tr>
-        <td><%= job_post.employer_id %></td>
-        <td><%= JobPost.job_location_views.key(job_post.job_location) %></td>
-        <td><%= JobPost.job_type_views.key(job_post.job_type) %></td>
-        <td><%= job_post.job_status %></td>
-        <td><%= job_post.post_priority %></td>
-        <td><%= job_post.salary_min %></td>
-        <td><%= job_post.salary_max %></td>
-        <td><%= job_post.post_title %></td>
-        <td><%= job_post.job_expired_date %></td>
-        <td><%= link_to 'Show', job_post %></td>
-        <% if authenticate_employer job_post %>
-          <td><%= link_to "Edit", edit_job_post_path(job_post) %></td>
-          <td><%= link_to 'Destroy', job_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <%= render "job_posts/card" %>
 
 <br>
 <% if is_employer? %>
-  <td><%= link_to 'New Job Post', new_job_post_path %></td>
+  <%= link_to 'New Job Post', new_job_post_path %>
 <% end %>

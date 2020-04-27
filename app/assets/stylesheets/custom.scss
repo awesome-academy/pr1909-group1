@@ -42,3 +42,36 @@ body {
   margin-top: 20px;
   border-radius: 20px;
 }
+.job_type{
+  color: #E76560;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding-left: 5px;
+  position: relative;
+  top: -4px;
+}
+.card{
+  position: relative;
+  border: 1px solid #66ffff;
+  margin: 5px;
+  background-color: white;
+}
+
+.job_title{
+  margin-left: 10px;
+}
+
+.company_name{
+  margin-left: 10px;
+}
+
+.location{
+  margin-left: 10px;
+}
+
+.apply_btn{
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}

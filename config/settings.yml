@@ -5,12 +5,17 @@
   job_location:
     general: { ha_noi: 1, da_nang: 2, ho_chi_minh: 3, others: 4 }
     view: { "Hà Nội": "ha_noi", "Đà Nẵng": "da_nang", "Hồ Chí Minh": "ho_chi_minh", "Others": "others" }
+    search: { "Hà Nội": 1, "Đà Nẵng": 2, "Hồ Chí Minh": 3, "Others": 4 }
 
   job_type:
     general: { full_time: 1, part_time: 2, freelance: 3, contract: 4 }
     view: {"Full time": "full_time", "Part time": "part_time", "Freelance": "freelance", "Contract": "contract"}
+    search: { "Full time": 1, "Part time": 2, "Freelance": 3, "Contract": 4}
 
   job_status:
     general: { pending: 1, accepted: 2, rejected: 3, expired: 4 }
- 
+
   perpage: 10
+
+  salary_min: [300, 500, 700, 1000, 1500, 2000, 2500]
+  salary_max: [300, 500, 700, 1000, 1500, 2000, 2500, 3500]
