@@ -9,19 +9,19 @@
   <%= f.search_field :post_title_cont %>
   <%= f.select :job_location_eq,
                Settings.job_location.search.to_h,
-               prompt: t('search.prompt.location'),
+               prompt: t('job_post.location'),
                include_blank: true %>
   <%= f.select :job_type_eq,
                Settings.job_type.search.to_h,
-               prompt: t('search.prompt.job_type'),
+               prompt: t('job_post.job_type'),
                include_blank: true %>
   <%= f.select :salary_min_gteq,
                Settings.salary_min.to_a,
-               prompt: t('search.prompt.salary_min'),
+               prompt: t('job_post.salary_min'),
                include_blank: true %>
   <%= f.select :salary_max_lteq,
                Settings.salary_max.to_a,
-               prompt: t('search.prompt.salary_max'),
+               prompt: t('job_post.salary_max'),
                include_blank: true %>
   <%= f.submit t('search.btn_search')%>
 <% end %>

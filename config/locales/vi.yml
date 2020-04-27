@@ -59,11 +59,6 @@ vi:
 #view search
   search:
     label: 'Tìm Việc'
-    prompt:
-      location: 'Địa Điểm'
-      job_type: 'Loại Công Việc'
-      salary_min: 'Lương Tối Thiểu'
-      salary_max: 'Lương Tối Đa'
     btn_search: 'Tìm Kiếm'
 
   job_post:
@@ -73,3 +68,13 @@ vi:
     destroy: 'Xóa'
     back: 'Trở về'
     select_job_type: 'Chọn loại Công việc'
+    salary: 'Mức lương'
+    expired_date: 'Ngày hết hạn'
+    job_desc: 'Mô tả Công việc'
+    location: 'Địa điểm làm việc'
+    job_type: 'Loại công việc'
+    salary_min: 'Lương Tối Thiểu'
+    salary_max: 'Lương Tối Đa'
+    create_post: 'Tạo bài đăng mới'
+    show: 'Xem'
+    edit_post: 'Sửa Bài Đăng'
