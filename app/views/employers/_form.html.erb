@@ -4,12 +4,18 @@
 
 <div class="form-inputs">
   <%= f.input :company_logo, as: :file, label: t('employer.logo') %>
-  <%= f.input :company_name, label: t('employer.name') %>
-  <%= f.input :company_size, label: t('employer.size') %>
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.input :company_name, label: t('employer.name') %>
+    </div>
+    <div class="col-md-6">
+      <%= f.input :company_size, label: t('employer.size') %>
+    </div>
+  </div>
   <%= f.input :company_description, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' }} , label: t('employer.description') %>
 </div>
 
 <div class="form-actions">
-  <%= f.button :submit %>
+  <%= f.button :submit, class: "btn btn-primary" %>
 </div>
 <% end %>

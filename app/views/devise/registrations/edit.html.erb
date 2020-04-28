@@ -11,17 +11,24 @@
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <p><%= t(".currently_waiting_confirmation_for_email", email: resource.unconfirmed_email) %></p>
       <% end %>
-      <% if current_user.employer?  or current_user.admin? %>
-        <%= f.input :first_name,
+      <% if current_user.employer? or current_user.admin? %>
+        <div class="row">
+          <div class="col-md-6">
+             <%= f.input :first_name,
                       required: true,
                       autofocus: true,
                       label: t('user.first_name'),
                       input_html: { autocomplete: "first_name" }%>
-        <%= f.input :last_name,
+          </div>
+          <div class="col-md-6">
+            <%= f.input :last_name,
                       required: true,
                       autofocus: true,
                       label: t('user.last_name'),
                       input_html: { autocomplete: "last_name" }%>
+          </div>
+        </div>
+
       <% end %>
       <%= f.input :password,
                 hint: t(".leave_blank_if_you_don_t_want_to_change_it"),

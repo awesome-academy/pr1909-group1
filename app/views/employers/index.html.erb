@@ -1,35 +1,31 @@
-<h1><%= t('employer.employers') %></h1>
+<div class="container">
+  <div class="employer-index-grid">
+    <% @employers.each do |employer| %>
+      <div class="employer">   
 
-<table>
-  <thead>
-    <tr>
-      <th><%= t('employer.logo') %></th>
-      <th><%= t('employer.name') %></th>
-      <th><%= t('employer.size') %></th>
-      <th><%= t('employer.description') %></th>
-      <th><%= t('common.action') %></th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+        <div class="employer-thumb">
+            <%= link_to image_tag(employer.company_logo.url(:thumb), class: "image"), employer %>
+        </div>
 
-  <tbody>
-  <% @employers.each do |employer| %>
-  <tr>
-      <%= link_to image_tag(employer.company_logo.url(:thumb), class: "image"), employer %>
-      <td><%= link_to employer.company_name, employer %></td>
-      <td><%= employer.company_size %></td>
-      <td><%= raw(employer.company_description) %></td>
-      <td><%= link_to t('common.show'), employer %></td>
-      <% if current_user.id == employer.user_id %>
-        <td><%= link_to t('common.edit'), edit_employer_path(employer) %></td>
-        <td><%= link_to t('common.delete'), employer, method: :delete, data: { confirm: 'Are you sure?' } %></td>  
-      <% end %>
-  </tr>
-  <% end %>
-  </tbody>
-</table>
+        <div class="info">
+          <h3 class="title"><%= link_to employer.company_name, employer %></h3>
+          <div class="company-size">
+              <i class="fa fa-users" aria-hidden="true"></i>
+              <%= employer.company_size %>
+          </div>
 
-<br>
+          <div class="btn-index">
+            <% if current_user.id == employer.user_id %>
+              <%= link_to t('common.edit'), edit_employer_path(employer), class: "btn btn-primary" %>
+              <%= link_to t('common.delete'), employer, method: :delete, data: { confirm: 'Are you sure?'} , class: "btn btn-danger" %>
+            <% end %>
+          </div>
+        </div>
+        
+      </div>
+    <% end %>
+  </div>
+</div>
 
 <div class="paginate">
   <%= will_paginate @employer %>
