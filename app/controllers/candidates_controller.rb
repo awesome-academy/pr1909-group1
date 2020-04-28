@@ -1,7 +1,7 @@
 class CandidatesController < ApplicationController
   before_action :authenticate_user!
   before_action :get_candidate, except: [:new, :index, :created]
-  before_action :check_authorization, only: [:edit, :update]
+  before_action :check_authorization, only: [:edit, :update, :show]
 
   # GET /candidates
   # GET /candidates.json

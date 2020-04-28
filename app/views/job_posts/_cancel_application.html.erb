@@ -1,0 +1,6 @@
+<%= form_for(current_user.candidate.apply_activities.find_by(job_post_id: @job_post.id),
+html: {method: :delete}, remote: true) do |f| %>
+  <div class="actions">
+    <%= f.submit t('job_post.cancel'), class: "btn btn-danger" %>
+  </div>
+<% end %>
