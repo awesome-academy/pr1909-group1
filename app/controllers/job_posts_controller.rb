@@ -1,5 +1,5 @@
 class JobPostsController < ApplicationController
-  before_action :get_job_post, only: [:show, :edit, :update, :destroy, :authenticated_employer]
+  before_action :get_job_post, only: [:show, :edit, :update, :destroy]
   before_action :only_for_employer, except: [:show, :index]
   before_action :authenticated_employer, only: [:edit, :update, :destroy]
 

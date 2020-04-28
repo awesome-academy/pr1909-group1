@@ -39,14 +39,5 @@
    | <%= link_to t('common.edit'), edit_job_post_path(@job_post) %>
      <%= link_to t('common.delete'), job_post, method: :delete, data: { confirm: t.('job_post.confirm') } %>
 <% end %>
-<%= link_to t('common.back'), job_posts_path %>
 
-<div class="apply_btn">
-  <div id="apply_form">
-    <% if current_user.candidate.apply?(@job_post) %>
-      <%= render "cancel_application" %>
-    <% else %>
-      <%= render "apply" %>
-    <% end %>
-  </div>
-</div>
+<%= apply_job %>

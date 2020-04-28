@@ -11,15 +11,15 @@ class Candidate < ApplicationRecord
   validates :phone, length: { maximum: 16 }, format: { with: /[-+ 0-9]/ }, allow_blank: true
   validates :date_of_birth, exclusion: { in: (18.years.ago.to_date..Date.today.to_date) }
 
-  def apply job_post
-    ApplyActivity.create(candidate_id: self.id, job_post_id: job_post.id)
+  def apply(job_post)
+    ApplyActivity.create(candidate_id: id, job_post_id: job_post.id)
   end
 
-  def apply? job_post
-    ApplyActivity.exists?(candidate_id: self.id, job_post_id: job_post.id)
+  def apply?(job_post)
+    ApplyActivity.exists?(candidate_id: id, job_post_id: job_post.id)
   end
 
-  def cancel_application job_post
-    ApplyActivity.destroy(candidate_id: self.id, job_post_id: job_post.id)
+  def cancel_application(job_post)
+    ApplyActivity.destroy(candidate_id: id, job_post_id: job_post.id)
   end
 end
