@@ -38,7 +38,7 @@ en:
     cancel: 'Cancel'
     action: 'Actions'
     update: 'Update'
-    
+
 #view candidate
   candidate:
     candidates: 'Candidates'
@@ -92,7 +92,7 @@ en:
       day: 'Monday - Friday'
     edit:
       editing: 'Editing Employer'
-      
+
   will_paginate:
     previous_label: "&#8592; Previous"
     next_label: "Next &#8594;"

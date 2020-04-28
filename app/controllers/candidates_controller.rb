@@ -2,6 +2,7 @@ class CandidatesController < ApplicationController
   before_action :authenticate_user!
   before_action :get_candidate, except: [:new, :index, :created]
   before_action :check_authorization, only: [:edit, :update]
+  before_action :show_permission, only: [:show]
 
   # GET /candidates
   # GET /candidates.json
@@ -76,9 +77,34 @@ class CandidatesController < ApplicationController
   end
 
   def check_authorization
-    unless current_user.id == @candidate.user_id
+    unless authorization
       flash[:notice] = "You don't have permission to edit this page"
       redirect_to root_url
     end
+  end
+
+  def show_permission
+    unless employer_permission || authorization
+      redirect_to root_url
+      flash[:notice] = "You don't have permission to show this page"
+    end
+  end
+
+  def employer_permission
+    if is_employer?
+      posts = get_applied_posts
+      employer_ids = posts.pluck(:employer_id)
+      uid = current_user.employer.id
+      employer_ids.include? uid
+    end
+  end
+
+  def get_applied_posts
+    applied_post_id = @candidate.apply_activities.pluck(:job_post_id)
+    applied_post = JobPost.find applied_post_id
+  end
+
+  def authorization
+    current_user.id == @candidate.user_id
   end
 end
