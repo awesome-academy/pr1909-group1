@@ -63,7 +63,7 @@ vi:
     btn_search: 'Tìm Kiếm'
 
   job_post:
-    new_job: 'Đăng bài'
+    new_job: 'Đăng Việc làm'
     apply: 'Ứng Tuyển'
     select_job_type: 'Chọn loại Công việc'
     salary: 'Mức lương'
@@ -78,12 +78,20 @@ vi:
     
 #view employer
   employer:
-    employers: 'Tất cả nhà tuyển dụng'
+    employers: 'Nhà tuyển dụng'
     logo: 'Logo công ty'
     name: 'Tên công ty'
     size: 'Quy mô công ty'
     description: 'Mô tả'
     show:
-      profile: 'Hồ sơ công ty'
+      overview: 'Tổng quan'
+      job: 'Việc làm'
+      day: 'Thứ 2 - Thứ 6'
     edit:
       editing: 'Chỉnh sửa nhà tuyển dụng'
+
+#view will_paginate
+  will_paginate:
+    previous_label: "&#8592; Trước"
+    next_label: "Sau &#8594;"
+    page_gap: "&hellip;"

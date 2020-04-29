@@ -1,4 +1,4 @@
-company_size = ["50-99 staffs", "100-299 staffs", "300-499 staffs", "500-999 staffs", ">=1000 staffs"]
+company_size = ["50-99", "100-299", "300-499", "500-999", "1000"]
 salary = [{ min:100, max:500 }, { min:300, max:700 }, { min:500, max:1000 }, { min:1500, max:2000 }]
 20.times do |n|
 User.create!(
@@ -36,7 +36,7 @@ Employer.create!(
   company_logo: Faker::Company.logo,
   company_name: Faker::Company.name,
   company_size: company_size.sample,
-  company_description: "company_description #{2*n +1}")
+  company_description: Faker::Lorem.sentence(word_count: 100))
 end
 
 100.times do |n|

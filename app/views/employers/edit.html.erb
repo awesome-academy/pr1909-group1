@@ -1,5 +1,50 @@
-<h1><%= t('employer.edit.editing') %></h1>
+<div class="row">
+  <div class="col-md-3">
+    <div class="row">
+      <div class="headers-company show-employer">
 
-<%= render 'form', employer: @employer %>
+        <div class="logo-company">
+          <%= image_tag @employer.company_logo.url(:show), class: "image-logo" %>
+        </div>
 
-<%= link_to t('common.cancel'), @employer %> 
+        <div class="info-company info-edit">
+          <h1 class="company-name">
+            <%= @employer.company_name %>
+          </h1>
+
+          <div class="company-size">
+            <i class="fa fa-users" aria-hidden="true"></i>
+            <%= @employer.company_size %>
+          </div>
+
+          <div class="working-date">
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+            <span><%= t('employer.show.day') %> </span>
+          </div>
+
+          <div class="company-description">
+              <h4><%= t('employer.description') %></h4>
+              <p><%= raw(@employer.company_description) %> <p>
+          </div>
+        </div>
+    
+        <div class="btn-company">
+          <% if current_user.id == @employer.user_id %>
+            <%= link_to t('common.show'), @employer, class: "btn btn-primary btn-block" %> 
+          <% end %>
+        </div>
+      
+      </div>
+    </div>
+  </div>
+  <div class="col-md-1">
+  </div>
+  <div class="col-md-8">
+    <div class="edit-employer">
+      <h1><%= t('employer.edit.editing') %></h1>
+
+      <%= render 'form', employer: @employer %>
+      <%= link_to t('common.cancel'), @employer, class: "btn btn-danger btn-cancel" %> 
+    </div>
+  </div>
+</div>

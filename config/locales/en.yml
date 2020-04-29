@@ -84,6 +84,13 @@ en:
     size: 'Company Size'
     description: 'Description'
     show:
-      profile: 'Company Profile'
+      overview: 'Overview'
+      job: 'Jobs'
+      day: 'Monday - Friday'
     edit:
       editing: 'Editing Employer'
+      
+  will_paginate:
+    previous_label: "&#8592; Previous"
+    next_label: "Next &#8594;"
+    page_gap: "&hellip;"
