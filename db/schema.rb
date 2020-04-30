@@ -15,9 +15,11 @@ ActiveRecord::Schema.define(version: 2020_04_21_014509) do
   create_table "apply_activities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "candidate_id", null: false
     t.bigint "job_post_id", null: false
+    t.bigint "employer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["candidate_id"], name: "index_apply_activities_on_candidate_id"
+    t.index ["employer_id"], name: "index_apply_activities_on_employer_id"
     t.index ["job_post_id"], name: "index_apply_activities_on_job_post_id"
   end
 
@@ -90,6 +92,7 @@ ActiveRecord::Schema.define(version: 2020_04_21_014509) do
   end
 
   add_foreign_key "apply_activities", "candidates"
+  add_foreign_key "apply_activities", "employers"
   add_foreign_key "apply_activities", "job_posts"
   add_foreign_key "candidates", "users"
   add_foreign_key "employers", "users"

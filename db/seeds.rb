@@ -66,7 +66,8 @@ number_of_candidate.times do |n|
   5.times do |m|
     ApplyActivity.create!(
       job_post_id: (n + 1)*(m + 1),
-      candidate_id: n + 1
+      candidate_id: n + 1,
+      employer_id: JobPost.find((n + 1)*(m + 1),).employer_id
     )
   end
 end

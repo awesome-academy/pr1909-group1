@@ -92,16 +92,8 @@ class CandidatesController < ApplicationController
 
   def employer_permission
     if is_employer?
-      posts = get_applied_posts
-      employer_ids = posts.pluck(:employer_id)
-      uid = current_user.employer.id
-      employer_ids.include? uid
+      ApplyActivity.exists?(candidate_id: @candidate.id, employer_id: current_user.employer.id)
     end
-  end
-
-  def get_applied_posts
-    applied_post_id = @candidate.apply_activities.pluck(:job_post_id)
-    applied_post = JobPost.find applied_post_id
   end
 
   def authorization
