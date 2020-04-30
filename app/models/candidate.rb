@@ -12,14 +12,10 @@ class Candidate < ApplicationRecord
   validates :date_of_birth, exclusion: { in: (18.years.ago.to_date..Date.today.to_date) }
 
   def apply(job_post)
-    ApplyActivity.create(candidate_id: id, job_post_id: job_post.id)
+    ApplyActivity.create(candidate_id: id, job_post_id: job_post.id, employer_id: job_post.employer_id)
   end
 
   def apply?(job_post)
     ApplyActivity.exists?(candidate_id: id, job_post_id: job_post.id)
-  end
-
-  def cancel_application(job_post)
-    ApplyActivity.destroy(candidate_id: id, job_post_id: job_post.id)
   end
 end
