@@ -2,7 +2,6 @@ en:
 #view layouts
   layouts:
     header:
-      home: 'Home'
       log_in: 'Log in'
       sign_up: 'Sign up'
       account_setting: 'Account settings'
@@ -63,6 +62,7 @@ en:
     btn_search: 'Search'
 
   job_post:
+    slogan: "IT Jobs For Developers"
     new_job: 'New Job Post'
     apply: 'Apply'
     select_job_type: 'Select Job Type'
@@ -77,6 +77,7 @@ en:
     edit_post: 'Editing Job Post'
     cancel: 'Cancel Application'
     confirm: 'Are you sure?'
+    placeholder: 'Keyword skill, Job Title, Company...'
 
 #view employer
   employer:

@@ -7,6 +7,7 @@
 @import "candidate";
 @import "job_post";
 @import "employer";
+@import "header2";
 
 * {
   margin: 0;
@@ -39,8 +40,9 @@ body {
 
 //custom common
 .bg-form {
+  box-shadow: 0 16px 50px 0 rgba(42, 35, 35, 0.2);
   background-color: #f5f5f5;
+
   padding-bottom: 20px;
   margin-top: 20px;
-  border-radius: 20px;
 }
