@@ -5,4 +5,8 @@ class Employer < ApplicationRecord
 
   validates :user_id, presence: true, uniqueness: true
   validates :company_name, length: { maximum: 70 }
+
+  # def job_posts
+  #   JobPost.where(employer_id: employer_id)
+  # end
 end
