@@ -1,0 +1,9 @@
+<div class="apply_btn">
+  <div id="apply_form">
+    <% if current_user.candidate.apply?(@job_post) %>
+      <%= render "cancel_application" %>
+    <% else %>
+      <%= render "apply" %>
+    <% end %>
+  </div>
+</div>
