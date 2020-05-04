@@ -15,7 +15,7 @@
   job_status:
     general: { pending: 1, accepted: 2, rejected: 3, expired: 4 }
 
-  perpage: 8
+  per_page: 8
 
   salary_min: [300, 500, 700, 1000, 1500, 2000, 2500]
   salary_max: [300, 500, 700, 1000, 1500, 2000, 2500, 3500]
