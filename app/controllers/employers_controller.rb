@@ -12,7 +12,7 @@ class EmployersController < ApplicationController
   # GET /employers/1
   # GET /employers/1.json
   def show
-    @job_posts = @employer.job_post.all.paginate(page: params[:page], per_page: Settings.perpage)
+    @job_posts = @employer.job_posts.paginate(page: params[:page], per_page: Settings.per_page)
   end
 
   # GET /employers/new
