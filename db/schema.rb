@@ -92,8 +92,8 @@ ActiveRecord::Schema.define(version: 2020_04_21_014509) do
   end
 
   add_foreign_key "apply_activities", "candidates"
-  add_foreign_key "apply_activities", "employers"
   add_foreign_key "apply_activities", "job_posts"
+  add_foreign_key "apply_activities", "job_posts", column: "employer_id"
   add_foreign_key "candidates", "users"
   add_foreign_key "employers", "users"
   add_foreign_key "job_posts", "employers"
