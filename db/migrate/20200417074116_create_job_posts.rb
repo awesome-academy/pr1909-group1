@@ -2,7 +2,7 @@ class CreateJobPosts < ActiveRecord::Migration[6.0]
   def change
     create_table :job_posts do |t|
       t.references :employer, null: false, foreign_key: true
-      t.integer :job_location, null: false, default: 1, inclusion: Settings.job_location.general.to_h.values
+      t.integer :job_location, null: false, inclusion: Settings.job_location.general.to_h.values
       t.integer :job_type, null: false, inclusion: Settings.job_type.general.to_h.values
       t.integer :job_status, null: false, default: 1, inclusion: Settings.job_status.general.to_h.values
       t.integer :post_priority, null: false, default: 5

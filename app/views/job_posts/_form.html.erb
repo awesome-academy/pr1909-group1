@@ -1,23 +1,64 @@
-<%= simple_form_for(@job_post) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+<div class="row edit-job">
+  <%= simple_form_for(@job_post) do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.input :job_location,
-                collection: JobPost.job_location_views%>
-    <%= f.input :job_type,
-                collection: JobPost.job_type_views,
-                prompt: t('job_post.select_job_type') %>
-    <%= f.input :salary_min %>
-    <%= f.input :salary_max %>
-    <strong>
-      <%= f.input :post_title, as: :string %>
-    </strong>
-    <%= f.input :job_description, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } } %>
-    <%= f.input :job_expired_date %>
-  </div>
+    <div class="form-inputs container">
+      <div class="row">
+        <div class="col-md-6 col-sm-6 col-xs-6">
+          <%= f.input :post_title, as: :string, label: t('job_post.post_title') %>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-6">
+          <%= f.label :job_expired_date, t('job_post.expired_date') %>
+          <div class="input-group date" id="datetimepicker">
+            <%= f.text_field :job_expired_date, placeholder: t('job_post.select_date'), class: "form-control" %>
+            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+          </div>
+        </div>
+      </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+      <div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-6">
+          <%= f.input :job_location,
+                  label: t('job_post.select_job_location'),
+                  collection: JobPost.job_location_views,
+                  prompt: t('job_post.job_location')%>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-6">
+          <%= f.input :job_type,
+                  label: t('job_post.select_job_type'),
+                  collection: JobPost.job_type_views,
+                  prompt: t('job_post.job_type') %>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-3">
+          <%= f.input :salary_min, label: t('job_post.salary_min') %>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-3">
+          <%= f.input :salary_max, label: t('job_post.salary_max') %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <%= f.input :job_description, as: :ckeditor, 
+                        input_html: { ckeditor: { toolbar: 'Full' } },
+                        label: t('job_post.job_desc') %>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, class: "btn btn-success" %>
+    </div>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+  $(function () {
+    $('#datetimepicker').datetimepicker({
+    locale: 'en',
+    format: "DD/MM/YYYY"
+    });
+  });
+</script>

@@ -35,12 +35,10 @@
     </div>
   </div>
 
-  <h1>Job Posts</h1>
-
   <%= render "job_posts/card" %>
 
   <div class="paginate">
-    <%= will_paginate @candidate %>
+    <%= will_paginate @job_post %>
   </div>
 
 </div>

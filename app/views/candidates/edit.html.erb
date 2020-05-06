@@ -4,12 +4,5 @@
       <h1> <%= t('candidate.edit.editing') %></h1>
 
       <%= render 'form', candidate: @candidate %>
-
-    
-    <div class="btn-candidate"> 
-      <%= link_to t('common.show'), @candidate , class: "btn btn-success btn-sm" %>
-
-      <%= link_to t('common.back'), candidates_path, class: "btn btn-danger btn-sm" %>
-    </div>
   </div>
 </div>

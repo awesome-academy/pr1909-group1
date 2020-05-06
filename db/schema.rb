@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2020_05_07_125635) do
 
   create_table "job_posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "employer_id", null: false
-    t.integer "job_location", default: 1, null: false
+    t.integer "job_location", null: false
     t.integer "job_type", null: false
     t.integer "job_status", default: 1, null: false
     t.integer "post_priority", default: 5, null: false

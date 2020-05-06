@@ -15,17 +15,17 @@ end
 
 40.times do |n|
 user = User.create!(first_name:  Faker::Name.first_name,
-   last_name: Faker::Name.last_name,
-   email: "example-#{n+1}@gmail.com",
-   user_type: rand(1..2),
-   password: "password",
-   password_confirmation: "password",
-   confirmed_at: Time.zone.now)
-if user.candidate?
-  candidate<<user.id
-else
-  employer<<user.id
-end
+  last_name: Faker::Name.last_name,
+  email: "example-#{n+1}@gmail.com",
+  user_type: rand(1..2),
+  password: "password",
+  password_confirmation: "password",
+  confirmed_at: Time.zone.now)
+  if user.candidate?
+    candidate<<user.id
+  else
+    employer<<user.id
+  end
 end
 number_of_candidate = candidate.length
 number_of_candidate.times do |n|

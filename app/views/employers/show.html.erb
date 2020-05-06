@@ -27,7 +27,7 @@
 
       <div class="col-md-2 col-xs-12">
         <div class="btn-company">
-          <% if current_user.id == @employer.user_id %>
+          <% if user_signed_in? && current_user.id == @employer.user_id %>
             <%= link_to t('common.edit'), edit_employer_path(@employer), class: "btn btn-primary  btn-block" %> 
             <%= link_to t('job_post.new_job'), new_job_post_path,  class: "btn btn-danger btn-block" %>
           <% end %>
@@ -62,7 +62,10 @@
 
         <div class="tab-pane fade" id="job" role="tabpanel">
           <div class="company-jobs">
-          <%= render :partial => "job_posts/card" %>
+            <%= render :partial => "job_posts/card" %>
+            <div class="paginate">
+                <%= will_paginate @job_posts %>
+            </div>
           </div>
         </div>
       </div>

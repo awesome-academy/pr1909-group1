@@ -1,29 +1,53 @@
-<%= simple_form_for(@candidate, html: { multipart: true }) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+<div class="form-candidate">
+  <%= simple_form_for(@candidate, html: { multipart: true }) do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.input :avatar, as: :file %>
+    <div class="form-inputs">
+      <%= f.input :avatar, as: :file %>
 
-    <%= f.simple_fields_for :user do |g| %>
-      <div class="row">
-        <div class="col-md-6">
-          <%= g.input :first_name, label: t('user.first_name') %> 
+      <%= f.simple_fields_for :user do |g| %>
+        <div class="row">
+          <div class="col-md-6">
+            <%= g.input :first_name, label: t('user.first_name') %> 
+          </div>
+          <div class="col-md-6">
+            <%= g.input :last_name, label: t('user.last_name') %>
+          </div>
         </div>
-        <div class="col-md-6">
-          <%= g.input :last_name, label: t('user.last_name') %>
+      <% end %>
+
+      <div class="row">
+        <div class="col-md-6 col-sm-6 col-xs-6">
+          <%= f.label :date_of_birth, label: t('candidate.dob') %>
+          <div class="input-group date" id="datetimepicker">
+            <%= f.text_field :date_of_birth,
+                            placeholder: t('job_post.select_date'), 
+                            start_year: Date.today.year - 70,
+                            end_year: Date.today.year - 17,
+                            class: "form-control" %>
+            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-6">
+          <%= f.input :phone, label: t('candidate.phone') %>
         </div>
       </div>
-    <% end %>
 
-    <%= f.input :date_of_birth, as: :date, label: t('candidate.dob'), 
-                start_year: Date.today.year - 70,end_year: Date.today.year - 17,order: [:day, :month, :year] %>
-    <%= f.input :phone, label: t('candidate.phone') %>
+      <%= f.input :cv, as: :file, label: "CV" %>
+    </div>
 
-    <%= f.input :cv, as: :file, label: "CV" %>
-  </div>
+    <div class="form-actions">
+      <%= f.button :submit, class: "btn btn-success"%>
+    </div>
+  <% end %>
+</div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+<script type="text/javascript">
+  $(function () {
+    $('#datetimepicker').datetimepicker({
+    locale: 'en',
+    format: "DD/MM/YYYY"
+    });
+  });
+</script>

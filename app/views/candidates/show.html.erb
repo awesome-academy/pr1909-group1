@@ -16,18 +16,9 @@
 
       <%= link_to t('candidate.show.download'), @candidate.cv.url, download: @candidate.cv.filename %>
 
-      <div>
-        <ul class="social-icons">
-          <li><%= link_to '', '#', class: "facebook fab fa-facebook" %></li>
-          <li><%= link_to '', '#', class: "twitter fab fa-twitter" %></li>
-          <li><%= link_to '', '#', class: "github fab fa-github" %></li>
-          <li><%= link_to '', '#', class: "linkedin fab fa-linkedin" %></li>
-        </ul>
-      </div>
-
-      <p><button><%= t('candidate.show.contact') %></button></p>
-
-      <div>
+      <button><%= link_to t('candidate.show.contact'), "tel:#{@candidate.phone}" %></button>
+      
+      <div class="btn-show">
         <% if current_user.id == @candidate.user_id %>
         <%= link_to t('common.edit'), edit_candidate_path(@candidate), class: "btn btn-primary btn-sm" %>
         <% end %>
