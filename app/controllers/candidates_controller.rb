@@ -1,4 +1,5 @@
 class CandidatesController < ApplicationController
+  before_action :check_not_deleted, only: [:show, :edit]
   before_action :authenticate_user!
   before_action :get_candidate, except: [:new, :index, :created]
   before_action :check_authorization, only: [:edit, :update]
@@ -7,7 +8,9 @@ class CandidatesController < ApplicationController
   # GET /candidates
   # GET /candidates.json
   def index
-    return @candidates = Candidate.all.paginate(page: params[:page], per_page: Settings.per_page) if current_user.admin?
+    if current_user.admin?
+      return @candidates = Candidate.all.paginate(page: params[:page], per_page: Settings.per_page)
+    end
     redirect_to root_path
     flash[:notice] = "You don't have permission to show this page"
   end
@@ -84,7 +87,7 @@ class CandidatesController < ApplicationController
   end
 
   def show_permission
-    unless employer_permission || authorization
+    if employer_permission == false || authorization == false
       redirect_to root_url
       flash[:notice] = "You don't have permission to show this page"
     end
@@ -98,5 +101,12 @@ class CandidatesController < ApplicationController
 
   def authorization
     current_user.id == @candidate.user_id
+  end
+
+  def check_not_deleted
+    unless Candidate.with_deleted.find(params[:id]).deleted_at.nil?
+      flash[:notice] = "This page doesn't exist"
+      redirect_to root_url
+    end
   end
 end

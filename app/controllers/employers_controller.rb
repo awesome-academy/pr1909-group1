@@ -1,4 +1,5 @@
 class EmployersController < ApplicationController
+  before_action :check_not_deleted, only: [:show, :edit]
   before_action :set_employer, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
   before_action :check_authorization, only: [:edit, :update]
@@ -77,6 +78,13 @@ class EmployersController < ApplicationController
   def check_authorization
     unless current_user.id == @employer.user_id
       flash[:notice] = "You don't have permission to edit this page"
+      redirect_to root_url
+    end
+  end
+
+  def check_not_deleted
+    unless Employer.with_deleted.find(params[:id]).deleted_at.nil?
+      flash[:notice] = "This page doesn't exist"
       redirect_to root_url
     end
   end
