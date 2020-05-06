@@ -16,7 +16,7 @@
 
       <h6><%= @candidate.phone %></h6>
 
-      <%= link_to t('candidate.show.download'), @candidate.cv.url, download: @candidate.cv.filename %>
+      <%= link_to t('candidate.show.preview'), @candidate.cv.url, download: @candidate.cv.filename, target: '_blank' %>
 
       <button><%= link_to t('candidate.show.contact'), "tel:#{@candidate.phone}" %></button>
       

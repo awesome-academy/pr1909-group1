@@ -1,0 +1,45 @@
+<div class="search-job form-group">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <%= search_form_for(@q, remote: true, html: {class: "submit-search"}) do |f| %>
+        <div class="row title-search">
+          <%=  @job_posts.count.to_s + " " + t('job_post.slogan')  %>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-sm-4 col-xs-12 padding">
+            <%= f.search_field :post_title_cont,
+                              placeholder: t('job_post.placeholder') ,
+                              class: "form-control search-slt input-search" %>
+          </div>
+          <div class="col-md-2 col-sm-3 col-xs-4 padding">
+            <%= f.select(:job_location_eq,
+                              Settings.job_location.search.to_h,
+                              { prompt: t('job_post.location') },
+                              { class: "form-control search-slt select-location" }) %>
+          </div>
+          <div class="col-md-2 col-sm-3 col-xs-4 padding">
+            <%= f.select(:job_type_eq,
+                              Settings.job_type.search,
+                              { prompt: t('job_post.job_type') },
+                              { class: "form-control search-slt select-type" }) %>
+          </div>
+          <div class="col-md-2 col-sm-2 col-xs-4">
+            <%= f.submit t('search.btn_search'), class: "btn btn-danger btn-lg btn-block"%>
+          </div>
+        </div>
+        <div class="filter-job">
+          <div class="row">
+            <ul class="list-filter">
+              <li><%= link_to t('job_post.all_jobs'), job_posts_path, {remote: true} %></li>
+              <li><%= sort_link @q, :salary_max, t('job_post.salary'), {}, {remote: true} %></li>
+              <li><%= sort_link @q, :created_at, t('job_post.created_date'), {}, {remote: true} %></li>
+              <li><%= sort_link @q, :job_expired_date, t('job_post.expired_date'), {}, {remote: true} %></li>
+            </ul>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

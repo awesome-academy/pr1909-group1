@@ -10,18 +10,18 @@ en:
       admin: 'Admin'
     footer:
       about: 'About'
-      about_us: 'About Us'
-      contact_us: 'Contact Us'
-      contribute: 'Contribute'
-      privacy_policy: 'Privacy Policy'
-      sitemap:  'Sitemap'
+      contact: 'Contact'
       jobs_by_type: 'Jobs by Type'
       jobs_by_city: 'Jobs by City'
-      quick_links: 'Quick Links'
       vision: ' JobUp is a platform connecting employers and IT candidates.
               It is for employers who are looking for suitable candidates and
               for job seekers who can find suitable jobs '
       copyright: 'Copyright '
+      ha_noi: 'Ha Noi'
+      ho_chi_minh: 'Ho Chi Minh'
+      da_nang: 'Da Nang'
+      others: 'Others'
+      location: "11F Handico Building, Pham Hung Road, Nam Tu Liem Dist, Ha Noi"
 
 #view devise
   devise:
@@ -51,7 +51,7 @@ en:
     show:
       profile: 'Profile'
       contact: 'Contact'
-      download: 'Download CV'
+      preview: 'Preview CV'
     edit:
       editing: 'Editing Candidate'
 
@@ -82,11 +82,13 @@ en:
     job_type: 'Job Type'
     salary_min: 'Salary Min'
     salary_max: 'Salary Max'
+    salary : 'Salary'
     create_post: 'New Job Post'
     cancel: 'Cancel Application'
     confirm: 'Are you sure?'
-    placeholder: 'Search the Job'
     view_candidates: 'View Candidates >>'
+    placeholder: 'Search by job title...'
+    all_jobs: 'All jobs'
 
 #view employer
   employer:

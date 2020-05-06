@@ -38,7 +38,8 @@ number_of_candidate.times do |n|
     date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 100),
     phone: Faker::Base.numerify("+84 ###-###-###"),
     avatar: Faker::Avatar.image,
-    cv: "https://robohash.org/#{ Faker::Name.first_name.delete(" ") }.pdf?size=300x300&set=set1")
+    cv: Faker::File.extension
+  )
   can_id<<cand.id
 end
 

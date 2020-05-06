@@ -1,44 +1,14 @@
 <div class="container">
-  <div class="row">
-    <div class="search-job form-group">
-      <div class="container">
-        <div class="col-md-8 col-md-offset-2">
-          <%= search_form_for(@q) do |f| %>
-          <div class="row title-search">
-            <%=  @job_posts.count.to_s + " " + t('job_post.slogan')  %>
-          </div>
-          <div class="row">
-            <div class="col-md-6 col-sm-4 col-xs-12 padding">
-              <%= f.search_field :post_title_cont,
-                        placeholder: t('job_post.placeholder') ,
-                        class: "form-control search-slt" %>
-            </div>
-            <div class="col-md-2 col-sm-3 col-xs-4 padding">
-              <%= f.select(:job_location_eq,
-                        Settings.job_location.search.to_h,
-                        { prompt: t('job_post.location') },
-                        { class: "form-control search-slt" }) %>
-            </div>
-            <div class="col-md-2 col-sm-3 col-xs-4 padding">
-              <%= f.select(:job_type_eq,
-                        Settings.job_type.search.to_h,
-                        { prompt: t('job_post.job_type') },
-                        { class: "form-control search-slt" }) %>
-            </div>
-            <div class="col-md-2 col-sm-2 col-xs-4">
-              <%= f.submit t('search.btn_search'), class: "btn btn-danger btn-lg "%>
-            </div>
-          </div>
-          <% end %>
-        </div>
+  <div class="index-job">
+    <div class="row">
+      <div id="show-search"></div>
+      <div id="hide-search">
+        <%= render "job_posts/search" %>
       </div>
     </div>
+    <div id="show-jobs"></div>
+    <div id="hide-jobs">
+      <%= render "job_posts/card_index" %>
+    </div>
   </div>
-
-  <%= render "job_posts/card" %>
-
-  <div class="paginate">
-    <%= will_paginate @job_post %>
-  </div>
-
 </div>

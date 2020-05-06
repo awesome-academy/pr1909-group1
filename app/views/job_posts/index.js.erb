@@ -1,0 +1,8 @@
+$('#show-search').html("<%= j (render 'job_posts/search') %>");
+$('#show-jobs').html("<%= j (render 'job_posts/card_index') %>");
+$('#hide-search').hide();
+$('#hide-jobs').hide();
+$('body,html').animate({
+  scrollTop: 400
+  }, 400 );
+$('.pagination a').attr('data-remote', 'true');
