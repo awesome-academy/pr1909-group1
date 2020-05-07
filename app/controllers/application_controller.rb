@@ -31,8 +31,10 @@ class ApplicationController < ActionController::Base
     url_for root_url
   end
 
-  # def current_user_type
-  #   user = current_user.user_type
-  #   user.camelize.constantize
-  # end
+  def check_not_deleted
+    if controller_name.classify.constantize.find_by(id: params[:id]).nil?
+      flash[:notice] = "This page doesn't exist"
+      redirect_to root_url
+    end
+  end
 end

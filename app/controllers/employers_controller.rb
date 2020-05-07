@@ -67,7 +67,7 @@ class EmployersController < ApplicationController
   private
 
   def set_employer
-    @employer = Employer.find(params[:id])
+    @employer = Employer.find_by(id: params[:id])
   end
 
   def employer_params
@@ -78,13 +78,6 @@ class EmployersController < ApplicationController
   def check_authorization
     unless current_user.id == @employer.user_id
       flash[:notice] = "You don't have permission to edit this page"
-      redirect_to root_url
-    end
-  end
-
-  def check_not_deleted
-    unless Employer.with_deleted.find(params[:id]).deleted_at.nil?
-      flash[:notice] = "This page doesn't exist"
       redirect_to root_url
     end
   end

@@ -8,9 +8,7 @@ class CandidatesController < ApplicationController
   # GET /candidates
   # GET /candidates.json
   def index
-    if current_user.admin?
-      return @candidates = Candidate.all.paginate(page: params[:page], per_page: Settings.per_page)
-    end
+    return @candidates = Candidate.all.paginate(page: params[:page], per_page: Settings.per_page) if current_user.admin?
     redirect_to root_path
     flash[:notice] = "You don't have permission to show this page"
   end
@@ -71,7 +69,7 @@ class CandidatesController < ApplicationController
   private
 
   def get_candidate
-    @candidate = Candidate.find(params[:id])
+    @candidate = Candidate.find_by(id: params[:id])
   end
 
   def candidate_params
@@ -101,12 +99,5 @@ class CandidatesController < ApplicationController
 
   def authorization
     current_user.id == @candidate.user_id
-  end
-
-  def check_not_deleted
-    unless Candidate.with_deleted.find(params[:id]).deleted_at.nil?
-      flash[:notice] = "This page doesn't exist"
-      redirect_to root_url
-    end
   end
 end
