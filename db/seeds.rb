@@ -2,6 +2,10 @@ company_size = ["50-99", "100-299", "300-499", "500-999", "1000"]
 salary = [{ min:100, max:500 }, { min:300, max:700 }, { min:500, max:1000 }, { min:1500, max:2000 }]
 candidate = []
 employer = []
+can_id = []
+emp_id = []
+post_id = []
+
 20.times do |n|
 User.create!(
   first_name: Faker::Name.first_name,
@@ -14,13 +18,13 @@ User.create!(
 end
 
 40.times do |n|
-user = User.create!(first_name:  Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  email: "example-#{n+1}@gmail.com",
-  user_type: rand(1..2),
-  password: "password",
-  password_confirmation: "password",
-  confirmed_at: Time.zone.now)
+  user = User.create!(first_name:  Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: "example-#{n+1}@gmail.com",
+    user_type: rand(1..2),
+    password: "password",
+    password_confirmation: "password",
+    confirmed_at: Time.zone.now)
   if user.candidate?
     candidate<<user.id
   else
@@ -29,28 +33,31 @@ user = User.create!(first_name:  Faker::Name.first_name,
 end
 number_of_candidate = candidate.length
 number_of_candidate.times do |n|
-Candidate.create!(
-  user_id: candidate[n],
-  date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 100),
-  phone: Faker::Base.numerify("+84 ###-###-###"),
-  avatar: Faker::Avatar.image,
-  cv: "https://robohash.org/#{ Faker::Name.first_name.delete(" ") }.pdf?size=300x300&set=set1")
+  cand = Candidate.create!(
+    user_id: candidate[n],
+    date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 100),
+    phone: Faker::Base.numerify("+84 ###-###-###"),
+    avatar: Faker::Avatar.image,
+    cv: "https://robohash.org/#{ Faker::Name.first_name.delete(" ") }.pdf?size=300x300&set=set1")
+  can_id<<cand.id
 end
 
 number_of_employer = employer.length
 number_of_employer.times do |n|
-Employer.create!(
-  user_id: employer[n],
-  company_logo: Faker::Company.logo,
-  company_name: Faker::Company.name,
-  company_size: company_size.sample,
-  company_description: Faker::Lorem.sentence(word_count: 100))
+  emp = Employer.create!(
+    user_id: employer[n],
+    company_logo: Faker::Company.logo,
+    company_name: Faker::Company.name,
+    company_size: company_size.sample,
+    company_description: Faker::Lorem.sentence(word_count: 100))
+  emp_id<<emp.id
 end
 
-(5*number_of_candidate).times do |n|
+length_can = 5*number_of_candidate
+length_can.times do |n|
   salary_sample = salary.sample
-  JobPost.create!(
-  employer_id: rand(1..number_of_employer),
+  post = JobPost.create!(
+  employer_id: emp_id.sample,
   job_location: rand(1..4),
   job_type: rand(1..4),
   job_status: rand(1..4),
@@ -60,14 +67,15 @@ end
   post_title: Faker::Job.title,
   job_description: "job_description #{n +1}",
   job_expired_date: Date.today)
+  post_id<<post.id
 end
 
 number_of_candidate.times do |n|
   5.times do |m|
     ApplyActivity.create!(
-      job_post_id: (n + 1)*(m + 1),
-      candidate_id: n + 1,
-      employer_id: (JobPost.find((n + 1)*(m + 1))).employer_id
+      job_post_id: post_id[(n + 1)*(m + 1) - 1],
+      candidate_id: can_id[n],
+      employer_id: JobPost.find(post_id[(n + 1)*(m + 1) - 1]).employer_id
     )
   end
 end
