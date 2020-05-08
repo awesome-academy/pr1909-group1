@@ -1,4 +1,5 @@
 class CandidatesController < ApplicationController
+  before_action :check_not_deleted, only: [:show, :edit]
   before_action :authenticate_user!
   before_action :get_candidate, except: [:new, :index, :created]
   before_action :check_authorization, only: [:edit, :update]
@@ -68,7 +69,7 @@ class CandidatesController < ApplicationController
   private
 
   def get_candidate
-    @candidate = Candidate.find(params[:id])
+    @candidate = Candidate.find_by(id: params[:id])
   end
 
   def candidate_params
@@ -84,7 +85,7 @@ class CandidatesController < ApplicationController
   end
 
   def show_permission
-    unless employer_permission || authorization
+    if employer_permission == false || authorization == false
       redirect_to root_url
       flash[:notice] = "You don't have permission to show this page"
     end

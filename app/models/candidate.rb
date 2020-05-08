@@ -1,10 +1,11 @@
 class Candidate < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, -> { with_deleted }
   accepts_nested_attributes_for :user
   has_many :apply_activities, dependent: :destroy
   has_many :job_post, through: :apply_activities
   mount_uploader :avatar, AvatarUploader
   mount_uploader :cv, CvUploader
+  acts_as_paranoid
 
   # validate
   validates :user_id, presence: true, uniqueness: true

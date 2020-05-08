@@ -1,4 +1,5 @@
 class EmployersController < ApplicationController
+  before_action :check_not_deleted, only: [:show, :edit]
   before_action :set_employer, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
   before_action :check_authorization, only: [:edit, :update]
@@ -66,7 +67,7 @@ class EmployersController < ApplicationController
   private
 
   def set_employer
-    @employer = Employer.find(params[:id])
+    @employer = Employer.find_by(id: params[:id])
   end
 
   def employer_params
