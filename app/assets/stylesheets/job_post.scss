@@ -1,36 +1,60 @@
-.card-job {
-  position: relative;
-  background-color: white;
-  border: 1px solid #66ffff;
-  margin: 5px;
-  .job-title {
-    margin-left: 10px;
-    .job-type {
-      position: relative;
-      top: -4px;
+//card
+.list-job {
+  margin-top: 30px;
+  .card-job {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #dff0f0;
 
-      color: #E76560;
-      padding-left: 5px;
-
-      font-size: 12px;
-      font-weight: bold;
-      text-transform: uppercase;
+    padding: 10px;
+    margin-top: 5px;
+    .logo-company {
+      .image-logo {
+        width: 100px;
+        height: auto;
+      }
+    }
+    .card-info {
+      margin-left: 10px;
+      h4 {
+        margin: 0px;
+      }
+    }
+    .job-created {
+      color: #3f7ab9
+    }
+    .job-expired {
+      color: #c65454;
     }
   }
-  .card-body {
-      margin-left: 10px;
+
+  .card-job:hover {
+    background: white !important;
+    box-shadow: 0 0 15px 1px #bcbcbc;
+    z-index: 5;
+    border-color: transparent;
   }
-  .apply-btn {
-    position: absolute;
-    right: 20px;
-    top: 20px;
+  .btn {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 767px) {
+  .list-job {
+    .card-job {
+      .logo-company {
+        text-align: center;
+      }
+    }
+    .job-created, .job-expired {
+      padding-left: 10px;
+    }
   }
 }
 
 //search
 .search-job {
   position: absolute;
-  top: 80vh;
+  top: 75vh;
   background:rgba(0,0,0,0.5);
   padding: 20px;
   .title-search {
@@ -68,5 +92,40 @@
   }
   .btn-lg {
     margin-top: 5px;
+  }
+}
+
+//show job_post
+.job-info {
+  box-shadow: 0 16px 50px 0 rgba(42, 35, 35, 0.2);
+  background: #f5f5f5;
+  padding: 20px;
+  margin-top: 20px;
+  .job-title {
+    h1 {
+      font-weight: 500;
+      margin-top: 0px;
+    }
+  }
+  .job-expired {
+    color: #c65454;
+  }
+  .btn-apply {
+    margin-top: 20px;
+    text-align: center;
+  }
+}
+
+//edit job_post
+.edit-job {
+  box-shadow: 0 16px 50px 0 rgba(42, 35, 35, 0.2);
+  background: #f5f5f5;
+  margin-top: 20px;
+  padding: 20px 0px;
+  .btn {
+    margin-left: 15px;
+  }
+  .dropdown-menu {
+    background-color: white;
   }
 }

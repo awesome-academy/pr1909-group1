@@ -45,7 +45,7 @@ en:
     dob: 'Date of birth'
     phone: 'Phone'
     show:
-      profile: 'Profile Candidate'
+      profile: 'Profile'
       contact: 'Contact'
       download: 'Download CV'
     edit:
@@ -65,16 +65,20 @@ en:
     slogan: "IT Jobs For Developers"
     new_job: 'New Job Post'
     apply: 'Apply'
+    post_title: " Post title"
     select_job_type: 'Select Job Type'
+    select_job_location: 'Select Job Location'
+    select_date: 'Select date expired'
     salary: 'Salary'
     expired_date: 'Job expired date'
+    created_date: 'Job created date'
     job_desc: 'Job Description'
     location: 'Job Location'
+    job_location: "Job location"
     job_type: 'Job Type'
     salary_min: 'Salary Min'
     salary_max: 'Salary Max'
     create_post: 'New Job Post'
-    edit_post: 'Editing Job Post'
     cancel: 'Cancel Application'
     confirm: 'Are you sure?'
     placeholder: 'Keyword skill, Job Title, Company...'
@@ -97,3 +101,9 @@ en:
     previous_label: "&#8592; Previous"
     next_label: "Next &#8594;"
     page_gap: "&hellip;"
+
+  number:
+    currency:
+      format:
+        precision: 0
+        format: '%n%u'

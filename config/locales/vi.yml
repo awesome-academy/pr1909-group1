@@ -45,7 +45,7 @@ vi:
     dob: 'Ngày sinh'
     phone: 'Điện thoại'
     show:
-      profile: 'Hồ sơ ứng viên'
+      profile: 'Hồ sơ'
       contact: 'Liên hệ'
       download: 'Tải xuống CV'
     edit:
@@ -65,16 +65,23 @@ vi:
     slogan: "Việc Làm IT Cho Developers"
     new_job: 'Đăng Việc làm'
     apply: 'Ứng Tuyển'
-    select_job_type: 'Loại hình'
+    post_title: 'Tiêu đề  bài đăng'
+    select_date: 'Lựa chọn ngày hết hạn'
+    select_job_type: 'Lựa chọn loại hình'
+    select_job_location: 'Lựa chọn địa điểm'
+    job_location: "Địa điểm"
+    job_type: 'Loại hình'
     salary: 'Mức lương'
+    salary_min: 'Mức lương tối thiểu'
+    salary_max: 'Mức lương tối đa'
     expired_date: 'Ngày hết hạn'
+    created_date: 'Ngày đăng tuyển'
     job_desc: 'Mô tả Công việc'
     location: 'Địa điểm'
-    job_type: 'Loại hình'
+    
     salary_min: 'Lương Tối Thiểu'
     salary_max: 'Lương Tối Đa'
-    create_post: 'Tạo bài đăng mới'
-    edit_post: 'Sửa Bài Đăng'
+    create_post: 'Bài Đăng Công Việc Mới'
     cancel: 'Hủy Ứng Tuyển'
     confirm: 'Bạn có chắc không?'
     placeholder: 'Tìm kiếm theo kỹ năng, chức vụ, công ty...'

@@ -1,43 +1,79 @@
-<p>
-  <strong><%= @job_post.post_title %></strong>
-</p>
-<br>
-<br>
-<p>
-  <strong>Company:</strong>
-  <%= @job_post.employer.company_name %>
-</p>
+<div class="row">
+  <div class="col-md-4">
+    <div class="row">
+      <div class="headers-company show-employer">
 
-<p>
-  <strong><%= t('job_post.location')%></strong>
-  <%= JobPost.job_location_views.key(@job_post.job_location) %>
-</p>
+        <div class="logo-company">
+          <%= image_tag @job_post.employer.company_logo.url(:show), class: "image-logo" %>
+        </div>
 
-<p>
-  <strong><%= t('job_post.job_type')%></strong>
-  <%= JobPost.job_type_views.key(@job_post.job_type) %>
-</p>
+        <div class="info-company info-edit">
+          <h1 class="company-name">
+            <%= @job_post.employer.company_name %>
+          </h1>
 
-<p>
-  <strong><%= t('job_post.salary')%></strong>
-  <%= @job_post.salary_min %>
--
-  <%= @job_post.salary_max %>
-</p>
+          <div class="company-size">
+            <i class="fa fa-users" aria-hidden="true"></i>
+            <%= @job_post.employer.company_size %>
+          </div>
 
-<p>
-  <strong><%= t('job_post.job_desc')%></strong>
-  <%= raw(@job_post.job_description) %>
-</p>
+          <div class="working-date">
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+            <span><%= t('employer.show.day') %> </span>
+          </div>
 
-<p>
-  <strong><%= t('job_post.expired_date')%></strong>
-  <%= @job_post.job_expired_date %>
-</p>
+          <div class="company-description">
+              <h4><%= t('employer.description') %></h4>
+              <p><%= raw(@job_post.employer.company_description) %> <p>
+          </div>
+        </div>
+        
+          <div class="btn-company">
+              <%= link_to t('common.show'), employer_path(@job_post.employer), class: "btn btn-primary btn-block" %> 
+          </div>
+      </div>
+    </div>
+  </div>
+    <div class="col-md-7">
+      <div class="job-info">
+        <div class="job-title">
+          <h1><%= @job_post.post_title %></h1>
+        </div>
 
-<% if authenticate_employer @job_post %>
-   | <%= link_to t('common.edit'), edit_job_post_path(@job_post) %>
-     <%= link_to t('common.delete'), @job_post, method: :delete, data: { confirm: t('job_post.confirm') } %>
-<% end %>
-<%= apply_job %>
-<%= link_to t('common.back'), job_posts_path %>
+        <div>
+          <i class="fa fa-map-marker" aria-hidden="true"></i>
+          <%= JobPost.job_location_views.key(@job_post.job_location) %>
+        </div>
+
+        <div>
+          <i class="fa fa-calendar" aria-hidden="true"></i>
+          <%= JobPost.job_type_views.key(@job_post.job_type) %>
+        </div>
+
+        <div>
+          <i class="fa fa-credit-card" aria-hidden="true"></i>
+          <%= number_to_currency(@job_post.salary_min, :locale => :en) %>
+          -
+          <%= number_to_currency(@job_post.salary_max, :locale => :en) %>
+        </div>
+
+        <div class="job-expired">
+          <%= t('job_post.expired_date')%>:
+          <%= @job_post.job_expired_date.strftime("%d-%m-%Y") %>
+        </div>
+
+        <div>
+          <h3><%= t('job_post.job_desc')%></h3>
+          <%= raw(@job_post.job_description) %>
+        </div>
+
+        <div class="btn-apply">
+          <% if authenticate_employer @job_post %>
+            <%= link_to t('common.edit'), edit_job_post_path(@job_post), class: "btn btn-success" %>
+            <%= link_to t('common.delete'), @job_post, method: :delete, data: { confirm: t('job_post.confirm') }, class: "btn btn-danger" %>
+          <% end %>
+            <%= apply_job %>
+        </div>
+      </div>
+    </div>
+</div>

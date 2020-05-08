@@ -15,7 +15,7 @@
           </div>
 
           <div class="btn-index">
-            <% if current_user.id == employer.user_id %>
+            <% if user_signed_in? && current_user.id == employer.user_id %>
               <%= link_to t('common.edit'), edit_employer_path(employer), class: "btn btn-primary" %>
               <%= link_to t('common.delete'), employer, method: :delete, data: { confirm: 'Are you sure?'} , class: "btn btn-danger" %>
             <% end %>

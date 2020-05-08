@@ -48,6 +48,8 @@ gem 'rails-i18n'
 gem 'will_paginate'
 gem 'ransack'
 gem "paranoia"
+gem 'momentjs-rails'
+gem 'bootstrap3-datetimepicker-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
