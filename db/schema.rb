@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_05_07_125635) do
 
-  create_table "apply_activities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "apply_activities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "candidate_id", null: false
     t.bigint "job_post_id", null: false
     t.bigint "employer_id", null: false
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2020_05_07_125635) do
     t.index ["job_post_id"], name: "index_apply_activities_on_job_post_id"
   end
 
-  create_table "candidates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "candidates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.date "date_of_birth"
     t.string "phone", limit: 16
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2020_05_07_125635) do
     t.index ["user_id"], name: "index_candidates_on_user_id"
   end
 
-  create_table "ckeditor_assets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "ckeditor_assets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "data_file_name", null: false
     t.string "data_content_type"
     t.integer "data_file_size"
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2020_05_07_125635) do
     t.index ["type"], name: "index_ckeditor_assets_on_type"
   end
 
-  create_table "employers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "employers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "company_logo"
     t.string "company_name", limit: 70
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2020_05_07_125635) do
     t.index ["user_id"], name: "index_employers_on_user_id"
   end
 
-  create_table "job_posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "job_posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "employer_id", null: false
     t.integer "job_location", null: false
     t.integer "job_type", null: false
@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 2020_05_07_125635) do
     t.index ["employer_id"], name: "index_job_posts_on_employer_id"
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
