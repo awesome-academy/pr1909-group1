@@ -1,8 +1,11 @@
 <div class="form-candidate">
   <%= simple_form_for(@candidate, html: { multipart: true }) do |f| %>
+
+  <div class="col-md-12">
     <%= f.error_notification %>
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
+  </div>
+    
     <div class="form-inputs">
       <%= f.input :avatar, as: :file %>
 

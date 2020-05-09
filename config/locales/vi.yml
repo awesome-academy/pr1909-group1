@@ -26,8 +26,11 @@ vi:
   devise:
     new:
       prompt: 'Lựa chọn Nhà tuyển dụng hoặc ứng viên'
-      label: 'Bạn là?'
+      label: 'Vai trò'
       error: 'Yêu cầu chức năng người dùng, vui lòng chọn'
+    link:
+      forgot_password: 'Quên mật khẩu' 
+      confirmation_email: 'Gửi lại email xác nhận'
 
 #view common
   common:
