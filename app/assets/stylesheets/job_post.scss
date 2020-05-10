@@ -132,3 +132,30 @@
     background-color: white;
   }
 }
+
+.job-status {
+    text-align: center;
+    color: white;
+    width: 100px;
+    .stt-accepted {
+      padding: 5px;
+      background: #28a745;
+      border-radius: 10%;
+    }
+    .stt-expired {
+      padding: 5px;
+      background: red;
+      border-radius: 5%;
+    }
+    .stt-pending {
+      padding: 5px;
+      background: #6c757d;
+      border-radius: 10%;
+    }
+    .stt-rejected {
+      padding: 5px;
+      background: #ffc107;
+      border-radius: 10%;
+    }
+  }
+

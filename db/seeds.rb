@@ -60,13 +60,13 @@ length_can.times do |n|
   employer_id: emp_id.sample,
   job_location: rand(1..4),
   job_type: rand(1..4),
-  job_status: rand(1..4),
+  job_status: rand(1..3),
   post_priority: rand(1..5),
   salary_min: salary_sample[:min],
   salary_max: salary_sample[:max],
   post_title: Faker::Job.title,
   job_description: "job_description #{n +1}",
-  job_expired_date: Date.today)
+  job_expired_date: Date.today + rand(1..30).days)
   post_id<<post.id
 end
 
