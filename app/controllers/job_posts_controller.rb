@@ -12,6 +12,11 @@ class JobPostsController < ApplicationController
   # GET /job_posts/1
   # GET /job_posts/1.json
   def show
+    @post_id = params[:id]
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /job_posts/new

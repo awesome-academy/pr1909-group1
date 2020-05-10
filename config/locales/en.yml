@@ -30,7 +30,7 @@ en:
       label: 'Role'
       error: 'User functionality is required, please select'
     link:
-      forgot_password: 'Forgot password' 
+      forgot_password: 'Forgot password'
       confirmation_email: 'Resend confirmation email'
 
 #view common
@@ -85,7 +85,8 @@ en:
     create_post: 'New Job Post'
     cancel: 'Cancel Application'
     confirm: 'Are you sure?'
-    placeholder: 'Keyword skill, Job Title, Company...'
+    placeholder: 'Search the Job'
+    view_candidates: 'View Candidates >>'
 
 #view employer
   employer:

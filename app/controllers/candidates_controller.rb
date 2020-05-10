@@ -85,7 +85,7 @@ class CandidatesController < ApplicationController
   end
 
   def show_permission
-    if employer_permission == false || authorization == false
+    if !(employer_permission || authorization)
       redirect_to root_url
       flash[:notice] = "You don't have permission to show this page"
     end
