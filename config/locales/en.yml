@@ -26,8 +26,11 @@ en:
   devise:
     new:
       prompt: 'Select Employer or Candidate'
-      label: 'You are?'
+      label: 'Role'
       error: 'User functionality is required, please select'
+    link:
+      forgot_password: 'Forgot password' 
+      confirmation_email: 'Resend confirmation email'
 
 #view common
   common:
