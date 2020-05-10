@@ -7,6 +7,7 @@ vi:
       account_setting: 'Thiết lập tài khoản'
       profile: 'Hồ sơ'
       log_out:  'Đăng xuất'
+      admin: 'Trang quản lý'
     footer:
       about: 'Thông tin thêm'
       about_us: 'Về chúng tôi'

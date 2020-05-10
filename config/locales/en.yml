@@ -7,6 +7,7 @@ en:
       account_setting: 'Account settings'
       profile: 'Profile'
       log_out:  'Log out'
+      admin: 'Admin'
     footer:
       about: 'About'
       about_us: 'About Us'

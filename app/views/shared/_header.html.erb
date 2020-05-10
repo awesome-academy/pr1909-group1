@@ -26,6 +26,8 @@
               <li><%= link_to t('layouts.header.profile'), candidate_path(current_user.candidate) %></li>
             <% elsif current_user.user_type == 'employer' %>
               <li><%= link_to t('layouts.header.profile'), employer_path(current_user.employer) %></li>
+            <% elsif current_user.admin? %>
+              <li><%= link_to 'Admin', rails_admin_path %></li>
             <% end %>
               <li><%= link_to t('layouts.header.log_out'), destroy_user_session_path, method: :delete %></li>
           </ul>
