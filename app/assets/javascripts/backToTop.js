@@ -10,7 +10,8 @@ $(window).on("turbolinks:load", function(){
   $('.back-to-top').click(function () {
     $(this).tooltip('hide');
     $('body,html').animate({
-      scrollTop: 0 }, 700);
+      scrollTop: 0 
+    }, 700);
       return false;
   });
   
