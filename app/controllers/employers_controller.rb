@@ -1,6 +1,6 @@
 class EmployersController < ApplicationController
   before_action :check_not_deleted, only: [:show, :edit]
-  before_action :set_employer, only: [:show, :edit, :update, :destroy]
+  before_action :get_employer, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :check_authorization, only: [:edit, :update]
 
@@ -13,7 +13,12 @@ class EmployersController < ApplicationController
   # GET /employers/1
   # GET /employers/1.json
   def show
-    @job_posts = @employer.job_posts.paginate(page: params[:page], per_page: Settings.per_page)
+    if current_user.present? && (current_user.id == @employer.user_id || current_user.admin?)
+      @job_posts = @employer.job_posts.paginate(page: params[:page], per_page: Settings.per_page)
+    else
+      @job_posts = @employer.job_posts.accepted.
+        paginate(page: params[:page], per_page: Settings.per_page)
+    end
   end
 
   # GET /employers/new
@@ -66,7 +71,7 @@ class EmployersController < ApplicationController
 
   private
 
-  def set_employer
+  def get_employer
     @employer = Employer.find_by(id: params[:id])
   end
 

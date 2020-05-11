@@ -5,7 +5,7 @@ class JobPostsController < ApplicationController
   layout "application", except: :index
 
   def index
-    @q = JobPost.ransack params[:q]
+    @q = JobPost.accepted.not_expired.order(:post_priority).ransack params[:q]
     @job_posts = @q.result(distinct: true).paginate(page: params[:page], per_page: Settings.per_page)
   end
 
@@ -66,7 +66,7 @@ class JobPostsController < ApplicationController
   private
 
   def get_job_post
-    @job_post = JobPost.find(params[:id])
+    @job_post = JobPost.find_by(id: params[:id])
   end
 
   # Only allow a list of trusted parameters through.
