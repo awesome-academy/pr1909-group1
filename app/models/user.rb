@@ -9,7 +9,7 @@ class User < ApplicationRecord
   enum user_type: Settings.u_type.general.to_h
 
   # Validates
-  validates :first_name, presence: true, length: { maximum: 20 }
-  validates :last_name, presence: true, length: { maximum: 15 }
+  validates :first_name, presence: true, length: { maximum: 20 }, format: { with: /\A[a-zA-Z\s]+\z/ }
+  validates :last_name, presence: true, length: { maximum: 15 }, format: { with: /\A[a-zA-Z\s]+\z/ }
   validates :user_type, presence: true, inclusion: { in: user_types.keys }
 end

@@ -26,7 +26,7 @@
         <%= f.input :email,
                     required: true,
                     autofocus: true,
-                    input_html: { autocomplete: "email" }%>
+                    input_html: { autocomplete: "email" } %>
         <%= f.input :user_type,
                     collection: Settings.u_type.set_view,
                     prompt: t('devise.new.prompt'),
