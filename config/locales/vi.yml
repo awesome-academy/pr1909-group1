@@ -30,7 +30,7 @@ vi:
       label: 'Vai trò'
       error: 'Yêu cầu chức năng người dùng, vui lòng chọn'
     link:
-      forgot_password: 'Quên mật khẩu' 
+      forgot_password: 'Quên mật khẩu'
       confirmation_email: 'Gửi lại email xác nhận'
 
 #view common
@@ -82,13 +82,14 @@ vi:
     created_date: 'Ngày đăng tuyển'
     job_desc: 'Mô tả Công việc'
     location: 'Địa điểm'
-    
+
     salary_min: 'Lương Tối Thiểu'
     salary_max: 'Lương Tối Đa'
     create_post: 'Bài Đăng Công Việc Mới'
     cancel: 'Hủy Ứng Tuyển'
     confirm: 'Bạn có chắc không?'
-    placeholder: 'Tìm kiếm theo kỹ năng, chức vụ, công ty...'
+    placeholder: 'Tìm kiếm công việc'
+    view_candidates: 'Xem Ứng viên >>'
 
 #view employer
   employer:

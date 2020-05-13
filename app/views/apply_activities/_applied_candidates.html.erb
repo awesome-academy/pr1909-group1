@@ -1,0 +1,29 @@
+<div class="col-md-8 col-md-offset-2">
+  <div class="modal-view-candidates">
+    <div class="modal-header">
+      <div class="close-btn">
+        <%= link_to "×", "#", class: "btn", data: {dismiss: "modal"} %>
+      </div>
+      <h3 id="myModalLabel"> <%= t('candidate.candidates')%> </h3>
+    </div>
+    <div class="modal-body">
+      <% @apply_activities.each do |activity| %>
+      <div class="modal-item">
+        <table class="table">
+          <tbody>
+            <tr>
+              <td><%= link_to activity.candidate.user.last_name + ' ' + activity.candidate.user.first_name,
+              activity.candidate %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <br>
+      <% end %>
+      <%= will_paginate @apply_activities %>
+    </div>
+    <div class="modal-footer">
+      <%= link_to t('common.cancel'), "#", class: "btn btn-primary", data: {dismiss: "modal"} %>
+    </div>
+  </div>
+</div>

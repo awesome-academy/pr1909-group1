@@ -1,5 +1,11 @@
 class ApplyActivitiesController < ApplicationController
   before_action :login_before_apply, only: :create
+
+  def index
+    @apply_activities = JobPost.find_by(id: params[:post_id]).apply_activities.
+      paginate(page: params[:page], per_page: Settings.per_page)
+  end
+
   def create
     @job_post = JobPost.find params[:job_post_id]
     current_user.candidate.apply @job_post

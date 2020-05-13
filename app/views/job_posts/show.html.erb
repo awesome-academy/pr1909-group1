@@ -32,9 +32,9 @@
               <p><%= raw(@job_post.employer.company_description) %> <p>
           </div>
         </div>
-        
+
           <div class="btn-company">
-              <%= link_to t('common.show'), employer_path(@job_post.employer), class: "btn btn-primary btn-block" %> 
+              <%= link_to t('common.show'), employer_path(@job_post.employer), class: "btn btn-primary btn-block" %>
           </div>
       </div>
     </div>
@@ -76,9 +76,11 @@
           <% if authenticate_employer @job_post %>
             <%= link_to t('common.edit'), edit_job_post_path(@job_post), class: "btn btn-success" %>
             <%= link_to t('common.delete'), @job_post, method: :delete, data: { confirm: t('job_post.confirm') }, class: "btn btn-danger" %>
+            <%= link_to  t('job_post.view_candidates'), apply_activities_path(post_id: @post_id), controller: :apply_activities, method: :get, remote: true, class: "btn btn-primary"%>
           <% end %>
             <%= apply_job %>
         </div>
       </div>
     </div>
 </div>
+<div id="view_candidates" class="modal fade"></div>
