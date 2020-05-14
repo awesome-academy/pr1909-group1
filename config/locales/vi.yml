@@ -10,18 +10,19 @@ vi:
       admin: 'Trang quản lý'
     footer:
       about: 'Thông tin thêm'
-      about_us: 'Về chúng tôi'
-      contact_us: 'Liên hệ với chúng tôi'
-      contribute: 'Đóng góp'
-      privacy_policy: ' Chính sách bảo mật'
-      sitemap:  'Sơ đồ trang web'
+      contact: 'Liên hệ'
       jobs_by_type: 'Việc làm theo hình thức'
       jobs_by_city: 'Việc làm theo thành phố'
-      quick_links: 'Đường dẫn nhanh'
       vision:  'JobUp là một nền tảng kết nối giữa nhà tuyển dụng và ứng viên trong ngành IT.
                 Nó dành cho các nhà tuyển dụng tìm kiếm được ứng viên phù hợp
                 và cho các ừng viên có thể tìm kiếm, ứng tuyển được công việc phù hợp'
       copyright: 'Bản quyền'
+      ha_noi: 'Hà Nội'
+      ho_chi_minh: 'Hồ Chí Minh'
+      da_nang: 'Đà Nẵng'
+      others: 'Địa điểm khác'
+      location: "Tòa nhà 11F Handico, Đường Phạm Hùng, Quận Nam Từ Liêm, Hà Nội"
+      phone: 'Điện Thoại: '
 
 #view devise
   devise:
@@ -51,7 +52,7 @@ vi:
     show:
       profile: 'Hồ sơ'
       contact: 'Liên hệ'
-      download: 'Tải xuống CV'
+      preview: 'Xem CV'
     edit:
       editing: 'Chỉnh sửa ứng viên'
 
@@ -78,18 +79,17 @@ vi:
     salary: 'Mức lương'
     salary_min: 'Mức lương tối thiểu'
     salary_max: 'Mức lương tối đa'
+    salary : 'Mức lương'
     expired_date: 'Ngày hết hạn'
     created_date: 'Ngày đăng tuyển'
     job_desc: 'Mô tả Công việc'
     location: 'Địa điểm'
-
-    salary_min: 'Lương Tối Thiểu'
-    salary_max: 'Lương Tối Đa'
     create_post: 'Bài Đăng Công Việc Mới'
     cancel: 'Hủy Ứng Tuyển'
     confirm: 'Bạn có chắc không?'
-    placeholder: 'Tìm kiếm công việc'
     view_candidates: 'Xem Ứng viên >>'
+    placeholder: 'Tìm kiếm theo tiêu đề...'
+    all_jobs: 'Tất cả việc làm'
 
 #view employer
   employer:

@@ -52,11 +52,11 @@
 
             <div class="col-md-2 col-sm-2 col-xs-12">
               <div class="job-status">
-              <% if current_user.present? && (current_user.id == @employer.user_id || current_user.admin?) %>
-                <div class="stt-<%=job_post.job_status %>">
-                  <%= job_post.job_status.capitalize %>
-                </div>
-              <% end %>
+                <% if current_user.present? && (current_user.id == @employer.user_id || current_user.admin?) %>
+                  <div class="stt-<%=job_post.job_status %>">
+                    <%= job_post.job_status.capitalize %>
+                  </div>
+                <% end %>
               </div>
             </div>
 

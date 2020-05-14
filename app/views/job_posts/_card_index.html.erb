@@ -1,0 +1,54 @@
+<div class="list-job">
+  <% @job_posts.each do |job_post| %>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 ">
+      <div class="card-job">
+        <div class="row">
+          <div class="col-md-2 col-sm-2 col-xs-12">
+            <div class="logo-company">
+              <%= link_to image_tag(job_post.employer.company_logo.url(:show), class: "image-logo"), job_post %>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-6">
+            <div class="card-info">
+              <h4><%= link_to job_post.post_title, job_post %></h4>
+              <h5><%= link_to job_post.employer.company_name, job_post.employer %></h5>
+              <div>
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <%= JobPost.job_location_views.key(job_post.job_location) %>
+              </div>
+              <div>
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+                <%= JobPost.job_type_views.key(job_post.job_type) %>
+              </div>
+              <div>
+                <i class="fa fa-credit-card" aria-hidden="true"></i>
+                <%= number_to_currency(job_post.salary_min, :locale => :en) %>
+                -
+                <%= number_to_currency(job_post.salary_max, :locale => :en) %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-6">
+            <div class="job-created">
+              <%= t('job_post.created_date')%>:
+              <%= job_post.created_at.strftime("%d-%m-%Y")%>
+            </div>
+            <div class="job-expired">
+              <%= t('job_post.expired_date')%>:
+              <%= job_post.job_expired_date.strftime("%d-%m-%Y") %>
+            </div>
+            <% if authenticate_employer job_post %>
+            <%= link_to t('common.edit'), edit_job_post_path(job_post), class: "btn btn-primary" %>
+            <%= link_to t('common.delete'), job_post, method: :delete, data: { confirm: t('job_post.confirm') }, class: "btn btn-danger" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <div class="paginate">
+    <%= will_paginate @job_post %>
+  </div>
+</div>
