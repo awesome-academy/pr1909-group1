@@ -22,6 +22,7 @@ en:
       da_nang: 'Da Nang'
       others: 'Others'
       location: "11F Handico Building, Pham Hung Road, Nam Tu Liem Dist, Ha Noi"
+      phone: 'Phone: '
 
 #view devise
   devise:

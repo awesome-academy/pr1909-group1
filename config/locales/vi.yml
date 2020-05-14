@@ -22,6 +22,7 @@ vi:
       da_nang: 'Đà Nẵng'
       others: 'Địa điểm khác'
       location: "Tòa nhà 11F Handico, Đường Phạm Hùng, Quận Nam Từ Liêm, Hà Nội"
+      phone: 'Điện Thoại: '
 
 #view devise
   devise:
