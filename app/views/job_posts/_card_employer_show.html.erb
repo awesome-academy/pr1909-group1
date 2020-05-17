@@ -48,11 +48,6 @@
                   <%= link_to t('common.edit'), edit_job_post_path(job_post), class: "btn btn-primary" %>
                   <%= link_to t('common.delete'), job_post, method: :delete, data: { confirm: t('job_post.confirm') }, class: "btn btn-danger" %>
                 <% end %>
-                <div class="apply-at">
-                  <% if @apply_activities%>
-                    <p><%=t('job_post.applied_at') %>: <%= @apply_activities.find_by(candidate_id: @candidate.id, job_post_id: job_post.id).created_at.in_time_zone("Asia/Ho_Chi_Minh").strftime("%d-%m-%y %H:%M")%></p>
-                  <%end%>
-                </div>
             </div>
 
             <div class="col-md-2 col-sm-2 col-xs-12">

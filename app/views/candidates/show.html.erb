@@ -116,10 +116,7 @@
 
         <div class="tab-pane fade" id="job" role="tabpanel">
           <div class="company-jobs">
-            <%= render :partial => "job_posts/card" %>
-            <div class="paginate">
-              <%= will_paginate @job_posts %>
-            </div>
+            <%= render :partial => "job_posts/card_index" %>
           </div>
         </div>
       </div>
