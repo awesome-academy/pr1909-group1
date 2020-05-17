@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_07_125635) do
+ActiveRecord::Schema.define(version: 2020_05_16_093650) do
 
   create_table "apply_activities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "candidate_id", null: false
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 2020_05_07_125635) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "deleted_at"
+    t.string "profession"
+    t.string "website"
     t.index ["deleted_at"], name: "index_candidates_on_deleted_at"
     t.index ["user_id"], name: "index_candidates_on_user_id"
   end

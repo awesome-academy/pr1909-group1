@@ -55,11 +55,19 @@ vi:
       preview: 'Xem CV'
     edit:
       editing: 'Chỉnh sửa ứng viên'
+      select_dob: 'Chọn ngày sinh'
+      update: 'Cập nhật'
+    applied_job: 'Công việc đã ứng tuyển'
+    profession: 'Nghề Nghiệp'
+    website: 'Trang Web'
+    email: 'Thư điện tử'
+    avatar: 'Ảnh đại diện'
 
 #view user
   user:
     first_name: 'Tên'
     last_name: 'Họ'
+    full_name: 'Họ Tên'
 
 #view search
   search:
@@ -90,6 +98,7 @@ vi:
     view_candidates: 'Xem Ứng viên >>'
     placeholder: 'Tìm kiếm theo tiêu đề...'
     all_jobs: 'Tất cả việc làm'
+    applied_at: 'Ứng tuyển vào'
 
 #view employer
   employer:

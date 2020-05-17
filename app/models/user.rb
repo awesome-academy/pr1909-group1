@@ -10,6 +10,7 @@ class User < ApplicationRecord
 
   # Validates
   validates :first_name, presence: true, length: { maximum: 20 }, format: { with: /\A[a-zA-Z\s]+\z/ }
-  validates :last_name, presence: true, length: { maximum: 15 }, format: { with: /\A[a-zA-Z\s]+\z/ }
+  validates :last_name, presence: true, length: { maximum: 20 }, format: { with: /\A[a-zA-Z\s]+\z/ }
   validates :user_type, presence: true, inclusion: { in: user_types.keys }
+  validates :email, format: { with: /\A([a-zA-Z0-9_\.])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+\z/ }
 end

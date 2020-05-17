@@ -55,11 +55,19 @@ en:
       preview: 'Preview CV'
     edit:
       editing: 'Editing Candidate'
+      select_dob: 'Select Date of birth'
+      update: 'Update'
+    applied_job: 'Applied Jobs'
+    profession: 'Profession'
+    website: 'Website'
+    email: 'Email'
+    avatar: 'Avatar'
 
 #view user
   user:
     frst_name: 'First Name'
     last_name: 'Last Name'
+    full_name: 'Full Name'
 
 #view search
   search:
@@ -90,6 +98,7 @@ en:
     view_candidates: 'View Candidates >>'
     placeholder: 'Search by job title...'
     all_jobs: 'All jobs'
+    applied_at: 'Applied at'
 
 #view employer
   employer:
