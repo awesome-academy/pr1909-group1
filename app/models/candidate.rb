@@ -9,7 +9,7 @@ class Candidate < ApplicationRecord
 
   # validate
   validates :user_id, presence: true, uniqueness: true
-  validates :phone, length: { maximum: 16 }, format: { with: /[-+ 0-9]/ }, allow_blank: true
+  validates :phone, length: { maximum: Settings.max_length.phone }, format: { with: /[-+ 0-9]/ }, allow_blank: true
   validates :date_of_birth, exclusion: { in: (18.years.ago.to_date..Date.today.to_date) }
 
   def apply(job_post)

@@ -90,7 +90,7 @@
                     <label><%= t('candidate.dob')%>:</label>
                   </div>
                   <div class="col-md-5">
-                    <p><%= @candidate.date_of_birth.strftime("%d-%m-%Y")%></p>
+                    <p><%= @candidate.date_of_birth.strftime("%d-%m-%Y") if @candidate.date_of_birth%></p>
                   </div>
                 </div>
                 <div class="row">

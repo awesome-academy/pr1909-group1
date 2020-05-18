@@ -25,7 +25,7 @@
           <%= f.label :date_of_birth, label: t('candidate.dob') %>
           <div class="input-group date" id="datetimepicker">
             <%= f.text_field :date_of_birth,
-                             value: @candidate.date_of_birth.strftime("%d-%m-%Y"),
+                             value: (@candidate.date_of_birth.strftime("%d-%m-%Y") if @candidate.date_of_birth),
                             placeholder: t('candidate.edit.select_dob'),
                             class: "form-control" %>
             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
