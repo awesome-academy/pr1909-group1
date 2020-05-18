@@ -19,6 +19,10 @@ class CandidatesController < ApplicationController
     @job_posts = JobPost.includes(:apply_activities).where(apply_activities: { candidate_id: params[:id] }).
       paginate(page: params[:page], per_page: Settings.per_page)
     @apply_activities = @candidate.apply_activities
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /candidates/new

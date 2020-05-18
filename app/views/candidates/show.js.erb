@@ -1,0 +1,5 @@
+$('#applied_jobs').html('<%= j (render "job_posts/card_index") %>');
+$('.pagination a').attr('data-remote', 'true');
+$('body,html').animate({
+  scrollTop: 200
+  }, 400 );

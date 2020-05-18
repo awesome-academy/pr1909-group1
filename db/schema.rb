@@ -51,8 +51,8 @@ ActiveRecord::Schema.define(version: 2020_05_16_093650) do
   create_table "employers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "company_logo"
-    t.string "company_name", limit: 70
-    t.string "company_size", limit: 20
+    t.string "company_name", limit: 70, null: false
+    t.string "company_size", limit: 20, null: false
     t.text "company_description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
