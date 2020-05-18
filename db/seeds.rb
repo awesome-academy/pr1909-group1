@@ -10,7 +10,7 @@ post_id = []
 User.create!(
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
-  email: "admin-#{n+1}@gmail.com",
+  email: "admin_#{n+1}@gmail.com",
   password:  ENV["ADMIN_PASSWORD"],
   password_confirmation: ENV["ADMIN_PASSWORD"],
   user_type: "admin",
@@ -20,7 +20,7 @@ end
 40.times do |n|
   user = User.create!(first_name:  Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    email: "example-#{n+1}@gmail.com",
+    email: "example_#{n+1}@gmail.com",
     user_type: rand(1..2),
     password: "password",
     password_confirmation: "password",
@@ -38,8 +38,9 @@ number_of_candidate.times do |n|
     date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 100),
     phone: Faker::Base.numerify("+84 ###-###-###"),
     avatar: Faker::Avatar.image,
-    cv: Faker::File.extension
-  )
+    cv: Faker::File.extension,
+    profession: Faker::Job.field,
+    website: Faker::Internet.url(host: 'job_up.com'))
   can_id<<cand.id
 end
 

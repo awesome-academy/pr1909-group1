@@ -16,6 +16,13 @@ class CandidatesController < ApplicationController
   # GET /candidates/1
   # GET /candidates/1.json
   def show
+    @job_posts = JobPost.includes(:apply_activities).where(apply_activities: { candidate_id: params[:id] }).
+      paginate(page: params[:page], per_page: Settings.per_page)
+    @apply_activities = @candidate.apply_activities
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /candidates/new
@@ -73,8 +80,8 @@ class CandidatesController < ApplicationController
   end
 
   def candidate_params
-    params.require(:candidate).permit(:user_id, :date_of_birth, :phone, :avatar, :cv,
-                                      user_attributes: [:id, :first_name, :last_name])
+    params.require(:candidate).permit(:user_id, :date_of_birth, :phone, :avatar, :cv, :profession,
+                                      :website, user_attributes: [:id, :first_name, :last_name])
   end
 
   def check_authorization
@@ -85,7 +92,7 @@ class CandidatesController < ApplicationController
   end
 
   def show_permission
-    if !(employer_permission || authorization)
+    if !(employer_permission || authorization || current_user.admin?)
       redirect_to root_url
       flash[:notice] = "You don't have permission to show this page"
     end

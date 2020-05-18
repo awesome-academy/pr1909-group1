@@ -19,6 +19,10 @@ class EmployersController < ApplicationController
       @job_posts = @employer.job_posts.accepted.
         paginate(page: params[:page], per_page: Settings.per_page)
     end
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /employers/new

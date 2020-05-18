@@ -19,3 +19,11 @@
 
   salary_min: [300, 500, 700, 1000, 1500, 2000, 2500]
   salary_max: [300, 500, 700, 1000, 1500, 2000, 2500, 3500]
+
+  max_length:
+    phone: 16
+    company_name: 70
+    first_name: 20
+    last_name: 20
+
+

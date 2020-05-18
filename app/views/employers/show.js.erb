@@ -1,0 +1,5 @@
+$('#job-posts').html('<%= j (render "job_posts/card_employer_show") %>');
+$('.pagination a').attr('data-remote', 'true');
+$('body,html').animate({
+  scrollTop: 200
+  }, 400 );

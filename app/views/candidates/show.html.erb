@@ -1,33 +1,125 @@
-<div class="row">
-  <%= render "layouts/messages" %>
-  
-  <div class="col-md-6 col-md-offset-3">
-    <div class="card">
+<div class="container">
 
-      <h2><%= t('candidate.show.profile') %></h2>
+  <div class="row">
+    <%= render "layouts/messages" %>
+  </div>
 
-      <div class="avatar-show">
-        <%= image_tag @candidate.avatar.url(:show), class: "image" %>
+  <div class="row">
+    <div class="header-profile">
+      <div class="col-md-2 col-xs-6">
+        <div class="profile-img">
+          <%= image_tag @candidate.avatar.url(:show), class: "image" %>
+        </div>
       </div>
 
-      <h2><%= @candidate.user.first_name %> <%= @candidate.user.last_name %></h2>
+      <div class="col-md-8 col-xs-6">
+        <div class="info-general">
+          <h1 class="name">
+            <%= @candidate.user.first_name %> <%= @candidate.user.last_name %>
+          </h1>
 
-      <h4><%= @candidate.date_of_birth %></h4>
-
-      <h6><%= @candidate.phone %></h6>
-
-      <%= link_to t('candidate.show.preview'), @candidate.cv.url, download: @candidate.cv.filename, target: '_blank' %>
-
-      <button><%= link_to t('candidate.show.contact'), "tel:#{@candidate.phone}" %></button>
-      
-      <div class="btn-show">
-        <% if current_user.id == @candidate.user_id %>
-        <%= link_to t('common.edit'), edit_candidate_path(@candidate), class: "btn btn-primary btn-sm" %>
-        <% end %>
-
-        <%= link_to t('common.back'), root_path, class: "btn btn-danger btn-sm" %>
+          <div class="working-date">
+            <i class="fa fa-suitcase" aria-hidden="true"></i>
+            <span><%= @candidate.profession %> </span>
+          </div>
+        </div>
       </div>
 
+      <div class="col-md-2 col-xs-12">
+        <div class="btn-edit">
+          <% if current_user.id == @candidate.user_id %>
+            <%= link_to t('common.edit'), edit_candidate_path(@candidate), class: "btn btn-primary  btn-block" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="main-profile">
+
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item show active">
+          <a class=" nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab">
+            <%= t('candidate.show.profile') %>
+          </a>
+        </li>
+        <% if (user_signed_in? && current_user.id == @candidate.user_id)|| current_user.admin? %>
+        <li class="nav-item">
+          <a class="nav-link" id="job-tab" data-toggle="tab" href="#job" role="tab">
+            <%= t('candidate.applied_job') %>
+          </a>
+        </li>
+        <%end%>
+      </ul>
+
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade active in" id="profile" role="tabpanel">
+          <div class="candidate-profile">
+                <div class="row">
+                  <div class="col-md-5">
+                    <div class="fa fa-user">
+                    </div>
+                    <label><%= t('user.full_name')%>:</label>
+                  </div>
+                  <div class="col-md-5">
+                    <p><%= @candidate.user.first_name %> <%= @candidate.user.last_name %></p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-5">
+                    <div class="far fa-envelope"></div>
+                    <label><%= t('candidate.email')%>:</label>
+                  </div>
+                  <div class="col-md-5">
+                    <p><%= @candidate.user.email%> <%= link_to '', "mailto:#{@candidate.phone}", class: "fa fa-paper-plane"%></p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-5">
+                    <div class="fa fa-phone"></div>
+                    <label><%= t('candidate.phone')%>:</label>
+                  </div>
+                  <div class="col-md-5">
+                    <p><%= @candidate.phone %> <%= link_to '', "tel:#{@candidate.phone}", class: "fa fa-phone"%></p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-5">
+                    <div class="fa fa-birthday-cake"></div>
+                    <label><%= t('candidate.dob')%>:</label>
+                  </div>
+                  <div class="col-md-5">
+                    <p><%= @candidate.date_of_birth.strftime("%d-%m-%Y") if @candidate.date_of_birth%></p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-5">
+                    <div class="fa fa-id-card"></div>
+                    <label>CV:</label>
+                  </div>
+                  <div class="col-md-5">
+                    <%= link_to t('candidate.show.preview'), @candidate.cv.url, download: @candidate.cv.filename, target: '_blank' %>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-5">
+                    <div class="fa fa-location-arrow"></div>
+                    <label><%= t('candidate.website')%>:</label>
+                  </div>
+                  <div class="col-md-5">
+                    <%= link_to @candidate.website, @candidate.website %>
+                  </div>
+                </div>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="job" role="tabpanel">
+          <div class="candidate-jobs" id="applied_jobs" >
+            <%= render "job_posts/card_index"%>
+          </div>
+        </div>
+      </div>
     </div>
 
   </div>
