@@ -1,7 +1,8 @@
 class JobPost < ApplicationRecord
   belongs_to :employer
-  has_many :apply_activities, dependent: :destroy
-  has_many :candidate, through: :apply_activities
+  has_many :apply_activities, foreign_key: :job_post_id, dependent: :destroy
+  has_many :apply_activities, foreign_key: :employer_id, dependent: :destroy
+  has_many :candidates, through: :apply_activities
   scope :not_expired, -> { where("job_expired_date >= ?", Date.today) }
 
   scope :not_expired, -> { where("job_expired_date >= ?", Date.today) }

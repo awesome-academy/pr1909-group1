@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
 
   def check_not_deleted
     if controller_name.classify.constantize.find_by(id: params[:id]).nil?
-      flash[:notice] = "This page doesn't exist"
+      flash[:notice] = t('devise.user.flash_user_not_exist')
       redirect_to root_url
     end
   end

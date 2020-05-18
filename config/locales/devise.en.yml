@@ -63,3 +63,16 @@ en:
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
+
+  activerecord:
+    attributes:
+      user:
+        user_type: "Role"
+
+vi:
+  activerecord:
+    attributes:
+      user:
+        user_type: "Vai Trò"
+        first_name: "Tên"
+        last_name: "Họ"

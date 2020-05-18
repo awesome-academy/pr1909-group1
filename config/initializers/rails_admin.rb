@@ -30,8 +30,10 @@ RailsAdmin.config do |config|
   # config.show_gravatar = true
 
   config.actions do
-    dashboard                     # mandatory
-    index                         # mandatory
+    dashboard
+    index do
+      except ['Ckeditor::Asset', 'Ckeditor::Picture', 'Ckeditor::AttachmentFile']
+    end
     new
     export
     bulk_delete

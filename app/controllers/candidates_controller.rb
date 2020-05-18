@@ -10,7 +10,7 @@ class CandidatesController < ApplicationController
   def index
     return @candidates = Candidate.all.paginate(page: params[:page], per_page: Settings.per_page) if current_user.admin?
     redirect_to root_path
-    flash[:notice] = "You don't have permission to show this page"
+    flash[:notice] = t('devise.user.permission_show')
   end
 
   # GET /candidates/1
@@ -40,7 +40,7 @@ class CandidatesController < ApplicationController
   def create
     respond_to do |format|
       if @candidate.save
-        format.html { redirect_to @candidate, notice: 'Candidate was successfully created.' }
+        format.html { redirect_to @candidate, notice: t('candidate.created.flash') }
         format.json { render :show, status: :created, location: @candidate }
       else
         format.html { render :new }
@@ -54,7 +54,7 @@ class CandidatesController < ApplicationController
   def update
     respond_to do |format|
       if @candidate.update(candidate_params)
-        format.html { redirect_to @candidate, notice: 'Candidate was successfully updated.' }
+        format.html { redirect_to @candidate, notice: t('candidate.updated.flash') }
         format.json { render :show, status: :ok, location: @candidate }
       else
         format.html { render :edit }
@@ -68,7 +68,7 @@ class CandidatesController < ApplicationController
   def destroy
     @candidate.destroy
     respond_to do |format|
-      format.html { redirect_to candidates_url, notice: 'Candidate was successfully destroyed.' }
+      format.html { redirect_to candidates_url, notice: t('candidate.destroyed.flash') }
       format.json { head :no_content }
     end
   end
@@ -86,7 +86,7 @@ class CandidatesController < ApplicationController
 
   def check_authorization
     unless authorization
-      flash[:notice] = "You don't have permission to edit this page"
+      flash[:notice] = t('devise.user.permission_edit')
       redirect_to root_url
     end
   end
@@ -94,7 +94,7 @@ class CandidatesController < ApplicationController
   def show_permission
     if !(employer_permission || authorization || current_user.admin?)
       redirect_to root_url
-      flash[:notice] = "You don't have permission to show this page"
+      flash[:notice] = t('devise.user.permission_show')
     end
   end
 

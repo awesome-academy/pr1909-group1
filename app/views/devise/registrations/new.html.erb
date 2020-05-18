@@ -2,10 +2,10 @@
   <div class="col-md-6 col-md-offset-3 bg-form">
     <h2><%= t(".sign_up") %></h2>
 
-    <%= render "layouts/messages" %>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name),remote: true) do |f| %>
+    <div id="error_message" class="nav">
+    </div>
 
-    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= f.error_notification %>
     <div class="form-inputs">
       <div class="row">
         <div class="col-md-6">
