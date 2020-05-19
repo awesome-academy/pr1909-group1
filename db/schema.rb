@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_16_093650) do
+ActiveRecord::Schema.define(version: 2020_05_19_085259) do
 
   create_table "apply_activities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "candidate_id", null: false
@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 2020_05_16_093650) do
     t.bigint "employer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "aasm_state"
+    t.integer "test_marks", default: 0, null: false
     t.index ["candidate_id"], name: "index_apply_activities_on_candidate_id"
     t.index ["employer_id"], name: "index_apply_activities_on_employer_id"
     t.index ["job_post_id"], name: "index_apply_activities_on_job_post_id"

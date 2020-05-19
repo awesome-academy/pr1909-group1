@@ -1,5 +1,5 @@
 vi:
-#view layouts
+# view layouts
   layouts:
     header:
       log_in: 'Đăng nhập'
@@ -24,7 +24,7 @@ vi:
       location: "Tòa nhà 11F Handico, Đường Phạm Hùng, Quận Nam Từ Liêm, Hà Nội"
       phone: 'Điện Thoại: '
 
-#view devise
+# view devise
   devise:
     new:
       prompt: 'Lựa chọn Nhà tuyển dụng hoặc ứng viên'
@@ -43,7 +43,7 @@ vi:
       permission_show: 'Bạn không có quyền xem trang này'
       permission_edit: 'Bạn không có quyền chỉnh sửa trang này'
 
-#view common
+# view common
   common:
     edit: 'Chỉnh sửa'
     back: 'Trở về'
@@ -54,7 +54,7 @@ vi:
     update: 'Cập nhật'
     hello: 'Chào'
 
-#view candidate
+# view candidate
   candidate:
     candidates: 'Tất cả ứng viên'
     dob: 'Ngày sinh'
@@ -80,11 +80,12 @@ vi:
     destroyed:
       flash: 'Xóa ứng viên thành công'
 
-#view search
+# view search
   search:
     label: 'Tìm Việc'
     btn_search: 'Tìm Kiếm'
 
+# view job_post
   job_post:
     slogan: "Việc Làm IT Cho Developers"
     new_job: 'Đăng Việc làm'
@@ -111,7 +112,7 @@ vi:
     all_jobs: 'Tất cả việc làm'
     applied_at: 'Ứng tuyển vào'
 
-#view employer
+# view employer
   employer:
     employers: 'Nhà tuyển dụng'
     logo: 'Logo công ty'
@@ -131,7 +132,7 @@ vi:
     destroyed:
       flash: 'Xóa nhà tuyển dụng thành công'
 
-#view will_paginate
+# view will_paginate
   will_paginate:
     previous_label: "&#8592; Trước"
     next_label: "Sau &#8594;"
@@ -150,4 +151,17 @@ vi:
         job_post:
           attributes:
             job_expired_date:
-              inclusion: "phải từ 1 đến 365 ngày"
+              inclusion: "Phải sau 1 đến 365 ngày kể từ ngày đăng bài"
+
+# apply_activity
+  apply_activity:
+    name: 'Họ Và Tên'
+    status: 'Trạng Thái'
+    action: 'Hoạt Động'
+    note: 'Ghi Chú'
+    review_ok: 'Xem CV Ok'
+    rejected: 'Từ Chối'
+    test_marks: 'Điểm Kiểm Tra'
+    send_results: 'Gửi Điểm'
+    test_mark: 'Điểm kiểm tra: '
+    process_ok: 'Phỏng Vấn OK'

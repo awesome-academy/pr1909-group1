@@ -7,23 +7,64 @@
       <h3 id="myModalLabel"> <%= t('candidate.candidates')%> </h3>
     </div>
     <div class="modal-body">
-      <% @candidates.each do |candidate| %>
-      <div class="modal-item">
-        <table class="table">
-          <tbody>
-            <tr>
-              <td><%= link_to candidate.user.last_name + ' ' + candidate.user.first_name,
-              candidate %></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <br>
-      <% end %>
-      <%= will_paginate @candidates %>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th><%= t('apply_activity.name') %></th>
+            <th><%= t('apply_activity.status') %></th>
+            <th><%= t('apply_activity.action') %></th>
+            <th><%= t('apply_activity.note') %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @apply_activities.each do |activity| %>
+            <div class="modal-item">
+              <tr style="height:55px">
+                <td ><%= link_to activity.candidate.user.last_name + ' ' + activity.candidate.user.first_name,
+                activity.candidate %></td>
+                <td class="activity-stt">
+                  <div class="stt stt-<%=activity.aasm_state %> ">
+                    <%= activity.aasm_state.capitalize %>
+                  </div>
+                </td>
+                <td>
+                  <% if activity.applying? %>
+                    <%= button_to  t('apply_activity.review_ok'), review_apply_activity_path(activity.id), method: :put, remote: true,class: "btn btn-primary btn-action" %>
+                    <%= button_to t('apply_activity.rejected'), reject_apply_activity_path(activity.id), method: :put, remote: true, class: "btn btn-danger btn-action" %>
+                  <% elsif activity.testing? %>
+                    <%= simple_form_for(activity, url: mark_apply_activity_path(activity.id), method: :put, html: { multipart: true}, remote: true) do |f| %>
+                      <div class="form-inputs">
+                        <%= f.input :test_marks, input_html: { min: '0', max: '10' }%>
+                      </div>
+                      <div class="form-actions">
+                        <%= f.button :submit, t('apply_activity.send_results'), class: "btn btn-primary btn-action" %>
+                      </div>
+                    <% end %>
+                    <%= button_to  t('apply_activity.rejected'), reject_apply_activity_path(activity.id), method: :put, remote: true, class: "btn btn-danger btn-action" %>
+                  <% elsif activity.interviewing? %>
+                    <%= button_to  t('apply_activity.process_ok'), process_interview_apply_activity_path(activity.id), method: :put, remote: true, class: "btn btn-primary btn-action" %>
+                    <%= button_to  t('apply_activity.rejected'), reject_apply_activity_path(activity.id), method: :put, remote: true, class: "btn btn-danger btn-action" %>
+                  <% else %>
+                    <%= "" %>
+                  <% end %>
+                </td>
+                <td>
+                  <% if (activity.interviewing? || activity.approve?) || activity.rejected? %>
+                    <span> <%= t('apply_activity.test_mark') %> <%= activity.test_marks %> </span> 
+                  <% else %>
+                    <% "" %>
+                  <% end %>
+                </td>
+              </tr>
+            </div>
+          <% end %>
+        </tbody>
+      </table>
+      <%= will_paginate @apply_activities %>
     </div>
     <div class="modal-footer">
       <%= link_to t('common.cancel'), "#", class: "btn btn-primary", data: {dismiss: "modal"} %>
     </div>
   </div>
 </div>
+<div id="show"></div>
