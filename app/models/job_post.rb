@@ -14,7 +14,7 @@ class JobPost < ApplicationRecord
   enum job_type_view: Settings.job_type.view.to_h
 
   validates :employer_id, :job_location, :job_type, :job_status, :post_priority, :salary_min,
-            :post_title, :job_description, :job_expired_date, presence: true
+            :post_title, :job_description, presence: true
   validates :employer_id, numericality: { only_integer: true }
   validates :job_location, inclusion: { in: job_locations.keys }
   validates :job_type, inclusion: { in: job_types.keys }

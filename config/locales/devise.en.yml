@@ -68,11 +68,12 @@ en:
     attributes:
       user:
         user_type: "Role"
+      job_post:
+        job_expired_date: "Job expired date"
+    errors:
+      models:
+        job_post:
+          attributes:
+            job_expired_date:
+              inclusion: "must from 1 to 365 day"
 
-vi:
-  activerecord:
-    attributes:
-      user:
-        user_type: "Vai Trò"
-        first_name: "Tên"
-        last_name: "Họ"

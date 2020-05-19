@@ -7,20 +7,20 @@
       <h3 id="myModalLabel"> <%= t('candidate.candidates')%> </h3>
     </div>
     <div class="modal-body">
-      <% @apply_activities.each do |activity| %>
+      <% @candidates.each do |candidate| %>
       <div class="modal-item">
         <table class="table">
           <tbody>
             <tr>
-              <td><%= link_to activity.candidate.user.last_name + ' ' + activity.candidate.user.first_name,
-              activity.candidate %></td>
+              <td><%= link_to candidate.user.last_name + ' ' + candidate.user.first_name,
+              candidate %></td>
             </tr>
           </tbody>
         </table>
       </div>
       <br>
       <% end %>
-      <%= will_paginate @apply_activities %>
+      <%= will_paginate @candidates %>
     </div>
     <div class="modal-footer">
       <%= link_to t('common.cancel'), "#", class: "btn btn-primary", data: {dismiss: "modal"} %>

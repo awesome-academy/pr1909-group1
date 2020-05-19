@@ -135,3 +135,18 @@ vi:
     previous_label: "&#8592; Trước"
     next_label: "Sau &#8594;"
     page_gap: "&hellip;"
+
+  activerecord:
+    attributes:
+      user:
+        user_type: "Vai Trò"
+        first_name: "Tên"
+        last_name: "Họ"
+      job_post:
+        job_expired_date: "Ngày hết hạn"
+    errors:
+      models:
+        job_post:
+          attributes:
+            job_expired_date:
+              inclusion: "phải từ 1 đến 365 ngày"

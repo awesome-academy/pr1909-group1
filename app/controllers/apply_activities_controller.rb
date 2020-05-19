@@ -2,7 +2,7 @@ class ApplyActivitiesController < ApplicationController
   before_action :login_before_apply, only: :create
 
   def index
-    @apply_activities = JobPost.find_by(id: params[:post_id]).apply_activities.
+    @candidates = Candidate.includes(:apply_activities).where(apply_activities: { job_post_id: params[:post_id] }).
       paginate(page: params[:page], per_page: Settings.per_page)
   end
 

@@ -1,11 +1,11 @@
 <div class="row edit-job">
-  <%= simple_form_for(@job_post) do |f| %>
-  
+  <%= simple_form_for(@job_post, wrapper: :vertical_input_group) do |f| %>
+
   <div class="col-md-12">
     <%= f.error_notification %>
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
   </div>
-    
+
     <div class="form-inputs container">
       <div class="row">
         <div class="col-md-6 col-sm-6 col-xs-6">
@@ -14,8 +14,18 @@
         <div class="col-md-3 col-sm-6 col-xs-6">
           <%= f.label :job_expired_date, t('job_post.expired_date') %>
           <div class="input-group date" id="datetimepicker">
-            <%= f.text_field :job_expired_date, placeholder: t('job_post.select_date'), class: "form-control" %>
-            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+            <%= f.input :job_expired_date,
+                        wrapper: :vertical_input_group,
+                        label: false do %>
+              <%= f.input_field :job_expired_date,
+                                as: :string,
+                                value: (@job_post.job_expired_date.strftime("%d-%m-%y") if
+                                  @job_post.job_expired_date),
+                                placeholder: t('job_post.select_date'),
+                                class: "form-control" %>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                        <% end %>
+
           </div>
         </div>
       </div>
@@ -43,7 +53,7 @@
 
       <div class="row">
         <div class="col-md-12">
-          <%= f.input :job_description, as: :ckeditor, 
+          <%= f.input :job_description, as: :ckeditor,
                         input_html: { ckeditor: { toolbar: 'Full' } },
                         label: t('job_post.job_desc') %>
         </div>
