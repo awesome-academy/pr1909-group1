@@ -72,7 +72,7 @@
                     <label><%= t('candidate.email')%>:</label>
                   </div>
                   <div class="col-md-5">
-                    <p><%= @candidate.user.email%> <%= link_to '', "mailto:#{@candidate.phone}", class: "fa fa-paper-plane"%></p>
+                    <p><%= @candidate.user.email%> <%= link_to '', "mailto:#{@candidate.user.email}", class: "fa fa-paper-plane"%></p>
                   </div>
                 </div>
                 <div class="row">

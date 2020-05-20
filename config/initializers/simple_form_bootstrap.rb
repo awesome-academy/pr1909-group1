@@ -62,7 +62,6 @@ SimpleForm.setup do |config|
     end
   end
 
-
   config.wrappers :vertical_form,
                   tag: 'div',
                   class: 'form-group',

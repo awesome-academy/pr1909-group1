@@ -1,0 +1,29 @@
+<div class="employer-index-grid" >
+<% @employers.each do |employer| %>
+      <div class="employer">
+
+        <div class="employer-thumb">
+            <%= link_to image_tag(employer.company_logo.url(:thumb), class: "image"), employer %>
+        </div>
+
+        <div class="info">
+          <h3 class="title"><%= link_to employer.company_name, employer %></h3>
+          <div class="company-size">
+              <i class="fa fa-users" aria-hidden="true"></i>
+              <%= employer.company_size %>
+          </div>
+
+          <div class="btn-index">
+            <% if user_signed_in? && current_user.id == employer.user_id %>
+              <%= link_to t('common.edit'), edit_employer_path(employer), class: "btn btn-primary" %>
+              <%= link_to t('common.delete'), employer, method: :delete, data: { confirm: 'Are you sure?'} , class: "btn btn-danger" %>
+            <% end %>
+          </div>
+        </div>
+
+      </div>
+    <% end %>
+  </div>
+    <div class="paginate">
+      <%= will_paginate @employers %>
+    </div>

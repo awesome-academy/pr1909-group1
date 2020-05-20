@@ -5,8 +5,6 @@ class JobPost < ApplicationRecord
   has_many :candidates, through: :apply_activities
   scope :not_expired, -> { where("job_expired_date >= ?", Date.today) }
 
-  scope :not_expired, -> { where("job_expired_date >= ?", Date.today) }
-
   enum job_location: Settings.job_location.general.to_h
   enum job_type: Settings.job_type.general.to_h
   enum job_status: Settings.job_status.general.to_h

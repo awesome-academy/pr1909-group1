@@ -52,6 +52,7 @@ vi:
     cancel: 'Huỷ'
     action: 'Thao tác'
     update: 'Cập nhật'
+    hello: 'Chào'
 
 #view candidate
   candidate:

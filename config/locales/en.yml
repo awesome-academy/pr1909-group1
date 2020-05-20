@@ -52,6 +52,7 @@ en:
     cancel: 'Cancel'
     action: 'Actions'
     update: 'Update'
+    hello: 'Hello'
 
 #view candidate
   candidate:

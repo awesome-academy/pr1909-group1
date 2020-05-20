@@ -16,7 +16,8 @@ class CandidatesController < ApplicationController
   # GET /candidates/1
   # GET /candidates/1.json
   def show
-    @job_posts = JobPost.includes(:apply_activities).where(apply_activities: { candidate_id: params[:id] }).
+    @job_posts = JobPost.joins("INNER JOIN apply_activities ON job_posts.id = apply_activities.job_post_id").
+      where(apply_activities: { candidate_id: @candidate.id }).
       paginate(page: params[:page], per_page: Settings.per_page)
     @apply_activities = @candidate.apply_activities
     respond_to do |format|
