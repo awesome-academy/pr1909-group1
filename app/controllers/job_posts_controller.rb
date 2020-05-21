@@ -6,7 +6,6 @@ class JobPostsController < ApplicationController
 
   def index
     @q = JobPost.accepted.not_expired.order(:post_priority).ransack params[:q]
-    @q.sorts = ['salary_max desc', 'created_at desc', 'job_expired_date desc'] if @q.sorts.empty?
     @job_posts = @q.result(distinct: true).paginate(page: params[:page], per_page: Settings.per_page)
     respond_to do |format|
       format.html
