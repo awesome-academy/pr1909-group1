@@ -1,8 +1,9 @@
 class ApplyActivitiesController < ApplicationController
   before_action :login_before_apply, only: :create
+  before_action :get_job_post, only: [:review, :mark, :process_interview, :reject]
 
   def index
-    @candidates = Candidate.includes(:apply_activities).where(apply_activities: { job_post_id: params[:post_id] }).
+    @apply_activities = ApplyActivity.includes(:candidate).where(apply_activities: { job_post_id: params[:post_id] }).
       paginate(page: params[:page], per_page: Settings.per_page)
   end
 
@@ -25,9 +26,47 @@ class ApplyActivitiesController < ApplicationController
     end
   end
 
+  def review
+    @apply_activity.review!
+    respond_to do |format|
+      format.html { redirect_to @job_post }
+    end
+  end
+
+  def mark
+    test_mark = params[:apply_activity][:test_marks].to_i
+    @apply_activity.mark test_mark
+    @apply_activity.update test_marks: test_mark
+    respond_to do |format|
+      format.html { redirect_to @job_post }
+    end
+  end
+
+  def process_interview
+    @apply_activity.process_interview!
+    respond_to do |format|
+      format.html { redirect_to @job_post }
+    end
+  end
+
+  def reject
+    @apply_activity.reject!
+    respond_to do |format|
+      format.html { redirect_to @job_post }
+    end
+  end
+
   def login_before_apply
     unless signed_in?
       redirect_to :new_user_session
     end
+  end
+
+  private
+
+  def get_job_post
+    @apply_activity = ApplyActivity.find params[:id]
+    job_post_id = ApplyActivity.find_by(id: params[:id]).job_post_id
+    @job_post = JobPost.find_by id: job_post_id
   end
 end

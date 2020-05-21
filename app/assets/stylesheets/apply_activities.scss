@@ -1,0 +1,48 @@
+.btn-action {
+  width: 120px;
+}
+
+input.btn-action {
+  margin-bottom: 5px;
+}
+
+td input.form-control {
+  width: 110px;
+  margin: 0px auto;
+}
+
+.modal-body tr th,.modal-body tr td {
+  width: 25%;
+  text-align: center;
+  justify-content: center;
+}
+
+td .button_to {
+  display: inline;
+}
+
+td.activity-stt {
+  text-align: center;
+  color: white;
+  .stt {
+    padding: 6px 10px;
+    border-radius: 5%;
+    width: 120px;
+    margin: 0px auto;
+  }
+  .stt-applying {
+    background: #0069d9;
+  }
+  .stt-testing {
+    background: #e0a800;
+  }
+  .stt-interviewing {
+    background: #138496;
+  }
+  .stt-approve {
+    background: #28a745;;
+  }
+  .stt-rejected {
+    background: #bd2130;
+  }
+}

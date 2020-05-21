@@ -1,5 +1,5 @@
 en:
-#view layouts
+# view layouts
   layouts:
     header:
       log_in: 'Log in'
@@ -24,7 +24,7 @@ en:
       location: "11F Handico Building, Pham Hung Road, Nam Tu Liem Dist, Ha Noi"
       phone: 'Phone: '
 
-#view devise
+# view devise
   devise:
     new:
       prompt: 'Select Employer or Candidate'
@@ -43,7 +43,7 @@ en:
       permission_show: 'You do not have permission to show this page'
       permission_edit: 'You do not have permission to edit this page'
 
-#view common
+# view common
   common:
     edit: 'Edit'
     back: 'Back'
@@ -54,7 +54,7 @@ en:
     update: 'Update'
     hello: 'Hello'
 
-#view candidate
+# view candidate
   candidate:
     candidates: 'Candidates'
     dob: 'Date of birth'
@@ -80,11 +80,12 @@ en:
     destroyed:
       flash: 'Candidate was successfully destroyed.'
 
-#view search
+# view search
   search:
     label: 'Search Job'
     btn_search: 'Search'
 
+# view job_post
   job_post:
     slogan: "IT Jobs For Developers"
     new_job: 'New Job Post'
@@ -111,7 +112,7 @@ en:
     all_jobs: 'All jobs'
     applied_at: 'Applied at'
 
-#view employer
+# view employer
   employer:
     employers: 'Employers'
     logo: 'Company Logo'
@@ -131,6 +132,7 @@ en:
     destroyed:
       flash: 'Employer was successfully destroyed.'
 
+# view will_paginate_
   will_paginate:
     previous_label: "&#8592; Previous"
     next_label: "Next &#8594;"
@@ -141,3 +143,16 @@ en:
       format:
         precision: 0
         format: '%n%u'
+
+# view apply_activity
+  apply_activity:
+    name: 'Name'
+    status: 'Status'
+    action: 'Action'
+    note: 'Note'
+    review_ok: 'Review Ok'
+    rejected: 'Rejected'
+    test_marks: 'Test marks'
+    send_results: 'Send Results'
+    test_mark: 'Test mark: '
+    process_ok: 'Process OK'

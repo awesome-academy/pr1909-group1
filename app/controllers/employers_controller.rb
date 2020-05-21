@@ -18,10 +18,11 @@ class EmployersController < ApplicationController
   # GET /employers/1.json
   def show
     if current_user.present? && (current_user.id == @employer.user_id || current_user.admin?)
-      @job_posts = @employer.job_posts.paginate(page: params[:page], per_page: Settings.per_page)
+      @job_posts = @employer.job_posts.
+        paginate(page: params[:page], per_page: Settings.per_page).order(job_status: :asc)
     else
       @job_posts = @employer.job_posts.accepted.
-        paginate(page: params[:page], per_page: Settings.per_page)
+        paginate(page: params[:page], per_page: Settings.per_page).order(job_status: :asc)
     end
     respond_to do |format|
       format.html
