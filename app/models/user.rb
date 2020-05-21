@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_one :candidate, dependent: :destroy
   has_one :employer, dependent: :destroy
   acts_as_paranoid
+  attr_readonly :email
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
