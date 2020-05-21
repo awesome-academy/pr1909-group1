@@ -8,8 +8,8 @@ post_id = []
 
 20.times do |n|
 User.create!(
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
+  first_name: Faker::Name.first_name.delete("',^"),
+  last_name: Faker::Name.last_name.delete("',^"),
   email: "admin_#{n+1}@gmail.com",
   password:  ENV["ADMIN_PASSWORD"],
   password_confirmation: ENV["ADMIN_PASSWORD"],
@@ -18,8 +18,8 @@ User.create!(
 end
 
 40.times do |n|
-  user = User.create!(first_name:  Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
+  user = User.create!(first_name:  Faker::Name.first_name.delete("',^"),
+    last_name: Faker::Name.last_name.delete("',^"),
     email: "example_#{n+1}@gmail.com",
     user_type: rand(1..2),
     password: "password",

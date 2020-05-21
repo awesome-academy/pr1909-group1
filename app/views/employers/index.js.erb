@@ -1,0 +1,5 @@
+$('#employer-list').html('<%= j render "employers/employer_list" %>');
+$('.pagination a').attr('data-remote', 'true');
+$('body,html').animate({
+  scrollTop: 0
+  }, 400 );

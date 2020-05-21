@@ -2,7 +2,7 @@ class Candidate < ApplicationRecord
   belongs_to :user, -> { with_deleted }
   accepts_nested_attributes_for :user
   has_many :apply_activities, dependent: :destroy
-  has_many :job_post, through: :apply_activities
+  has_many :job_posts, through: :apply_activities
   mount_uploader :avatar, AvatarUploader
   mount_uploader :cv, CvUploader
   acts_as_paranoid

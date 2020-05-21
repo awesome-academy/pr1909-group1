@@ -1,6 +1,12 @@
 class RegistrationsController < Devise::RegistrationsController
   def create
-    super
+    super do
+      unless resource.save
+        clean_up_passwords resource
+        respond_to :js
+        return
+      end
+    end
     update_resource_new
   end
 

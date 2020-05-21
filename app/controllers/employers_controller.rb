@@ -8,6 +8,10 @@ class EmployersController < ApplicationController
   # GET /employers.json
   def index
     @employers = Employer.all.paginate(page: params[:page], per_page: Settings.per_page)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /employers/1
@@ -40,7 +44,7 @@ class EmployersController < ApplicationController
     @employer = Employer.new(employer_params)
     respond_to do |format|
       if @employer.save
-        format.html { redirect_to @employer, notice: 'Employer was successfully created.' }
+        format.html { redirect_to @employer, notice: t('employer.created.flash') }
         format.json { render :show, status: :created, location: @employer }
       else
         format.html { render :new }
@@ -54,7 +58,7 @@ class EmployersController < ApplicationController
   def update
     respond_to do |format|
       if @employer.update(employer_params)
-        format.html { redirect_to @employer, notice: 'Employer was successfully updated.' }
+        format.html { redirect_to @employer, notice: t('employer.updated.flash') }
         format.json { render :show, status: :ok, location: @employer }
       else
         format.html { render :edit }
@@ -68,7 +72,7 @@ class EmployersController < ApplicationController
   def destroy
     @employer.destroy
     respond_to do |format|
-      format.html { redirect_to employers_url, notice: 'Employer was successfully destroyed.' }
+      format.html { redirect_to employers_url, notice: t('employer.destroyed.flash') }
       format.json { head :no_content }
     end
   end
@@ -86,7 +90,7 @@ class EmployersController < ApplicationController
 
   def check_authorization
     unless current_user.id == @employer.user_id
-      flash[:notice] = "You don't have permission to edit this page"
+      flash[:notice] = t('devise.user.permission_edit')
       redirect_to root_url
     end
   end

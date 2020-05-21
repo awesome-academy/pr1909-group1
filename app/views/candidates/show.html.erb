@@ -44,7 +44,7 @@
             <%= t('candidate.show.profile') %>
           </a>
         </li>
-        <% if (user_signed_in? && current_user.id == @candidate.user_id)|| current_user.admin? %>
+        <% if current_user.id == @candidate.user_id || current_user.admin? %>
         <li class="nav-item">
           <a class="nav-link" id="job-tab" data-toggle="tab" href="#job" role="tab">
             <%= t('candidate.applied_job') %>
@@ -60,7 +60,7 @@
                   <div class="col-md-5">
                     <div class="fa fa-user">
                     </div>
-                    <label><%= t('user.full_name')%>:</label>
+                    <label><%= t('candidate.full_name')%>:</label>
                   </div>
                   <div class="col-md-5">
                     <p><%= @candidate.user.first_name %> <%= @candidate.user.last_name %></p>
@@ -72,7 +72,7 @@
                     <label><%= t('candidate.email')%>:</label>
                   </div>
                   <div class="col-md-5">
-                    <p><%= @candidate.user.email%> <%= link_to '', "mailto:#{@candidate.phone}", class: "fa fa-paper-plane"%></p>
+                    <p><%= @candidate.user.email%> <%= link_to '', "mailto:#{@candidate.user.email}", class: "fa fa-paper-plane"%></p>
                   </div>
                 </div>
                 <div class="row">
@@ -113,12 +113,13 @@
                 </div>
           </div>
         </div>
-
+        <% if current_user.id == @candidate.user_id || current_user.admin? %>
         <div class="tab-pane fade" id="job" role="tabpanel">
           <div class="candidate-jobs" id="applied_jobs" >
             <%= render "job_posts/card_index"%>
           </div>
         </div>
+        <% end %>
       </div>
     </div>
 

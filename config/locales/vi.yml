@@ -30,9 +30,18 @@ vi:
       prompt: 'Lựa chọn Nhà tuyển dụng hoặc ứng viên'
       label: 'Vai trò'
       error: 'Yêu cầu chức năng người dùng, vui lòng chọn'
+      first_name: 'Tên'
+      last_name: 'Họ'
     link:
       forgot_password: 'Quên mật khẩu'
       confirmation_email: 'Gửi lại email xác nhận'
+    user:
+      email:
+        valid: 'email hợp lệ'
+        invalid: 'email không hợp lệ'
+      flash_user_not_exist: 'Trang này không tồn tại'
+      permission_show: 'Bạn không có quyền xem trang này'
+      permission_edit: 'Bạn không có quyền chỉnh sửa trang này'
 
 #view common
   common:
@@ -43,6 +52,7 @@ vi:
     cancel: 'Huỷ'
     action: 'Thao tác'
     update: 'Cập nhật'
+    hello: 'Chào'
 
 #view candidate
   candidate:
@@ -62,12 +72,13 @@ vi:
     website: 'Trang Web'
     email: 'Thư điện tử'
     avatar: 'Ảnh đại diện'
-
-#view user
-  user:
-    first_name: 'Tên'
-    last_name: 'Họ'
     full_name: 'Họ Tên'
+    created:
+      flash: 'Ứng viên đã được tạo thành công.'
+    updated:
+      flash: 'Thông tin ứng viên đã được cập nhật thành công.'
+    destroyed:
+      flash: 'Xóa ứng viên thành công'
 
 #view search
   search:
@@ -113,9 +124,30 @@ vi:
       day: 'Thứ 2 - Thứ 6'
     edit:
       editing: 'Chỉnh sửa nhà tuyển dụng'
+    created:
+      flash: 'Nhà tuyển đã được tạo thành công.'
+    updated:
+      flash: 'Thông tin nhà tuyển dụng đã được cập nhật thành công.'
+    destroyed:
+      flash: 'Xóa nhà tuyển dụng thành công'
 
 #view will_paginate
   will_paginate:
     previous_label: "&#8592; Trước"
     next_label: "Sau &#8594;"
     page_gap: "&hellip;"
+
+  activerecord:
+    attributes:
+      user:
+        user_type: "Vai Trò"
+        first_name: "Tên"
+        last_name: "Họ"
+      job_post:
+        job_expired_date: "Ngày hết hạn"
+    errors:
+      models:
+        job_post:
+          attributes:
+            job_expired_date:
+              inclusion: "phải từ 1 đến 365 ngày"

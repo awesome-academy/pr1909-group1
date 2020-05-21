@@ -63,3 +63,17 @@ en:
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
+
+  activerecord:
+    attributes:
+      user:
+        user_type: "Role"
+      job_post:
+        job_expired_date: "Job expired date"
+    errors:
+      models:
+        job_post:
+          attributes:
+            job_expired_date:
+              inclusion: "must from 1 to 365 day"
+

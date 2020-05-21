@@ -9,6 +9,7 @@ Bundler.require(*Rails.groups)
 module DemoSql
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
+    config.time_zone = "Asia/Ho_Chi_Minh"
     config.i18n.default_locale = :en
     config.i18n.available_locales = [:en, :vi]
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
