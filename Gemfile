@@ -40,7 +40,7 @@ gem 'font-awesome-sass'
 gem 'faker'
 gem 'rails_admin'
 gem 'rails_admin-i18n'
-gem 'carrierwave'
+# gem 'carrierwave'
 gem 'rmagick'
 gem 'config'
 gem 'ckeditor'
@@ -51,6 +51,8 @@ gem "paranoia"
 gem 'momentjs-rails'
 gem 'bootstrap3-datetimepicker-rails'
 gem 'aasm'
+gem 'aws-sdk'
+gem 'paperclip'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
