@@ -39,7 +39,7 @@ en:
       email:
         valid: 'email is valid'
         invalid: 'email is invalid'
-      flash_not_exist: 'This page does not exist'
+      flash_user_not_exist: 'This page does not exist'
       permission_show: 'You do not have permission to show this page'
       permission_edit: 'You do not have permission to edit this page'
 

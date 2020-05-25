@@ -42,8 +42,9 @@ class JobPostsController < ApplicationController
         format.html { redirect_to @job_post, notice: 'Job post was successfully created.' }
         format.json { render :show, status: :created, location: @job_post }
       else
-        format.html { render :new }
+        format.html
         format.json { render json: @job_post.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
