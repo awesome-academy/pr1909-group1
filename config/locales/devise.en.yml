@@ -75,5 +75,5 @@ en:
         job_post:
           attributes:
             job_expired_date:
-              inclusion: "must from 1 to 365 day"
+              inclusion: "must be 1~365 days from the published date."
 
