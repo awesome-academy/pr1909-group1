@@ -1,0 +1,7 @@
+$('#new-post-form').html('<%= j render "job_posts/form"%>')
+$(document).ready(function () {
+  $('#datetimepicker').datetimepicker({
+    locale: 'en',
+    format: "DD/MM/YYYY"
+  });
+});
