@@ -1,24 +1,25 @@
-# README
+# Online learning website
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Resources
 
-Things you may want to cover:
+* Ruby version: '2.6.5'
 
-* Ruby version
+* Rails version: '6.0.3'
 
-* System dependencies
+* Database Mysql 
 
-* Configuration
+## Docker
 
-* Database creation
+* To start up the application in your local Docker environment:
 
-* Database initialization
+```bash
+git clone git@github.com:awesome-academy/pr1909-group1.git
+cd pr1909-group1
+```
+Clearn Gemfile.lock
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```bash
+sudo docker-compose build
+sudo docker-compose up -d
+sudo docker-compose run app_cms rails db:create
+```
