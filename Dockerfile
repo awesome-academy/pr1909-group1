@@ -1,4 +1,4 @@
-FROM ruby:2.6.5
+FROM ruby:2.7.1
 RUN apt-get update && \
   apt-get install -y nodejs npm nano vim \
   && curl -o- -L https://yarnpkg.com/install.sh | bash
