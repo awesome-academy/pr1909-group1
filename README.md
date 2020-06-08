@@ -16,7 +16,13 @@
 git clone git@github.com:awesome-academy/pr1909-group1.git
 cd pr1909-group1
 ```
-Clearn Gemfile.lock
+Copy .env-sample to .env and change password
+
+```bash
+cp .env-sample .env
+```
+
+Clean Gemfile.lock
 
 ```bash
 sudo docker-compose build
