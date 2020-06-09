@@ -13,6 +13,8 @@ gem 'figaro'
 #gem 'trestle', '~> 0.9.3'
 # Gem Slim for HTML
 gem 'slim-rails' 
+# Gem convert HTML to SLIM
+gem 'html2slim', '~> 0.2.0'
 # Devise
 gem "devise"
 # OmiAuth with social network

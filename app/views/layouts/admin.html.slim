@@ -1,0 +1,35 @@
+doctype html
+html[lang="en"]
+  head
+    meta[charset="utf-8"]
+    meta[name="viewport" content="width=device-width, initial-scale=1"]
+    meta[http-equiv="x-ua-compatible" content="ie=edge"]
+    title
+      | AdminLTE 3 | Dashboard 3
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    script[src="https://kit.fontawesome.com/6d90f39943.js"]
+  body.hold-transition.sidebar-mini
+    .wrapper
+      = render partial: "layouts/header"
+      = render partial: "layouts/sidebar"
+      .content-wrapper
+        .content-header
+          .container-fluid
+            .row.mb-2
+              .col-sm-6
+                h1.m-0.text-dark
+                  | Dashboard v3
+              .col-sm-6
+                ol.breadcrumb.float-sm-right
+                  li.breadcrumb-item
+                    a[href="#"]
+                      | Home
+                  li.breadcrumb-item.active
+                    | Dashboard v3
+        .content
+          .container-fluid
+            = yield
+      = render partial: "layouts/footer"
