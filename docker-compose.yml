@@ -15,9 +15,5 @@ services:
       - .:/project2_group1
     ports:
       - "3000:3000"
-    networks:
-      - web
-networks:
-  web:
-    external:
-      name: web-network
+    depends_on:
+      - mysql

@@ -10,7 +10,6 @@ require("channels")
 
 require("jquery");
 require("bootstrap");
-
 require("packs/preloader");
 require("packs/backToTop");
 
