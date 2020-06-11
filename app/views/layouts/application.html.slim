@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    title
+      | Athena
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+    .container-fluid
+      = render  "shared/header"
+
+    .container-fuild
+      = yield
+
+    button.btn.btn-lg.back-to-top[data-toggle="tooltip" data-placement="left"]
+      i.fas.fa-angle-up
+
+    .container-fluid
+      = render  "shared/footer"
+
+    #preloader
