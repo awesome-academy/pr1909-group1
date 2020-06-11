@@ -26,6 +26,5 @@ header#header
               .dropdown-divider
               a.dropdown-item[href="#"]
                 | Something else here
-          li.nav-item
-            a.get-login-btn[href="#"]
-              | Login
+          li.nav-item.get-login-btn
+            = link_to "Login", new_user_session_path
