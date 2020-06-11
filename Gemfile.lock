@@ -216,6 +216,9 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
+    simple_form (5.0.2)
+      actionpack (>= 5.0)
+      activemodel (>= 5.0)
     slim (4.1.0)
       temple (>= 0.7.6, < 0.9)
       tilt (>= 2.0.6, < 2.1)
@@ -223,9 +226,6 @@ GEM
       actionpack (>= 3.1)
       railties (>= 3.1)
       slim (>= 3.0, < 5.0)
-    simple_form (5.0.2)
-      actionpack (>= 5.0)
-      activemodel (>= 5.0)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -283,10 +283,7 @@ DEPENDENCIES
   devise
   figaro
   font-awesome-sass
-<<<<<<< HEAD
   html2slim
-=======
->>>>>>> feature sign up
   jbuilder (~> 2.7)
   listen (~> 3.2)
   mysql2 (>= 0.4.4)
@@ -296,11 +293,8 @@ DEPENDENCIES
   rubocop-airbnb
   sass-rails (>= 6)
   selenium-webdriver
-<<<<<<< HEAD
-  slim-rails
-=======
   simple_form
->>>>>>> feature sign up
+  slim-rails
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
