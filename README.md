@@ -10,7 +10,7 @@
 
 ## Docker
 
-* To start up the application in your local Docker environment:
+To start up the application in your local Docker environment:
 
 ```bash
 git clone git@github.com:awesome-academy/pr1909-group1.git
@@ -26,6 +26,17 @@ Clean Gemfile.lock
 
 ```bash
 sudo docker-compose build
+```
+Install Figaro 
+
+```bash
+sudo docker-compose run app_cms bundle exec figaro install
+```
+And change application.yml follow application.yml.example, next
+
+```bash
+sudo docker-compose up --build
 sudo docker-compose up -d
 sudo docker-compose run app_cms rails db:create
+sudo docker-compose run app_cms rails db:migrate
 ```
