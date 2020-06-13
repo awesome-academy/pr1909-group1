@@ -26,9 +26,9 @@ header#header
               .dropdown-divider
               a.dropdown-item[href="#"]
                 = t('layouts.header.smt_else')
-          li 
+          li.flag 
               = link_to image_tag('en.png'), locale:"en" if I18n.locale == :vi
-          li
+          li.flag
               = link_to image_tag('vi.png'), locale:"vi" if I18n.locale == :en 
           li.nav-item.get-login-btn
-            = link_to "Login", new_user_session_path
+            = link_to t('layouts.header.log_in'), new_user_session_path

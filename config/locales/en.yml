@@ -2,7 +2,7 @@ en:
   # view layouts
     layouts:
       header:
-        home: 'Home hihi'
+        home: 'Home'
         course: 'Courses'
         drop_down: 'Dropdown'
         action: 'Action'
