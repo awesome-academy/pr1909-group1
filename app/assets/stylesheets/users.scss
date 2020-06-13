@@ -1,0 +1,62 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+.sign-up-form{
+  width: 400px;
+  background: white;
+  border-radius: 10px;
+  padding: 20px 50px;
+}
+
+.text-box{
+  overflow: hidden;
+  padding: 8px 0;
+  margin: 15px 0;
+  border-bottom: 1px solid #4da222;
+  font-size: 16px;
+}
+
+.text-box input{
+  margin: 5px 10px;
+  outline: none;
+  border: none;
+  background: white;
+  color: #000;
+}
+.text-box i{
+  width: 25px;
+  margin: 5px 10px;
+  float: left;
+  text-align: center;
+}
+
+.btn-sign-up{
+  padding: 8px 15px;
+  border-radius: 30px;
+}
+
+.invalid-feedback {
+  display: block;
+  width: 100%;
+  margin-top: .25rem;
+  font-size: 90%;
+  color: #dc3545;
+}
+#errors-message {
+  margin-top: 2px;
+}
+
+.sign-up-page{
+  background-image: url("sign_up_bg.jpg");
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 40px;
+}
+
+.sign-up-box{
+  min-height: 100vh;
+}

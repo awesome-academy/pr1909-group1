@@ -1,0 +1,66 @@
+<div class="sign-up-box">
+  <div class="col-md-4 offset-md-4">
+    <div class="sign-up-form" >
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+        <%= f.input :first_name,
+                    required: true,
+                    input_html: { auto_complete: 'first_name' },
+                    label: false do %>
+                      <div class="text-box">
+                        <i class="fa fa-user"></i>
+                        <%= f.input_field :first_name,
+                                          placeholder: "First Name" %>
+                      </div>
+                    <% end %>
+
+          <%= f.input :last_name,
+                      required: true,
+                      input_html: { auto_complete: 'last_name' },
+                      label: false do %>
+                        <div class="text-box">
+                          <i class="fa fa-user"></i>
+                          <%= f.input_field :last_name,
+                                            placeholder: "Last Name" %>
+                        </div>
+                      <% end %>
+
+          <%= f.input :email,
+                      required: true,
+                      input_html: { auto_complete: 'email' },
+                      label: false do %>
+                        <div class="text-box">
+                          <i class="fa fa-envelope"></i>
+                          <%= f.input_field :email,
+                                            placeholder: "Email" %>
+                        </div>
+                      <% end %>
+          <%= f.input :password,
+                      required: true,
+                      label: false do %>
+                        <div class="text-box">
+                          <i class="fa fa-lock"></i>
+                          <%= f.input_field :password,
+                                            placeholder: "Password",
+                                            input_html: { autocomplete: "new-password" } %>
+                        </div>
+                      <% end %>
+          <%= f.input :password_confirmation,
+                      required: true,
+                      label: false do %>
+                        <div class="text-box">
+                          <i class="fa fa-lock"></i>
+                          <%= f.input_field :password_confirmation,
+                                            placeholder: "Password Confirmation",
+                                            input_html: { autocomplete: "new-password" } %>
+                        </div>
+                      <% end %>
+
+          <%= f.button :submit, "Sign up", class: "btn btn-success btn-sign-up" %>
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+
+    </div>
+  </div>
+</div>
