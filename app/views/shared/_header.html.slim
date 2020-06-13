@@ -9,22 +9,26 @@ header#header
         ul.navbar-nav.ml-auto
           li.nav-item
             a.nav-link[href="#"]
-              | Home
+              = t('layouts.header.home') 
               span.sr-only
                 | (current)
           li.nav-item
             a.nav-link[href="#"]
-              | Courses
+              = t('layouts.header.course')
           li.nav-item.dropdown
             a#navbarDropdownXL.nav-link.dropdown-toggle[href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
-              |  Dropdown
+              = t('layouts.header.drop_down') 
             .dropdown-menu[aria-labelledby="navbarDropdownXL"]
               a.dropdown-item[href="#"]
-                | Action
+                = t('layouts.header.action')
               a.dropdown-item[href="#"]
-                | Another action
+                = t('layouts.header.another_action')
               .dropdown-divider
               a.dropdown-item[href="#"]
-                | Something else here
+                = t('layouts.header.smt_else')
+          li 
+              = link_to image_tag('en.png'), locale:"en" if I18n.locale == :vi
+          li
+              = link_to image_tag('vi.png'), locale:"vi" if I18n.locale == :en 
           li.nav-item.get-login-btn
             = link_to "Login", new_user_session_path

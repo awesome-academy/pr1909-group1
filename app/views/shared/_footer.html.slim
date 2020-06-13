@@ -6,48 +6,43 @@ footer#footer
           h3
             | Athena
           p
-            |  11F Handico Building, Pham Hung Road 
-            br
-            |  Nam Tu Liem Dist, Ha Noi
-            br
-            |  Viet Nam 
-            br
+            = t('layouts.footer.addr')  
             br
             strong
-              | Phone:
+              = t('layouts.footer.phone')
             |  +84 123456789
             br
             strong
-              | Email:
+              = t('layouts.footer.email')
             |  athena@gmail.com
             br
         .col-lg-2.col-md-6.footer-links
           h4
-            | Useful Links
+            = t('layouts.footer.link')
           ul
             li
               i.bx.bx-chevron-right
               a[href="#"]
-                | Home
+                = t('layouts.header.home')
             li
               i.bx.bx-chevron-right
               a[href="#"]
-                | About us
+                = t('layouts.footer.about')
             li
               i.bx.bx-chevron-right
               a[href="#"]
-                | Services
+                = t('layouts.footer.service')
             li
               i.bx.bx-chevron-right
               a[href="#"]
-                | Terms of service
+                = t('layouts.footer.term')
             li
               i.bx.bx-chevron-right
               a[href="#"]
-                | Privacy policy
+                = t('layouts.footer.policy')
         .col-lg-3.col-md-6.footer-links
           h4
-            | Our Course
+            = t('layouts.footer.our_course')
           ul
             li
               i.bx.bx-chevron-right
@@ -71,9 +66,9 @@ footer#footer
                 | Graphic Design
         .col-lg-4.col-md-6.footer-newsletter
           h4
-            | About
+            = t('layouts.footer.about')
           p
-            | Athena is an online learning website
+            = t('layouts.footer.about_cont')
           form[action="" method="post"]
             input[type="email" name="email"]
             input[type="submit" value="Subscribe"]
@@ -86,7 +81,7 @@ footer#footer
             | Athena
         | . All Rights Reserved 
       .credits
-        |  Designed by group one
+        |  Designed by Group One
     .social-links.text-center.text-md-right.pt-3.pt-md-0
       a.twitter[href="#"]
         i.fab.fa-twitter
