@@ -39,6 +39,8 @@ gem 'devise'
 gem 'slim-rails'
 gem 'html2slim'
 gem "config"
+gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

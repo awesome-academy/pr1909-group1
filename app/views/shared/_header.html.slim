@@ -9,7 +9,7 @@ header#header.fixed-top
         ul.navbar-nav.ml-auto
           li.nav-item
             a.nav-link[href="/"]
-              = t('layouts.header.home') 
+              = t('layouts.header.home')
               span.sr-only
                 | (current)
           li.nav-item
@@ -20,14 +20,21 @@ header#header.fixed-top
             = link_to image_tag('en.png'), locale:"en" if I18n.locale == :vi
           li.flag.nav-item
             = link_to image_tag('vi.png'), locale:"vi" if I18n.locale == :en
+          li.flag
+              = link_to image_tag('en.png'), locale:"en" if I18n.locale == :vi
+          li.flag
+              = link_to image_tag('vi.png'), locale:"vi" if I18n.locale == :en
+          li.nav-item.get-login-btn
+            = link_to t('layouts.header.log_in'), new_user_session_path
+                | Something else here
         - unless signed_in?
-          li.nav-item.get-login-btn    
+          li.nav-item.get-login-btn
             = link_to "Login", new_user_session_path
         - else
           li.nav-item.nav-link.dropdown
             a#navbarDropdownXL.nav-link.dropdown-toggle[href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
               |  Hello #{current_user.first_name}
             .dropdown-menu[aria-labelledby="navbarDropdownXL"]
-              = link_to "Account Setting", edit_user_registration_path, class: "dropdown-item" 
+              a.dropdown-item[href="#"]
+                | Account Setting
               = link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item"
-

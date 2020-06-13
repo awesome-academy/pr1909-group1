@@ -27,13 +27,18 @@ ActiveRecord::Schema.define(version: 2020_06_12_113415) do
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "first_name", limit: 25, null: false
-    t.string "last_name", limit: 25, null: false
+    t.string "last_name", limit: 25, default: ""
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.boolean "is_admin", default: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "provider"
+    t.string "uid"
+    t.string "token"
+    t.string "refresh_token"
+    t.datetime "oauth_expires_at"
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"

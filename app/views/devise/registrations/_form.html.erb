@@ -1,6 +1,9 @@
-<div class="sign-up-box">
+<div class="form-box">
   <div class="col-md-4 offset-md-4">
-    <div class="sign-up-form" >
+    <div class="form" >
+      <div class="form-title row">
+          <h2>Sign up</h2>
+        </div>
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
         <%= f.input :first_name,
