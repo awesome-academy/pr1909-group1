@@ -1,4 +1,4 @@
-$(window).on("load", function(){
+$(window).on("turbolinks:load", function(){
   $(this).scroll(function () {
     if ($(this).scrollTop() > 10) {
         $('.back-to-top').fadeIn();
@@ -14,7 +14,4 @@ $(window).on("load", function(){
     }, 600);
       return false;
   });
-  
-  // $('.back-to-top').tooltip('show');
-
 });

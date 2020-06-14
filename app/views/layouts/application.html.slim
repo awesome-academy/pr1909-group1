@@ -11,11 +11,13 @@ html
     .container-fluid
       = render  "shared/header"
 
-    .container-fuild
-      = yield
+    .main
+      .container-fuild
+        = yield
 
     button.btn.btn-lg.back-to-top[data-toggle="tooltip" data-placement="left"]
       i.fas.fa-angle-up
 
     .container-fluid
       = render  "shared/footer"
+    #preloader

@@ -1,0 +1,31 @@
+section#counts.counts.section-bg
+  .container
+    .row.counters
+      .col-lg-3.col-3.text-center
+        i.fas.fa-users
+        span.num
+          | 1232
+          /TODO user.apply_course.count
+        p
+          | Students
+      .col-lg-3.col-3.text-center
+        i.fas.fa-book
+        span.num
+          | 64
+          /TODO courses.count
+        p
+          | Courses
+      .col-lg-3.col-3.text-center
+        i.fas.fa-photo-video
+        span.num
+          | 80
+          /TODO Lesson[lesson_type = video ].count
+        p
+          | Videos
+      .col-lg-3.col-3.text-center
+        i.fas.fa-file-invoice
+        span.num
+          | 42
+        p
+          | Tests
+          /TODO Lesson[lesson_type = test].count
