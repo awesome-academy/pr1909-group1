@@ -16,7 +16,6 @@ header#header.fixed-top
             = link_to "About", about_path, class: "nav-link"
           li.nav-item
             = link_to t('layouts.header.course'), courses_path, class: "nav-link"
-
         - unless signed_in?
           li.nav-item.get-login-btn.dropdown
             = link_to t("user.log_in"), new_user_session_path
