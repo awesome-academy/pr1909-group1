@@ -1,33 +1,30 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  # view layouts
+    layouts:
+      header:
+        home: 'Home'
+        course: 'Courses'
+        drop_down: 'Dropdown'
+        action: 'Action'
+        another_action: 'An other action'
+        smt_else: 'Something else here'
+        log_in: 'Log in'
+        sign_up: 'Sign up'
+
+      footer:
+        addr: "11F Handico Building, Pham Hung Road, Nam Tu Liem Dist, Ha Noi"
+        phone: 'Phone: '
+        email: 'Email'
+        link: 'Useful Links'
+        home: 'Home'
+        about: 'About us'
+        servise: 'Services'
+        term: 'Terms of service'
+        policy: 'Privacy policy'
+        our_course: 'Our Course'
+        about_cont: 'Inspired by Awsome Academy, Athena Education is a dynamic education group dedicated to delivering quality learning for all students.
+                     We are committed to developing students as outstanding, independent learners both online and in the classroom. 
+                     Our aim is to ensure that all learners become self-confident, are secure and achieve at the highest level they can.'
+                           
+    common:
+      view_course: 'View our courses'

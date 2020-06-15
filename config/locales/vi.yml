@@ -1,0 +1,28 @@
+vi:
+  # view layouts
+    layouts:
+      header:
+        home: 'Trang chủ'
+        course: 'Khoá học'
+        drop_down: 'Dropdown'
+        action: 'Thao tác'
+        another_action: 'Thao tác khác'
+        smt_else: 'Khác'
+        log_in: 'Đăng nhập'
+        sign_up: 'Đăng ký'
+
+      footer:
+        addr: "Tầng 11 toà nhà Handico, đường Phạm Hùng, quận Nam Từ Liêm, Hà Nội"
+        phone: 'Điện thoại: '
+        email: 'Email'
+        link: 'Đường dẫn'
+        about: 'Về chúng tôi'
+        servise: 'Dịch vụ'
+        term: 'Điều khoản dịch vụ'
+        policy: 'Chính sách riêng tư'
+        our_course: 'Khoá học của chúng tôi'
+        about_cont: 'Lấy cảm hứng từ Awsome Academy, Athena Education là tập đoàn giáo dục năng động, với sứ mệnh đem tới các khoá học chất lượng tới tất cả mọi người.
+                     Chúng tôi cam kết phát triển những học viên độc lập, nổi bật thông qua cả hình thức trực tuyến và lớp học truyền thống.
+                     Mục tiêu của chúng tôi là đảm bảo tất cả học viên đều trở nên tự tin, và đạt được trình độ cao nhất mà họ hướng tới.'
+    common:
+      view_course: 'Xem khoá học'
