@@ -4,7 +4,8 @@ Rails.application.routes.draw do
 
     get "/about", to: "home#about"
     resources :courses
-    devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
+    devise_for :users, skip: :omniauth_callbacks
     # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   end
+  devise_for :users, only: :omniauth_callbacks, controllers: { omniauth_callbacks: "omniauth_callbacks" }
 end

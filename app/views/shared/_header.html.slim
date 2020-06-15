@@ -22,19 +22,20 @@ header#header.fixed-top
             = link_to image_tag('vi.png'), locale:"vi" if I18n.locale == :en
             a.nav-link[href="#"]
               = t('layouts.header.course')
-          li.flag
-              = link_to image_tag('en.png'), locale:"en" if I18n.locale == :vi
-          li.flag
-              = link_to image_tag('vi.png'), locale:"vi" if I18n.locale == :en
+
         - unless signed_in?
           li.nav-item.get-login-btn.dropdown
-            = link_to "Login", new_user_session_path
+            = link_to t("user.log_in"), new_user_session_path
         - else
           li.nav-item.nav-link.dropdown
             a#navbarDropdownXL.nav-link.dropdown-toggle[href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
-              |  Hello #{current_user.first_name}
+              = current_user.full_name
             .dropdown-menu[aria-labelledby="navbarDropdownXL"]
               a.dropdown-item[href="#"]
-                | Account Setting
+                = t("header.account_setting")
               .dropdown-divider
-              = link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item"
+              = link_to t("header.log_out"), destroy_user_session_path, method: :delete, class: "dropdown-item"
+        li.flag
+            = link_to image_tag('en.png'), locale:"en" if I18n.locale == :vi
+        li.flag
+            = link_to image_tag('vi.png'), locale:"vi" if I18n.locale == :en

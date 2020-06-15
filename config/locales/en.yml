@@ -4,12 +4,10 @@ en:
       header:
         home: 'Home'
         course: 'Courses'
-        drop_down: 'Dropdown'
         action: 'Action'
         another_action: 'An other action'
-        smt_else: 'Something else here'
-        log_in: 'Log in'
-        sign_up: 'Sign up'
+        account_setting: 'Account Setting'
+        log_out: 'Log out'
 
       footer:
         addr: "11F Handico Building, Pham Hung Road, Nam Tu Liem Dist, Ha Noi"
@@ -23,8 +21,19 @@ en:
         policy: 'Privacy policy'
         our_course: 'Our Course'
         about_cont: 'Inspired by Awsome Academy, Athena Education is a dynamic education group dedicated to delivering quality learning for all students.
-                     We are committed to developing students as outstanding, independent learners both online and in the classroom. 
+                     We are committed to developing students as outstanding, independent learners both online and in the classroom.
                      Our aim is to ensure that all learners become self-confident, are secure and achieve at the highest level they can.'
-                           
+
     common:
       view_course: 'View our courses'
+    user:
+      password: "Password"
+      log_in: "Log in"
+      email: 'Email'
+      login_google: "Login with Google"
+      login_facebook: "Login with Facebook"
+      sign_up: "Sign up"
+      full_name: "Full Name"
+      password: "Password"
+      password_confirmation: "Password Confirmation"
+      remember_me: "Remember me"
