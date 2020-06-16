@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_06_12_113415) do
 
-  create_table "courses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "courses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "course_title", limit: 100, null: false
     t.text "course_overview", null: false
