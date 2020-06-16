@@ -137,6 +137,8 @@ GEM
       dry-equalizer (~> 0.2)
       dry-initializer (~> 3.0)
       dry-schema (~> 1.5)
+    devise-i18n (1.9.1)
+      devise (>= 4.7.1)
     erubi (1.9.0)
     execjs (2.7.0)
     faraday (1.0.1)
@@ -348,6 +350,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   config
   devise
+  devise-i18n
   figaro
   font-awesome-sass
   html2slim

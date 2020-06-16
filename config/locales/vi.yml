@@ -8,6 +8,7 @@ vi:
         another_action: 'Thao tác khác'
         account_setting: 'Cài đặt tài khoản'
         log_out: 'Đăng xuất'
+        profile: 'Thông tin cá nhân'
 
       footer:
         addr: "Tầng 11 toà nhà Handico, đường Phạm Hùng, quận Nam Từ Liêm, Hà Nội"
@@ -35,6 +36,14 @@ vi:
       password: "Mật khẩu"
       password_confirmation: "Nhập lại mật khẩu"
       remember_me: "Nhớ mật khẩu"
+      current_password: 'Mật khẩu hiện tại'
+      update: 'Cập nhật'
+      edit: 'Chỉnh sửa'
+
+    devise:
+      forgot_password: 'Quên mật khẩu'
+      resend_confirmation: 'Gửi lại hướng dẫn xác nhận tài khoản'
+      did_not_receive_confirmation: 'Không nhận được hướng dẫn xác nhận tài khoản'
 
     activerecord:
       attributes:

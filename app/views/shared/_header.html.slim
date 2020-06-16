@@ -8,10 +8,7 @@ header#header.fixed-top
       #navbarSupportedContentXL.collapse.navbar-collapse
         ul.navbar-nav.ml-auto
           li.nav-item
-            a.nav-link[href="/"]
-              = t('layouts.header.home')
-              span.sr-only
-                | (current)
+            = link_to t('layouts.header.home'), root_path, class: "nav-link"
           li.nav-item
             = link_to "About", about_path, class: "nav-link"
           li.nav-item
@@ -24,10 +21,11 @@ header#header.fixed-top
             a#navbarDropdownXL.nav-link.dropdown-toggle[href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
               = current_user.full_name
             .dropdown-menu[aria-labelledby="navbarDropdownXL"]
-              a.dropdown-item[href="#"]
-                = t("header.account_setting")
+              = link_to t("layouts.header.profile"), current_user, class: "dropdown-item"
+              - unless current_user.provider
+                = link_to t("layouts.header.account_setting"), edit_user_registration_path, class: "dropdown-item"
               .dropdown-divider
-              = link_to t("header.log_out"), destroy_user_session_path, method: :delete, class: "dropdown-item"
+              = link_to t("layouts.header.log_out"), destroy_user_session_path, method: :delete, class: "dropdown-item"
         li.flag
             = link_to image_tag('en.png'), locale:"en" if I18n.locale == :vi
         li.flag
