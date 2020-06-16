@@ -1,0 +1,31 @@
+.section-title {
+  h2 {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1px;
+    text-transform: uppercase;
+    color: #aaaaaa;
+    font-family: "Poppins", sans-serif;
+
+    padding: 10px 0 10px 0;
+    margin: 10px 0 10px 0;
+    letter-spacing: 2px;
+  }
+  p {
+    margin: 0 0 20px 0;
+    font-size: 36px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: "Poppins", sans-serif;
+    color: #37423b;
+  }
+}
+.section-title h2::after {
+  content: "";
+  width: 120px;
+  height: 1px;
+  background: #9ae1af;
+
+  display: inline-block;
+  margin: 4px 10px;
+}

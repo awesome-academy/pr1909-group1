@@ -1,0 +1,3 @@
+course_type:
+  general: { web_design: 1, web_development: 2, marketing: 3, product_management: 4 }
+  view: {"Web Design": "web_design", "Web Development": "web_development", "Marketing": "marketing", "Product Management": "product_management"}

@@ -1,0 +1,61 @@
+.container-fuild
+  .container
+    .show-course
+      .row
+        .col-lg-4
+          .course-item
+            .course-img
+              / TODO = @course.course_image, delete image_tag
+              = image_tag("course-default.jpg", class: "img-fluid")
+            .course-content
+              .d-flex.mb-3
+                h4
+                  = Course.course_type_views.key(@course.course_type)
+              .course-info.d-flex.justify-content-between.align-items-center
+                .course-info-icon.d-flex.align-items-center
+                  .item-icon
+                    i.fas.fa-users
+                    |  35 
+                    / TODO user.apply
+                  .item-icon
+                    i.far.fa-heart
+                    |  42
+                    / TODO: model like.count
+                .course-show.d-flex.align-items-center
+                  = link_to 'Register Now', "#", class: "btn btn-outline-success"
+            - if is_admin?
+              .btn-index-course
+                = link_to 'Edit', edit_course_path(@course), class: "btn btn-sm btn-outline-primary"
+                = link_to 'Destroy', @course, data: { confirm: 'Are you sure?' }, method: :delete, class: "btn btn-sm btn-outline-dark"
+        .col-lg-8
+          .course__item
+            .course-title
+              h3
+                = @course.course_title
+            .course-overview
+              = @course.course_overview
+            nav
+              #nav-tab.nav.nav-tabs.nav-fill[role="tablist"]
+                a#nav-home-tab.nav-item.nav-link.active[data-toggle="tab" href="#nav-info" role="tab" aria-controls="nav-home" aria-selected="true"]
+                  | Information
+                a#nav-profile-tab.nav-item.nav-link[data-toggle="tab" href="#nav-lesson" role="tab" aria-controls="nav-profile" aria-selected="false"]
+                  | Lessons
+                a#nav-contact-tab.nav-item.nav-link[data-toggle="tab" href="#nav-comment" role="tab" aria-controls="nav-contact" aria-selected="false"]
+                  | Comments
+                a#nav-about-tab.nav-item.nav-link[data-toggle="tab" href="#nav-student" role="tab" aria-controls="nav-about" aria-selected="false"]
+                  | Students
+    .row
+      section#tabs
+        .col-xs-12
+          #nav-tabContent.tab-content.py-3.px-3.px-sm-0
+            #nav-info.tab-pane.fade.show.active[role="tabpanel" aria-labelledby="nav-home-tab"]
+              = @course.course_description
+            #nav-lesson.tab-pane.fade[role="tabpanel" aria-labelledby="nav-profile-tab"]
+              | TODO lesson
+              / TODO lesson
+            #nav-comment.tab-pane.fade[role="tabpanel" aria-labelledby="nav-contact-tab"]
+              | TODO comment
+              / TODO comment
+            #nav-student.tab-pane.fade[role="tabpanel" aria-labelledby="nav-about-tab"]
+              | TODO student
+              / TODO user.apply

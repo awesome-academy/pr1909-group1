@@ -4,5 +4,4 @@ section#hero.d-flex.justify-content-center.align-items-center
       | Learning Today,
       br
       | Leading Tomorrow
-    a.btn-get-started[href="courses.html"]
-      = t('common.view_course')
+    = link_to  t('common.view_course'), courses_path, class: "btn-get-started"

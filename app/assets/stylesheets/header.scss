@@ -18,7 +18,7 @@ $desktop: "(min-width: 1200px)";
 }
 
 #header .logo {
-  font-size: 32px;
+  font-size: 36px;
   margin: 0;
   padding: 0;
   line-height: 1;
@@ -27,6 +27,11 @@ $desktop: "(min-width: 1200px)";
   font-family: sans-serif;
   color: #5fcf80;
   
+}
+
+.nav-link {
+  display: block;
+  padding: 0.5rem 15px 0.5rem 0px !important;
 }
 
 /* Get login Button */
@@ -85,4 +90,5 @@ li.dropdown {
 li.flag {
   display: inline-block;
   padding-top: 7px;
+  padding-right: 10px;
 }

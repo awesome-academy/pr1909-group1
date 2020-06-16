@@ -1,0 +1,6 @@
+.courses-index
+  = render  "courses_all" 
+.container
+  .courses
+    - if is_admin?
+      = link_to 'New Course', new_course_path
