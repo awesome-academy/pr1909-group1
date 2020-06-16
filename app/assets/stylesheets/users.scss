@@ -5,11 +5,11 @@
 @import "font-awesome";
 
 .form{
-  width: 400px;
+  width: 500px;
   background: white;
   border-radius: 10px;
   padding: 20px 50px;
-  margin: auto auto;
+  margin: 150px auto;
 }
 
 .text-box{
@@ -26,6 +26,7 @@
   border: none;
   background: white;
   color: #000;
+  width: 300px;
 }
 .text-box i{
   width: 25px;
@@ -59,7 +60,7 @@
 }
 
 .form-box{
-  min-height: 100vh;
+  min-height: 70vh;
 }
 
 .btn-sign-in{
@@ -86,7 +87,7 @@
 .google-btn{
   text-transform: none;
   margin-bottom: 5px;
-  width: 300px;
+  width: auto;
   height: 40px;
   padding: 0px 0px !important;
   background-color: blue;
@@ -116,7 +117,7 @@
 
 .google-login-text{
   color: white;
-  margin-left: 50px;
+  margin: auto auto;
   margin-top: 8px;
 }
 
@@ -128,7 +129,7 @@
   color: white;
   padding: 0px 0px;
   background-color: #4267b2;
-  width: 300px;
+  width: auto;
   height: 40px;
   padding: 4px 5px;
   margin-bottom: 10px;
@@ -148,4 +149,11 @@
 
 .messages{
   margin-top: 5px;
+}
+
+.resend-form{
+  margin: 150px auto;
+  .resend-btn{
+    background-color: #5fcf80;
+  }
 }

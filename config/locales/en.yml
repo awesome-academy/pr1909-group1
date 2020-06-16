@@ -8,6 +8,7 @@ en:
         another_action: 'An other action'
         account_setting: 'Account Setting'
         log_out: 'Log out'
+        profile: 'Profile'
 
       footer:
         addr: "11F Handico Building, Pham Hung Road, Nam Tu Liem Dist, Ha Noi"
@@ -37,3 +38,13 @@ en:
       password: "Password"
       password_confirmation: "Password Confirmation"
       remember_me: "Remember me"
+      current_password: 'Current Password'
+      update: 'Update'
+      edit: 'Edit'
+
+    devise:
+      forgot_password: 'Forgot your password'
+      resend_confirmation: 'Resend confirmation instructions'
+      did_not_receive_confirmation: "Did't receive confirmation instructions"
+      send_me_reset_password_instructions: 'Send me reset password instructions'
+
