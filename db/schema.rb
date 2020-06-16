@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_06_12_113415) do
 
-  create_table "courses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "courses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "course_title", limit: 100, null: false
     t.text "course_overview", null: false
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2020_06_12_113415) do
     t.index ["user_id"], name: "index_courses_on_user_id"
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "full_name", limit: 40, default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
