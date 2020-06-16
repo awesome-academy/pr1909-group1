@@ -4,11 +4,12 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-.sign-up-form{
+.form{
   width: 400px;
   background: white;
   border-radius: 10px;
   padding: 20px 50px;
+  margin: auto auto;
 }
 
 .text-box{
@@ -49,7 +50,7 @@
   margin-top: 2px;
 }
 
-.sign-up-page{
+.body-box{
   background-image: url("sign_up_bg.jpg");
   background-position: top center;
   background-repeat: no-repeat;
@@ -57,6 +58,94 @@
   padding: 40px;
 }
 
-.sign-up-box{
+.form-box{
   min-height: 100vh;
+}
+
+.btn-sign-in{
+  margin: 0px 0px;
+  .btn{
+    border-radius: 1px;
+  }
+}
+
+.form-title{
+  border-bottom: 3px solid #4da222;
+  display: table;
+  h2{
+    font-size: 40px;
+    margin-bottom: 1px;
+  }
+}
+
+.btn-sign-in .btn-success{
+  margin-bottom: 5px;
+  height: 40px;
+}
+
+.google-btn{
+  text-transform: none;
+  margin-bottom: 5px;
+  width: 300px;
+  height: 40px;
+  padding: 0px 0px !important;
+  background-color: blue;
+}
+
+.google-icon{
+  display: table;
+  width: 20px;
+  height: 20px;
+  margin: auto;
+  width: 50%;
+  height: 50%;
+  margin-top: 10px;
+}
+
+.icon-box{
+  margin: 0px;
+  margin-left: 0px;
+  width: 40px;
+  height: 38px;
+  background-color: white;
+}
+
+.btn-sign-in .row{
+  margin: 0px 0px;
+}
+
+.google-login-text{
+  color: white;
+  margin-left: 50px;
+  margin-top: 8px;
+}
+
+.google-btn:hover{
+  background-color: #1a1ab9;
+}
+
+.btn-facebook{
+  color: white;
+  padding: 0px 0px;
+  background-color: #4267b2;
+  width: 300px;
+  height: 40px;
+  padding: 4px 5px;
+  margin-bottom: 10px;
+  i{
+    font-size: 30px;
+    float: left;
+  }
+  div{
+    margin-top: 3px;
+  }
+}
+
+.btn-facebook:hover{
+  background-color: #2f498a;
+  color: white;
+}
+
+.messages{
+  margin-top: 5px;
 }

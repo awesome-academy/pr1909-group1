@@ -4,17 +4,15 @@ vi:
       header:
         home: 'Trang chủ'
         course: 'Khoá học'
-        drop_down: 'Dropdown'
         action: 'Thao tác'
         another_action: 'Thao tác khác'
-        smt_else: 'Khác'
-        log_in: 'Đăng nhập'
-        sign_up: 'Đăng ký'
+        account_setting: 'Cài đặt tài khoản'
+        log_out: 'Đăng xuất'
 
       footer:
         addr: "Tầng 11 toà nhà Handico, đường Phạm Hùng, quận Nam Từ Liêm, Hà Nội"
         phone: 'Điện thoại: '
-        email: 'Email'
+        email: 'Thư điện tử'
         link: 'Đường dẫn'
         about: 'Về chúng tôi'
         servise: 'Dịch vụ'
@@ -26,3 +24,28 @@ vi:
                      Mục tiêu của chúng tôi là đảm bảo tất cả học viên đều trở nên tự tin, và đạt được trình độ cao nhất mà họ hướng tới.'
     common:
       view_course: 'Xem khoá học'
+    user:
+      password: "Mật khẩu"
+      email: 'Thư điện tử'
+      log_in: "Đăng nhập "
+      login_google: "Đăng nhập với Google"
+      login_facebook: "Đăng nhập với Facebook"
+      sign_up: "Đăng ký"
+      full_name: "Họ tên"
+      password: "Mật khẩu"
+      password_confirmation: "Nhập lại mật khẩu"
+      remember_me: "Nhớ mật khẩu"
+
+    activerecord:
+      attributes:
+        user:
+          full_name: 'Họ tên'
+          email: 'Thư điện tử'
+          password: 'Mật khẩu'
+          password_confirmation: 'Mật khẩu xác nhận'
+      errors:
+        models:
+          user:
+            attributes:
+              password_confirmation:
+                confirmation: 'không khớp'

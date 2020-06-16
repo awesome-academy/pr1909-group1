@@ -1,20 +1,61 @@
-<h2>Log in</h2>
+<div class="body-box">
+  <div class="form-box">
+    <div class="col-md-4 offset-md-4">
+      <div class="form" >
+        <div class="form-title">
+          <h2>
+            <%= t("user.log_in")%>
+          </h2>
+        </div>
+        <div class="messages">
+          <%= render "layouts/messages" %>
+        </div>
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <%= f.error_notification %>
+          <%= f.input :email,
+                      required: true,
+                      input_html: { auto_complete: 'email' },
+                      label: false do %>
+                        <div class="text-box">
+                          <i class="fa fa-envelope"></i>
+                          <%= f.input_field :email,
+                                            placeholder: t("layouts.footer.email") %>
+                        </div>
+                      <% end %>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+          <%= f.input :password,
+                      required: true,
+                      label: false do %>
+                        <div class="text-box">
+                          <i class="fa fa-lock"></i>
+                          <%= f.input_field :password,
+                                            placeholder: t("user.password"),
+                                            input_html: { autocomplete: "current-password" } %>
+                        </div>
+                      <% end %>
+          <%= f.input :remember_me, label: t("user.remember_me"), as: :boolean if devise_mapping.rememberable? %>
+          <div class="btn-sign-in">
+            <%= f.button :submit, t("user.log_in"), class: "btn btn-success btn-block" %>
+            <%= link_to user_google_oauth2_omniauth_authorize_path, class: "btn btn-block google-btn" do %>
+              <div class="row">
+                <div class="icon-box">
+                <%= image_tag("google_icon.png", class: "google-icon") %>
+                </div>
+                <div class="google-login-text"><%= t("user.login_google")%></div>
+              </div>
+            <% end %>
+            <%= link_to user_facebook_omniauth_authorize_path, class: "btn btn-block btn-facebook" do %>
+              <i class="fab fa-facebook-square"></i>
+              <div>
+                <%= t("user.login_facebook")%>
+              </div>
+            <% end %>
+        <% end %>
+
+      <%= render "devise/shared/links" %>
+
+      </div>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

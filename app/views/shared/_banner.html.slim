@@ -5,3 +5,5 @@ section#hero.d-flex.justify-content-center.align-items-center
       br
       | Leading Tomorrow
     = link_to  t('common.view_course'), courses_path, class: "btn-get-started"
+div.notify
+  =render("layouts/messages")

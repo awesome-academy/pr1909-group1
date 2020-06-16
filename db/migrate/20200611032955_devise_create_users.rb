@@ -4,8 +4,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
   def change
     create_table :users do |t|
       ## Database authenticatable
-      t.string :first_name, null: false, limit: 25
-      t.string :last_name, null: false, limit: 25
+      t.string :full_name, null: false, limit: 40, default: ""
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
       t.boolean :is_admin, default: false
@@ -17,6 +16,11 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       ## Rememberable
       t.datetime :remember_created_at
 
+      t.string :provider
+      t.string :uid
+      t.string :token
+      t.string :refresh_token
+      t.datetime :oauth_expires_at
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false
       # t.datetime :current_sign_in_at
