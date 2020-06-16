@@ -6,7 +6,7 @@
           .course-item
             .course-img
               / TODO = @course.course_image, delete image_tag
-              = image_tag("course-default.jpg", class: "img-fluid")
+              = image_tag(@course.course_image.url(:show), class: "img-fluid")
             .course-content
               .d-flex.mb-3
                 h4
@@ -50,7 +50,7 @@
         .col-xs-12
           #nav-tabContent.tab-content.py-3.px-3.px-sm-0
             #nav-info.tab-pane.fade.show.active[role="tabpanel" aria-labelledby="nav-home-tab"]
-              = @course.course_description
+              = raw(@course.course_description)
             #nav-lesson.tab-pane.fade[role="tabpanel" aria-labelledby="nav-profile-tab"]
               | TODO lesson
               / TODO lesson
