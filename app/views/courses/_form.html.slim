@@ -1,6 +1,6 @@
 .container
   .row
-    .col-lg-8.offset-lg-2
+    .col-lg-12.col-md-12
       = simple_form_for(@course) do |f|
         = f.error_notification
         = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
@@ -8,20 +8,21 @@
         .form-inputs
           .row
             .col-lg-7.col-md-7
-              = f.input :course_title
+              = f.input :course_title, label: t('course.course_title')
             .col-lg-5.col-md-5
               = f.input :course_type, collection: Course.course_type_views,
-                                      prompt: "Select course type"
+                                      label: t('course.course_type'),
+                                      prompt: t('course.select_course_type')
           .row
             .col-lg-12.col-md-12
-              = f.input :course_overview
+              = f.input :course_overview, label: t('course.course_overview')
           .row
             .col-lg-6.col-md-6
-              = f.input :course_image
+              = f.input :course_image, label: t('course.course_image')
             .col-lg-6.col-md-6
-              = f.input :overview_video_url
+              = f.input :overview_video_url, label: t('course.course_video')
           .row
             .col-lg-12.col-md-12
-              = f.input :course_description
+              = f.input :course_description, label: t('course.course_description')
         .form-actions
           = f.button :submit, class: "btn btn-success"

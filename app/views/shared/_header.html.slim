@@ -1,35 +1,27 @@
 header#header.fixed-top
   .container
     nav.navbar.navbar-expand-xl.navbar-dark
-      a.navbar-brand.logo[href="/"]
-        | Athena
+      = link_to  "Athena", root_path, class: "navbar-brand logo"
       button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarSupportedContentXL" aria-controls="navbarSupportedContentXL" aria-expanded="false" aria-label="Toggle navigation"]
         span.navbar-toggler-icon
       #navbarSupportedContentXL.collapse.navbar-collapse
         ul.navbar-nav.ml-auto
           li.nav-item
-            a.nav-link[href="/"]
-              = t('layouts.header.home')
-              span.sr-only
-                | (current)
-          li.nav-item
-            = link_to "About", about_path, class: "nav-link"
+            = link_to t('layouts.header.home'), root_path, class: "nav-link"
           li.nav-item
             = link_to t('layouts.header.course'), courses_path, class: "nav-link"
-
+          li.flag
+            = link_to image_tag('en.png'), locale:"en" if I18n.locale == :vi
+          li.flag
+            = link_to image_tag('vi.png'), locale:"vi" if I18n.locale == :en
         - unless signed_in?
-          li.nav-item.get-login-btn.dropdown
-            = link_to t("user.log_in"), new_user_session_path
+          li.nav-item.get-login-btn    
+            = link_to t('layouts.header.log_in') , new_user_session_path
         - else
           li.nav-item.nav-link.dropdown
             a#navbarDropdownXL.nav-link.dropdown-toggle[href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
               = current_user.full_name
             .dropdown-menu[aria-labelledby="navbarDropdownXL"]
-              a.dropdown-item[href="#"]
-                = t("header.account_setting")
               .dropdown-divider
+              = link_to t("header.account_setting"), edit_user_registration_path, class: "dropdown-item" 
               = link_to t("header.log_out"), destroy_user_session_path, method: :delete, class: "dropdown-item"
-        li.flag
-            = link_to image_tag('en.png'), locale:"en" if I18n.locale == :vi
-        li.flag
-            = link_to image_tag('vi.png'), locale:"vi" if I18n.locale == :en

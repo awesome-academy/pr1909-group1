@@ -7,14 +7,13 @@ section#counts.counts.section-bg
           | 1232
           /TODO user.apply_course.count
         p
-          | Students
+          = t('count.students')
       .col-lg-3.col-3.text-center
         i.fas.fa-book
         span.num
-          | 64
-          /TODO courses.count
+          = @courses.count
         p
-          | Courses
+          = t('count.courses')
       .col-lg-3.col-3.text-center
         i.fas.fa-photo-video
         span.num
@@ -27,5 +26,5 @@ section#counts.counts.section-bg
         span.num
           | 42
         p
-          | Tests
+          = t('count.tests')
           /TODO Lesson[lesson_type = test].count

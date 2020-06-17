@@ -2,27 +2,27 @@ section#about.about
   .container[data-aos="fade-up"]
     .section-title
       h2
-        | About
+        = t('about.about')
       p
-        | About Us
+        = t('about.about_us')
     .row
       .col-lg-6.order-1.order-lg-2[data-aos="fade-left" data-aos-delay="100"]
         = image_tag("about.jpg", class: "img-fluid")
       .col-lg-6.pt-4.pt-lg-0.order-2.order-lg-1.content
         h3
-          | Athena connecting millions of students to the skills they need to succeed.
+          = t('about.about_target')
         p.font-italic
-          | By connecting students all over the world to the best instructors, Athena is helping individuals reach their goals and pursue their dreams. 
+          = t('about.about_method')
         ul
           li
             i.fas.fa-angle-down
-            |  Develop courses that are easy to understand and free.
+            = t('about.about_value_1')
           li
             i.fas.fa-angle-down
-            |  Solve problems together and learn from each other.
+            = t('about.about_value_2')
           li
             i.fas.fa-angle-down
-            |  Basic-to-advanced online courses for practising and learning purpose of varied types of users.
+            = t('about.about_value_3')
         p
-          |  Athena: study anytime, anywhere.
-        = link_to  "Learn More", about_path, class: "learn-more-btn"
+          = t('about.about_value_4')
+        = link_to t('about.learn_more'), about_path, class: "learn-more-btn"

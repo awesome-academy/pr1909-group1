@@ -1,6 +1,7 @@
 .courses-index
-  = render  "courses_all" 
+  #show-courses
+    = render "courses_all"
 .container
   .courses
     - if is_admin?
-      = link_to 'New Course', new_course_path
+      = link_to t('course.new_course'), new_course_path, class: "btn btn-outline-success"

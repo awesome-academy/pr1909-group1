@@ -21,49 +21,39 @@ footer#footer
             = t('layouts.footer.link')
           ul
             li
-              i.bx.bx-chevron-right
-              a[href="#"]
-                = t('layouts.header.home')
+              i.fas.fa-angle-right
+              = link_to t('layouts.header.home'), root_path
             li
-              i.bx.bx-chevron-right
-              a[href="#"]
-                = t('layouts.footer.about')
+              i.fas.fa-angle-right
+              = link_to t('layouts.footer.about'), about_path
             li
-              i.bx.bx-chevron-right
-              a[href="#"]
-                = t('layouts.footer.service')
+              i.fas.fa-angle-right
+              = link_to t('layouts.footer.service')
             li
-              i.bx.bx-chevron-right
-              a[href="#"]
-                = t('layouts.footer.term')
+              i.fas.fa-angle-right
+              = link_to t('layouts.footer.term')
             li
-              i.bx.bx-chevron-right
-              a[href="#"]
-                = t('layouts.footer.policy')
+              i.fas.fa-angle-right
+              = link_to t('layouts.footer.policy')
         .col-lg-3.col-md-6.footer-links
           h4
             = t('layouts.footer.our_course')
           ul
             li
-              i.bx.bx-chevron-right
-              a[href="#"]
-                | Web Design
+              i.fas.fa-angle-right
+              = link_to "Web Design"
             li
-              i.bx.bx-chevron-right
-              a[href="#"]
-                | Web Development
+              i.fas.fa-angle-right
+              = link_to "Web Development"
             li
-              i.bx.bx-chevron-right
-              a[href="#"]
-                | Product Management
+              i.fas.fa-angle-right
+              = link_to "Product Management"
             li
-              i.bx.bx-chevron-right
-              a[href="#"]
-                | Marketing
+              i.fas.fa-angle-right
+              = link_to "Marketing"
             li
-              i.bx.bx-chevron-right
-              a[href="#"]
-                | Graphic Design
+              i.fas.fa-angle-right
+              = link_to "Graphic Design"
         .col-lg-4.col-md-6.footer-newsletter
           h4
             = t('layouts.footer.about')
@@ -75,13 +65,13 @@ footer#footer
   .container.d-md-flex.py-4
     .mr-md-auto.text-center.text-md-left
       .copyright
-        |  © Copyright 
+        = t('layouts.footer.copy_right')
         strong
           span
             | Athena
-        | . All Rights Reserved 
+        = t('layouts.footer.reserved')
       .credits
-        |  Designed by Group One
+        = t('layouts.footer.design')
     .social-links.text-center.text-md-right.pt-3.pt-md-0
       a.twitter[href="#"]
         i.fab.fa-twitter
@@ -89,7 +79,5 @@ footer#footer
         i.fab.fa-facebook
       a.instagram[href="#"]
         i.fab.fa-instagram
-      a.google-plus[href="#"]
-        i.fab.fa-skype
       a.linkedin[href="#"]
         i.fab.fa-linkedin

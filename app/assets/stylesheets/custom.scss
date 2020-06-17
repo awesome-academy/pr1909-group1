@@ -109,3 +109,17 @@ button.back-to-top:hover {
     transform: rotate(360deg);
   }
 }
+
+/*--------------------------------------------------------------
+# Pagination
+--------------------------------------------------------------*/
+.paginate {
+  margin: 0px auto;
+  .page-item.active .page-link {
+    background-color: #5fcf80;
+    border-color: #5fcf80;
+  }
+  .page-link {
+    color: #5fcf80;
+  }
+}

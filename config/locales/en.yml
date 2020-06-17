@@ -8,7 +8,8 @@ en:
         another_action: 'An other action'
         account_setting: 'Account Setting'
         log_out: 'Log out'
-
+        log_in: 'Log in'
+        sign_up: 'Sign up'
       footer:
         addr: "11F Handico Building, Pham Hung Road, Nam Tu Liem Dist, Ha Noi"
         phone: 'Phone: '
@@ -16,16 +17,20 @@ en:
         link: 'Useful Links'
         home: 'Home'
         about: 'About us'
-        servise: 'Services'
+        service: 'Services'
         term: 'Terms of service'
         policy: 'Privacy policy'
         our_course: 'Our Course'
         about_cont: 'Inspired by Awsome Academy, Athena Education is a dynamic education group dedicated to delivering quality learning for all students.
-                     We are committed to developing students as outstanding, independent learners both online and in the classroom.
-                     Our aim is to ensure that all learners become self-confident, are secure and achieve at the highest level they can.'
+                      We are committed to developing students as outstanding, independent learners both online and in the classroom. 
+                      Our aim is to ensure that all learners become self-confident, are secure and achieve at the highest level they can.'
+        copy_right: "© Copyright "
+        reserved: ". All Rights Reserved"
+        design: "Designed by Group One"
+      banner:
+        view_course: 'View our courses'
 
-    common:
-      view_course: 'View our courses'
+  # view user
     user:
       password: "Password"
       log_in: "Log in"
@@ -37,3 +42,44 @@ en:
       password: "Password"
       password_confirmation: "Password Confirmation"
       remember_me: "Remember me"
+
+  # view about
+    about:
+      about: "ABOUT"
+      about_us: "ABOUT US"
+      about_target: "Athena connecting millions of students to the skills they need to succeed."
+      about_method: "By connecting students all over the world to the best instructors, Athena is helping individuals reach their goals and pursue their dreams."
+      about_value_1: "Develop courses that are easy to understand and free."
+      about_value_2: "Solve problems together and learn from each other."
+      about_value_3: "Basic-to-advanced online courses for practising and learning purpose of varied types of users."
+      about_value_4: "Athena: study anytime, anywhere."
+      learn_more: "Learn more"
+
+  # view count 
+    count:
+      students: "Students"
+      courses: "Courses"
+      tests: "Tests"
+
+  # view course 
+    course:
+      all_courses: "ALL COURSES"
+      join_now: "Join now"
+      register_now: "Register now"
+      info: "Information"
+      lessons: "Lessons"
+      comments: "Comments"
+      edit_course: "Editing course"
+      new_course: "New course"
+      course_title: "Course title"
+      course_type: "Course type"
+      course_overview: "Course overview"
+      course_image: "Course image"
+      course_video: "Video Overview"
+      course_description: "Course description"
+      select_course_type: "Select course type"
+
+  # button
+    btn:
+      edit: "Edit"
+      destroy: "Destroy"

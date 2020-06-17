@@ -22,11 +22,12 @@
                     |  42
                     / TODO: model like.count
                 .course-show.d-flex.align-items-center
-                  = link_to 'Register Now', "#", class: "btn btn-outline-success"
+                  = link_to t('course.register_now'), "#", class: "btn btn-outline-success"
+                  / TODO: apply course
             - if is_admin?
               .btn-index-course
-                = link_to 'Edit', edit_course_path(@course), class: "btn btn-sm btn-outline-primary"
-                = link_to 'Destroy', @course, data: { confirm: 'Are you sure?' }, method: :delete, class: "btn btn-sm btn-outline-dark"
+                = link_to t('btn.edit'), edit_course_path(@course), class: "btn btn-sm btn-outline-primary"
+                = link_to t('btn.destroy'), @course, data: { confirm: 'Are you sure?' }, method: :delete, class: "btn btn-sm btn-outline-dark"
         .col-lg-8
           .course__item
             .course-title
@@ -37,13 +38,13 @@
             nav
               #nav-tab.nav.nav-tabs.nav-fill[role="tablist"]
                 a#nav-home-tab.nav-item.nav-link.active[data-toggle="tab" href="#nav-info" role="tab" aria-controls="nav-home" aria-selected="true"]
-                  | Information
+                  = t('course.info')
                 a#nav-profile-tab.nav-item.nav-link[data-toggle="tab" href="#nav-lesson" role="tab" aria-controls="nav-profile" aria-selected="false"]
-                  | Lessons
+                  = t('course.lessons')
                 a#nav-contact-tab.nav-item.nav-link[data-toggle="tab" href="#nav-comment" role="tab" aria-controls="nav-contact" aria-selected="false"]
-                  | Comments
+                  = t('course.comments')
                 a#nav-about-tab.nav-item.nav-link[data-toggle="tab" href="#nav-student" role="tab" aria-controls="nav-about" aria-selected="false"]
-                  | Students
+                  = t('count.students')
     .row
       section#tabs
         .col-xs-12
