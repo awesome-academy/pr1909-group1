@@ -8,22 +8,28 @@ vi:
         another_action: 'Thao tác khác'
         account_setting: 'Cài đặt tài khoản'
         log_out: 'Đăng xuất'
-
+        log_in: 'Đăng nhập'
+        sign_up: 'Đăng ký'
       footer:
         addr: "Tầng 11 toà nhà Handico, đường Phạm Hùng, quận Nam Từ Liêm, Hà Nội"
         phone: 'Điện thoại: '
         email: 'Thư điện tử'
         link: 'Đường dẫn'
         about: 'Về chúng tôi'
-        servise: 'Dịch vụ'
+        service: 'Dịch vụ'
         term: 'Điều khoản dịch vụ'
         policy: 'Chính sách riêng tư'
         our_course: 'Khoá học của chúng tôi'
         about_cont: 'Lấy cảm hứng từ Awsome Academy, Athena Education là tập đoàn giáo dục năng động, với sứ mệnh đem tới các khoá học chất lượng tới tất cả mọi người.
-                     Chúng tôi cam kết phát triển những học viên độc lập, nổi bật thông qua cả hình thức trực tuyến và lớp học truyền thống.
-                     Mục tiêu của chúng tôi là đảm bảo tất cả học viên đều trở nên tự tin, và đạt được trình độ cao nhất mà họ hướng tới.'
-    common:
+                      Chúng tôi cam kết phát triển những học viên độc lập, nổi bật thông qua cả hình thức trực tuyến và lớp học truyền thống.
+                      Mục tiêu của chúng tôi là đảm bảo tất cả học viên đều trở nên tự tin, và đạt được trình độ cao nhất mà họ hướng tới.'
+        copy_right: "© Bản quyền "
+        reserved: ". Đã đăng ký Bản quyền"
+        design: "Được thiết kế bởi Group One"
+    banner:
       view_course: 'Xem khoá học'
+
+  # view user
     user:
       password: "Mật khẩu"
       email: 'Thư điện tử'
@@ -49,3 +55,44 @@ vi:
             attributes:
               password_confirmation:
                 confirmation: 'không khớp'
+
+  # view about
+    about:
+      about: "THÔNG TIN"
+      about_us: "VỀ CHÚNG TÔI"
+      about_target: "Athena kết nối hàng triệu sinh viên với các kỹ năng họ cần để thành công."
+      about_method: "Bằng cách kết nối sinh viên trên toàn thế giới với những người hướng dẫn tốt nhất, Athena đang giúp các cá nhân đạt được mục tiêu và theo đuổi ước mơ của họ."
+      about_value_1: "Phát triển các khóa học dễ hiểu và miễn phí."
+      about_value_2: "Giải quyết các vấn đề với nhau và học hỏi lẫn nhau."
+      about_value_3: "Các khóa học trực tuyến từ cơ bản đến nâng cao cho mục đích thực hành và học tập của nhiều kiểu người dùng khác nhau."
+      about_value_4: "Athena: học mọi lúc, mọi nơi."
+      learn_more: "Tìm hiểu thêm"
+
+  # view count 
+    count:
+      students: "Học Viên"
+      courses: "Khóa Học"
+      tests: "Bài Kiểm Tra"
+
+  # view course 
+    course:
+      all_courses: "TẤT CẢ KHÓA HỌC"
+      join_now: "Học ngay"
+      register_now: "Đăng ký ngay"
+      info: "Thông tin"
+      lessons: "Bài học"
+      comments: "Bình luận"
+      edit_course: "Chỉnh sửa khóa học"
+      new_course: "Tạo khóa học"
+      course_title: "Tiêu đề khóa học"
+      course_type: "Loại khóa học"
+      course_overview: "Tổng quan khóa học"
+      course_image: "Hình ảnh khóa học"
+      course_video: "Video tổng quan"
+      course_description: "Miêu tả khóa học"
+      select_course_type: "Lựa chọn loại khóa học"
+
+  # button
+    btn:
+      edit: "Chỉnh sửa"
+      destroy: "Xóa"

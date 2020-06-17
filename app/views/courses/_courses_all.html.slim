@@ -1,4 +1,9 @@
 .container
+  .section-title.mt-4
+    h2
+      = t('layouts.header.course')
+    p
+      = t('course.all_courses')
   .courses
     .row
       - @courses.each do |course|
@@ -12,7 +17,7 @@
                   = Course.course_type_views.key(course.course_type)
               h3
                 a[href="course-details.html"]
-                  = link_to  course.course_title, course
+                  = link_to course.course_title, course
               p
                 = course.course_overview
               .course-info.d-flex.justify-content-between.align-items-center
@@ -26,8 +31,12 @@
                     |  42
                     / TODO: model like.count
                 .course-show.d-flex.align-items-center
-                  = link_to 'Join now', course, class: "btn btn-outline-success"
+                  = link_to t('course.join_now'), course, class: "btn btn-outline-success"
             - if is_admin?
               .btn-index-course
-                = link_to 'Edit', edit_course_path(course), class: "btn btn-sm btn-outline-primary"
-                = link_to 'Destroy', course, data: { confirm: 'Are you sure?' }, method: :delete, class: "btn btn-sm btn-outline-dark"
+                = link_to t('btn.edit'), edit_course_path(course), class: "btn btn-sm btn-outline-primary"
+                = link_to t('btn.destroy'), course, data: { confirm: 'Are you sure?' }, method: :delete, class: "btn btn-sm btn-outline-dark"
+.container
+  .row
+    .paginate
+      = will_paginate @courses
