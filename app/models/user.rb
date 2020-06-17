@@ -3,6 +3,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   attr_readonly :email
   has_many :courses, dependent: :destroy
+  has_many :courses, through: :registers
+  has_one :evaluate_course, dependent: :destroy
+  has_many :review_courses, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,

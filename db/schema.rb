@@ -20,6 +20,11 @@ ActiveRecord::Schema.define(version: 2020_06_16_160420) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["type"], name: "index_ckeditor_assets_on_type"
+
+  create_table "course_types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "course_type", limit: 50, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "courses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -27,12 +32,43 @@ ActiveRecord::Schema.define(version: 2020_06_16_160420) do
     t.string "course_title", limit: 100, null: false
     t.text "course_overview", null: false
     t.text "course_description", null: false
-    t.integer "course_type", default: 1, null: false
     t.string "course_image"
     t.string "overview_video_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "course_type_id", null: false
+    t.index ["course_type_id"], name: "index_courses_on_course_type_id"
     t.index ["user_id"], name: "index_courses_on_user_id"
+  end
+
+  create_table "evaluate_courses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "course_id", null: false
+    t.bigint "user_id", null: false
+    t.integer "star"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["course_id"], name: "index_evaluate_courses_on_course_id"
+    t.index ["user_id"], name: "index_evaluate_courses_on_user_id"
+  end
+
+  create_table "registers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "course_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["course_id", "user_id"], name: "index_registers_on_course_id_and_user_id", unique: true
+    t.index ["course_id"], name: "index_registers_on_course_id"
+    t.index ["user_id"], name: "index_registers_on_user_id"
+  end
+
+  create_table "review_courses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "course_id", null: false
+    t.text "comment", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["course_id"], name: "index_review_courses_on_course_id"
+    t.index ["user_id"], name: "index_review_courses_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -58,5 +94,12 @@ ActiveRecord::Schema.define(version: 2020_06_16_160420) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "courses", "course_types"
   add_foreign_key "courses", "users"
+  add_foreign_key "evaluate_courses", "courses"
+  add_foreign_key "evaluate_courses", "users"
+  add_foreign_key "registers", "courses"
+  add_foreign_key "registers", "users"
+  add_foreign_key "review_courses", "courses"
+  add_foreign_key "review_courses", "users"
 end
