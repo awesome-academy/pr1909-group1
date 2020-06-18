@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
     get "/about", to: "home#about"
     resources :courses
+    resources :review_courses, except: [:new, :show]
     devise_for :users, skip: :omniauth_callbacks
     resources :users, except: [:new, :create]
     namespace :admin do

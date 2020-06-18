@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  mount_uploader :avatar, AvatarUploader
   attr_readonly :email
   has_many :courses, dependent: :destroy
   has_many :courses, through: :registers
@@ -21,6 +22,7 @@ class User < ApplicationRecord
       user.uid = auth.uid
       user.full_name = auth.info.name
       user.email = auth.info.email
+      user.remote_avatar_url = auth.info.image
       user.password = Devise.friendly_token[8, 20]
       user.token = auth.credentials.token
       user.refresh_token = auth.credentials.refresh_token

@@ -108,6 +108,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.9.1)
+      devise (>= 4.7.1)
     dry-configurable (0.11.5)
       concurrent-ruby (~> 1.0)
       dry-core (~> 0.4, >= 0.4.7)
@@ -146,8 +148,6 @@ GEM
       dry-equalizer (~> 0.2)
       dry-initializer (~> 3.0)
       dry-schema (~> 1.5)
-    devise-i18n (1.9.1)
-      devise (>= 4.7.1)
     erubi (1.9.0)
     execjs (2.7.0)
     faker (2.12.0)
@@ -373,8 +373,8 @@ DEPENDENCIES
   ckeditor
   config
   devise
-  faker
   devise-i18n
+  faker
   figaro
   font-awesome-sass
   html2slim

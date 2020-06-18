@@ -106,3 +106,7 @@ vi:
     btn:
       edit: "Chỉnh sửa"
       destroy: "Xóa"
+
+    review_course:
+      comment: "Bình luận"
+      continue: "Tiếp tục"

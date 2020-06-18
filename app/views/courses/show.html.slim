@@ -50,15 +50,13 @@
               | TODO lesson
               / TODO lesson
             #nav-comment.tab-pane.fade[role="tabpanel" aria-labelledby="nav-contact-tab"]
-              - @course.review_courses.each do |review|
-                div.container
-                  = link_to review.user.full_name, review.course, class: "user_name"
-                div.container.comment
-                  = review.comment
-                br
-                div.divider-comment
-              | TODO comment
-              / TODO comment
+              - if signed_in?
+                div#review-form
+                  = render "review_courses/review_form"
+                div
+                  #reviews
+                    = render "review_courses/comments"
+              - else
+                .inform
+                  | Please login to continue.
             #nav-student.tab-pane.fade[role="tabpanel" aria-labelledby="nav-about-tab"]
-              | TODO student
-              / TODO user.apply
