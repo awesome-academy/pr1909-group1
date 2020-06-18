@@ -1,5 +1,6 @@
 class Course < ApplicationRecord
   belongs_to :user
+  mount_uploader :course_image, CourseImageUploader
 
   enum course_type: Settings.course_type.general.to_h
   enum course_type_view: Settings.course_type.view.to_h
