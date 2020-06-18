@@ -10,6 +10,8 @@ vi:
         log_out: 'Đăng xuất'
         log_in: 'Đăng nhập'
         sign_up: 'Đăng ký'
+        profile: 'Thông tin cá nhân'
+
       footer:
         addr: "Tầng 11 toà nhà Handico, đường Phạm Hùng, quận Nam Từ Liêm, Hà Nội"
         phone: 'Điện thoại: '
@@ -41,6 +43,14 @@ vi:
       password: "Mật khẩu"
       password_confirmation: "Nhập lại mật khẩu"
       remember_me: "Nhớ mật khẩu"
+      current_password: 'Mật khẩu hiện tại'
+      update: 'Cập nhật'
+      edit: 'Chỉnh sửa'
+
+    devise:
+      forgot_password: 'Quên mật khẩu'
+      resend_confirmation: 'Gửi lại hướng dẫn xác nhận tài khoản'
+      did_not_receive_confirmation: 'Không nhận được hướng dẫn xác nhận tài khoản'
 
     activerecord:
       attributes:
@@ -68,13 +78,13 @@ vi:
       about_value_4: "Athena: học mọi lúc, mọi nơi."
       learn_more: "Tìm hiểu thêm"
 
-  # view count 
+  # view count
     count:
       students: "Học Viên"
       courses: "Khóa Học"
       tests: "Bài Kiểm Tra"
 
-  # view course 
+  # view course
     course:
       all_courses: "TẤT CẢ KHÓA HỌC"
       join_now: "Học ngay"

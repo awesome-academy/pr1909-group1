@@ -10,6 +10,8 @@ en:
         log_out: 'Log out'
         log_in: 'Log in'
         sign_up: 'Sign up'
+        profile: 'Profile'
+
       footer:
         addr: "11F Handico Building, Pham Hung Road, Nam Tu Liem Dist, Ha Noi"
         phone: 'Phone: '
@@ -22,13 +24,13 @@ en:
         policy: 'Privacy policy'
         our_course: 'Our Course'
         about_cont: 'Inspired by Awsome Academy, Athena Education is a dynamic education group dedicated to delivering quality learning for all students.
-                      We are committed to developing students as outstanding, independent learners both online and in the classroom. 
+                      We are committed to developing students as outstanding, independent learners both online and in the classroom.
                       Our aim is to ensure that all learners become self-confident, are secure and achieve at the highest level they can.'
         copy_right: "© Copyright "
         reserved: ". All Rights Reserved"
         design: "Designed by Group One"
-      banner:
-        view_course: 'View our courses'
+    banner:
+      view_course: 'View our courses'
 
   # view user
     user:
@@ -42,6 +44,15 @@ en:
       password: "Password"
       password_confirmation: "Password Confirmation"
       remember_me: "Remember me"
+      current_password: 'Current Password'
+      update: 'Update'
+      edit: 'Edit'
+
+    devise:
+      forgot_password: 'Forgot your password'
+      resend_confirmation: 'Resend confirmation instructions'
+      did_not_receive_confirmation: "Did't receive confirmation instructions"
+      send_me_reset_password_instructions: 'Send me reset password instructions'
 
   # view about
     about:
@@ -55,13 +66,13 @@ en:
       about_value_4: "Athena: study anytime, anywhere."
       learn_more: "Learn more"
 
-  # view count 
+  # view count
     count:
       students: "Students"
       courses: "Courses"
       tests: "Tests"
 
-  # view course 
+  # view course
     course:
       all_courses: "ALL COURSES"
       join_now: "Join now"

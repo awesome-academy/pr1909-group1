@@ -146,6 +146,8 @@ GEM
       dry-equalizer (~> 0.2)
       dry-initializer (~> 3.0)
       dry-schema (~> 1.5)
+    devise-i18n (1.9.1)
+      devise (>= 4.7.1)
     erubi (1.9.0)
     execjs (2.7.0)
     faker (2.12.0)
@@ -372,6 +374,7 @@ DEPENDENCIES
   config
   devise
   faker
+  devise-i18n
   figaro
   font-awesome-sass
   html2slim
