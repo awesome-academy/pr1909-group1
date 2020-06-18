@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    title
+      | Athena
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload"
+    = javascript_pack_tag "application", "data-turbolinks-track": "reload"
+    = javascript_include_tag Ckeditor.cdn_url
+  body
+    .container-fuild
+      = render "layouts/admin/admin_navbar"
+    .container-fuild
+      .row
+        .sidebar.col-lg-1.col-md-2
+          = render "layouts/admin/admin_sidebar"
+        .col-lg-11.col-md-10
+          = yield

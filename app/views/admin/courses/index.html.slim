@@ -1,0 +1,11 @@
+p#notice
+  = notice
+h1
+  | Courses
+
+= link_to 'New Course', new_admin_course_path, class: "btn btn-outline-success"
+br
+br
+
+#show-courses
+  = render  "admin/courses/courses_all" 

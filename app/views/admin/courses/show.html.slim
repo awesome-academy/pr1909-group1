@@ -1,0 +1,29 @@
+p#notice
+  = notice
+p
+  strong
+    | Course title:
+  = @course.course_title
+p
+  strong
+    | Course overview:
+  = @course.course_overview
+p
+  strong
+    | Course description:
+  = @course.course_description.html_safe
+p
+  strong
+    | Course type:
+  = @course.course_type
+p
+  strong
+    | Course image:
+  = image_tag(@course.course_image.url(:show))
+p
+  strong
+    | Overview video url:
+  = @course.overview_video_url
+= link_to 'Edit', edit_admin_course_path(@course)
+|  | 
+= link_to 'Back', admin_courses_path

@@ -156,3 +156,13 @@ section {
   color: #5fcf80;
   font-size: 20px;
 }
+
+// fix course-img
+.course-img {
+  width: 100%;
+  height: 295px;
+}
+.img-fluid {
+  width: 100%;
+  height: 100% !important;
+}

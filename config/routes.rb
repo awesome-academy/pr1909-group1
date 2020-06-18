@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     resources :courses
     devise_for :users, skip: :omniauth_callbacks
     resources :users, except: [:new, :create]
+    namespace :admin do
+      get "/", to: "base#index"
+      resources :courses
+    end
     # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   end
   devise_for :users, only: :omniauth_callbacks, controllers: { omniauth_callbacks: "omniauth_callbacks" }

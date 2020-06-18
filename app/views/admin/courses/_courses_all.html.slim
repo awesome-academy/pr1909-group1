@@ -1,0 +1,48 @@
+table.table.table-hover
+  thead
+    tr
+      th
+        | Title
+      th
+        | Overview
+      th
+        | Description
+      th
+        | Type
+      th
+        | Image
+      th
+        | Video
+      th[colspan="4"]
+  tbody
+    - @courses.each do |course|
+      tr
+        td.with-10
+          p.webkit-box-2
+            = course.course_title
+        td.with-10
+          p.webkit-box-2
+            = course.course_overview
+        td.with-15
+          p.webkit-box-2
+            = course.course_description
+        td.with-10
+          p.webkit-box-2
+            = course.course_type
+        td.with-10
+          = image_tag(course.course_image.url(:thumb))
+        td.with-10
+          = course.overview_video_url
+        td.with-5
+          = link_to 'Show', admin_course_path(course)
+        td.with-10
+          = link_to 'Show app', course_path(course)
+        td.with-10
+          = link_to 'Edit', edit_admin_course_path(course)
+        td.with-10
+          = link_to 'Destroy', admin_course_path(course), method: :delete, data: { confirm: 'Are you sure?' }
+br
+.container
+  .row
+    .paginate
+      = will_paginate @courses

@@ -1,0 +1,7 @@
+h1
+  | New Course
+= render 'form', course: @course
+.container
+  .row
+    .col-lg-10.offset-lg-1
+      = link_to 'Back', admin_courses_path

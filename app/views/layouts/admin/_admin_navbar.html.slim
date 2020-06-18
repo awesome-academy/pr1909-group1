@@ -1,0 +1,18 @@
+nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  = link_to  "Admin", admin_path, class: "navbar-brand"
+  button.navbar-toggler.d-lg-none[type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation"]
+    span.navbar-toggler-icon
+  #collapsibleNavId.collapse.navbar-collapse
+    form.form-inline.my-2.my-lg-0
+      input.form-control.mr-sm-2[type="text" placeholder="Search"]
+      button.btn.btn-outline-success.my-2.my-sm-0[type="submit"]
+        | Search
+    ul.navbar-nav.mt-2.mt-lg-0.ml-auto.mr-5
+      li.nav-item
+        = link_to t('layouts.header.home'), root_path, class: "nav-link"
+      li.nav-item.dropdown
+        a#dropdownId.nav-link.dropdown-toggle[href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
+          = current_user.full_name
+        .dropdown-menu[aria-labelledby="dropdownId"]
+          = link_to t("header.account_setting"), edit_user_registration_path, class: "dropdown-item" 
+          = link_to t("header.log_out"), destroy_user_session_path, method: :delete, class: "dropdown-item"
