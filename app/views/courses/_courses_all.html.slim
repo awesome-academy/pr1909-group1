@@ -32,10 +32,6 @@
                     / TODO: model like.count
                 .course-show.d-flex.align-items-center
                   = link_to t('course.join_now'), course, class: "btn btn-outline-success"
-            - if is_admin?
-              .btn-index-course
-                = link_to t('btn.edit'), edit_course_path(course), class: "btn btn-sm btn-outline-primary"
-                = link_to t('btn.destroy'), course, data: { confirm: 'Are you sure?' }, method: :delete, class: "btn btn-sm btn-outline-dark"
 .container
   .row
     .paginate

@@ -4,6 +4,8 @@ class Admin::BaseController < ApplicationController
   layout "admin/admin_index"
 
   def index
+    @courses = Course.all
+    @users = User.all
   end
 
   private

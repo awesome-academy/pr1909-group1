@@ -1,4 +1,42 @@
-.container-fuild
-  = render  "layouts/messages" 
-  h1
-    | Index admin
+.content-wrapper
+  .content-header
+    .container-fluid
+      .row.mb-2
+        .col-sm-6
+          h1.m-0.text-dark
+            | Dashboard v3
+        .col-sm-6
+          ol.breadcrumb.float-sm-right
+            li.breadcrumb-item
+              = link_to "Home", admin_path
+            li.breadcrumb-item.active
+              | Dashboard v3
+  .content
+    .container-fluid
+      .row
+        .col-lg-3
+          .small-box.bg-info
+            .inner
+              h3
+                = @users.count
+              p
+                | Users
+            .icon
+              i.fas.fa-users
+            = link_to "#", class: "small-box-footer" do
+              | More info
+              i.fas.fa-arrow-circle-right
+        .col-lg-3
+          .small-box.bg-gradient-success
+            .inner
+              h3
+                = @courses.count
+              p
+                | Course
+            .icon
+              i.fas.fa-book
+            = link_to admin_courses_path, class: "small-box-footer" do
+              | More info
+              i.fas.fa-arrow-circle-right
+
+        / TODO add lesson, test
