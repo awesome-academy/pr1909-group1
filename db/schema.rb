@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 2020_06_16_160420) do
   create_table "courses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", default: 1, null: false
     t.string "course_title", limit: 100, null: false
-    t.text "course_overview"
-    t.text "course_description"
+    t.text "course_overview", null: false
+    t.text "course_description", null: false
     t.integer "course_type", default: 1, null: false
     t.string "course_image"
     t.string "overview_video_url"

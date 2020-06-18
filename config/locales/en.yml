@@ -29,8 +29,8 @@ en:
         copy_right: "© Copyright "
         reserved: ". All Rights Reserved"
         design: "Designed by Group One"
-      banner:
-        view_course: 'View our courses'
+    banner:
+      view_course: 'View our courses'
 
   # view user
     user:
@@ -44,7 +44,15 @@ en:
       password: "Password"
       password_confirmation: "Password Confirmation"
       remember_me: "Remember me"
-<<<<<<< HEAD
+      current_password: 'Current Password'
+      update: 'Update'
+      edit: 'Edit'
+
+    devise:
+      forgot_password: 'Forgot your password'
+      resend_confirmation: 'Resend confirmation instructions'
+      did_not_receive_confirmation: "Did't receive confirmation instructions"
+      send_me_reset_password_instructions: 'Send me reset password instructions'
 
   # view about
     about:
@@ -86,15 +94,3 @@ en:
     btn:
       edit: "Edit"
       destroy: "Destroy"
-=======
-      current_password: 'Current Password'
-      update: 'Update'
-      edit: 'Edit'
-
-    devise:
-      forgot_password: 'Forgot your password'
-      resend_confirmation: 'Resend confirmation instructions'
-      did_not_receive_confirmation: "Did't receive confirmation instructions"
-      send_me_reset_password_instructions: 'Send me reset password instructions'
-
->>>>>>> add devise-I18N and custom some forms
