@@ -4,12 +4,19 @@
       .row.mb-2
         .col-sm-6
           h1.m-0.text-dark
-            | Course
+            | User
         .col-sm-6
           ol.breadcrumb.float-sm-right
             li.breadcrumb-item
               = link_to "Home", admin_path
             li.breadcrumb-item.active
-              | Course
+              | User
   .content
     .container-fluid
+      h1
+        | New User
+      = render 'form', user: @user
+      .container
+        .row
+          .col-lg-10.offset-lg-1
+            = link_to 'Back', admin_users_path

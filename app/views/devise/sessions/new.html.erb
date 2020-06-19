@@ -30,7 +30,7 @@
                           <i class="fa fa-lock"></i>
                           <%= f.input_field :password,
                                             placeholder: t("user.password"),
-                                            input_html: { autocomplete: "current-password" } %>
+                                            input_html: { auto_complete: "current-password" } %>
                         </div>
                       <% end %>
           <%= f.input :remember_me, label: t("user.remember_me"), as: :boolean if devise_mapping.rememberable? %>

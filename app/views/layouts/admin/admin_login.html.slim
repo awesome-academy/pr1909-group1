@@ -1,0 +1,33 @@
+doctype html
+html[lang="en"]
+  head
+    meta[charset="utf-8"]
+    meta[name="viewport" content="width=device-width, initial-scale=1"]
+    meta[http-equiv="x-ua-compatible" content="ie=edge"]
+    title
+      | Admin Athena
+    = csrf_meta_tags
+    = csp_meta_tag
+    = javascript_include_tag Ckeditor.cdn_url
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    script[src="https://kit.fontawesome.com/6d90f39943.js"]
+  body
+    header#header
+      .container
+        nav.navbar.navbar-expand-xl
+          = link_to  "Admin", root_path, class: "navbar-brand logo"
+          button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarSupportedContentXL" aria-controls="navbarSupportedContentXL" aria-expanded="false" aria-label="Toggle navigation"]
+            span.navbar-toggler-icon
+          #navbarSupportedContentXL.collapse.navbar-collapse
+            ul.navbar-nav.ml-auto
+              li.nav-item
+                = link_to t('layouts.header.home'), root_path, class: "nav-link"
+              li.flag
+                = link_to image_tag('en.png'), locale:"en" if I18n.locale == :vi
+              li.flag
+                = link_to image_tag('vi.png'), locale:"vi" if I18n.locale == :en
+              li.nav-item.get-login-btn
+                = link_to "Login App", new_user_session_path
+    main.mt-5
+      = yield

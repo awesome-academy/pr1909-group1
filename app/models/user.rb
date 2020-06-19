@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_one :evaluate_course, dependent: :destroy
   has_many :review_courses, dependent: :destroy
 
+  scope :not_admin, -> { where(is_admin: false) }
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :confirmable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
