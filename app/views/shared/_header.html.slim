@@ -1,6 +1,6 @@
 header#header.fixed-top
   .container
-    nav.navbar.navbar-expand-xl.navbar-dark
+    nav.navbar.navbar-expand-xl
       = link_to  "Athena", root_path, class: "navbar-brand logo"
       button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarSupportedContentXL" aria-controls="navbarSupportedContentXL" aria-expanded="false" aria-label="Toggle navigation"]
         span.navbar-toggler-icon
@@ -22,10 +22,9 @@ header#header.fixed-top
         - else
           li.nav-item.nav-link.dropdown
             a#navbarDropdownXL.nav-link.dropdown-toggle[href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
-              = current_user.full_name
+              = current_user.full_name.capitalize
             .dropdown-menu[aria-labelledby="navbarDropdownXL"]
               = link_to t("layouts.header.profile"), current_user, class: "dropdown-item"
-              - unless current_user.provider
-                = link_to t("layouts.header.account_setting"), edit_user_registration_path, class: "dropdown-item"
-              .dropdown-divider
-              = link_to t("layouts.header.log_out"), destroy_user_session_path, method: :delete, class: "dropdown-item"
+              = link_to "Admin", admin_path, class: "dropdown-item" if is_admin?
+              = link_to t("header.account_setting"), edit_user_registration_path, class: "dropdown-item" unless current_user.provider
+              = link_to t("header.log_out"), destroy_user_session_path, method: :delete, class: "dropdown-item"

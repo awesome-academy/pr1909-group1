@@ -1,0 +1,44 @@
+.content-wrapper
+  .content-header
+    .container-fluid
+      .row.mb-2
+        .col-sm-6
+          h1.m-0.text-dark
+            | Course
+        .col-sm-6
+          ol.breadcrumb.float-sm-right
+            li.breadcrumb-item
+              = link_to "Home", admin_path
+            li.breadcrumb-item.active
+              | Course
+  .content
+    .container-fluid
+      p#notice
+        = notice
+      p
+        strong
+          | Course title:
+        = @course.course_title
+      p
+        strong
+          | Course overview:
+        = @course.course_overview
+      p
+        strong
+          | Course description:
+        = @course.course_description.html_safe
+      p
+        strong
+          | Course type:
+        = @course.course_type
+      p
+        strong
+          | Course image:
+        = image_tag(@course.course_image.url(:show))
+      p
+        strong
+          | Overview video url:
+        = @course.overview_video_url
+      = link_to 'Edit', edit_admin_course_path(@course)
+      |  | 
+      = link_to 'Back', admin_courses_path

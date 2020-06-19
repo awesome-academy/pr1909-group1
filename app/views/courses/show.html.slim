@@ -5,7 +5,6 @@
         .col-lg-4
           .course-item
             .course-img
-              / TODO = @course.course_image, delete image_tag
               = image_tag(@course.course_image.url(:show), class: "img-fluid")
             .course-content
               .d-flex.mb-3
@@ -24,10 +23,6 @@
                 .course-show.d-flex.align-items-center
                   = link_to t('course.register_now'), "#", class: "btn btn-outline-success"
                   / TODO: apply course
-            - if is_admin?
-              .btn-index-course
-                = link_to t('btn.edit'), edit_course_path(@course), class: "btn btn-sm btn-outline-primary"
-                = link_to t('btn.destroy'), @course, data: { confirm: 'Are you sure?' }, method: :delete, class: "btn btn-sm btn-outline-dark"
         .col-lg-8
           .course__item
             .course-title
@@ -50,7 +45,7 @@
         .col-xs-12
           #nav-tabContent.tab-content.py-3.px-3.px-sm-0
             #nav-info.tab-pane.fade.show.active[role="tabpanel" aria-labelledby="nav-home-tab"]
-              = raw(@course.course_description)
+              = @course.course_description.html_safe
             #nav-lesson.tab-pane.fade[role="tabpanel" aria-labelledby="nav-profile-tab"]
               | TODO lesson
               / TODO lesson

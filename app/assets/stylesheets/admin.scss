@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&lang=en");
+
+@import "admin-lte/dist/css/adminlte";
+
+// admin-index
+.sidebar {
+  border-right: 1px solid #d4d4d4;
+}
+
+
+// Course-index
+.webkit-box-1 {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.webkit-box-2 {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.with-10 {
+  width: 10%;
+  img {
+    width: 50px;
+    height: 50px;
+  }
+}
+.with-5 {
+  width: 5%;
+}
+.with-15 {
+  width: 15%;
+  p {
+    width: 200px;
+  }
+}
