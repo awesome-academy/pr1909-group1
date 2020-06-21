@@ -1,4 +1,4 @@
 per_page: 6
-star:
-  min: 1
-  max: 5
+course_type:
+  length:
+    maximum: 50

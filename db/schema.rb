@@ -45,7 +45,6 @@ ActiveRecord::Schema.define(version: 2020_06_17_092100) do
   create_table "evaluate_courses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "course_id", null: false
     t.bigint "user_id", null: false
-    t.integer "star"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["course_id"], name: "index_evaluate_courses_on_course_id"
