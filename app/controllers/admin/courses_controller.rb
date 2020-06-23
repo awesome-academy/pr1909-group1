@@ -1,6 +1,6 @@
 class Admin::CoursesController < Admin::BaseController
   before_action :get_course, only: [:show, :edit, :update, :destroy]
-  before_action :get_course_type, only: [:new, :edit]
+  before_action :get_course_type, only: [:new, :edit, :show]
 
   # GET /courses
   # GET /courses.json

@@ -3,15 +3,10 @@ class CoursesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :only_for_admin, except: [:show, :index]
   before_action :get_course_type, only: [:new, :edit]
-
   # GET /courses
   # GET /courses.json
   def index
     @courses = Course.all.paginate(page: params[:page], per_page: Settings.per_page)
-    # respond_to do |format|
-    #   format.html
-    #   format.js
-    # end
   end
 
   # GET /courses/1

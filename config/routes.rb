@@ -8,10 +8,9 @@ Rails.application.routes.draw do
     resources :review_courses, except: [:new, :show]
     devise_for :users, skip: :omniauth_callbacks
     resources :users, except: [:new, :create]
+    get "course/like/:course_id", to: "likes#create", as: :like_course
 
     namespace :admin do
-      # get "/login", to: "sessions#new"
-      # post "/login", to: "sessions#create"
       get "/", to: "base#index"
       resources :courses
       resources :users
