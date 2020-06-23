@@ -1,0 +1,9 @@
+= form_for(current_user.review_courses.build, remote: true, class: "form-create") do |f|
+  div
+    = f.hidden_field :user_id, value: current_user.id
+    = f.hidden_field :course_id, value: @course.id
+  .col.container
+    div.container
+      = f.text_area :comment, size: "autox3", class: "form-control text-comment"
+    div.container
+      = f.submit t("review_course.comment"), class: "btn btn-primary btn-comment"

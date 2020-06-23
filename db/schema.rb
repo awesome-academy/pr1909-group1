@@ -28,6 +28,12 @@ ActiveRecord::Schema.define(version: 2020_06_17_092100) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "course_types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "course_type", limit: 50, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "courses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", default: 1, null: false
     t.string "course_title", limit: 100, null: false
@@ -76,6 +82,7 @@ ActiveRecord::Schema.define(version: 2020_06_17_092100) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.boolean "is_admin", default: false
+    t.string "avatar"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

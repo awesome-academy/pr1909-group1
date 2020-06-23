@@ -1,0 +1,5 @@
+|
+  $('.text-comment').val('');
+  $('#review-form').html('#{ j render "review_courses/review_form" }');
+  $("#{ j render @review_course }").prependTo("#comments");
+  $('.edit-comment').show();

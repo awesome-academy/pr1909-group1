@@ -2,6 +2,7 @@ class Course < ApplicationRecord
   belongs_to :user
   belongs_to :course_type
   mount_uploader :course_image, CourseImageUploader
+
   has_many :registers, dependent: :destroy
   has_many :review_courses, dependent: :destroy
   has_many :users, through: :registers

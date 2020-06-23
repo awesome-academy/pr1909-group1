@@ -1,0 +1,76 @@
+.btn-comment{
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.destroy-comment{
+  margin-left: 20px;
+  color: #007bff;
+}
+
+.destroy-comment:hover{
+  color: #4d96ff;
+}
+
+.edit-comment{
+  color: #007bff;
+}
+
+.edit-comment:hover{
+  color: #4d96ff;
+}
+
+.inform{
+  text-align: center;
+}
+
+.user_name{
+  margin-top: 10px;
+  min-width: 300px;
+  a{
+    color: #007bff;
+  }
+}
+.comment{
+  margin-left: 30px;
+  margin-top: 10px;
+  font-size: 15px;
+  margin-right: 20px;
+}
+
+.divider-comment{
+  border-bottom: 1px solid #c6c2c2;
+}
+
+#nav-tabContent{
+  margin: auto 100px;
+}
+
+.full-name:hover{
+  color: #4d96ff;
+  border-bottom: 1px solid #4d96ff;
+}
+
+.user-actions{
+  display: inline-block;
+  font-size: 14px;
+  color: #007bff;
+}
+
+.image-avatar{
+  vertical-align: top;
+  margin-right: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.avatar{
+  margin: auto 0px;
+  margin-top: 5px;
+  max-width: 80px;
+}
+
+.comment-element{
+  text-align: top;
+}

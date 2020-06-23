@@ -94,3 +94,7 @@ en:
     btn:
       edit: "Edit"
       destroy: "Destroy"
+
+    review_course:
+      comment: "Comment"
+      continue: "Continue"

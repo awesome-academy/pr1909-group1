@@ -1,0 +1,9 @@
+|
+  $('#review-form').html('#{j render "review_courses/edit_form"}')
+  $('.edit-comment').bind('ajax:success', function() {
+     $(this).closest('.box-comment').fadeOut();
+  });
+  $('body,html').animate({
+      scrollTop: $("#nav-tab").offset().top
+    }, 600);
+  $('.edit-comment').hide();

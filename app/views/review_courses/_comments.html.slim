@@ -1,0 +1,7 @@
+#comments.container
+  - @review_courses.each do |review_course|
+    = render review_course
+.container
+  .row
+    .paginate
+      = will_paginate @review_courses
