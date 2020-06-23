@@ -9,12 +9,12 @@
             .course-content
               .d-flex.mb-3
                 h4
-                  = Course.course_type_views.key(@course.course_type)
+                  = @course.course_type.course_type
               .course-info.d-flex.justify-content-between.align-items-center
                 .course-info-icon.d-flex.align-items-center
                   .item-icon
                     i.fas.fa-users
-                    |  35 
+                    |  35
                     / TODO user.apply
                   .item-icon
                     i.far.fa-heart
@@ -50,6 +50,13 @@
               | TODO lesson
               / TODO lesson
             #nav-comment.tab-pane.fade[role="tabpanel" aria-labelledby="nav-contact-tab"]
+              - @course.review_courses.each do |review|
+                div.container
+                  = link_to review.user.full_name, review.course, class: "user_name"
+                div.container.comment
+                  = review.comment
+                br
+                div.divider-comment
               | TODO comment
               / TODO comment
             #nav-student.tab-pane.fade[role="tabpanel" aria-labelledby="nav-about-tab"]

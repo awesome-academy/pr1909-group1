@@ -14,7 +14,7 @@
             .course-content
               .d-flex.mb-3
                 h4
-                  = Course.course_type_views.key(course.course_type)
+                  = course.course_type.course_type
               h3
                 a[href="course-details.html"]
                   = link_to course.course_title, course
@@ -24,7 +24,7 @@
                 .course-info-icon.d-flex.align-items-center
                   .item-icon
                     i.fas.fa-users
-                    |  35 
+                    |  35
                     / TODO
                   .item-icon
                     i.far.fa-heart
