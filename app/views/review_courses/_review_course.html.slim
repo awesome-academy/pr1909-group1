@@ -8,7 +8,7 @@
           = link_to review_course.user.full_name, review_course.user, class: "full-name"
         div.container.comment
           = review_course.comment
-  - if current_user == review_course.user
+  - if(current_user == review_course.user) || current_user.is_admin?
     .row.user-actions.container.col-md-12.offset-md-3
       = link_to t('btn.edit'), edit_review_course_path(review_course), class: "edit-comment", remote: true
       = link_to t('btn.destroy'), review_course, method: :delete, data: { confirm: 'Are you sure? '}, remote: true, class: 'destroy-comment'
