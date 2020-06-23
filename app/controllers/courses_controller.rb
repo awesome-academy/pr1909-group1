@@ -18,7 +18,7 @@ class CoursesController < ApplicationController
 
   def get_course_type
     @course_types = CourseType.all
-    @course_types_view = Hash[@course_types.pluck(:course_type).zip(@course_types.pluck(:id))]
+    @course_types_view = @course_types.pluck(:course_type, :id).to_h
   end
 
   # Only allow a list of trusted parameters through.
