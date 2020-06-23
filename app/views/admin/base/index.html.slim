@@ -1,6 +1,8 @@
 .content-wrapper
   .content-header
     .container-fluid
+      .messages
+        = render "layouts/messages"
       .row.mb-2
         .col-sm-6
           h1.m-0.text-dark
@@ -23,7 +25,7 @@
                 | Users
             .icon
               i.fas.fa-users
-            = link_to "#", class: "small-box-footer" do
+            = link_to admin_users_path, class: "small-box-footer" do
               | More info
               i.fas.fa-arrow-circle-right
         .col-lg-3

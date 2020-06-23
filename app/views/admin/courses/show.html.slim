@@ -13,8 +13,7 @@
               | Course
   .content
     .container-fluid
-      p#notice
-        = notice
+      = render  "layouts/messages" 
       p
         strong
           | Course title:

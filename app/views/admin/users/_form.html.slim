@@ -1,0 +1,20 @@
+.container
+  .row
+    .col-lg-10.offset-lg-1
+      = simple_form_for [:admin, @user] do |f|
+        = f.error_notification
+        = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+        .form-inputs
+          .row
+            .col-lg-5.col-md-5
+              = f.input :full_name
+            .col-lg-7.col-md-7
+              = f.input :email
+          .row
+            .col-lg-12.col-md-12
+              = f.hidden_field :confirmed_at, value: Time.zone.now
+          .row
+            .col-lg-12.col-md-12
+              = f.input :password
+        .form-actions
+          = f.button :submit, class: "btn btn-success"
