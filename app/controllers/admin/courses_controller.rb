@@ -1,14 +1,11 @@
 class Admin::CoursesController < Admin::BaseController
   before_action :get_course, only: [:show, :edit, :update, :destroy]
+  before_action :get_course_type, only: [:new, :edit]
 
   # GET /courses
   # GET /courses.json
   def index
     @courses = Course.all.paginate(page: params[:page], per_page: Settings.per_page)
-    # respond_to do |format|
-    #   format.html
-    #   format.js
-    # end
   end
 
   # GET /courses/1
@@ -72,9 +69,14 @@ class Admin::CoursesController < Admin::BaseController
     @course = Course.find(params[:id])
   end
 
+  def get_course_type
+    @course_types = CourseType.all
+    @course_types_view = @course_types.pluck(:course_type, :id).to_h
+  end
+
   # Only allow a list of trusted parameters through.
   def course_params
-    params.require(:course).permit(:course_title, :course_overview, :course_description, :course_type,
+    params.require(:course).permit(:course_title, :course_overview, :course_description, :course_type_id,
                                    :course_image, :overview_video_url)
   end
 

@@ -44,8 +44,7 @@ number_users.times do |n|
   20.times do |m|
     EvaluateCourse.create!(
       user_id: user_ids[n],
-      course_id: course_ids[m],
-      star: rand(1..5)
+      course_id: course_ids[m]
   )
   end
 end
