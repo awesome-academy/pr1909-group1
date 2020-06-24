@@ -1,8 +1,8 @@
 class CreateCourses < ActiveRecord::Migration[6.0]
   def change
     create_table :courses do |t|
-      t.references :user, null: false, foreign_key: true, default: 1
-      t.string :course_title, null: false, limit: 100
+      t.references :user, null: false, foreign_key: true
+      t.string :course_title, null: false, limit: Settings.length.course_title.maximum
       t.text :course_overview, null: false
       t.text :course_description, null: false
       t.string :course_image
