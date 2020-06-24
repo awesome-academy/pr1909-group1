@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_22_163228) do
+ActiveRecord::Schema.define(version: 2020_06_24_121815) do
 
   create_table "ckeditor_assets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "data_file_name", null: false
@@ -63,40 +63,32 @@ ActiveRecord::Schema.define(version: 2020_06_22_163228) do
 
   create_table "lessons", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "course_id", null: false
-    t.bigint "quiz_id"
     t.string "lesson_name", null: false
     t.integer "lesson_sequence", null: false
     t.string "video_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["course_id"], name: "index_lessons_on_course_id"
-    t.index ["quiz_id"], name: "index_lessons_on_quiz_id"
   end
 
   create_table "quiz_questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "quiz_id", null: false
-    t.string "quiz_question", null: false
-    t.json "quiz_choice", null: false
-    t.json "answer", null: false
+    t.bigint "lesson_id", null: false
+    t.string "quiz_question"
+    t.json "quiz_choice"
+    t.json "answer"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["quiz_id"], name: "index_quiz_questions_on_quiz_id"
+    t.index ["lesson_id"], name: "index_quiz_questions_on_lesson_id"
   end
 
   create_table "quiz_results", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "quiz_id", null: false
+    t.bigint "lesson_id", null: false
     t.bigint "user_id", null: false
     t.integer "mark", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["quiz_id"], name: "index_quiz_results_on_quiz_id"
+    t.index ["lesson_id"], name: "index_quiz_results_on_lesson_id"
     t.index ["user_id"], name: "index_quiz_results_on_user_id"
-  end
-
-  create_table "quizzes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "quiz_name", limit: 100
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "registers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -151,9 +143,8 @@ ActiveRecord::Schema.define(version: 2020_06_22_163228) do
   add_foreign_key "evaluate_courses", "courses"
   add_foreign_key "evaluate_courses", "users"
   add_foreign_key "lessons", "courses"
-  add_foreign_key "lessons", "quizzes"
-  add_foreign_key "quiz_questions", "quizzes"
-  add_foreign_key "quiz_results", "quizzes"
+  add_foreign_key "quiz_questions", "lessons"
+  add_foreign_key "quiz_results", "lessons"
   add_foreign_key "quiz_results", "users"
   add_foreign_key "registers", "courses"
   add_foreign_key "registers", "users"

@@ -1,5 +1,5 @@
 class QuizResult < ApplicationRecord
-  belongs_to :quiz
+  belongs_to :lesson
   belongs_to :user
   validates :quiz_id, :user_id, :mark, presence: true, numericality:
   {

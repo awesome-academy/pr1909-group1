@@ -1,13 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  quiz: one
+  lesson: one
   quiz_question: MyString
   quiz_choice: 
   answer: 
 
 two:
-  quiz: two
+  lesson: two
   quiz_question: MyString
   quiz_choice: 
   answer: 
