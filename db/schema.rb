@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_17_092100) do
+ActiveRecord::Schema.define(version: 2020_06_24_121815) do
 
   create_table "ckeditor_assets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "data_file_name", null: false
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 2020_06_17_092100) do
     t.index ["type"], name: "index_ckeditor_assets_on_type"
   end
 
+  create_table "comment_lessons", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "lesson_id", null: false
+    t.bigint "user_id", null: false
+    t.string "content", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["lesson_id"], name: "index_comment_lessons_on_lesson_id"
+    t.index ["user_id"], name: "index_comment_lessons_on_user_id"
+  end
+
   create_table "course_types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "course_type", limit: 50, null: false
     t.datetime "created_at", precision: 6, null: false
@@ -29,7 +39,7 @@ ActiveRecord::Schema.define(version: 2020_06_17_092100) do
   end
 
   create_table "courses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", default: 1, null: false
+    t.bigint "user_id", null: false
     t.string "course_title", limit: 100, null: false
     t.text "course_overview", null: false
     t.text "course_description", null: false
@@ -51,9 +61,40 @@ ActiveRecord::Schema.define(version: 2020_06_17_092100) do
     t.index ["user_id"], name: "index_evaluate_courses_on_user_id"
   end
 
+  create_table "lessons", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "course_id", null: false
+    t.string "lesson_name", null: false
+    t.integer "lesson_sequence", null: false
+    t.string "video_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["course_id"], name: "index_lessons_on_course_id"
+  end
+
+  create_table "quiz_questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "lesson_id", null: false
+    t.string "quiz_question"
+    t.json "quiz_choice"
+    t.json "answer"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["lesson_id"], name: "index_quiz_questions_on_lesson_id"
+  end
+
+  create_table "quiz_results", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "lesson_id", null: false
+    t.bigint "user_id", null: false
+    t.integer "mark", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["lesson_id"], name: "index_quiz_results_on_lesson_id"
+    t.index ["user_id"], name: "index_quiz_results_on_user_id"
+  end
+
   create_table "registers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "course_id", null: false
     t.bigint "user_id", null: false
+    t.integer "lesson_step", default: 1, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["course_id", "user_id"], name: "index_registers_on_course_id_and_user_id", unique: true
@@ -95,10 +136,16 @@ ActiveRecord::Schema.define(version: 2020_06_17_092100) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comment_lessons", "lessons"
+  add_foreign_key "comment_lessons", "users"
   add_foreign_key "courses", "course_types"
   add_foreign_key "courses", "users"
   add_foreign_key "evaluate_courses", "courses"
   add_foreign_key "evaluate_courses", "users"
+  add_foreign_key "lessons", "courses"
+  add_foreign_key "quiz_questions", "lessons"
+  add_foreign_key "quiz_results", "lessons"
+  add_foreign_key "quiz_results", "users"
   add_foreign_key "registers", "courses"
   add_foreign_key "registers", "users"
   add_foreign_key "review_courses", "courses"
