@@ -4,25 +4,25 @@
       .row.mb-2
         .col-sm-6
           h1.m-0.text-dark
-            | User
+            = t('admin.user')
         .col-sm-6
           ol.breadcrumb.float-sm-right
             li.breadcrumb-item
-              = link_to "Home", admin_path
+              = link_to t("layouts.header.home"), admin_path
             li.breadcrumb-item.active
-              | User
+              = t('admin.user')
   .content
     .container-fluid
       = render  "layouts/messages" 
       p
         strong
-          | Full name:
+          =t('user.full_name') + ": "
         = @user.full_name
       p
         strong
-          | Email:
+          | Email: 
         = @user.email
 
-      = link_to 'Edit', edit_admin_user_path(@user)
+      = link_to t('user.edit'), edit_admin_user_path(@user)
       |  | 
-      = link_to 'Back', admin_users_path
+      = link_to t('user.back'), admin_users_path

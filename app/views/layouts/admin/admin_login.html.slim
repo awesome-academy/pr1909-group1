@@ -28,6 +28,6 @@ html[lang="en"]
               li.flag
                 = link_to image_tag('vi.png'), locale:"vi" if I18n.locale == :en
               li.nav-item.get-login-btn
-                = link_to "Login App", new_user_session_path
+                = link_to t("admin.login_app"), new_user_session_path
     main.mt-5
       = yield

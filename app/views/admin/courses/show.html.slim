@@ -4,40 +4,40 @@
       .row.mb-2
         .col-sm-6
           h1.m-0.text-dark
-            | Course
+            =t ('admin.course')
         .col-sm-6
           ol.breadcrumb.float-sm-right
             li.breadcrumb-item
-              = link_to "Home", admin_path
+              = link_to t("layouts.header.home"), admin_path
             li.breadcrumb-item.active
-              | Course
+              =t ('admin.course')
   .content
     .container-fluid
       = render  "layouts/messages" 
       p
         strong
-          | Course title:
+          =t('course.course_title') + ": "
         = @course.course_title
       p
         strong
-          | Course overview:
+          = t('course.course_overview') + ": "
         = @course.course_overview
       p
         strong
-          | Course description:
+          = t('course.course_description') + ": "
         = @course.course_description.html_safe
       p
         strong
-          | Course type:
+          = t('course.course_type') + ": "
         = @course.course_type
       p
         strong
-          | Course image:
+          = t('course.course_image') + ": "
         = image_tag(@course.course_image.url(:show))
       p
         strong
-          | Overview video url:
+          = t('course.course_video') + ": "
         = @course.overview_video_url
-      = link_to 'Edit', edit_admin_course_path(@course)
+      = link_to t('user.edit'), edit_admin_course_path(@course)
       |  | 
-      = link_to 'Back', admin_courses_path
+      = link_to t('user.back'), admin_courses_path

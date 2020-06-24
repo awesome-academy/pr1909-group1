@@ -17,14 +17,14 @@ aside.main-sidebar.sidebar-dark-primary.elevation-4
             a.nav-link.active href="/" 
               i.nav-icon.fas.fa-tachometer-alt
               p
-                span Dashboard
+                span =t('admin.dash')
                 i.right.fas.fa-angle-left
             ul.nav.nav-treeview
               li.nav-item
                 = link_to admin_users_path, class: "nav-link" do
                   i.far.fa-circle.nav-icon
-                  p Users
+                  p = t('admin.user')
               li.nav-item
                 = link_to admin_courses_path, class: "nav-link" do
                   i.far.fa-circle.nav-icon
-                  p Course
+                  p = t('admin.course')
