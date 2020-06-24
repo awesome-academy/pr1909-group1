@@ -12,25 +12,25 @@
           thead
             tr
               th
-                | Title
+                = t('course.title')
               th
-                | Overview
+                = t('course.overview')
               th
-                | Description
+                = t('course.description')
               th
-                | Type
+                = t('course.type')
               th
-                | Image
+                = t('course.image')
               th
-                | Video
+                = t('course.video')
               th
-                | Show
+                = t('admin.show')
               th
-                | Show app
+                = t('admin.show_app')
               th
-                | Edit
+                = t('user.edit')
               th
-                | Destroy
+                = t('admin.delete')
           tbody
             tbody
               - @courses.each do |course|

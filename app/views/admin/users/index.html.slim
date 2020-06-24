@@ -4,17 +4,17 @@
       .row.mb-2
         .col-sm-6
           h1.m-0.text-dark
-            | User
+            = t('admin.user')
         .col-sm-6
           ol.breadcrumb.float-sm-right
             li.breadcrumb-item
-              = link_to "Home", admin_path
+              = link_to t("layouts.header.home"), admin_path
             li.breadcrumb-item.active
-              | User
+              = t('admin.user')
   .content
     .container-fluid
       = render  "layouts/messages" 
-      = link_to 'New User', new_admin_user_path, class: "btn btn-outline-success"
+      = link_to t('admin.new_user'), new_admin_user_path, class: "btn btn-outline-success"
       br
       br
       #show-users

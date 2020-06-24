@@ -12,15 +12,15 @@
           thead
             tr
               th
-                | Full name
+                = t('user.full_name')
               th
                 | Email
               th
-                | Show
+                = t('admin.show')
               th
-                | Edit
+                = t('user.edit')
               th
-                | Destroy
+                = t('admin.delete')
           tbody
             tbody
               - @users.each do |user|

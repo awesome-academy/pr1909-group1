@@ -11,6 +11,9 @@ en:
         log_in: 'Log in'
         sign_up: 'Sign up'
         profile: 'Profile'
+        search: 'Search'
+        all: 'See All'
+        about: 'About'
 
       footer:
         addr: "11F Handico Building, Pham Hung Road, Nam Tu Liem Dist, Ha Noi"
@@ -47,6 +50,7 @@ en:
       current_password: 'Current Password'
       update: 'Update'
       edit: 'Edit'
+      back: 'Quay lại'
 
     devise:
       forgot_password: 'Forgot your password'
@@ -86,9 +90,15 @@ en:
       course_type: "Course type"
       course_overview: "Course overview"
       course_image: "Course image"
-      course_video: "Video Overview"
+      course_video: "Video Overview URL"
       course_description: "Course description"
       select_course_type: "Select course type"
+      title: "Title"
+      type: "Type"
+      overview: "Overview"
+      image: "Image"
+      video: "Video URL"
+      description: "Description"
 
   # button
     btn:
@@ -98,3 +108,15 @@ en:
     review_course:
       comment: "Comment"
       continue: "Continue"
+
+  # view admin
+    admin:
+      dash: 'Dashboard'
+      user: 'Users'
+      course: 'Courses'
+      show: 'Show'
+      edit_user: "Editing user"
+      new_user: "New User"
+      delete: 'Delete'
+      show_app: "Show app"
+      login_app: "Login app"

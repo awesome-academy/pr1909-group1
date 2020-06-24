@@ -11,12 +11,16 @@ vi:
         log_in: 'Đăng nhập'
         sign_up: 'Đăng ký'
         profile: 'Thông tin cá nhân'
+        search: 'Tìm kiếm'
+        all: 'Xem hết'
+        about: 'Giới thiệu'
 
       footer:
         addr: "Tầng 11 toà nhà Handico, đường Phạm Hùng, quận Nam Từ Liêm, Hà Nội"
         phone: 'Điện thoại: '
         email: 'Thư điện tử'
         link: 'Đường dẫn'
+        home: 'Trang chủ'
         about: 'Về chúng tôi'
         service: 'Dịch vụ'
         term: 'Điều khoản dịch vụ'
@@ -46,6 +50,7 @@ vi:
       current_password: 'Mật khẩu hiện tại'
       update: 'Cập nhật'
       edit: 'Chỉnh sửa'
+      back: 'Quay lại'
 
     devise:
       forgot_password: 'Quên mật khẩu'
@@ -98,9 +103,15 @@ vi:
       course_type: "Loại khóa học"
       course_overview: "Tổng quan khóa học"
       course_image: "Hình ảnh khóa học"
-      course_video: "Video tổng quan"
+      course_video: "URL video tổng quan"
       course_description: "Miêu tả khóa học"
       select_course_type: "Lựa chọn loại khóa học"
+      title: "Tiêu đề"
+      type: "Loại"
+      overview: "Tổng quan"
+      image: "Hình ảnh"
+      video: "URL video"
+      description: "Miêu tả"
 
   # button
     btn:
@@ -110,3 +121,14 @@ vi:
     review_course:
       comment: "Bình luận"
       continue: "Tiếp tục"
+ # view admin
+    admin:
+      dash: 'Bảng điều khiển'
+      user: 'Người dùng'
+      course: 'Khoá học'
+      show: 'Xem'
+      edit_user: "Chỉnh sửa người dùng"
+      new_user: 'Người dùng mới'
+      delete: 'Xoá'
+      show_app: "Xem app"
+      login_app: "Đăng nhập app"
