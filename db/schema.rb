@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_23_034149) do
+ActiveRecord::Schema.define(version: 2020_06_24_121815) do
 
   create_table "ckeditor_assets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "data_file_name", null: false
@@ -53,15 +53,6 @@ ActiveRecord::Schema.define(version: 2020_06_23_034149) do
     t.index ["user_id"], name: "index_courses_on_user_id"
   end
 
-  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "course_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["course_id"], name: "index_likes_on_course_id"
-    t.index ["user_id"], name: "index_likes_on_user_id"
-  end
-
   create_table "lessons", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "course_id", null: false
     t.string "lesson_name", null: false
@@ -70,6 +61,17 @@ ActiveRecord::Schema.define(version: 2020_06_23_034149) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["course_id"], name: "index_lessons_on_course_id"
+  end
+
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "course_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "discarded_at"
+    t.index ["course_id"], name: "index_likes_on_course_id"
+    t.index ["discarded_at"], name: "index_likes_on_discarded_at"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "quiz_questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -142,11 +144,11 @@ ActiveRecord::Schema.define(version: 2020_06_23_034149) do
   add_foreign_key "courses", "course_types"
   add_foreign_key "courses", "users"
   add_foreign_key "lessons", "courses"
+  add_foreign_key "likes", "courses"
+  add_foreign_key "likes", "users"
   add_foreign_key "quiz_questions", "lessons"
   add_foreign_key "quiz_results", "lessons"
   add_foreign_key "quiz_results", "users"
-  add_foreign_key "likes", "courses"
-  add_foreign_key "likes", "users"
   add_foreign_key "registers", "courses"
   add_foreign_key "registers", "users"
   add_foreign_key "review_courses", "courses"

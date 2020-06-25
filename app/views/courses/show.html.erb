@@ -48,7 +48,7 @@
             <nav>
               <div id="nav-tab" class="nav nav-tabs nav-fill" role="tablist">
                 <a id="nav-home-tab" class="nav-item nav-link active" data-toggle="tab" href="#nav-info" role="tab" aria-controls="nav-home" aria-selected="true" >
-                  <%= t('course.lessons') %>
+                  <%= t('course.info') %>
                 </a>
                 <a id="nav-profile-tab" class="nav-item nav-link" data-toggle="tab" href="#nav-lesson" role="tab" aria-controls="nav-profile" aria-selected="false" >
                   <%= t('course.lessons') %>
@@ -81,7 +81,7 @@
                 <div id="review-form">
                   <%= render "review_courses/review_form" %>
                 </div>
-                <div id="review">
+                <div id="reviews">
                   <%= render "review_courses/comments" %>
                 </div>
               <% else %>

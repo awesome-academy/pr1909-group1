@@ -41,14 +41,14 @@ end
 
 number_users = user_ids.length
 
-number_users.times do |n|
-  20.times do |m|
-    Like.create!(
-      user_id: user_ids[n],
-      course_id: course_ids[m]
-  )
-  end
-end
+# number_users.times do |n|
+#   20.times do |m|
+#     Like.create!(
+#       user_id: user_ids[n],
+#       course_id: course_ids[m]
+#   )
+#   end
+# end
 
 number_users.times do |n|
   sample = course_ids.sample(16)
