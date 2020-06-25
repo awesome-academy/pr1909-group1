@@ -1,0 +1,3 @@
+$('#show-courses').html("<%= j (render 'courses/courses_all') %>");
+$('.pagination a').attr('data-remote', 'true');
+$('body,html').animate({ scrollTop: 0 }, 400 );

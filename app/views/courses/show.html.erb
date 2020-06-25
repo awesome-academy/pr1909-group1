@@ -1,0 +1,101 @@
+<div class="container-fuild">
+  <div class="container">
+    <div class="show-course">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="course-item">
+            <div class="course-img">
+              <%= image_tag(@course.course_image.url(:show), class: "img-fluid") %>
+            </div>
+            <div class="course-content">
+              <div class="d-flex mb-3">
+                <h4>
+                  <%= @course.course_type.course_type %>
+                </h4>
+              </div>
+          
+              <div class="course-info d-flex justify-content-between align-items-center">
+                <div class="course-info-icon d-flex align-items-center" id="course-actions">
+                  <div class="item-icon">
+                    <i class="fas fa-users fa-2x"></i> 35
+                  </div>
+                  <div class="item-icon">
+                  <% unless signed_in? %>
+                    <i class="fa fa-heart fa-2x"></i>
+                  <% else %>
+                    <i class="fa fa-heart fa-2x course-like like-<%= @course.id %> <%= 'active' if course_liked_by_user?(@course.id)%>" data-id="<%= @course.id %>"></i>
+                  <% end %>
+                    <span id="course-<%= @course.id %>-likes"> <%= @course.total_likes_count %> </span> 
+                  </div>
+                </div>
+                <div class="course-show d-flex align-items-center">
+                  <%= link_to t('course.register_now'), "#", class: "btn btn-outline-success" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div class="course__item">
+            <div class="course-title">
+              <h3>
+                <%= @course.course_title %>
+              </h3>
+            </div>
+            <div class="course-overview">
+              <%= @course.course_overview %>
+            </div>
+            <nav>
+              <div id="nav-tab" class="nav nav-tabs nav-fill" role="tablist">
+                <a id="nav-home-tab" class="nav-item nav-link active" data-toggle="tab" href="#nav-info" role="tab" aria-controls="nav-home" aria-selected="true" >
+                  <%= t('course.info') %>
+                </a>
+                <a id="nav-profile-tab" class="nav-item nav-link" data-toggle="tab" href="#nav-lesson" role="tab" aria-controls="nav-profile" aria-selected="false" >
+                  <%= t('course.lessons') %>
+                </a>
+                <a id="nav-contact-tab" class="nav-item nav-link" data-toggle="tab" href="#nav-comment" role="tab" aria-controls="nav-contact" aria-selected="false" >
+                  <%= t('course.comments') %>
+                </a>
+                <a id="nav-about-tab" class="nav-item nav-link" data-toggle="tab" href="#nav-student" role="tab" aria-controls="nav-about" aria-selected="false" >
+                  <%= t('count.students') %>
+                </a>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="row">
+      <section id="tabs">
+        <div class="col-xs-12">
+          <div id="nav-tabContent" class="tab-content py-3 px-3 px-sm-0">
+            <div id="nav-info" class="tab-pane fade show active" role="tabpanel" aria-labelledby="nav-home-tab">
+              <%= @course.course_description.html_safe %>
+            </div>
+            <div id="nav-lesson" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-profile-tab">
+              TODO lessons
+            </div>
+            <div id="nav-comment" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-contact-tab">
+              <% if signed_in? %>
+                <div id="review-form">
+                  <%= render "review_courses/review_form" %>
+                </div>
+                <div id="reviews">
+                  <%= render "review_courses/comments" %>
+                </div>
+              <% else %>
+                <div class="inform">
+                  Please login to continue.
+                </div>
+              <% end %>
+            </div>
+            <div id="nav-student" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-about-tab">
+              TODO student
+            </div>
+          </div>
+        </div>   
+      </section>      
+    </div>
+  </div>
+</div>

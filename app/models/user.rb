@@ -5,10 +5,10 @@ class User < ApplicationRecord
   attr_readonly :email
   has_many :courses, dependent: :destroy
   has_many :courses, through: :registers
-  has_one :evaluate_course, dependent: :destroy
   has_many :review_courses, dependent: :destroy
   has_many :quiz_result, dependent: :destroy
   has_many :comment_lesson, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   scope :not_admin, -> { where(is_admin: false) }
 
