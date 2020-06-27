@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="row">
+    <% @registers.each do |register| %>
+      <div class="col-3 pb-3">
+        <%= image_tag(register.user.avatar.url(:thumb), class: "image-avatar") %>
+        <span><%= register.user.full_name %></span>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_24_121815) do
+ActiveRecord::Schema.define(version: 2020_06_26_172348) do
 
   create_table "ckeditor_assets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "data_file_name", null: false
@@ -49,17 +49,9 @@ ActiveRecord::Schema.define(version: 2020_06_24_121815) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "course_type_id", null: false
     t.integer "total_likes_count", default: 0
+    t.integer "total_registers_count", default: 0
     t.index ["course_type_id"], name: "index_courses_on_course_type_id"
     t.index ["user_id"], name: "index_courses_on_user_id"
-  end
-
-  create_table "evaluate_courses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "course_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["course_id"], name: "index_evaluate_courses_on_course_id"
-    t.index ["user_id"], name: "index_evaluate_courses_on_user_id"
   end
 
   create_table "lessons", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -152,8 +144,6 @@ ActiveRecord::Schema.define(version: 2020_06_24_121815) do
   add_foreign_key "comment_lessons", "users"
   add_foreign_key "courses", "course_types"
   add_foreign_key "courses", "users"
-  add_foreign_key "evaluate_courses", "courses"
-  add_foreign_key "evaluate_courses", "users"
   add_foreign_key "lessons", "courses"
   add_foreign_key "likes", "courses"
   add_foreign_key "likes", "users"

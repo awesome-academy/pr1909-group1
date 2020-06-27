@@ -81,6 +81,7 @@ en:
       all_courses: "ALL COURSES"
       join_now: "Join now"
       register_now: "Register now"
+      registered: "Registered"
       info: "Information"
       lessons: "Lessons"
       comments: "Comments"
@@ -128,3 +129,7 @@ en:
       add_question: "Add Question"
       add_lesson: "Add Lesson"
       lesson_name: "Lesson Name"
+
+  # Alert
+    alert:
+      need_login: "You need to log in to continue. "
