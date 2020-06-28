@@ -20,7 +20,63 @@
               = f.input :course_description, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' }}  , label: t('course.course_description')
           = f.input :course_image, label: t('course.course_image')
           = f.input :overview_video_url, label: t('course.course_video')
-          = render "lesson_form", f: f
-          .form-actions
-            button.btn.btn-success.btn-submit-course
-              = t("course.create_course")
+        #sortable
+          = f.fields_for :lessons do |lesson|
+            .lesson-box.lesson-field
+              .new-lesson
+                .card
+                  .btn.remove-lesson.col-sm-1.offset-sm-11 ×
+                  .card-header.row.field
+                    .form-check.form-check-inline
+                      = lesson.hidden_field :lesson_sequence, value: 1, class: "lesson_seq"
+                      .form-check-label
+                        = lesson.label :lesson_type, "Video"
+                      .radio-video.form-check-input
+                        = lesson.radio_button :lesson_type, 1, class: "radio-lesson-type"
+                    .form-check.form-check-inline
+                      .form-check-label
+                        = lesson.label :lesson_type, "Quiz"
+                      .radio-quiz.form-check-input
+                        = lesson.radio_button :lesson_type, 2, class: "radio-lesson-type"
+                  .card-body
+                    .form-group
+                      .lesson-name.row
+                        .form-input-label.col-sm-2
+                          = lesson.label :lesson_name
+                        .col-sm-10
+                          = lesson.text_field :lesson_name, class: "form-control input-lesson-name"
+                    .form-group
+                      .lesson-name.row
+                        .form-input-label.col-sm-2
+                          = lesson.label :video_url
+                        .col-sm-10
+                          = lesson.text_field :video_url, class: "form-control input-video-url"
+                  .card.quiz-form
+                    .card-header
+                      | Quiz
+                    .card-body
+                      = lesson.fields_for :quiz_questions do |quiz|
+                        .container.quiz-list
+                          .list
+                            .quiz-element.list-question
+                              .btn.remove-question ×
+                              .form-group.row
+                                = quiz.label :quiz_question, "Question", class: "col-sm-2 col-form-label"
+                                .col-sm-10
+                                  = quiz.text_field :quiz_question, class: "form-control input-question"
+                              = quiz.fields :quiz_choice, class: "input-answer form-control" do |choice|
+                                .list-answer
+                                  .input-choice
+                                    .form-group.row.option-answer.container
+                                      = choice.label :label, "A", class: "col-sm-1 label-option"
+                                      = choice.hidden_field :label, value: "A", class: "label_choice"
+                                      .col-sm-11
+                                        .row
+                                          = choice.check_box :is_answer, class: "correct-answer form-check-input"
+                                          = choice.text_field :text, class: "input-answer form-control"
+                                          .btn.btn-danger.remove-answer ×
+                              .btn.btn-add-option.btn-secondary +
+                    .btn.btn-success.btn-add-question Add Question
+        .btn.btn-add-lesson.btn-primary Add Lesson
+        .form-actions
+          button.btn.btn-success.btn-submit-course Submit

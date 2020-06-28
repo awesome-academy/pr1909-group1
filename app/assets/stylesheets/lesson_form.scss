@@ -22,6 +22,10 @@
 
 .quiz-form{
   margin-bottom: 0px;
+.form-quiz{
+  input{
+    margin-right: 0px;
+  }
 }
 
 .remove-answer{
@@ -44,6 +48,7 @@
 
 .remove-lesson{
   text-align: right;
+  margin-right: 10px;
   margin-top: 5px;
 }
 
@@ -60,6 +65,7 @@
 .input-answer{
   margin-left: 9.8%;
 }
+<<<<<<< HEAD
 
 .btn-add-lesson{
   width: 150px;
@@ -75,3 +81,5 @@
   height: 27px;
   overflow: hidden;
 }
+=======
+>>>>>>> create lessons
