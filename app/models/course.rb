@@ -11,4 +11,5 @@ class Course < ApplicationRecord
 
   validates :user_id, :course_title, :course_overview, :course_description, :course_type_id, presence: true
   validates :course_type_id, :user_id, numericality: { only_integer: true }
+  accepts_nested_attributes_for :lessons
 end

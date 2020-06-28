@@ -56,7 +56,8 @@ ActiveRecord::Schema.define(version: 2020_06_24_121815) do
   create_table "lessons", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "course_id", null: false
     t.string "lesson_name", null: false
-    t.integer "lesson_sequence", null: false
+    t.integer "lesson_type", default: 1, null: false
+    t.integer "lesson_sequence", default: 1, null: false
     t.string "video_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -78,7 +79,6 @@ ActiveRecord::Schema.define(version: 2020_06_24_121815) do
     t.bigint "lesson_id", null: false
     t.string "quiz_question"
     t.json "quiz_choice"
-    t.json "answer"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["lesson_id"], name: "index_quiz_questions_on_lesson_id"

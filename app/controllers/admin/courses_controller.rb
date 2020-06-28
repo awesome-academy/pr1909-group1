@@ -11,11 +11,15 @@ class Admin::CoursesController < Admin::BaseController
   # GET /courses/1
   # GET /courses/1.json
   def show
+    @lesson = Lesson.new
   end
 
   # GET /courses/new
   def new
     @course = Course.new
+    @lesson = Lesson.new
+    @course.lessons.build
+    @course.lessons.first.quiz_questions.build
   end
 
   # GET /courses/1/edit
@@ -26,6 +30,7 @@ class Admin::CoursesController < Admin::BaseController
   # POST /courses.json
   def create
     @course = Course.new(course_params)
+    params[:course_id] = @course.id
     @course.user_id = current_user.id
     respond_to do |format|
       if @course.save
@@ -77,7 +82,17 @@ class Admin::CoursesController < Admin::BaseController
   # Only allow a list of trusted parameters through.
   def course_params
     params.require(:course).permit(:course_title, :course_overview, :course_description, :course_type_id,
-                                   :course_image, :overview_video_url)
+                                   :course_image, :overview_video_url, lessons_attributes:
+                                   [
+                                     :id, :lesson_type, :lesson_sequence, :lesson_name, :video_url,
+                                     quiz_questions_attributes:
+                                    [
+                                      :quiz_question, quiz_choice:
+                                      [
+                                        :label, :text, :is_answer,
+                                      ],
+                                    ],
+                                   ])
   end
 
   def only_for_admin
