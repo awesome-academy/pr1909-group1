@@ -17,9 +17,8 @@ class Admin::CoursesController < Admin::BaseController
   # GET /courses/new
   def new
     @course = Course.new
-    @lesson = Lesson.new
-    @course.lessons.build
-    @course.lessons.first.quiz_questions.build
+    @lesson = @course.lessons.build
+    @questions = @course.lessons.first.quiz_questions.build
   end
 
   # GET /courses/1/edit
@@ -30,7 +29,6 @@ class Admin::CoursesController < Admin::BaseController
   # POST /courses.json
   def create
     @course = Course.new(course_params)
-    params[:course_id] = @course.id
     @course.user_id = current_user.id
     respond_to do |format|
       if @course.save
@@ -84,10 +82,10 @@ class Admin::CoursesController < Admin::BaseController
     params.require(:course).permit(:course_title, :course_overview, :course_description, :course_type_id,
                                    :course_image, :overview_video_url, lessons_attributes:
                                    [
-                                     :id, :lesson_type, :lesson_sequence, :lesson_name, :video_url,
+                                     :id, :course_id, :lesson_type, :lesson_sequence, :lesson_name, :video_url,
                                      quiz_questions_attributes:
                                     [
-                                      :quiz_question, quiz_choice:
+                                      :id, :lesson_id, :quiz_question, quiz_choice:
                                       [
                                         :label, :text, :is_answer,
                                       ],

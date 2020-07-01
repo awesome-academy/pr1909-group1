@@ -20,10 +20,8 @@
   }
 }
 
-.form-quiz{
-  input{
-    margin-right: 0px;
-  }
+.quiz-form{
+  margin-bottom: 0px;
 }
 
 .remove-answer{
@@ -46,7 +44,6 @@
 
 .remove-lesson{
   text-align: right;
-  margin-right: 10px;
   margin-top: 5px;
 }
 
@@ -62,4 +59,19 @@
 
 .input-answer{
   margin-left: 9.8%;
+}
+
+.btn-add-lesson{
+  width: 150px;
+}
+
+.btn-submit-course{
+  width: 150px;
+  margin-top: 5px;
+}
+
+.lesson-name-collapse{
+  line-height: 20px;
+  height: 27px;
+  overflow: hidden;
 }

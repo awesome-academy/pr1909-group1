@@ -1,47 +1,66 @@
-.col-lg-10.offset-lg-1.lesson-box
-  .new-lesson
-    .card
-      / form.form-group.form-video#new-lesson-video action="admin/lessons" method="post"
-      .btn.remove-lesson ×
-      .card-header
-        .form-check.form-check-inline
-          input.radio-video.form-check-input name="course[lessons_attributes][lesson_type]" type="radio" value="1" checked=""
-          label.form-check-label for="radio-video"  Video
-        .form-check.form-check-inline
-          input.radio-quiz.form-check-input name="course[lessons_attributes][lesson_type]" type="radio" value="2" /
-          label.form-check-label for="radio-quiz"  Quiz
-      .card-body
-        .form-group.row
-          label.form-input-label.col-sm-2 for="input-lesson-name"  Lesson Name:
-          .col-sm-10
-            input.form-control.input-lesson-name name="course[lessons_attributes][lesson_name]" type="text" placeholder="Lesson Name"
-        .form-group.row.lesson-url
-          label.form-input-label.col-sm-2 for="input-video-url"  Video URL:
-          .col-sm-10
-            input.form-control.input-video-url name="course[lessons_attributes][video_url]" type="text" placeholder="Video Url"
-      / form.form-group.form-quiz#new-lesson-quiz action="admin/quiz_questions" method="post"
-      .card.quiz-form
-        .card-header
-          | Quiz
-        .card-body
-          .container.quiz-list
-            .list
-              .quiz-element.list-question
-                / input type="hidden" name="course[lessons_attributes][quiz_questions_attributes][course_id]"
-                .btn.remove-question ×
-                .form-group.row
-                  label.col-sm-2.col-form-label for="input-question"  Question:
-                  .col-sm-10
-                    .row
-                      input.input-question.form-control placeholder="Question" type="text"
-                .list-answer
-                  .input-choice
-                    .form-group.row.option-answer.container
-                      label.col-sm-2.col-form-label.label-option for="input-answer" A
-                      .col-sm-10
-                        .row
-                          input.correct-answer.form-check-input type="checkbox"
-                          input.input-answer.form-control name="course[lessons_attributes][quiz_questions_attributes][answer]" type="text" placeholder="Input Answer"
-                          .btn.btn-danger.remove-answer ×
-                .btn.btn-add-option.btn-secondary +
-        .btn.btn-success.btn-add-question Add Question
+#sortable
+  = f.fields_for :lessons do |lesson|
+    .lesson-box.lesson-field
+      .new-lesson
+        .card
+          .col-sm-12.row
+            .col-sm-11
+              .btn.btn-link.lesson-name-collapse
+            .btn.remove-lesson.col-sm-1 ×
+          .card-header.row.field
+            .form-check.form-check-inline
+              = lesson.hidden_field :lesson_sequence, value: 1, class: "lesson_seq"
+              .form-check-label
+                = lesson.label :lesson_type, "Video"
+              .radio-video.form-check-input
+                = lesson.radio_button :lesson_type, 1, class: "radio-lesson-type"
+            .form-check.form-check-inline
+              .form-check-label
+                = lesson.label :lesson_type
+                  = t("lesson.quiz")
+              .radio-quiz.form-check-input
+                = lesson.radio_button :lesson_type, 2, class: "radio-lesson-type"
+          .card-body
+            .form-group
+              .lesson-name.row
+                .form-input-label.col-sm-2
+                  = lesson.label :lesson_name
+                    = t("lesson.lesson_name")
+                .col-sm-10
+                  = lesson.text_field :lesson_name, class: "form-control input-lesson-name"
+            .form-group
+              .lesson-name.row
+                .form-input-label.col-sm-2
+                  = lesson.label :video_url
+                .col-sm-10
+                  = lesson.text_field :video_url, class: "form-control input-video-url"
+          .card.quiz-form
+            .card-header
+              = t("lesson.quiz")
+            .card-body
+              = lesson.fields_for :quiz_questions do |quiz|
+                .container.quiz-list
+                  .list
+                    .quiz-element.list-question
+                      .btn.remove-question ×
+                      .form-group.row
+                        = quiz.label :quiz_question, class: "col-sm-2 col-form-label"
+                          = t("lesson.question")
+                        .col-sm-10
+                          = quiz.text_field :quiz_question, class: "form-control input-question"
+                      = quiz.fields :quiz_choice, class: "input-answer form-control" do |choice|
+                        .list-answer
+                          .input-choice
+                            .form-group.row.option-answer.container
+                              = choice.label :label, "A", class: "col-sm-1 label-option"
+                              = choice.hidden_field :label, value: "A", class: "label_choice"
+                              .col-sm-11
+                                .row
+                                  = choice.check_box :is_answer, class: "correct-answer form-check-input"
+                                  = choice.text_field :text, class: "input-answer form-control"
+                                  .btn.btn-danger.remove-answer ×
+                      .btn.btn-add-option.btn-secondary +
+            .btn.btn-success.btn-add-question
+              = t("lesson.add_question")
+.btn.btn-add-lesson.btn-primary
+  = t("lesson.add_lesson")

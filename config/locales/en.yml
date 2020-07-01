@@ -99,6 +99,7 @@ en:
       image: "Image"
       video: "Video URL"
       description: "Description"
+      create_course: "Create course"
 
   # button
     btn:
@@ -120,3 +121,10 @@ en:
       delete: 'Delete'
       show_app: "Show app"
       login_app: "Login app"
+
+    lesson:
+      quiz: "Quiz"
+      question: "Question"
+      add_question: "Add Question"
+      add_lesson: "Add Lesson"
+      lesson_name: "Lesson Name"
