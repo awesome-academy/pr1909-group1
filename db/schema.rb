@@ -53,10 +53,20 @@ ActiveRecord::Schema.define(version: 2020_06_24_121815) do
     t.index ["user_id"], name: "index_courses_on_user_id"
   end
 
+  create_table "evaluate_courses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "course_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["course_id"], name: "index_evaluate_courses_on_course_id"
+    t.index ["user_id"], name: "index_evaluate_courses_on_user_id"
+  end
+
   create_table "lessons", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "course_id", null: false
     t.string "lesson_name", null: false
-    t.integer "lesson_sequence", null: false
+    t.integer "lesson_type", default: 1, null: false
+    t.integer "lesson_sequence", default: 1, null: false
     t.string "video_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -78,7 +88,6 @@ ActiveRecord::Schema.define(version: 2020_06_24_121815) do
     t.bigint "lesson_id", null: false
     t.string "quiz_question"
     t.json "quiz_choice"
-    t.json "answer"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["lesson_id"], name: "index_quiz_questions_on_lesson_id"
@@ -143,6 +152,8 @@ ActiveRecord::Schema.define(version: 2020_06_24_121815) do
   add_foreign_key "comment_lessons", "users"
   add_foreign_key "courses", "course_types"
   add_foreign_key "courses", "users"
+  add_foreign_key "evaluate_courses", "courses"
+  add_foreign_key "evaluate_courses", "users"
   add_foreign_key "lessons", "courses"
   add_foreign_key "likes", "courses"
   add_foreign_key "likes", "users"
