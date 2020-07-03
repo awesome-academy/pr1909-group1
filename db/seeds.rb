@@ -42,7 +42,7 @@ end
 number_users = user_ids.length
 
 # number_users.times do |n|
-#   20.times do |m|
+#   10.times do |m|
 #     Like.create!(
 #       user_id: user_ids[n],
 #       course_id: course_ids[m]

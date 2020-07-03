@@ -92,8 +92,9 @@ vi:
   # view course
     course:
       all_courses: "TẤT CẢ KHÓA HỌC"
-      join_now: "Học ngay"
+      watch_now: "Xem ngay"
       register_now: "Đăng ký ngay"
+      registered: "Đã đăng ký"
       info: "Thông tin"
       lessons: "Bài học"
       comments: "Bình luận"
@@ -122,7 +123,7 @@ vi:
     review_course:
       comment: "Bình luận"
       continue: "Tiếp tục"
- # view admin
+  # view admin
     admin:
       dash: 'Bảng điều khiển'
       user: 'Người dùng'
@@ -140,3 +141,7 @@ vi:
       add_question: "Thêm câu hỏi"
       add_lesson: "Thêm bài học"
       lesson_name: "Tên khóa học"
+
+  # Alert
+    alert:
+      need_login: "Bạn cần đăng nhập để  tiếp tục. "

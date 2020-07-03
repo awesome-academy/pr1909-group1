@@ -14,6 +14,7 @@ class CoursesController < ApplicationController
   def show
     @review_courses = @course.review_courses.order('created_at DESC').
       paginate(page: params[:page], per_page: Settings.comment.per_page)
+    @registers = @course.registers.order('created_at DESC')
   end
 
   # GET /courses/new

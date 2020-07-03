@@ -4,6 +4,7 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
   attr_readonly :email
   has_many :courses, dependent: :destroy
+  has_many :registers, dependent: :destroy
   has_many :courses, through: :registers
   has_many :review_courses, dependent: :destroy
   has_many :quiz_result, dependent: :destroy

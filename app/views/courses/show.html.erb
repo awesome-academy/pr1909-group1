@@ -17,19 +17,32 @@
               <div class="course-info d-flex justify-content-between align-items-center">
                 <div class="course-info-icon d-flex align-items-center" id="course-actions">
                   <div class="item-icon">
-                    <i class="fas fa-users fa-2x"></i> 35
+                    <% unless signed_in? %>
+                      <i class="fas fa-users fa-2x"></i>
+                    <% else %>
+                      <i class="fas fa-users fa-2x user-registered <%= 'active-register' if course_registered_by_user?(@course.id) %> "></i>
+                    <% end %>
+                    <span id="registers-count"> <%= @course.total_registers_count %> </span>
                   </div>
                   <div class="item-icon">
-                  <% unless signed_in? %>
-                    <i class="fa fa-heart fa-2x"></i>
-                  <% else %>
-                    <i class="fa fa-heart fa-2x course-like like-<%= @course.id %> <%= 'active' if course_liked_by_user?(@course.id)%>" data-id="<%= @course.id %>"></i>
-                  <% end %>
-                    <span id="course-<%= @course.id %>-likes"> <%= @course.total_likes_count %> </span> 
+                    <% unless signed_in? %>
+                      <i class="fa fa-heart fa-2x"></i>
+                    <% else %>
+                      <i class="fa fa-heart fa-2x course-like like-<%= @course.id %> <%= 'active' if course_liked_by_user?(@course.id)%>" data-id="<%= @course.id %>"></i>
+                    <% end %>
+                      <span id="course-<%= @course.id %>-likes"> <%= @course.total_likes_count %> </span> 
                   </div>
                 </div>
                 <div class="course-show d-flex align-items-center">
-                  <%= link_to t('course.register_now'), "#", class: "btn btn-outline-success" %>
+                  <div id="register-course">
+                    <% if course_registered_by_user?(@course.id) %>
+                      <%= render "registered" %>
+                    <% elsif signed_in?  %>
+                      <%= render "register_course" %>
+                    <% else %>
+                      <%= render "register_not_login" %>
+                    <% end %>
+                  </div>
                 </div>
               </div>
             </div>
@@ -77,21 +90,34 @@
               TODO lessons
             </div>
             <div id="nav-comment" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-contact-tab">
-              <% if signed_in? %>
-                <div id="review-form">
-                  <%= render "review_courses/review_form" %>
-                </div>
-                <div id="reviews">
-                  <%= render "review_courses/comments" %>
-                </div>
-              <% else %>
-                <div class="inform">
-                  Please login to continue.
-                </div>
-              <% end %>
+              <div id="student-review">
+                <% if course_registered_by_user?(@course.id) %>
+                  <div id="review-form">
+                    <%= render "review_courses/review_form" %>
+                  </div>
+                  <div id="reviews">
+                    <%= render "review_courses/comments" %>
+                  </div>
+                <% elsif signed_in? %>
+                  <div id="review-form"></div>
+                  <div id="reviews">
+                    <%= render "review_courses/comments" %>
+                  </div>
+                <% else %>
+                  <div class="inform">
+                    <div class="inform">Please <%= link_to "Login", new_user_session_path %> to continue.  </div>
+                  </div>
+                <% end %>
+              </div>
             </div>
             <div id="nav-student" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-about-tab">
-              TODO student
+              <div id="students-registered">
+                <% if signed_in? %>
+                  <%= render "show_student" %>
+                <% else %>
+                  <div class="inform">Please <%= link_to "Login", new_user_session_path %> to continue. </div>
+                <% end %>
+              </div> 
             </div>
           </div>
         </div>   
