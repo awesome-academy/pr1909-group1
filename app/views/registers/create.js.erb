@@ -1,5 +1,5 @@
 $("#register-course").html("<%= j (render 'courses/registered') %>");
 $(".user-registered").addClass("active-register");
-$("#registers-count").text("<%= @course_registers %>");
+$("#registers-count").text("<%= @course.total_registers_count %>");
 $('#students-registered').html('<%= j render "courses/show_student"%>');
 $("#review-form").html("<%= j (render 'review_courses/review_form') %>");

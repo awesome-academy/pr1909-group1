@@ -79,7 +79,7 @@ en:
   # view course
     course:
       all_courses: "ALL COURSES"
-      join_now: "Join now"
+      watch_now: "Watch now"
       register_now: "Register now"
       registered: "Registered"
       info: "Information"

@@ -92,7 +92,7 @@ vi:
   # view course
     course:
       all_courses: "TẤT CẢ KHÓA HỌC"
-      join_now: "Học ngay"
+      watch_now: "Xem ngay"
       register_now: "Đăng ký ngay"
       registered: "Đã đăng ký"
       info: "Thông tin"
