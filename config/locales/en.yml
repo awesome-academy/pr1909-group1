@@ -124,6 +124,7 @@ en:
   # view admin
     admin:
       dash: 'Dashboard'
+      home: 'Home'
       user: 'Users'
       course: 'Courses'
       show: 'Show'
@@ -143,6 +144,30 @@ en:
       test_failed: "Test Failed"
       your_mark: "Your mark"
       close: "Close"
+
+    charts:
+      all: "All"
+      week: "Week"
+      month: "Month"
+      year: "Year"
+      all_users: "All users"
+      day_week: "Day - Week"
+      day_month: "Day - Month"
+      month_year: "Month - Year"
+      users_registered_today: "Users registered today"
+      no_data: "No Data ^^"
+      sum_registrations: "Total number of course registrations"
+      users_registed_course: "Users registed course"
+      sum_registered_each_course: "The total users registered in each course"
+      sum_registed_by_course_type: "The total useres registered course by course type"
+      number_of_user: "Number of users"
+      time: "Time"
+
+    noti:
+      email_incorrect: "Your email is incorrect"
+      created: "You have successfully created."
+      updated: "You have successfully updated"
+      destroyed: "You have successfully destroyed"
 
   # Alert
     alert:

@@ -6,39 +6,126 @@
       .row.mb-2
         .col-sm-6
           h1.m-0.text-dark
-            | Dashboard v3
+            = t("admin.dash")
         .col-sm-6
           ol.breadcrumb.float-sm-right
             li.breadcrumb-item
-              = link_to "Home", admin_path
+              = link_to t("admin.home"), admin_path
             li.breadcrumb-item.active
-              | Dashboard v3
+              = t("admin.dash")
   .content
     .container-fluid
       .row
-        .col-lg-3
-          .small-box.bg-info
-            .inner
-              h3
-                = @users.count
-              p
-                | Users
-            .icon
-              i.fas.fa-users
-            = link_to admin_users_path, class: "small-box-footer" do
-              | More info
-              i.fas.fa-arrow-circle-right
-        .col-lg-3
-          .small-box.bg-gradient-success
-            .inner
-              h3
-                = @courses.count
-              p
-                | Course
-            .icon
-              i.fas.fa-book
-            = link_to admin_courses_path, class: "small-box-footer" do
-              | More info
-              i.fas.fa-arrow-circle-right
-
-        / TODO add lesson, test
+        .col-lg-6
+          .card
+            .card-header
+              .small-box.bg-danger
+                .inner
+                  h3
+                    = @count_user
+                  p
+                    = t("charts.all_users")
+                .icon
+                  i.fas.fa-users
+              .card-tools[style="text-align: end;"]
+                = link_to admin_users_path, class: "small-box-footer" do
+                  i.fas.fa-eye[style="color: #adb5c4;"]
+                button.btn.btn-tool[type="button" data-card-widget="maximize" ]
+                  i.fas.fa-expand
+            .card-body
+              .card
+                .card-header.ui-sortable-handle[style="cursor: move;"]
+                  h3.card-title
+                    i.fas.fa-chart-pie.mr-1
+                      = t("admin.user")
+                  .card-tools
+                    ul.nav.nav-pills.ml-auto
+                      li.nav-item
+                        a.nav-link.active[href="#all" data-toggle="tab"]
+                          = t("charts.all")
+                      li.nav-item
+                        a.nav-link[href="#week" data-toggle="tab"]
+                          = t("charts.week")
+                      li.nav-item
+                        a.nav-link[href="#month" data-toggle="tab"]
+                          = t("charts.month")
+                      li.nav-item
+                        a.nav-link[href="#year" data-toggle="tab"]
+                          = t("charts.year")
+                .card-body
+                  .tab-content.p-0
+                    #all.chart.tab-pane.active[style="position: relative; height: 350px;"]
+                      = pie_chart admin_charts_all_users_provider_path,
+                        donut: true, title: t("charts.all_users")
+                    #week.chart.tab-pane[style="position: relative; height: 350px;"]
+                      = area_chart admin_charts_users_by_week_path,
+                        xtitle: t("charts.time"), ytitle: t("charts.number_of_user"),
+                        title: t("charts.day_week")
+                        / refresh: 60
+                    #month.chart.tab-pane[style="position: relative; height: 350px;"]
+                      = area_chart admin_charts_users_by_month_path,
+                        xtitle: t("charts.time"), ytitle: t("charts.number_of_user"),
+                        title: t("charts.day_month")
+                    #year.chart.tab-pane[style="position: relative; height: 350px;"]
+                      = area_chart admin_charts_users_by_year_path,
+                        xtitle: t("charts.time"), ytitle: t("charts.number_of_user"),
+                        title: t("charts.month_year")
+        .col-lg-6
+          .card
+            .card-header
+              .small-box.bg-info
+                .inner
+                  h3 = @count_user_created_at_today
+                  p = t("charts.users_registered_today")
+                .icon
+                  i.fas.fa-user-plus
+              .card-tools
+                button.btn.btn-tool[type="button" data-card-widget="collapse"]
+                  i.fas.fa-minus
+            .card-body
+              = pie_chart admin_charts_users_registered_by_day_path,
+                donut: true, messages: { empty: t("charts.no_data") }
+      .row
+        .col-lg-12
+          .card
+            .card-header
+              .small-box.bg-gradient-success
+                .inner
+                  h3
+                    = @count_courses
+                  p
+                    = t("admin.course")
+                .icon
+                  i.fas.fa-book
+              .card-tools[style="text-align: end;"]
+                = link_to admin_courses_path, class: "small-box-footer" do
+                  i.fas.fa-eye[style="color: #adb5c4;"]
+                button.btn.btn-tool[type="button" data-card-widget="collapse"]
+                  i.fas.fa-minus
+            .card-body
+              .row
+                .col-lg-6
+                  .info-box
+                    span.info-box-icon.bg-info
+                      i.fas.fa-book-open
+                    .info-box-content
+                      span.info-box-text = t("charts.sum_registrations")
+                      span.info-box-number = @count_registers
+                .col-lg-6
+                  .info-box
+                    span.info-box-icon.bg-danger
+                      i.fas.fa-book-reader
+                    .info-box-content
+                      span.info-box-text = t("charts.users_registed_course")
+                      span.info-box-number = @count_user_registed
+              .row
+                .col-lg-6
+                  = column_chart admin_charts_users_registered_course_path,
+                    xtitle: t("admin.course"), ytitle: t("charts.number_of_user"),
+                    title: t("charts.sum_registered_each_course"),
+                    colors: ["#34a2b8"]
+                .col-lg-6
+                  = bar_chart admin_charts_users_registered_course_type_path,
+                    title: t("charts.sum_registed_by_course_type"),
+                    xtitle: t("charts.number_of_user"), ytitle: t("admin.course"),
+                    colors: ["#dc3445"]

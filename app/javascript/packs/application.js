@@ -16,6 +16,8 @@ window.$ = window.jQuery = jQuery;
 require("jquery");
 require("bootstrap");
 require("admin-lte");
+require("chartkick");
+require("chart.js");
 var jQuery = require("jquery");
 
 // import jQuery from "jquery";

@@ -4,8 +4,11 @@ class Admin::BaseController < ApplicationController
   layout "admin/admin_index"
 
   def index
-    @courses = Course.all
-    @users = User.all
+    @count_user = User.count
+    @count_user_created_at_today = User.created_at_today.count
+    @count_courses = Course.count
+    @count_registers = Register.count
+    @count_user_registed = Register.group(:user_id).pluck(:user_id).count
   end
 
   private

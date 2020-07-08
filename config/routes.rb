@@ -23,7 +23,17 @@ Rails.application.routes.draw do
         post "/login", to: "sessions#create"
         delete "/logout", to: "sessions#destroy"
       end
+      namespace :charts do
+        get "all_users_provider"
+        get "users_registered_by_day"
+        get "users_by_week"
+        get "users_by_month"
+        get "users_by_year"
+        get "users_registered_course"
+        get "users_registered_course_type"
+      end
     end
+
     # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   end
   devise_for :users, only: :omniauth_callbacks, controllers: { omniauth_callbacks: "omniauth_callbacks" }

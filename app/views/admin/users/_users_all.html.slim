@@ -16,6 +16,10 @@
               th
                 | Email
               th
+                | Provider
+              th
+                | Created_at
+              th
                 = t('admin.show')
               th
                 = t('user.edit')
@@ -31,6 +35,12 @@
                   td
                     p
                       = user.email
+                  td
+                    p
+                      = user.provider
+                  td
+                    p
+                      = user.created_at
                   td
                     = link_to admin_user_path(user) do
                       i.fas.fa-search

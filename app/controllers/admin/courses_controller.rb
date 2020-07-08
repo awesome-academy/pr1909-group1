@@ -32,7 +32,7 @@ class Admin::CoursesController < Admin::BaseController
     @course.user_id = current_user.id
     respond_to do |format|
       if @course.save
-        format.html { redirect_to admin_courses_path, notice: 'Course was successfully created.' }
+        format.html { redirect_to admin_courses_path, notice: t("noti.created") }
         format.json { render :show, status: :created, location: @course }
       else
         format.html { render :new }
@@ -46,7 +46,7 @@ class Admin::CoursesController < Admin::BaseController
   def update
     respond_to do |format|
       if @course.update(course_params)
-        format.html { redirect_to admin_courses_path, notice: 'Course was successfully updated.' }
+        format.html { redirect_to admin_courses_path, notice: t("noti.updated") }
         format.json { render :show, status: :ok, location: @course }
       else
         format.html { render :edit }
@@ -60,7 +60,7 @@ class Admin::CoursesController < Admin::BaseController
   def destroy
     @course.destroy
     respond_to do |format|
-      format.html { redirect_to admin_courses_path, notice: 'Course was successfully destroyed.' }
+      format.html { redirect_to admin_courses_path, notice: t("noti.destroyed") }
       format.json { head :no_content }
     end
   end

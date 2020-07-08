@@ -9,7 +9,7 @@ class Admin::SessionsController < Devise::SessionsController
     if @user && @user.is_admin?
       super
     else
-      flash[:alert] = "Email is not admin"
+      flash[:alert] = t("noti.email_incorrect")
       redirect_to admin_login_path
     end
   end

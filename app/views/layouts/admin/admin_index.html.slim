@@ -12,9 +12,11 @@ html[lang="en"]
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     script[src="https://kit.fontawesome.com/6d90f39943.js"]
+
   body.hold-transition.sidebar-mini
     .wrapper
       = render "layouts/admin/admin_navbar"
       = render "layouts/admin/admin_sidebar"
       = yield
       = render "layouts/admin/admin_footer"
+    #preloader
