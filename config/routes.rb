@@ -8,6 +8,9 @@ Rails.application.routes.draw do
     resources :review_courses, except: [:new, :show]
     devise_for :users, skip: :omniauth_callbacks
     resources :users, except: [:new, :create]
+    resources :lessons, only: :show
+    resources :registers, only: [:edit, :update]
+    resources :quiz_results, only: :create
     get "course/like/:course_id", to: "likes#save_like", as: :like_course
     resources :registers, only: :create
 

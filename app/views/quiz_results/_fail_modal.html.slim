@@ -1,0 +1,17 @@
+#test-fail.modal.fade aria-hidden="true" aria-labelledby="testFailModalLabel" role="dialog" tabindex="-1"
+  .modal-dialog role="document"
+    .modal-content
+      .modal-header
+        h5#testFailModalLabel.modal-title
+          | Test Fail
+        button.close aria-label="Close" data-dismiss="modal" type="button"
+          span aria-hidden="true"  &times;
+      .modal-body
+        | Your mark:
+        = @point
+        |/
+        = @max_point
+        h2.inform
+          | Test Failed
+      .modal-footer
+        button.btn.btn-secondary data-dismiss="modal" type="button"  Close

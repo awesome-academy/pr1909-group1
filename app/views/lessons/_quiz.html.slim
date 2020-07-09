@@ -1,0 +1,4 @@
+- if QuizResult.exists?(user_id: current_user.id, lesson_id: @lesson.id)
+  = render "quiz_results/result"
+- else
+  = render "lessons/quiz_form"

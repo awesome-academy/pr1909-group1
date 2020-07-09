@@ -13,13 +13,13 @@
               .form-check-label
                 = lesson.label :lesson_type, "Video"
               .radio-video.form-check-input
-                = lesson.radio_button :lesson_type, 1, class: "radio-lesson-type"
+                = lesson.radio_button :lesson_type, :video, class: "radio-lesson-type"
             .form-check.form-check-inline
               .form-check-label
                 = lesson.label :lesson_type
                   = t("lesson.quiz")
               .radio-quiz.form-check-input
-                = lesson.radio_button :lesson_type, 2, class: "radio-lesson-type"
+                = lesson.radio_button :lesson_type, :quiz, class: "radio-lesson-type"
           .card-body
             .form-group
               .lesson-name.row

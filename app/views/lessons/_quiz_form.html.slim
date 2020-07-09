@@ -1,0 +1,23 @@
+.card.card-quiz
+  .card-header.header-quiz-result
+    strong.quiz-title
+      = @lesson.lesson_name
+  .card-body
+    = form_tag quiz_results_path, remote: true do
+      = hidden_field_tag :lesson_id, @lesson.id
+      - @quizzes.each_with_index do |quiz, i|
+        .question
+          = i + 1
+          |.
+          = quiz.quiz_question
+          - quiz.quiz_choice.each_with_index do |answer, idx|
+            .answer.row
+              .user-answer
+                = check_box_tag "user_answer[#{quiz.id}][]", answer.last["label"]
+              .label-answer
+                = answer.last["label"]
+                |.
+              .tex-answer
+                = answer.last["text"]
+      = submit_tag "Submit", class: "btn btn-success"
+#fail-result

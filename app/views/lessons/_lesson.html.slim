@@ -1,0 +1,5 @@
+.card.card-lesson-show.lesson-locked
+  .card-body
+    .lesson-name-show.row
+      = link_to lesson.lesson_name, lesson, remote: true, class: "btn btn-link lesson-item"
+      .lesson-lock.fa.fa-lock.col-sm-1
