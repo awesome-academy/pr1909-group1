@@ -1,0 +1,38 @@
+.label-answer{
+  margin-left: 10px;
+}
+
+.user-answer{
+  margin-left: 5%;
+}
+
+.header-quiz-result{
+  text-align: center;
+}
+
+.answer{
+  margin-left: 0px;
+}
+
+.correct-icon{
+  text-align: right;
+  .correct-answer-icon{
+  color: green;
+  }
+}
+
+.mark{
+  color: green;
+}
+
+.inform{
+  color: red;
+}
+
+.card{
+  box-shadow: 0 0 1px rgba(0, 0, 0, 1), 0 2px 2px rgba(0, 0, 0, 0.4)
+}
+
+.card-lesson-show .active{
+  background-color: #1f2d3d1f
+}

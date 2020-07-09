@@ -1,0 +1,26 @@
+.card.card-quiz
+  .card-header.header-quiz-result
+    strong.quiz-title
+      = @lesson.lesson_name
+  .card-body
+    h2.mark
+      |Mark:
+      = @result.mark
+      |/
+      = @max_point
+    - @quizzes.each_with_index do |quiz, i|
+      .question
+        = i + 1
+        |.
+        = quiz.quiz_question
+        - quiz.quiz_choice.each_with_index do |answer, idx|
+          .answer.row
+            .correct-icon.col-sm-1
+              - if answer.last["is_answer"] == 1
+                .correct-answer-icon.fa.fa-check
+            .col-sm-11.offset-sm-1.row.answer
+              .label-ans
+                = answer.last["label"]
+                |.
+              .text-answer
+                = answer.last["text"]

@@ -1,0 +1,9 @@
+lesson = $(".lessons-list .card-lesson-show").get(<%= @lesson.lesson_sequence %> - 1);
+$(".lessons-list").find(".card-body").removeClass("active");
+$(lesson).find(".card-body").addClass("active");
+<% if @lesson.video? %>
+  $(".lesson-content").html("<%= j render 'lessons/video'%>");
+  $("iframe").attr("src", "<%= @lesson.video_url %>");
+<% elsif @lesson.quiz? %>
+  $(".lesson-content").html("<%= j render 'lessons/quiz'%>");
+<% end %>

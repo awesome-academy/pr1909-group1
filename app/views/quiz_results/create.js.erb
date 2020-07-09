@@ -1,0 +1,3 @@
+$(".lesson-content").html("<%= j render 'quiz_results/result', lesson: @lesson, quizzes: @quizzes %>")
+var old_element = $(".lessons-list .card-lesson-show").get(parseInt("<%= @register.lesson_step%>") -1);
+new_element = $(old_element).replaceWith("<%= j render 'lessons/show_lesson'%>");
