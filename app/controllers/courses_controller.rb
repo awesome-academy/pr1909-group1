@@ -15,7 +15,7 @@ class CoursesController < ApplicationController
     @review_courses = @course.review_courses.order('created_at DESC').
       paginate(page: params[:page], per_page: Settings.comment.per_page)
     @registers = @course.registers.order('created_at DESC')
-    @register = @registers.find_by(course_id: @course.id, user_id: current_user.id)
+    @register = @registers.find_by(course_id: @course.id, user_id: current_user.id) if current_user
     @lessons = @course.lessons.order('lesson_sequence ASC')
     lesson_step = @register.lesson_step if @register
     @lessons_locked = @lessons.where("lesson_sequence > ?", lesson_step)
