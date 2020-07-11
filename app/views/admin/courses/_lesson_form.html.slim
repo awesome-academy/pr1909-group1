@@ -53,14 +53,17 @@
                           .input-choice
                             .form-group.row.option-answer.container
                               = choice.label :label, "A", class: "col-sm-1 label-option"
-                              = choice.hidden_field :label, value: "A", class: "label_choice"
+                              = choice.hidden_field :label, value: "A", class: "label_choice", "name"=>"course[lessons_attributes][0][quiz_questions_attributes][0][quiz_choice][0][label]"
                               .col-sm-11
                                 .row
-                                  = choice.check_box :is_answer, class: "correct-answer form-check-input"
-                                  = choice.text_field :text, class: "input-answer form-control"
+                                  = choice.check_box :is_answer, class: "correct-answer form-check-input", "name"=>"course[lessons_attributes][0][quiz_questions_attributes][0][quiz_choice][0][is_answer]"
+                                  = choice.text_field :text, class: "input-answer form-control", "name"=>"course[lessons_attributes][0][quiz_questions_attributes][0][quiz_choice][0][text]"
                                   .btn.btn-danger.remove-answer ×
                       .btn.btn-add-option.btn-secondary +
             .btn.btn-success.btn-add-question
               = t("lesson.add_question")
-.btn.btn-add-lesson.btn-primary
-  = t("lesson.add_lesson")
+.form-actions.row
+  .btn.btn-add-lesson.btn-primary
+    = t("lesson.add_lesson")
+  button.btn.btn-success.btn-submit-course
+    = t("course.create_course")

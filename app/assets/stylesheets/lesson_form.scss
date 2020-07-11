@@ -65,11 +65,12 @@
 
 .btn-add-lesson{
   width: 150px;
+  margin-right: 10px;
+  margin-left: 5px;
 }
 
 .btn-submit-course{
   width: 150px;
-  margin-top: 5px;
 }
 
 .lesson-name-collapse{
@@ -111,4 +112,12 @@
 .card-lesson-show{
   border-radius: 0px;
   margin-bottom: 5px;
+}
+
+.form-actions{
+  margin-bottom: 3%;
+}
+
+.quiz-form{
+  margin-bottom: 0px;
 }

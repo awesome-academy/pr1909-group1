@@ -8,30 +8,29 @@ $(window).on("turbolinks:load", function(){
   $(".remove-lesson").hide();
   lesson_box = $("#sortable").first().html();
   question_box = $(".quiz-form").find(".list").first().html();
-  answer = $(".btn-add-option").closest($(".quiz-element")).find(".list-answer").last().html();
+  answer = $(question_box).find(".list-answer").last().html();
 });
 
 $(document).on("click", ".btn-add-question", function () {
   number_lesson = $("#sortable .lesson-box").length;
   number_question = $(this).closest(".quiz-form").find(".quiz-element").length;
-  console.log(question_box)
   question_element = $(question_box);
+  name = $(this).closest(".quiz-form").find(".input-question").first().attr("name");
+  question_element.find("input").each(function () {
+    $(this).attr("name", $(this).attr("name").replace($(this).attr("name").substring(0, $(this).attr("name").indexOf("]", 56)),
+      name.substring(0, name.indexOf("[", 54)) + "[" + number_question))
+  })
   var parent = "<div class='quiz-element list-question'></div>";
-  change_name(question_element, number_lesson - 1, number_question, 0);
-  $(this).closest($(".quiz-form")).find($(".list")).last().append(parent);
-  $(this).closest($(".quiz-form")).find($(".quiz-element")).last().append(question_element.html());
-  $(".remove-question").show();
+  $(this).closest(".quiz-form").find(".list").last().append(parent);
+  $(this).closest(".quiz-form").find(".quiz-element").last().append(question_element.html());
+  $(this).closest(".quiz-form").find(".remove-question").show();
 });
 
 $(document).on("click", ".btn-add-lesson", function () {
   var number_lesson = $("#sortable .lesson-box").length;
   var parent = "<div class='lesson-box lesson-field ui-sortable-handle'></div>"
   new_box = $(lesson_box);
-  new_box.find(".radio-lesson-type").attr("name", "course[lessons_attributes][" + number_lesson + "][lesson_type]")
-  new_box.find(".input-lesson-name").attr("name", "course[lessons_attributes][" + number_lesson + "][lesson_name]")
-  new_box.find(".input-video-url").attr("name", "course[lessons_attributes][" + number_lesson + "][video_url]");
-  new_box.find(".lesson_seq").attr("name", "course[lessons_attributes][" + number_lesson + "][lesson_sequence]")
-  change_name(new_box, number_lesson, 0, 0);
+  addLesson(new_box, number_lesson, 0, 0);
   var input_video = new_box.find(".input-video-url");
   var quiz_form = new_box.find(".quiz-form");
   lesson_type = new_box.find(".radio-lesson-type").val();
@@ -59,6 +58,9 @@ $(document).on("click", ".remove-answer", function () {
 
 $(document).on("click", ".remove-question", function () {
   parent = $(this).closest(".list");
+  number_question = parent.find(".quiz-element").length;
+  replaceQuestion(parent.find("input[name*='[quiz_questions_attributes][" + (number_question - 1) + "']"),
+    $(this).closest(".quiz-element").find(".input-question"), number_question)
   $(this).closest(".quiz-element").remove();
   if (parent.find(".quiz-element").length == 1) {
     parent.find(".remove-question").hide();
@@ -67,6 +69,9 @@ $(document).on("click", ".remove-question", function () {
 
 $(document).on("click", ".remove-lesson", function () {
   parent = $(this).closest("#sortable");
+  number_lesson = $("#sortable .lesson-box").length;
+  replaceLesson($("input[name^='course[lessons_attributes][" + (number_lesson - 1) + "']"),
+    $(this).closest(".lesson-box").find(".input-video-url") )
   $(this).closest(".lesson-box").remove();
   if (parent.find(".lesson-box").length == 1) {
     parent.find(".remove-lesson").hide();
@@ -74,14 +79,18 @@ $(document).on("click", ".remove-lesson", function () {
 });
 
 $(document).on("click", ".btn-add-option", function () {
+  ans = $(answer)
   var parent = "<div class='input-choice'></div>";
   quiz = $(this).closest($(".quiz-element"));
+  name = quiz.find(".label_choice").attr("name");
   label_answer = $(this).closest($(".quiz-element")).find(".label-option").last().text();
-  ans = $(answer);
   number_answer = quiz.find(".input-choice").length
   number_lesson = $("#sortable .lesson-box").length;
   number_question = $(this).closest(".quiz-form").find(".quiz-element").length;
-  change_name(ans, number_lesson - 1, number_question - 1, number_answer);
+  ans.find("input").each(function () {
+    $(this).attr("name", $(this).attr("name").replace($(this).attr("name").substring(0,$(this).attr("name").indexOf(']', 72)),
+      name.substring(0,name.indexOf('[', 70)) + "[" + number_answer));
+  })
   quiz.find(".remove-answer").remove();
   quiz.find(".list-answer").append(parent);
   quiz.find(".input-choice").last().append(ans.html());
@@ -91,22 +100,35 @@ $(document).on("click", ".btn-add-option", function () {
   quiz.find(".input-choice .remove-answer").show();
 });
 
-function change_name(select, number_lesson, number_question, number_answer) {
-  select.find(".input-answer").attr("name", "course[lessons_attributes][" + number_lesson
-    + "][quiz_questions_attributes][" + number_question + "][quiz_choice][" + number_answer + "][text]");
-  select.find(".correct-answer").attr("name", "course[lessons_attributes][" + number_lesson
-    + "][quiz_questions_attributes][" + number_question + "][quiz_choice][" + number_answer + "][is_answer]");
-  select.find(".label_choice").attr("name", "course[lessons_attributes][" + number_lesson
-    + "][quiz_questions_attributes][" + number_question + "][quiz_choice][" + number_answer + "][label]");
-  select.find(".input-question").attr("name", "course[lessons_attributes][" + number_lesson
-    + "][quiz_questions_attributes][" + number_question + "][quiz_question]");
-}
-
 $(document).on("click", ".btn-submit-course", function () {
   $("#sortable").find(".lesson-box").each(function (index) {
     $(this).find(".lesson_seq").val(index + 1);
-    console.log($(this));
-    console.log(index);
   })
   $(".form-new-course").submit()
 })
+
+function replaceLesson(selector, current_lesson) {
+  number_lesson = $("#sortable .lesson-box").length - 1;
+  name = current_lesson.attr("name")
+  selector.each(function () {
+    $(this).attr("name", $(this).attr("name")
+      .replace("course[lessons_attributes][" + number_lesson, name.substring(0,name.indexOf(']', 26))));
+  })
+}
+
+function replaceQuestion(renamed_question, current_question, number_question) {
+  name = current_question.attr("name");
+  renamed_question.each(function () {
+    $(this).attr("name", $(this).attr("name").replace("[quiz_questions_attributes][" + (number_question - 1),
+      name.substring(29, name.indexOf("]", 56))))
+  })
+}
+
+function addLesson(lesson, number_lesson, number_question, number_answer) {
+  lesson.find("input").each(function () {
+    if ($(this).attr("name").includes("course[lessons_attributes]")) {
+      $(this).attr("name", $(this).attr("name").replace($(this).attr("name").substring(0,$(this).attr("name").indexOf(']', 26)),
+      "course[lessons_attributes][" + number_lesson));
+    }
+  })
+}

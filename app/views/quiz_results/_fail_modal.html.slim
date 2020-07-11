@@ -3,15 +3,17 @@
     .modal-content
       .modal-header
         h5#testFailModalLabel.modal-title
-          | Test Fail
+          = t("lesson.test_failed")
         button.close aria-label="Close" data-dismiss="modal" type="button"
           span aria-hidden="true"  &times;
       .modal-body
-        | Your mark:
+        = t("lesson.your_mark")
+        |:
         = @point
         |/
         = @max_point
         h2.inform
-          | Test Failed
+          = t("lesson.test_failed")
       .modal-footer
-        button.btn.btn-secondary data-dismiss="modal" type="button"  Close
+        button.btn.btn-secondary data-dismiss="modal" type="button"
+          = t("lesson.close")

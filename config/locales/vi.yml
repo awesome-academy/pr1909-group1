@@ -143,6 +143,10 @@ vi:
       add_question: "Thêm câu hỏi"
       add_lesson: "Thêm bài học"
       lesson_name: "Tên khóa học"
+      submit: "Nộp bài"
+      test_failed: "Bạn không qua bài kiểm tra"
+      your_mark: "Điểm của bạn"
+      close: "Đóng"
 
   # Alert
     alert:
