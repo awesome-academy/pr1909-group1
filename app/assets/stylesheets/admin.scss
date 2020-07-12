@@ -55,3 +55,18 @@
 .nav-item .nav-link {
   padding: 0.5rem 1rem !important;
 }
+
+// range 
+.to-date {
+  text-align: center;
+  padding-top: 6px;
+}
+#show-chart-range {
+  padding-top: 20px;
+}
+
+// charts
+.tab-pane {
+  position: relative; 
+  height: 490px;
+}

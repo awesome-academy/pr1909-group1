@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
     namespace :admin do
       get "/", to: "base#index"
+      get "/range", to: "base#range"
       resources :courses
       resources :users
       devise_scope :user do

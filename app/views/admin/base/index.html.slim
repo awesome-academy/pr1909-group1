@@ -4,10 +4,7 @@
       .messages
         = render "layouts/messages"
       .row.mb-2
-        .col-sm-6
-          h1.m-0.text-dark
-            = t("admin.dash")
-        .col-sm-6
+        .col-sm-12
           ol.breadcrumb.float-sm-right
             li.breadcrumb-item
               = link_to t("admin.home"), admin_path
@@ -16,7 +13,7 @@
   .content
     .container-fluid
       .row
-        .col-lg-6
+        .col-lg-7
           .card
             .card-header
               .small-box.bg-danger
@@ -52,25 +49,46 @@
                       li.nav-item
                         a.nav-link[href="#year" data-toggle="tab"]
                           = t("charts.year")
+                      li.nav-item
+                        a.nav-link[href="#range" data-toggle="tab"]
+                          = t("charts.range")
                 .card-body
                   .tab-content.p-0
-                    #all.chart.tab-pane.active[style="position: relative; height: 350px;"]
+                    #all.chart.tab-pane.active
                       = pie_chart admin_charts_all_users_provider_path,
-                        donut: true, title: t("charts.all_users")
-                    #week.chart.tab-pane[style="position: relative; height: 350px;"]
+                        donut: true, title: t("charts.all_users"), height: "400px"
+                    #week.chart.tab-pane
                       = area_chart admin_charts_users_by_week_path,
                         xtitle: t("charts.time"), ytitle: t("charts.number_of_user"),
-                        title: t("charts.day_week")
+                        title: t("charts.day_week"), height: "400px"
                         / refresh: 60
-                    #month.chart.tab-pane[style="position: relative; height: 350px;"]
+                    #month.chart.tab-pane
                       = area_chart admin_charts_users_by_month_path,
                         xtitle: t("charts.time"), ytitle: t("charts.number_of_user"),
-                        title: t("charts.day_month")
-                    #year.chart.tab-pane[style="position: relative; height: 350px;"]
+                        title: t("charts.day_month"), height: "400px"
+                    #year.chart.tab-pane
                       = area_chart admin_charts_users_by_year_path,
                         xtitle: t("charts.time"), ytitle: t("charts.number_of_user"),
-                        title: t("charts.month_year")
-        .col-lg-6
+                        title: t("charts.month_year"), height: "400px"
+                    #range.chart.tab-pane
+                      #show-form
+                        = form_with(url: admin_range_path, method: :get) do |form|
+                          .form-group
+                          label = t("charts.date_range")
+                          .input-group
+                            span.input-group-text
+                              i.far.fa-calendar-alt
+                            .col-4
+                              = form.text_field :first_day, class: "form-control"
+                            .col-1
+                              .to-date = t("charts.to")
+                            .col-4
+                              = form.text_field :last_day, class: "form-control"
+                            .col-2
+                              = submit_tag t("charts.check"), class: "btn btn-success"
+                        #show-chart-range
+                          = render "admin/base/chart_range"
+        .col-lg-5
           .card
             .card-header
               .small-box.bg-info
@@ -85,6 +103,34 @@
             .card-body
               = pie_chart admin_charts_users_registered_by_day_path,
                 donut: true, messages: { empty: t("charts.no_data") }
+          .row
+            .col-lg-12
+              .card.card-info
+                .card-header
+                  h3.card-title
+                    = t("charts.top_lesson")
+                  .card-tools
+                    button.btn.btn-tool[type="button" data-card-widget="collapse"]
+                      i.fas.fa-minus
+                .card-body
+                  table.table.table-hover
+                    thead
+                      tr
+                        th
+                          = t("user.full_name")
+                        th
+                          = t("user.email")
+                        th
+                          = t("user.created_at")
+                    tbody
+                    - @sum_lesson.each do |sum_lesson|
+                      tr
+                        td
+                          = link_to sum_lesson.user.full_name, admin_user_path(sum_lesson.user_id)
+                        td
+                          = sum_lesson.user.email
+                        td
+                          = sum_lesson.user.created_at.strftime("%d-%m-%Y")
       .row
         .col-lg-12
           .card
@@ -129,3 +175,16 @@
                     title: t("charts.sum_registed_by_course_type"),
                     xtitle: t("charts.number_of_user"), ytitle: t("admin.course"),
                     colors: ["#dc3445"]
+
+script
+  | $(function() {
+      $('input[name="first_day"], input[name="last_day"]').daterangepicker({
+        singleDatePicker: true,
+        showDropdowns: true,
+        minYear: 2000,
+        maxYear: parseInt(moment().format('YYYY'),10),
+        locale: {
+          format: 'DD/M/YYYY'
+        }
+      });
+    });

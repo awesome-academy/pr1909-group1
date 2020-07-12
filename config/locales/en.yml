@@ -51,7 +51,6 @@ en:
       current_password: 'Current Password'
       update: 'Update'
       edit: 'Edit'
-      back: 'Quay lại'
       edit_pr: 'Edit Profile'
       created:
         flash: 'Candidate was successfully created.'
@@ -59,6 +58,8 @@ en:
         flash: 'Candidate was successfully updated.'
       destroyed:
         flash: 'Candidate was successfully destroyed.'
+      back: 'Back'
+      created_at: 'Created_at'
 
     devise:
       forgot_password: 'Forgot your password'
@@ -162,6 +163,11 @@ en:
       sum_registed_by_course_type: "The total useres registered course by course type"
       number_of_user: "Number of users"
       time: "Time"
+      to: "to"
+      range: "Range"
+      date_range: "Date range"
+      check: "Check"
+      top_lesson: "Top 3 users have the most study time"
 
     noti:
       email_incorrect: "Your email is incorrect"

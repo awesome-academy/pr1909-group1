@@ -17,7 +17,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       ## Rememberable
       t.datetime :remember_created_at
 
-      t.string :provider
+      t.string :provider, default: "athena"
       t.string :uid
       t.string :token
       t.string :refresh_token
