@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @courses = Course.joins("INNER JOIN registers ON courses.id = registers.course_id").
+    @courses = Course.joins(:registers).
       where(registers: { user_id: @user.id }).
       paginate(page: params[:page], per_page: Settings.per_page)
     @registers = @user.registers
