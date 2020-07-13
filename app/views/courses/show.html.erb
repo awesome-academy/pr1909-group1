@@ -13,7 +13,7 @@
                   <%= @course.course_type.course_type %>
                 </h4>
               </div>
-          
+
               <div class="course-info d-flex justify-content-between align-items-center">
                 <div class="course-info-icon d-flex align-items-center" id="course-actions">
                   <div class="item-icon">
@@ -25,12 +25,13 @@
                     <span id="registers-count"> <%= @course.total_registers_count %> </span>
                   </div>
                   <div class="item-icon">
-                    <% unless signed_in? %>
-                      <i class="fa fa-heart fa-2x"></i>
-                    <% else %>
-                      <i class="fa fa-heart fa-2x course-like like-<%= @course.id %> <%= 'active' if course_liked_by_user?(@course.id)%>" data-id="<%= @course.id %>"></i>
-                    <% end %>
-                      <span id="course-<%= @course.id %>-likes"> <%= @course.total_likes_count %> </span> 
+
+                  <% unless signed_in? %>
+                    <i class="fa fa-heart fa-2x"></i>
+                  <% else %>
+                    <i class="fa fa-heart fa-2x course-like like-<%= @course.id %> <%= 'active' if course_liked_by_user?(@course.id)%>" data-id="<%= @course.id %>"></i>
+                  <% end %>
+                    <span id="course-<%= @course.id %>-likes"> <%= @course.total_likes_count %> </span>
                   </div>
                 </div>
                 <div class="course-show d-flex align-items-center">
@@ -78,7 +79,7 @@
         </div>
       </div>
     </div>
-  
+
     <div class="row">
       <section id="tabs">
         <div class="col-xs-12">
@@ -87,7 +88,14 @@
               <%= @course.course_description.html_safe %>
             </div>
             <div id="nav-lesson" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-profile-tab">
-              TODO lessons
+              <div class="row col-sm-12">
+                <div class="col-sm-4 lessons-list">
+                  <%= render "lessons/lesson_unlock", lessons_unlock: @lessons_unlock%>
+                  <%= render @lessons_locked%>
+                </div>
+                <div class="col-sm-8 offset-sm-4 lesson-content">
+                </div>
+              </div>
             </div>
             <div id="nav-comment" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-contact-tab">
               <div id="student-review">
@@ -117,11 +125,25 @@
                 <% else %>
                   <div class="inform">Please <%= link_to "Login", new_user_session_path %> to continue. </div>
                 <% end %>
-              </div> 
+              </div>
             </div>
           </div>
-        </div>   
-      </section>      
+        </div>
+      </section>
     </div>
   </div>
 </div>
+<script type="text/javascript">
+  $(window).on("turbolinks:load", function () {
+  <% if @register %>
+    lesson = $(".lesson-unlock").last();
+    $("#nav-tab #nav-profile-tab").tab("show");
+    lesson.find(".card-body").addClass("active");
+    $.ajax({
+      method: "GET",
+      url: lesson.find("a").attr("href")
+    });
+
+  <% end %>
+})
+</script>

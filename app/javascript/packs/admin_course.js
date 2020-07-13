@@ -35,10 +35,10 @@ $(document).on("click", ".btn-add-lesson", function () {
   var input_video = new_box.find(".input-video-url");
   var quiz_form = new_box.find(".quiz-form");
   lesson_type = new_box.find(".radio-lesson-type").val();
-  if (lesson_type == "2") {
+  if (lesson_type == "quiz") {
     input_video.prop("disabled", true);
     quiz_form.show()
-  }else if(lesson_type == "1"){
+  }else if(lesson_type == "video"){
     input_video.prop("disabled", false);
     quiz_form.hide()
   }

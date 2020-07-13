@@ -1,6 +1,17 @@
 course_type = ["Web Design", "Web Development", "Marketing", "Product Management"]
+video_urls = ["https://player.vimeo.com/video/180293809", "https://player.vimeo.com/video/119105386",
+              "https://player.vimeo.com/video/69225705", "https://player.vimeo.com/video/61789173",
+              "https://player.vimeo.com/video/393999309", "https://player.vimeo.com/video/377600390",
+              "https://player.vimeo.com/video/375432709", "https://player.vimeo.com/video/373997050",
+              "https://player.vimeo.com/video/372988843", "https://player.vimeo.com/video/368134723",
+              "https://player.vimeo.com/video/363921958", "https://player.vimeo.com/video/360832524",
+              "https://player.vimeo.com/video/355204808", "https://player.vimeo.com/video/355114615",
+              "https://player.vimeo.com/video/348671806", "https://player.vimeo.com/video/45230972",
+              "https://player.vimeo.com/video/25641459", "https://player.vimeo.com/video/1904672",
+              "https://player.vimeo.com/video/17752439", "https://player.vimeo.com/video/369095"]
 user_ids = []
 course_ids = []
+quiz = []
 User.create!(
   full_name: "admin",
   email: "admin@gmail.com",
@@ -55,7 +66,8 @@ number_users.times do |n|
   16.times do |m|
     Register.create!(
       user_id: user_ids[n],
-      course_id: sample[m]
+      course_id: sample[m],
+      lesson_step: rand(1..18)
     )
   end
 end
@@ -68,5 +80,32 @@ number_users.times do |n|
       course_id: sample[m],
       comment: Faker::Lorem.sentence(word_count: 20)
     )
+  end
+end
+
+number_course = course_ids.length
+number_course.times do |n|
+  20.times do |m|
+    lesson = Lesson.create!(
+      course_id: course_ids[n],
+      lesson_name: Faker::Educator.course_name,
+      lesson_type: rand(1..2),
+      lesson_sequence: m +1,
+      video_url: video_urls.sample
+      )
+    quiz<<lesson.id if lesson.quiz?
+  end
+end
+
+number_quiz = quiz.length
+number_quiz.times do |n|
+  20.times do |m|
+    QuizQuestion.create!(
+    lesson_id: quiz[n],
+    quiz_question: "question #{m}",
+    quiz_choice: { "0"=>{ label: "A", text: "answer A", is_answer: rand(0..1) },
+                   "1"=>{ label: "B", text: "answer B", is_answer: rand(0..1) },
+                   "2"=>{ label: "C", text: "answer C", is_answer: rand(0..1) },
+                   "3"=>{ label: "D", text: "answer D", is_answer: rand(0..1) }})
   end
 end

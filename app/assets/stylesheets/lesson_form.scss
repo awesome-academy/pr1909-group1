@@ -20,8 +20,10 @@
   }
 }
 
-.quiz-form{
-  margin-bottom: 0px;
+.form-quiz{
+  input{
+    margin-right: 0px;
+  }
 }
 
 .remove-answer{
@@ -47,7 +49,7 @@
   margin-top: 5px;
 }
 
-.form-check-input{
+.correct-answer{
   margin-left: 20px !important;
   margin-bottom: 5px;
 }
@@ -71,7 +73,42 @@
 }
 
 .lesson-name-collapse{
+  white-space: nowrap;
+  width: inherit;
   line-height: 20px;
   height: 27px;
   overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lesson-content{
+  margin-left: auto;
+}
+
+.lesson-lock{
+  margin-left: auto;
+}
+
+.lesson-item{
+  white-space: nowrap;
+  line-height: 20px;
+  height: 27px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #3b424a;
+}
+
+.lessons-list{
+  height: 80vh;
+  overflow: scroll;
+}
+
+.radio-lesson-type{
+  margin-left: 10px;
+  margin-bottom: 12px;
+}
+
+.card-lesson-show{
+  border-radius: 0px;
+  margin-bottom: 5px;
 }

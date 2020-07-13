@@ -79,18 +79,7 @@ class Admin::CoursesController < Admin::BaseController
 
   # Only allow a list of trusted parameters through.
   def course_params
-    params.require(:course).permit(:course_title, :course_overview, :course_description, :course_type_id,
-                                   :course_image, :overview_video_url, lessons_attributes:
-                                   [
-                                     :id, :course_id, :lesson_type, :lesson_sequence, :lesson_name, :video_url,
-                                     quiz_questions_attributes:
-                                    [
-                                      :id, :lesson_id, :quiz_question, quiz_choice:
-                                      [
-                                        :label, :text, :is_answer,
-                                      ],
-                                    ],
-                                   ])
+    params.require(:course).permit!
   end
 
   def only_for_admin
