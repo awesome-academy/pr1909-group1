@@ -57,6 +57,7 @@ en:
       resend_confirmation: 'Resend confirmation instructions'
       did_not_receive_confirmation: "Did't receive confirmation instructions"
       send_me_reset_password_instructions: 'Send me reset password instructions'
+      permission: 'You do not have access permission to this page'
 
   # view about
     about:
@@ -79,6 +80,7 @@ en:
   # view course
     course:
       all_courses: "ALL COURSES"
+      registed_courses: "REGISTED COURSES"
       watch_now: "Watch now"
       register_now: "Register now"
       registered: "Registered"

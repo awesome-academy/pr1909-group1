@@ -1,13 +1,29 @@
-br
-br
-= image_tag(@user.avatar.url(:thumb), class: "image-avatar")
-p#notice = notice
-| Full Name:
-= @user.full_name
-br
-| Email:
-= @user.email
-br
-=> link_to 'Edit', edit_user_path(@user)
-'|
-=< link_to 'Back', users_path
+.container
+  .row
+    = render "layouts/messages"
+  .row.header-profile
+    .col-md-2
+      .profile-img
+        = image_tag(@user.avatar.url(:show), class: "image")
+    .col-md-1
+    .col-md-7
+      .row
+        .col-md-3
+          i.fa.fa-user
+          = " " + t('user.full_name') + ":"
+        .col-md-4
+          = @user.full_name
+      .row
+        .col-md-3
+          i.far.fa-envelope
+          = " " + t('user.email') + ":"
+        .col-md-4
+          = @user.email
+    .col-md-2
+      .btn-edit
+        if current_user.id == @user.id
+        = link_to t('user.edit'), edit_user_path(@user), class: "btn btn-primary  btn-block"
+
+  #show-registered
+    = render "courses/courses_registered"
+

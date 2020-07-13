@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="section-title mt-4">
+    <h2><%= t('course.registed_courses')%></h2>
+  </div>
+  <div class="courses">
+    <div class="row">
+      <% @courses.each do |course|%>
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-4">
+          <div class="course-item">
+            <div class="course-img">
+              <%= link_to image_tag(course.course_image.url(:show), class: "img-fluid"), course %>
+            </div>
+            <div class="course-content">
+              <div class="d-flex mb-3">
+                <h4><%= course.course_type.course_type %></h4>
+              </div>
+              <h3>
+                <%= link_to course.course_title, course %>
+              </h3>
+              <p>
+                <%= course.course_overview %>
+              </p>
+              <div class="course-info d-flex justify-content-between align-items-center">
+                <div class="course-info-icon d-flex align-items-center" id="course-actions">
+                  <div class="item-icon">
+                    <i class=" fas fa-users fa-2x disable <%= 'active-register' if course_registered_by_user?(course.id)%>"></i> <%= course.total_registers_count %>
+                  </div>
+                  <div class="item-icon">
+                    <i class=" fa fa-heart fa-2x disable <%= 'active' if course_liked_by_user?(course.id)%>"></i> <%= course.total_likes_count %>
+                  </div>
+                </div>
+                <div class="course-show d-flex align-items-center">
+                  <%= link_to t('course.watch_now'), course, class: "btn btn-outline-success" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="paginate">
+      <%= will_paginate @courses %>
+    </div>
+  </div>
+</div>

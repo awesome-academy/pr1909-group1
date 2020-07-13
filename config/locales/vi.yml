@@ -56,6 +56,7 @@ vi:
       forgot_password: 'Quên mật khẩu'
       resend_confirmation: 'Gửi lại hướng dẫn xác nhận tài khoản'
       did_not_receive_confirmation: 'Không nhận được hướng dẫn xác nhận tài khoản'
+      permission: 'Bạn không có quyền truy cập trang này'
 
     activerecord:
       attributes:
@@ -92,6 +93,7 @@ vi:
   # view course
     course:
       all_courses: "TẤT CẢ KHÓA HỌC"
+      registed_courses: "CÁC KHOÁ HỌC ĐÃ ĐĂNG KÝ"
       watch_now: "Xem ngay"
       register_now: "Đăng ký ngay"
       registered: "Đã đăng ký"
