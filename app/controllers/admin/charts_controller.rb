@@ -5,20 +5,8 @@ class Admin::ChartsController < ApplicationController
     render json: @user_provider.count.chart_json
   end
 
-  def users_registered_by_day
-    render json: @user_provider.created_at_today.count.chart_json
-  end
-
-  def users_by_week
-    render json: @user_provider.group_by_day_of_week(:created_at, week_start: :monday, format: "%a").count.chart_json
-  end
-
-  def users_by_month
-    render json: @user_provider.group_by_day_of_month(:created_at, format: "%d").count.chart_json
-  end
-
-  def users_by_year
-    render json: @user_provider.group_by_month_of_year(:created_at, format: "%B").count.chart_json
+  def users_registered_by
+    created(params[:period], params[:start_time], params[:end_time], params[:format])
   end
 
   def users_registered_course
@@ -31,6 +19,12 @@ class Admin::ChartsController < ApplicationController
   end
 
   private
+
+  def created(period, start_time, end_time, format)
+    render json: @user_provider.send(
+      "group_by_#{period}", :created_at, range: start_time.to_date..end_time.to_date, format: format
+    ).count.chart_json
+  end
 
   def users_provider
     @user_provider = User.group(:provider)

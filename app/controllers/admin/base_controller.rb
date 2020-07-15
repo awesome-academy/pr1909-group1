@@ -5,7 +5,7 @@ class Admin::BaseController < ApplicationController
 
   def index
     @count_user = User.count
-    @count_user_created_at_today = User.created_at_today.count
+    @count_user_created_at_today = User.created(Time.zone.now.beginning_of_day, Time.zone.now.end_of_day).count
     @count_courses = Course.count
     @count_registers = Register.count
     @count_user_registed = Register.group(:user_id).pluck(:user_id).count
@@ -19,7 +19,6 @@ class Admin::BaseController < ApplicationController
     @count_range = User.group(:provider).
       group_by_day(:created_at, range: params[:first_day].to_date..params[:last_day].to_date).count
     respond_to do |format|
-      format.html
       format.js
     end
   end

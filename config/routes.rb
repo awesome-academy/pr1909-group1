@@ -26,10 +26,7 @@ Rails.application.routes.draw do
       end
       namespace :charts do
         get "all_users_provider"
-        get "users_registered_by_day"
-        get "users_by_week"
-        get "users_by_month"
-        get "users_by_year"
+        get "users_registered_by"
         get "users_registered_course"
         get "users_registered_course_type"
       end

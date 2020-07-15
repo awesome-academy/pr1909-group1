@@ -63,6 +63,16 @@
 }
 #show-chart-range {
   padding-top: 20px;
+  h6 {
+    text-align: center;
+    padding-top: 50px;
+    color: red;
+  }
+}
+#range {
+  .input-group {
+    margin-left: 50px;
+  }
 }
 
 // charts
