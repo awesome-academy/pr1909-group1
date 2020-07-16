@@ -6,7 +6,7 @@ en:
         course: 'Courses'
         action: 'Action'
         another_action: 'An other action'
-        account_setting: 'Account Setting'
+        password_reset: 'Password reset'
         log_out: 'Log out'
         log_in: 'Log in'
         sign_up: 'Sign up'
@@ -37,6 +37,7 @@ en:
 
   # view user
     user:
+      avatar: "Avatar"
       password: "Password"
       log_in: "Log in"
       email: 'Email'
@@ -51,6 +52,13 @@ en:
       update: 'Update'
       edit: 'Edit'
       back: 'Quay lại'
+      edit_pr: 'Edit Profile'
+      created:
+        flash: 'Candidate was successfully created.'
+      updated:
+        flash: 'Candidate was successfully updated.'
+      destroyed:
+        flash: 'Candidate was successfully destroyed.'
 
     devise:
       forgot_password: 'Forgot your password'
@@ -135,3 +143,5 @@ en:
   # Alert
     alert:
       need_login: "You need to log in to continue. "
+      leave_blank: "Leave blank if you don't want to change password"
+      current_password: "We need your current password to confirm password change"

@@ -26,5 +26,5 @@ header#header.fixed-top
             .dropdown-menu[aria-labelledby="navbarDropdownXL"]
               = link_to t("layouts.header.profile"), current_user, class: "dropdown-item"
               = link_to "Admin", admin_path, class: "dropdown-item" if is_admin?
-              = link_to t("header.account_setting"), edit_user_registration_path, class: "dropdown-item" unless current_user.provider
-              = link_to t("header.log_out"), destroy_user_session_path, method: :delete, class: "dropdown-item"
+              = link_to t("layouts.header.password_reset"), edit_user_registration_path, class: "dropdown-item" unless current_user.provider
+              = link_to t("layouts.header.log_out"), destroy_user_session_path, method: :delete, class: "dropdown-item"
