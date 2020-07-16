@@ -2,6 +2,12 @@ header#header.fixed-top
   .container
     nav.navbar.navbar-expand-xl
       = link_to  "Athena", root_path, class: "navbar-brand logo"
+      .col-sm-7.search
+        .cover
+          = form_tag "/search", method: "get", class: "forms-group" do
+            = text_field_tag :query, params[:query], class: "input-search", placeholder: "Search courses here"
+            = button_tag class: "btn-search" do
+              i.fa.fa-search
       button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarSupportedContentXL" aria-controls="navbarSupportedContentXL" aria-expanded="false" aria-label="Toggle navigation"]
         span.navbar-toggler-icon
       #navbarSupportedContentXL.collapse.navbar-collapse

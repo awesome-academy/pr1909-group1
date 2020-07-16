@@ -8,7 +8,7 @@ class QuizResultsController < ApplicationController
     @point = 0
     params[:user_answer].each do |answer|
       quiz = @quizzes.find_by(id: answer.first.to_i).quiz_choice.values
-      correct_answer = quiz.select { |ans| ans["is_answer"] == 1 }.pluck("label")
+      correct_answer = quiz.select { |ans| ans["is_answer"] == "1" }.pluck("label")
       @point += 1 if correct_answer == answer.last
     end
     @result.mark = @point

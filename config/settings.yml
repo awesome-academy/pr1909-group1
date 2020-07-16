@@ -18,6 +18,8 @@ comment:
   per_page: 10
 register:
   per_page: 24
+per_page:
+  search: 10
 default:
   lesson_type: 1
   lesson_sequence: 1

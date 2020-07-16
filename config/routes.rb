@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     root 'home#index'
 
     get "/about", to: "home#about"
+    get "/search", to: "courses#search"
     resources :courses
     resources :review_courses, except: [:new, :show]
     devise_for :users, skip: :omniauth_callbacks
