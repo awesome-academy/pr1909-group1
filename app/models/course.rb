@@ -1,6 +1,6 @@
 class Course < ApplicationRecord
   searchkick  word_start: [:course_title, :course_type], word_middle: [:course_title, :course_type],
-    highlight: [:course_title, :course_type]
+    highlight: [:course_title, :course_type], callbacks: :async
   belongs_to :user
   belongs_to :course_type
   mount_uploader :course_image, CourseImageUploader
@@ -14,6 +14,12 @@ class Course < ApplicationRecord
   validates :user_id, :course_title, :course_overview, :course_description, :course_type_id, presence: true
   validates :course_type_id, :user_id, numericality: { only_integer: true }
   accepts_nested_attributes_for :lessons
+  after_commit :reindex_course, if: -> (model){ model.previous_changes.key?("course_title") }
+
+  def reindex_course
+    Course.search_index.delete
+    Course.reindex
+  end
 
   def search_data
     {

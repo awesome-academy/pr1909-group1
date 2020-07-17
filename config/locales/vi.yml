@@ -125,6 +125,7 @@ vi:
       video: "URL video"
       description: "Miêu tả"
       create_course: "Tạo khóa học"
+      search_placeholder: "Tìm kiếm khóa học"
 
   # button
     btn:
