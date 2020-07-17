@@ -1,6 +1,7 @@
 class Admin::BaseController < ApplicationController
   before_action :authenticate_user!
   before_action :check_admin
+  before_action :set_breadcrumbs
   layout "admin/admin_index"
 
   def index
@@ -21,6 +22,19 @@ class Admin::BaseController < ApplicationController
     respond_to do |format|
       format.js
     end
+  end
+
+  protected
+
+  def add_breadcrumbs(label, path = {})
+    @breadcrumbs << {
+      label: label,
+      path: path,
+    }
+  end
+
+  def set_breadcrumbs
+    @breadcrumbs = []
   end
 
   private

@@ -1,26 +1,20 @@
 .row
   .col-lg-12
     .card
-      .card-header.border-0
-        .card-tools
-          a.btn.btn-tool.btn-sm href="#" 
-            i.fas.fa-download
-          a.btn.btn-tool.btn-sm href="#" 
-            i.fas.fa-bars
       .card-body.table-responsive.p-0
-        table.table.table-striped.table-valign-middle.table-hover
+        table.table.table-striped.table-valign-middle.table-hover.all-users
           thead
             tr
               th
                 = t('user.full_name')
               th
-                | Email
+                = t('user.email')
               th
-                | Provider
+                = sort_link @q, :provider, t('admin.provider'), {}, {remote: true}
               th
-                | Created_at
+                | Avatar
               th
-                = t('admin.show')
+                = sort_link @q, :created_at, t('admin.created_at'), {}, {remote: true}
               th
                 = t('user.edit')
               th
@@ -30,22 +24,17 @@
               - @users.each do |user|
                 tr
                   td
-                    p
-                      = user.full_name
+                    = link_to user.full_name, admin_user_path(user)
                   td
-                    p
-                      = user.email
+                    = user.email
                   td
-                    p
-                      = user.provider
+                    = user.provider.capitalize
                   td
-                    p
-                      = user.created_at
+                    = link_to image_tag(user.avatar.url(:thumb), class: "image-avatar"), admin_user_path(user)
                   td
-                    = link_to admin_user_path(user) do
-                      i.fas.fa-search
+                    = user.created_at.strftime("%d-%m-%Y")
                   td
-                    = link_to  edit_admin_user_path(user) do
+                    = link_to edit_admin_user_path(user) do
                       i.far.fa-edit
                   td
                     = link_to admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } do

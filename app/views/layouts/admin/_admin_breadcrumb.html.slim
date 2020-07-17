@@ -1,0 +1,14 @@
+.content-header
+  .container-fluid
+    .row.mb-2
+      .col-12
+        nav[aria-label="breadcrumb"]
+          ol.breadcrumb.float-sm-right
+            li.breadcrumb-item= link_to t("admin.dash"), admin_path
+            - @breadcrumbs.each do |breadcrumb|
+              - if breadcrumb[:path].blank?
+                  li.breadcrumb-item.active[aria-current="page"]
+                    = breadcrumb[:label]
+              - else
+                  li.breadcrumb-item
+                    = link_to breadcrumb[:label], breadcrumb[:path] 

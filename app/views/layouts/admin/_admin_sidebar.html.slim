@@ -1,13 +1,12 @@
 aside.main-sidebar.sidebar-dark-primary.elevation-4.position-fixed
-  = link_to root_path, class: "brand-link" do
+  = link_to admin_path, class: "brand-link" do
     span.brand-text.font-weight-light
-      | Athena App
+      | AdminLTE
   .slimScrollDiv style=("position: relative; overflow: hidden; width: auto; height: 652px;") 
     .sidebar style=("min-height: 652px; overflow: hidden; width: auto; height: 652px;") 
       .user-panel.mt-3.pb-3.mb-3.d-flex
         .image
-          / TODO avatar
-          img.img-circle.elevation-2 alt=("User Image") src="http://placehold.it/160x160" /
+          = image_tag(current_user.avatar.url(:thumb), class: "admin-avatar") 
         .info
           a.d-block
             = current_user.full_name.capitalize
@@ -20,11 +19,32 @@ aside.main-sidebar.sidebar-dark-primary.elevation-4.position-fixed
                 span =t('admin.dash')
                 i.right.fas.fa-angle-left
             ul.nav.nav-treeview
-              li.nav-item
-                = link_to admin_users_path, class: "nav-link" do
+              li.nav-item.menu-item
+                = link_to admin_users_path, class: "nav-link " do
                   i.far.fa-circle.nav-icon
                   p = t('admin.user')
-              li.nav-item
+                
+              li.nav-item.menu-item
                 = link_to admin_courses_path, class: "nav-link" do
                   i.far.fa-circle.nav-icon
                   p = t('admin.course')
+
+script
+  | $(document).ready(function(){
+      const currentLocation = location.href;
+      const menuItem = document.querySelectorAll('.menu-item > a')
+      const pathBreadcrumb = document.querySelector('ol li:nth-child(2) > a')
+      const menuLenght = menuItem.length
+      for (let i = 0; i < menuLenght; i++) {
+        if (menuItem[i].href == currentLocation)  {
+          menuItem[i].className = "nav-link active"
+        }
+      }
+      if (pathBreadcrumb != null) {
+        for (let i = 0; i < menuLenght; i++) {
+          if (menuItem[i].href ==  pathBreadcrumb.href){
+            menuItem[i].className = "nav-link active"
+          }
+        }
+      }
+    });

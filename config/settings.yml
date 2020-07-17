@@ -18,3 +18,5 @@ default:
   lesson_type: 1
   lesson_sequence: 1
 lesson_type: { video: 1, quiz: 2 }
+provider:
+  search: { "Athena": "athena", "Google": "google_oauth2", "Facebook": "facebook" }

@@ -1,16 +1,4 @@
 .content-wrapper
-  .content-header
-    .container-fluid
-      .row.mb-2
-        .col-sm-6
-          h1.m-0.text-dark
-            =t ('admin.course')
-        .col-sm-6
-          ol.breadcrumb.float-sm-right
-            li.breadcrumb-item
-              = link_to t("layouts.header.home"), admin_path
-            li.breadcrumb-item.active
-              =t ('admin.course')
   .content
     .container-fluid
       = render  "layouts/messages" 

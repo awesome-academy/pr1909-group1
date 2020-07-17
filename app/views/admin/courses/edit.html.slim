@@ -1,47 +1,26 @@
 .content-wrapper
-  .content-header
-    .container-fluid
-      .row.mb-2
-        .col-sm-6
-          h1.m-0.text-dark
-            =t ('admin.course')
-        .col-sm-6
-          ol.breadcrumb.float-sm-right
-            li.breadcrumb-item
-              = link_to t("layouts.header.home"), admin_path
-            li.breadcrumb-item.active
-              =t ('admin.course')
   .content
-    .container-fluid
-      h1
-        =t ('course.edit_course')
-      .container
-        .row
-          .col-lg-10.offset-lg-1
-            = simple_form_for [:admin, @course] do |f|
-              = f.error_notification
-              = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
-              .form-inputs
-                .row
-                  .col-lg-7.col-md-7
-                    = f.input :course_title, label: t('course.course_title')
-                  .col-lg-5.col-md-5
-                    = f.input :course_type_id, collection: @course_types_view,
-                                            label: t('course.course_type'),
-                                            prompt: t('course.select_course_type')
-                .row
-                  .col-lg-12.col-md-12
-                    = f.input :course_overview, label: t('course.course_overview')
-                .row
-                  .col-lg-12.col-md-12
-                    = f.input :course_description, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' }}  , label: t('course.course_description')
-                = f.input :course_image, label: t('course.course_image')
-                = f.input :overview_video_url, label: t('course.course_video')
-              .form-actions
-                = f.button :submit, class: "btn btn-success"
-      .container
-        .row
-          .col-lg-10.offset-lg-1
-            = link_to t('admin.show'), admin_course_path(@course)
-            |  |
-            = link_to t('user.back'), admin_courses_path
+    .container
+      .row
+        .col-lg-10.offset-lg-1
+          = simple_form_for [:admin, @course] do |f|
+            = f.error_notification
+            = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+            .form-inputs
+              .row
+                .col-lg-7.col-md-7
+                  = f.input :course_title, label: t('course.course_title')
+                .col-lg-5.col-md-5
+                  = f.input :course_type_id, collection: @course_types_view,
+                                          label: t('course.course_type'),
+                                          prompt: t('course.select_course_type')
+              .row
+                .col-lg-12.col-md-12
+                  = f.input :course_overview, label: t('course.course_overview')
+              .row
+                .col-lg-12.col-md-12
+                  = f.input :course_description, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' }}  , label: t('course.course_description')
+              = f.input :course_image, label: t('course.course_image')
+              = f.input :overview_video_url, label: t('course.course_video')
+            .form-actions
+              = f.button :submit, class: "btn btn-success"

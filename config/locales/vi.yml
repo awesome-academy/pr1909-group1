@@ -146,6 +146,10 @@ vi:
       delete: 'Xoá'
       show_app: "Xem app"
       login_app: "Đăng nhập app"
+      new: "Mới"
+      edit: "Chỉnh sửa"
+      provider: "Tài khoản"
+      created_at: "Ngày tạo"
 
     lesson:
       quiz: "Bài kiểm tra"
@@ -187,6 +191,9 @@ vi:
       created: "Bạn đã tạo thành công."
       updated: "Bạn đã cập nhật thành công"
       destroyed: "Bạn đã xóa thành công"
+    search:
+      search_user: "Tìm kiếm theo tên"
+      provider: "Chọn nhà cung cấp"
 
   # Alert
     alert:
