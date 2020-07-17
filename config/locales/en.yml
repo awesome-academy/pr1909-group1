@@ -139,6 +139,10 @@ en:
       add_question: "Add Question"
       add_lesson: "Add Lesson"
       lesson_name: "Lesson Name"
+      submit: "Submit"
+      test_failed: "Test Failed"
+      your_mark: "Your mark"
+      close: "Close"
 
   # Alert
     alert:
