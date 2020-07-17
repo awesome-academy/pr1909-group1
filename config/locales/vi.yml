@@ -6,7 +6,7 @@ vi:
         course: 'Khoá học'
         action: 'Thao tác'
         another_action: 'Thao tác khác'
-        account_setting: 'Cài đặt tài khoản'
+        password_reset: 'Thay đổi mật khẩu'
         log_out: 'Đăng xuất'
         log_in: 'Đăng nhập'
         sign_up: 'Đăng ký'
@@ -37,6 +37,7 @@ vi:
 
   # view user
     user:
+      avatar: "Ảnh đại diện"
       password: "Mật khẩu"
       email: 'Thư điện tử'
       log_in: "Đăng nhập "
@@ -51,6 +52,14 @@ vi:
       update: 'Cập nhật'
       edit: 'Chỉnh sửa'
       back: 'Quay lại'
+      edit_pr: "Chỉnh sửa thông tin"
+      created:
+        flash: 'Người dùng đã được tạo thành công.'
+      updated:
+        flash: 'Thông tin người dùng đã được cập nhật thành công.'
+      destroyed:
+        flash: 'Xóa người dùng thành công'
+  
 
     devise:
       forgot_password: 'Quên mật khẩu'
@@ -147,3 +156,5 @@ vi:
   # Alert
     alert:
       need_login: "Bạn cần đăng nhập để  tiếp tục. "
+      leave_blank: "Để trống nếu bạn không muốn thay đổi mật khẩu"
+      current_password: "Chúng tôi cần mật khẩu hiện tại để xác nhận thay đổi mật khẩu"

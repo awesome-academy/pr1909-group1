@@ -1,9 +1,22 @@
-= form_for @user do |f|
-  - if @user.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
-      ul
-        - @user.errors.full_messages.each do |message|
-          li = message
-
-  .actions = f.submit
+.body-box
+   .form-box
+      .col-md-8.offset-md-2
+         .form
+            .form-title.row
+            .h2
+               = t("user.edit_pr")
+            = simple_form_for [@user] do |f|
+               = f.error_notification
+               = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+               .form-inputs
+                  .row
+                  .col-log-12.col-md-12
+                     = f.input :avatar, as: :file, label: t('user.avatar')
+                  .row
+                  .col-lg-12.col-md-12
+                     = f.input :full_name
+                  .row
+                  .col-lg-12.col-md-12
+                     = f.input :email, required: true, autofocus: true, readonly: true
+               .form-actions
+                  = f.button :submit, class: "btn btn-success"
