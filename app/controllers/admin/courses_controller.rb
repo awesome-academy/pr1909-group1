@@ -1,20 +1,17 @@
 class Admin::CoursesController < Admin::BaseController
   before_action :get_course, only: [:show, :edit, :update, :destroy]
   before_action :get_course_type, only: [:new, :edit]
-  before_action :add_path_breadcrumb, only: [:show, :new, :edit]
 
   # GET /courses
   # GET /courses.json
   def index
     @courses = Course.all.paginate(page: params[:page], per_page: Settings.per_page)
-    add_breadcrumbs(t('admin.course'))
   end
 
   # GET /courses/1
   # GET /courses/1.json
   def show
     @lesson = Lesson.new
-    add_breadcrumbs(@course.course_title)
   end
 
   # GET /courses/new
@@ -22,13 +19,10 @@ class Admin::CoursesController < Admin::BaseController
     @course = Course.new
     @lesson = @course.lessons.build
     @questions = @course.lessons.first.quiz_questions.build
-    add_breadcrumbs(t('admin.new'))
   end
 
   # GET /courses/1/edit
   def edit
-    add_breadcrumbs(@course.course_title, admin_course_path(@course))
-    add_breadcrumbs(t('admin.edit'))
   end
 
   # POST /courses
@@ -90,9 +84,5 @@ class Admin::CoursesController < Admin::BaseController
 
   def only_for_admin
     redirect_to root_url unless current_user.is_admin?
-  end
-
-  def add_path_breadcrumb
-    add_breadcrumbs(t('admin.course'), admin_courses_path)
   end
 end

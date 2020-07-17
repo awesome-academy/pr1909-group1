@@ -1,11 +1,9 @@
 class Admin::UsersController < Admin::BaseController
   before_action :get_user, only: [:show, :edit, :update, :destroy]
-  before_action :add_path_breadcrumb, only: [:show, :new, :edit]
 
   def index
     @q = User.ransack params[:q]
     @users = @q.result(distinct: true).not_admin.paginate(page: params[:page], per_page: Settings.per_page)
-    add_breadcrumbs(t('admin.user'))
     respond_to do |format|
       format.html
       format.js
@@ -13,17 +11,13 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def show
-    add_breadcrumbs(@user.full_name)
   end
 
   def new
     @user = User.new
-    add_breadcrumbs(t('admin.new'))
   end
 
   def edit
-    add_breadcrumbs(@user.full_name, admin_user_path(@user))
-    add_breadcrumbs(t('admin.edit'))
   end
 
   def create
@@ -69,9 +63,5 @@ class Admin::UsersController < Admin::BaseController
   # Only allow a list of trusted parameters through.
   def user_params
     params.require(:user).permit(:full_name, :email, :password, :confirmed_at, :avatar)
-  end
-
-  def add_path_breadcrumb
-    add_breadcrumbs(t('admin.user'), admin_users_path)
   end
 end
