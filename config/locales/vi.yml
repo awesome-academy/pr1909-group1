@@ -180,6 +180,7 @@ vi:
       date_range: "Phạm vi ngày"
       check: "Kiểm tra"
       top_lesson: "Top 3 người dùng có thời gian học nhiều nhất"
+      noti_range: "Lựa chọn ngày bắt đầu và kết thúc mà bạn muốn kiểm tra!"
 
     noti:
       email_incorrect: "Thư điện tử của bạn không đúng"

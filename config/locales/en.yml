@@ -168,6 +168,7 @@ en:
       date_range: "Date range"
       check: "Check"
       top_lesson: "Top 3 users have the most study time"
+      noti_range: "Select the start and end dates you want to check!"
 
     noti:
       email_incorrect: "Your email is incorrect"
