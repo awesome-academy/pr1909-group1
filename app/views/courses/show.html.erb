@@ -148,7 +148,8 @@
       method: "GET",
       url: lesson.find("a").attr("href")
     });
-
+  <% else %>
+    $("#nav-tab #nav-home-tab").tab("show");
   <% end %>
 })
 </script>

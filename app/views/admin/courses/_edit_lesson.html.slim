@@ -1,0 +1,73 @@
+#sortable
+  = f.fields_for :lessons do |lesson|
+
+    .lesson-box.lesson-field
+      .new-lesson
+        .card
+          .card-header.row.field
+            .col-sm-3
+              .form-check.form-check-inline
+                = lesson.hidden_field :lesson_sequence, value: 1, class: "lesson_seq"
+                .form-check-label
+                  = lesson.label :lesson_type, "Video"
+                .radio-video.form-check-input
+                  = lesson.radio_button :lesson_type, :video, class: "radio-lesson-type"
+              .form-check.form-check-inline
+                .form-check-label
+                  = lesson.label :lesson_type
+                    = t("lesson.quiz")
+                .radio-quiz.form-check-input
+                  = lesson.radio_button :lesson_type, :quiz, class: "radio-lesson-type"
+            .col-sm-8
+              .btn.btn-link.lesson-name-collapse
+            .col-sm-1
+              label.switch
+                = lesson.check_box :_destroy
+                span.slider
+          .card-body
+            .form-group
+              .lesson-name.row
+                .form-input-label.col-sm-2
+                  = lesson.label :lesson_name
+                    = t("lesson.lesson_name")
+                .col-sm-10
+                  = lesson.text_field :lesson_name, class: "form-control input-lesson-name"
+            .form-group
+              .lesson-name.row
+                .form-input-label.col-sm-2
+                  = lesson.label :video_url
+                .col-sm-10
+                  = lesson.text_field :video_url, class: "form-control input-video-url"
+          .card.quiz-form
+            .card-header
+              = t("lesson.quiz")
+            .card-body
+              = lesson.fields_for :quiz_questions do |quiz|
+                .container.quiz-list
+                  .list
+                    .quiz-element.list-question
+                      / .btn.remove-question ×
+                      .form-group.row
+                        = quiz.label :quiz_question, class: "col-sm-2 col-form-label"
+                          = t("lesson.question")
+                        .col-sm-10
+                          = quiz.text_field :quiz_question, class: "form-control input-question"
+                      = quiz.fields :quiz_choice, class: "input-answer form-control" do |choice|
+                        .list-answer
+                          .input-choice
+                            .form-group.row.option-answer.container
+                              = choice.label :label, "A", class: "col-sm-1 label-option"
+                              = choice.hidden_field :label, value: "A", class: "label_choice"
+                              .col-sm-11
+                                .row
+                                  = choice.check_box :is_answer, class: "correct-answer form-check-input"
+                                  = choice.text_field :text, class: "input-answer form-control"
+                                  / .btn.btn-danger.remove-answer ×
+                      / .btn.btn-add-option.btn-secondary +
+            .btn.btn-success.btn-add-question
+              = t("lesson.add_question")
+.form-actions.row
+  .btn.btn-add-lesson.btn-primary
+    = t("lesson.add_lesson")
+  button.btn.btn-success.btn-submit-course
+    = t("course.create_course")
