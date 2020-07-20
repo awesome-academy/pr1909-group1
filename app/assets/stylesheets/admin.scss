@@ -50,3 +50,33 @@
   background: #0e722c !important;
   color: #fff;
 }
+
+// common 
+.nav-item .nav-link {
+  padding: 0.5rem 1rem !important;
+}
+
+// range 
+.to-date {
+  text-align: center;
+  padding-top: 6px;
+}
+#show-chart-range {
+  padding-top: 20px;
+  h6 {
+    text-align: center;
+    padding-top: 50px;
+    color: red;
+  }
+}
+#range {
+  .input-group {
+    margin-left: 50px;
+  }
+}
+
+// charts
+.tab-pane {
+  position: relative; 
+  height: 490px;
+}

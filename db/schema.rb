@@ -125,7 +125,7 @@ ActiveRecord::Schema.define(version: 2020_06_26_172348) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "provider"
+    t.string "provider", default: "athena"
     t.string "uid"
     t.string "token"
     t.string "refresh_token"

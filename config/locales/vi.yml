@@ -59,7 +59,7 @@ vi:
         flash: 'Thông tin người dùng đã được cập nhật thành công.'
       destroyed:
         flash: 'Xóa người dùng thành công'
-  
+      created_at: 'Ngày dăng ký'
 
     devise:
       forgot_password: 'Quên mật khẩu'
@@ -137,6 +137,7 @@ vi:
   # view admin
     admin:
       dash: 'Bảng điều khiển'
+      home: 'Trang chủ'
       user: 'Người dùng'
       course: 'Khoá học'
       show: 'Xem'
@@ -156,6 +157,36 @@ vi:
       test_failed: "Bạn không qua bài kiểm tra"
       your_mark: "Điểm của bạn"
       close: "Đóng"
+
+    charts:
+      all: "Tất cả"
+      week: "Tuần"
+      month: "Tháng"
+      year: "Năm"
+      all_users: "Tất cả người dùng"
+      day_week: "Ngày - Tuần"
+      day_month: "Ngày - Tháng"
+      month_year: "Tháng - Năm"
+      users_registered_today: "Người dùng đăng ký hôm nay"
+      no_data: "Không có dữ liệu ^^"
+      sum_registrations: "Tổng số lượt đăng ký khoá học"
+      users_registed_course: "Người dùng đã đăng ký khóa học"
+      sum_registered_each_course: "Số  lượng người dùng đã đăng ký mỗi khóa học "
+      sum_registed_by_course_type: "Số lượng người dùng đã đăng ký khóa học theo loại hình"
+      number_of_user: "Số lượng người dùng"
+      time: "Thời gian"
+      to: "đến"
+      range: "Phạm vi"
+      date_range: "Phạm vi ngày"
+      check: "Kiểm tra"
+      top_lesson: "Top 3 người dùng có thời gian học nhiều nhất"
+      noti_range: "Lựa chọn ngày bắt đầu và kết thúc mà bạn muốn kiểm tra!"
+
+    noti:
+      email_incorrect: "Thư điện tử của bạn không đúng"
+      created: "Bạn đã tạo thành công."
+      updated: "Bạn đã cập nhật thành công"
+      destroyed: "Bạn đã xóa thành công"
 
   # Alert
     alert:

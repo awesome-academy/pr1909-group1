@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
 
   scope :not_admin, -> { where(is_admin: false) }
+  scope :created, -> (start_time, end_time) { where(created_at: start_time..end_time) }
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,

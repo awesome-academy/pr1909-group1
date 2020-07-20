@@ -14,10 +14,18 @@ global.$ = global.jQuery = jQuery;
 window.$ = window.jQuery = jQuery;
 
 require("jquery");
+require('moment');
 require("bootstrap");
 require("admin-lte");
-var jQuery = require("jquery");
+require("chartkick");
+require("chart.js");
+require ("daterangepicker")
 
+var moment = require('moment');
+global.moment = moment;
+window.moment = moment;
+
+var jQuery = require("jquery");
 // import jQuery from "jquery";
 global.$ = global.jQuery = jQuery;
 window.$ = window.jQuery = jQuery;

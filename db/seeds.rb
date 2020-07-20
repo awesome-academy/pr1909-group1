@@ -20,13 +20,40 @@ User.create!(
   is_admin: true,
   confirmed_at: Time.zone.now)
 
-20.times do |n|
+40.times do |n|
   user = User.create!(
     full_name: Faker::Name.middle_name.delete("',^"),
     email: "example_#{n+1}@gmail.com",
     password:  "password",
     password_confirmation: "password",
-    confirmed_at: Time.zone.now
+    confirmed_at: Time.zone.now,
+    created_at: Faker::Date.between(from: '2020-07-01', to: Time.zone.now)
+  )
+  user_ids<<user.id
+end
+
+20.times do |n|
+  user = User.create!(
+    full_name: Faker::Name.middle_name.delete("',^"),
+    email: "facebook_#{n+1}@gmail.com",
+    password:  "password",
+    password_confirmation: "password",
+    confirmed_at: Time.zone.now,
+    created_at: Faker::Date.between(from: '2020-07-05', to: Time.zone.now),
+    provider: "facebook"
+  )
+  user_ids<<user.id
+end
+
+20.times do |n|
+  user = User.create!(
+    full_name: Faker::Name.middle_name.delete("',^"),
+    email: "google_#{n+1}@gmail.com",
+    password:  "password",
+    password_confirmation: "password",
+    confirmed_at: Time.zone.now,
+    created_at: Faker::Date.between(from: '2020-07-05', to: Time.zone.now),
+    provider: "google_oauth2"
   )
   user_ids<<user.id
 end
