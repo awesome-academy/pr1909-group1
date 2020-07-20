@@ -4,6 +4,7 @@ class Admin::BaseController < ApplicationController
   layout "admin/admin_index"
 
   def index
+    @user = User.find_by(id: params[:id])
     @count_user = User.count
     @count_user_created_at_today = User.created(Time.zone.now.beginning_of_day, Time.zone.now.end_of_day).count
     @count_courses = Course.count
