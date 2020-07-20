@@ -2,7 +2,12 @@ class Admin::UsersController < Admin::BaseController
   before_action :get_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    @users = User.not_admin.paginate(page: params[:page], per_page: Settings.per_page)
+    @q = User.ransack params[:q]
+    @users = @q.result(distinct: true).not_admin.paginate(page: params[:page], per_page: Settings.per_page)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show
@@ -57,6 +62,6 @@ class Admin::UsersController < Admin::BaseController
 
   # Only allow a list of trusted parameters through.
   def user_params
-    params.require(:user).permit(:full_name, :email, :password, :confirmed_at)
+    params.require(:user).permit(:full_name, :email, :password, :confirmed_at, :avatar)
   end
 end

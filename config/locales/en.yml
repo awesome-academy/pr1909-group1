@@ -134,6 +134,11 @@ en:
       delete: 'Delete'
       show_app: "Show app"
       login_app: "Login app"
+      new: "New"
+      edit: "Edit"
+      provider: "Provider"
+      created_at: "Date created"
+      
 
     lesson:
       quiz: "Quiz"
@@ -145,6 +150,10 @@ en:
       test_failed: "Test Failed"
       your_mark: "Your mark"
       close: "Close"
+    
+    search:
+      search_user: "Search by name"
+      provider: "Select provider"
 
     charts:
       all: "All"

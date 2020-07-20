@@ -4,53 +4,16 @@ nav.main-header.navbar.navbar-expand.navbar-white.navbar-light
       a.nav-link[data-widget="pushmenu" href="#" role="button"]
         i.fas.fa-bars
     li.nav-item.d-none.d-sm-inline-block
-      = link_to t("layouts.header.home"), admin_path, class: "nav-link"
+      = link_to "Athena", root_path, class: "nav-link"
+  ul.navbar-nav.ml-auto
+    li.nav-item.icon-lg
+      = link_to image_tag('en.png'), locale:"en" if I18n.locale == :vi
+    li.nav-item.icon-lg
+      = link_to image_tag('vi.png'), locale:"vi" if I18n.locale == :en
     li.nav-item.d-none.d-sm-inline-block.dropdown
       a#navbarDropdownXL.nav-link.dropdown-toggle[href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
+        = image_tag(current_user.avatar.url(:thumb), class: "admin-avatar")
         = current_user.full_name.capitalize
       .dropdown-menu[aria-labelledby="navbarDropdownXL"]
         = link_to t("layouts.header.account_setting"), edit_user_registration_path, class: "dropdown-item" 
         = link_to t("layouts.header.log_out"), admin_logout_path, method: :delete, class: "dropdown-item"
-  form.form-inline.ml-3
-    .input-group.input-group-sm
-      input.form-control.form-control-navbar[type="search" placeholder= t("layouts.header.search") aria-label="Search"]
-      .input-group-append
-        button.btn.btn-navbar[type="submit"]
-          i.fas.fa-search
-  ul.navbar-nav.ml-auto
-    li.nav-item.dropdown
-      a.nav-link[data-toggle="dropdown" href="#"]
-        i.far.fa-bell
-        span.badge.badge-warning.navbar-badge
-          | 15
-      .dropdown-menu.dropdown-menu-lg.dropdown-menu-right
-        span.dropdown-item.dropdown-header
-          | 15 Notifications
-        .dropdown-divider
-        a.dropdown-item[href="#"]
-          i.fas.fa-envelope.mr-2
-          |  4 new messages 
-          span.float-right.text-muted.text-sm
-            | 3 mins
-        .dropdown-divider
-        a.dropdown-item[href="#"]
-          i.fas.fa-users.mr-2
-          |  8 friend requests 
-          span.float-right.text-muted.text-sm
-            | 12 hours
-        .dropdown-divider
-        a.dropdown-item[href="#"]
-          i.fas.fa-file.mr-2
-          |  3 new reports 
-          span.float-right.text-muted.text-sm
-            | 2 days
-        .dropdown-divider
-        a.dropdown-item.dropdown-footer[href="#"]
-          =t('layouts.header.all')
-    li.nav-item
-      a.nav-link[data-widget="control-sidebar" data-slide="true" href="#" role="button"]
-        i.fas.fa-th-large
-    li.flag
-      = link_to image_tag('en.png'), locale:"en" if I18n.locale == :vi
-    li.flag
-      = link_to image_tag('vi.png'), locale:"vi" if I18n.locale == :en

@@ -16,8 +16,6 @@
               th
                 = t('course.overview')
               th
-                = t('course.description')
-              th
                 = t('course.type')
               th
                 = t('course.image')
@@ -41,16 +39,14 @@
                   td.with-15
                     p.webkit-box-2
                       = course.course_overview
-                  td.with-15
-                    p.webkit-box-2
-                      = course.course_description
                   td.with-10
                     p.webkit-box-2
                       = course.course_type.course_type
                   td.with-10
                     = image_tag(course.course_image.url(:thumb))
                   td.with-10
-                    = course.overview_video_url
+                    p.webkit-box-2
+                      = course.overview_video_url
                   td.with-5
                     = link_to admin_course_path(course) do
                       i.fas.fa-search

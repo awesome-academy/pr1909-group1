@@ -11,11 +11,11 @@ html[lang="en"]
     = javascript_include_tag Ckeditor.cdn_url
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-
   body.hold-transition.sidebar-mini
     .wrapper
       = render "layouts/admin/admin_navbar"
       = render "layouts/admin/admin_sidebar"
+      = render "layouts/admin/breadcrumb"
       = yield
       = render "layouts/admin/admin_footer"
     #preloader

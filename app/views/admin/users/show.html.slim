@@ -1,29 +1,32 @@
+= content_for :breadcrumbs, [[t('admin.user'), admin_users_path], @user.full_name]
 .content-wrapper
-  .content-header
-    .container-fluid
-      .row.mb-2
-        .col-sm-6
-          h1.m-0.text-dark
-            = t('admin.user')
-        .col-sm-6
-          ol.breadcrumb.float-sm-right
-            li.breadcrumb-item
-              = link_to t("layouts.header.home"), admin_path
-            li.breadcrumb-item.active
-              = t('admin.user')
   .content
     .container-fluid
       = render  "layouts/messages" 
-      p
-        strong
-          =t('user.full_name') + ": "
-        = @user.full_name
-      p
-        strong
-          | Email: 
-        = @user.email
-
-
-      = link_to t('user.edit'), edit_admin_user_path(@user)
-      |  | 
-      = link_to t('user.back'), admin_users_path
+      .container
+        .show-user
+          .row
+            .col-md-6.img
+              = link_to image_tag(@user.avatar.url(:show)), "#", "data-toggle" => "modal", 'data-target' => '#modalIMG'
+            .col-md-6.details
+              blockquote
+                h5
+                  = @user.full_name
+              p
+                = t('user.email') 
+                |: 
+                = @user.email
+                br
+                = t('admin.provider')
+                |: 
+                = @user.provider.capitalize
+                br
+                = t('admin.created_at')
+                |:  
+                = @user.created_at.strftime("%d-%m-%Y")
+              = link_to t('user.edit'), edit_admin_user_path(@user), class: "btn btn-outline-success"
+    #modalIMG.modal.fade[aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1"]
+      .modal-dialog.modal-lg[role="document"]
+        .modal-content
+          .modal-body.mb-0.p-0
+            = image_tag(@user.avatar.url(:full), class: "image-full")

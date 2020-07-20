@@ -1,21 +1,20 @@
+= content_for :breadcrumbs, [t('admin.user')]
 .content-wrapper
-  .content-header
-    .container-fluid
-      .row.mb-2
-        .col-sm-6
-          h1.m-0.text-dark
-            = t('admin.user')
-        .col-sm-6
-          ol.breadcrumb.float-sm-right
-            li.breadcrumb-item
-              = link_to t("layouts.header.home"), admin_path
-            li.breadcrumb-item.active
-              = t('admin.user')
   .content
     .container-fluid
       = render  "layouts/messages" 
-      = link_to t('admin.new_user'), new_admin_user_path, class: "btn btn-outline-success"
-      br
-      br
+      .row.action-user
+        .ml-4
+          = link_to new_admin_user_path, class: "action-new" do
+            i.fas.fa-user-plus
+              span.tooltiptext = t("admin.new_user")
+        .col-md-8
+          = search_form_for(@q, url: admin_users_path, html: { class: "form-inline ml-3" }, remote: true) do |f|
+            .input-group.input-group-sm
+              = f.search_field :full_name_cont, placeholder: t("search.search_user"), class: "input-search"
+              = f.select :provider_eq, Settings.provider.search.to_h, prompt: t('search.provider')
+              .input-group-append
+                button.btn.btn-outline-success[type="submit"]
+                  i.fas.fa-search
       #show-users
-        = render  "admin/users/users_all" 
+        = render  "admin/users/users_all"

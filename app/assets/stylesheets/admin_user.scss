@@ -1,0 +1,127 @@
+// user index
+table.all-users {
+  thead tr, tbody tr {
+    text-align: center;
+  }
+}
+.action-user {
+  padding-bottom: 10px;
+  .action-new {
+    position: relative;
+    display: inline-block;
+    i {
+      font-size: 30px;
+    }
+  }
+  .action-new .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #fff;
+    color: #5fcf80;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 0;
+    
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    bottom: 120%;
+    left: 120%;
+    margin-left: -60px;
+
+    font-size: 16px;
+  }
+  
+  .action-new:hover .tooltiptext {
+    visibility: visible;
+  }
+}
+
+// show user
+.show-user {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: auto;
+  padding: 30px;
+  .img {
+    text-align:center;
+  }
+  .details {
+    border-left:3px solid #32a428;
+    blockquote {
+      border-left: 0.7rem solid #32a428;
+      h5 {
+        color: #32a428;
+      }
+    }
+    p {
+      padding-left: 15px;
+      font-size:15px;
+      font-weight:bold;
+    }
+    h5 {
+      margin-bottom: 0px !important;
+      padding: 10px 0px;
+    }
+  }
+  .btn {
+    margin-left: 15px;
+  }
+}
+
+// modal image
+.modal,.modal-open {
+  padding-right: 0!important
+}
+.modal-open {
+  overflow: auto
+}
+.scrollable {
+  overflow-y: auto
+}
+.image-full {
+  width: 100%;
+}
+
+// edit user
+.edit-user {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  h4 {
+    font-size: 25px;
+    font-weight: 600;
+    padding: 20px 0px;
+    color: #32a428;
+  }
+  .show-edit-user {
+    border-right: 3px solid #32a428;
+    margin-right: -20px;
+  }
+}
+
+
+// new-user
+.new-user {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 30px;
+}
+
+// form search
+.input-search {
+  border: 1px solid #32a428;
+  border-radius: 3px;
+  outline: none;
+}
+.input-group {
+  select {
+    border: 1px solid #32a428;
+    border-radius: 3px;
+    outline: none;
+    background-color: #fff;
+    color: #7f8695;
+    margin-left: 5px;
+    padding-right: 5px;
+  }
+  input,select {
+    padding-left: 10px;
+  }
+}
