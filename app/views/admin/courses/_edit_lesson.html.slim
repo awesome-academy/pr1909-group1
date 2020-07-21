@@ -1,29 +1,28 @@
 #sortable
-  = f.fields_for :lessons do |lesson|
-
+  = f.fields_for :lessons, @lessons do |lesson|
     .lesson-box.lesson-field
       .new-lesson
         .card
-          .card-header.row.field
-            .col-sm-3
+          .card-header.row.field.header-lesson
+            .col-sm-4
+              .btn.edit-collapse.btn-collapse.fa.fa-angle-double-down
               .form-check.form-check-inline
-                = lesson.hidden_field :lesson_sequence, value: 1, class: "lesson_seq"
+                = lesson.hidden_field :lesson_sequence, class: "lesson_seq"
                 .form-check-label
                   = lesson.label :lesson_type, "Video"
                 .radio-video.form-check-input
-                  = lesson.radio_button :lesson_type, :video, class: "radio-lesson-type"
+                  = lesson.radio_button :lesson_type, :video, class: "radio-lesson-type video"
               .form-check.form-check-inline
                 .form-check-label
                   = lesson.label :lesson_type
                     = t("lesson.quiz")
                 .radio-quiz.form-check-input
-                  = lesson.radio_button :lesson_type, :quiz, class: "radio-lesson-type"
-            .col-sm-8
-              .btn.btn-link.lesson-name-collapse
+                  = lesson.radio_button :lesson_type, :quiz, class: "radio-lesson-type quiz"
+            .col-sm-7
+              .lesson-name-collapse.edit-collapse.prev-lesson
             .col-sm-1
-              label.switch
-                = lesson.check_box :_destroy
-                span.slider
+              = lesson.hidden_field :_destroy, class: "delete-lesson"
+              .btn.col-sm-1.delete-lesson-btn data-toggle="modal" data-target="#confirm-delete" ×
           .card-body
             .form-group
               .lesson-name.row
@@ -42,32 +41,68 @@
             .card-header
               = t("lesson.quiz")
             .card-body
-              = lesson.fields_for :quiz_questions do |quiz|
-                .container.quiz-list
-                  .list
+              .container.quiz-list
+                .list
+                  = lesson.fields_for :quiz_questions, model: lesson.object.quiz_questions do |quiz|
                     .quiz-element.list-question
-                      / .btn.remove-question ×
+                      = quiz.hidden_field :_destroy, class: "delete-question"
+                      .btn.delete-question-btn.col-sm-1 data-toggle="modal" data-target="#confirm-delete" ×
                       .form-group.row
                         = quiz.label :quiz_question, class: "col-sm-2 col-form-label"
                           = t("lesson.question")
                         .col-sm-10
                           = quiz.text_field :quiz_question, class: "form-control input-question"
-                      = quiz.fields :quiz_choice, class: "input-answer form-control" do |choice|
+                      = quiz.fields :quiz_choice, class: "input-answer form-control" do |ans|
                         .list-answer
-                          .input-choice
-                            .form-group.row.option-answer.container
-                              = choice.label :label, "A", class: "col-sm-1 label-option"
-                              = choice.hidden_field :label, value: "A", class: "label_choice"
-                              .col-sm-11
-                                .row
-                                  = choice.check_box :is_answer, class: "correct-answer form-check-input"
-                                  = choice.text_field :text, class: "input-answer form-control"
-                                  / .btn.btn-danger.remove-answer ×
-                      / .btn.btn-add-option.btn-secondary +
+                          - quiz.object.quiz_choice.each do |choice|
+                            .input-choice.edit-answer
+                              .form-group.row.option-answer.container
+                                = ans.fields choice.first do |ind|
+                                  = ind.label :label, class: "col-sm-1 label-option"
+                                    = choice.last["label"]
+                                  = ind.hidden_field :label, class: "label_choice", value: choice.last["label"]
+                                  .col-sm-11
+                                    .row
+                                      = ind.check_box :is_answer, class: "correct-answer form-check-input", checked: choice.last["is_answer"] == "1"
+                                      = ind.text_field :text, class: "input-answer form-control", value: choice.last["text"]
+                      .btn.btn-add-option.btn-secondary.edit-btn-add-answer +
             .btn.btn-success.btn-add-question
               = t("lesson.add_question")
 .form-actions.row
-  .btn.btn-add-lesson.btn-primary
+  .btn.btn-new-lesson.btn-primary
     = t("lesson.add_lesson")
-  button.btn.btn-success.btn-submit-course
-    = t("course.create_course")
+  button.btn.btn-success.btn-edit-course Update
+#confirm-delete.modal.fade aria-hidden="true" aria-labelledby="exampleModalLabel" role="dialog" tabindex="-1"
+  .modal-dialog role="document"
+    .modal-content
+      .modal-header
+        h5.modal-title Delete Lesson
+        button.close aria-label="Close" data-dismiss="modal" type="button"
+          span aria-hidden="true"  &times;
+      .modal-body
+        | Delete this lesson
+      .modal-footer
+        button.btn.btn-secondary data-dismiss="modal" type="button"  Close
+        button.btn.btn-danger.btn-ok type="button"  Delete
+ruby:
+  unless @registers.blank?
+javascript:
+  $(document).ready(function () {
+    $( "#sortable" ).find(".lesson-box").each(function () {
+      $(this).addClass("static");
+    })
+    $("#sortable").sortable("disable");
+  })
+ruby:
+  end
+javascript:
+  var input_item;
+  $( "#sortable" ).sortable({
+    helper: function (e, item) {
+      input_item = item.next("input");
+      return item;
+    },
+    stop: function (e, ui) {
+      $(ui.item).after(input_item);
+    }
+  });

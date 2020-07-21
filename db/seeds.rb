@@ -130,9 +130,9 @@ number_quiz.times do |n|
     QuizQuestion.create!(
     lesson_id: quiz[n],
     quiz_question: "question #{m}",
-    quiz_choice: { "0"=>{ label: "A", text: "answer A", is_answer: rand(0..1) },
-                   "1"=>{ label: "B", text: "answer B", is_answer: rand(0..1) },
-                   "2"=>{ label: "C", text: "answer C", is_answer: rand(0..1) },
-                   "3"=>{ label: "D", text: "answer D", is_answer: rand(0..1) }})
+    quiz_choice: { "0"=>{ label: "A", text: "answer A", is_answer: rand(0..1).to_s },
+                   "1"=>{ label: "B", text: "answer B", is_answer: rand(0..1).to_s },
+                   "2"=>{ label: "C", text: "answer C", is_answer: rand(0..1).to_s },
+                   "3"=>{ label: "D", text: "answer D", is_answer: rand(0..1).to_s }})
   end
 end

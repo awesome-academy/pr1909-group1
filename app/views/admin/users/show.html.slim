@@ -2,7 +2,7 @@
 .content-wrapper
   .content
     .container-fluid
-      = render  "layouts/messages" 
+      = render  "layouts/messages"
       .container
         .show-user
           .row
@@ -13,16 +13,16 @@
                 h5
                   = @user.full_name
               p
-                = t('user.email') 
-                |: 
+                = t('user.email')
+                |:
                 = @user.email
                 br
                 = t('admin.provider')
-                |: 
+                |:
                 = @user.provider.capitalize
                 br
                 = t('admin.created_at')
-                |:  
+                |:
                 = @user.created_at.strftime("%d-%m-%Y")
               = link_to t('user.edit'), edit_admin_user_path(@user), class: "btn btn-outline-success"
     #modalIMG.modal.fade[aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1"]

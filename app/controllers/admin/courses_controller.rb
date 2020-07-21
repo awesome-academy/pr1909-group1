@@ -23,6 +23,8 @@ class Admin::CoursesController < Admin::BaseController
 
   # GET /courses/1/edit
   def edit
+    @registers = @course.registers
+    @lessons = @course.lessons.sort_by(&:lesson_sequence)
   end
 
   # POST /courses
@@ -44,6 +46,7 @@ class Admin::CoursesController < Admin::BaseController
   # PATCH/PUT /courses/1
   # PATCH/PUT /courses/1.json
   def update
+    byebug
     respond_to do |format|
       if @course.update(course_params)
         format.html { redirect_to admin_courses_path, notice: t("noti.updated") }

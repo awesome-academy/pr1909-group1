@@ -23,5 +23,4 @@
                   = f.input :course_description, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' }}  , label: t('course.course_description')
               = f.input :course_image, label: t('course.course_image')
               = f.input :overview_video_url, label: t('course.course_video')
-            .form-actions
-              = f.button :submit, class: "btn btn-success"
+            = render "edit_lesson", f:f
