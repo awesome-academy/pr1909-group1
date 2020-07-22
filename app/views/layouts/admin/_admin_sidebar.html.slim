@@ -9,7 +9,7 @@ aside.main-sidebar.sidebar-dark-primary.elevation-4.position-fixed
           = image_tag(current_user.avatar.url(:thumb), class: "admin-avatar") 
         .info
           a.d-block
-            = current_user.full_name.capitalize
+            = link_to  current_user.full_name.capitalize, admin_user_path(current_user)
       nav.mt-2
         ul.nav.nav-pills.nav-sidebar.flex-column data-accordion="false" data-widget="treeview" role="menu" 
           li.nav-item.has-treeview.menu-open

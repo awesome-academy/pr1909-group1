@@ -72,7 +72,7 @@ end
     course_description: Faker::Lorem.sentence(word_count: 40),
     course_type_id: rand(1..4),
     course_image: Faker::Avatar.image,
-    overview_video_url: Faker::File.extension
+    overview_video_url: video_urls.sample
   )
   course_ids<<course.id
 end

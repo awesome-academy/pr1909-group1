@@ -3,7 +3,7 @@ $(".lessons-list").find(".card-body").removeClass("active");
 $(lesson).find(".card-body").addClass("active");
 <% if @lesson.video? %>
   $(".lesson-content").html("<%= j render 'lessons/video'%>");
-  $("iframe").attr("src", "<%= @lesson.video_url %>");
+  $("#iframe-lesson iframe").attr("src", "<%= @lesson.video_url %>");
 <% elsif @lesson.quiz? %>
   $(".lesson-content").html("<%= j render 'lessons/quiz'%>");
 <% end %>

@@ -3,5 +3,5 @@
     = render review_course
 .container
   .row
-    .paginate
-      = will_paginate @review_courses
+    .paginate-comment
+      = will_paginate @review_courses, param_name: 'comment_page'

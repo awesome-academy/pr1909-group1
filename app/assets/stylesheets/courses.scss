@@ -97,7 +97,16 @@
     box-shadow:0 10px 20px rgba(188,188,188,.8);
     padding: 20px;
     .course-overview {
-      min-height: 297px;
+      min-height: 48px;
+    }
+    .course-video-overview {
+      text-align: center;
+      min-height: 250px;
+      iframe {
+        width: 400px !important;
+        height: 220px !important;
+        margin: 10px !important;
+      }
     }
   }
 
@@ -186,4 +195,27 @@ section {
 // like course
 .fa-2x {
   font-size: 30px !important;
+}
+
+// paginate 
+.paginate-comment, .paginate-register {
+  margin: 20px auto;
+  li > a {
+    color: #5fcf80;
+  }
+}
+
+// tab-info 
+#nav-tabContent {
+  #nav-info {
+    padding-left: 20px;
+  }
+}
+
+// tab-lesson
+#nav-lesson {
+  .inform {
+    text-align: center;
+    margin: 0px auto;
+  }
 }

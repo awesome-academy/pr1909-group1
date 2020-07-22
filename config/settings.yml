@@ -4,6 +4,8 @@ length:
     maximum: 50
   course_title:
     maximum: 100
+  course_overview:
+    maximum: 150
   quiz_name:
     maximum: 100
   lesson_name:
@@ -14,6 +16,8 @@ mark:
   min: 5
 comment:
   per_page: 10
+register:
+  per_page: 24
 default:
   lesson_type: 1
   lesson_sequence: 1

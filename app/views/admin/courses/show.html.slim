@@ -26,5 +26,5 @@
       p
         strong
           = t('course.course_video') + ": "
-        = @course.overview_video_url
+        = @course.overview_video_url.html_safe
       = link_to t('user.edit'), edit_admin_course_path(@course)

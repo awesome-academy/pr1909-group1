@@ -6,9 +6,11 @@
           thead
             tr
               th
-                = t('user.full_name')
+                = sort_link @q, :id, "ID", {}, {remote: true}
               th
-                = t('user.email')
+                = sort_link @q, :full_name, t('user.full_name'), {}, {remote: true}
+              th
+                = sort_link @q, :email, t('user.email'), {}, {remote: true}
               th
                 = sort_link @q, :provider, t('admin.provider'), {}, {remote: true}
               th
@@ -23,6 +25,8 @@
             tbody
               - @users.each do |user|
                 tr
+                  td
+                    = user.id
                   td
                     = link_to user.full_name, admin_user_path(user)
                   td
