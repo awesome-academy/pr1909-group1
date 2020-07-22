@@ -1,7 +1,7 @@
 class CoursesController < ApplicationController
   before_action :get_course, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
-  before_action :only_for_admin, except: [:show, :index]
+  before_action :authenticate_user!, except: [:index, :show, :search]
+  before_action :only_for_admin, except: [:show, :index, :search]
   before_action :get_course_type, only: [:new, :edit]
   # GET /courses
   # GET /courses.json
@@ -74,6 +74,13 @@ class CoursesController < ApplicationController
       format.html { redirect_to courses_url, notice: 'Course was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def search
+    @courses = Course.search(params[:query], operator: "or",
+      fields: [:course_title, :course_type], match: :word_start, match: :word_middle,
+      highlight: { fields: [:course_title, :course_type], tag: "<mark>" },
+      page: params[:page], per_page: Settings.per_page.search)
   end
 
   private

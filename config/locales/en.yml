@@ -112,6 +112,7 @@ en:
       video: "Video URL"
       description: "Description"
       create_course: "Create course"
+      search_placeholder: "Search course here"
 
   # button
     btn:
