@@ -138,7 +138,6 @@ en:
       edit: "Edit"
       provider: "Provider"
       created_at: "Date created"
-      
 
     lesson:
       quiz: "Quiz"
@@ -190,3 +189,9 @@ en:
       need_login: "You need to log in to continue. "
       leave_blank: "Leave blank if you don't want to change password"
       current_password: "We need your current password to confirm password change"
+
+  # Login message
+    message:
+      log_in: "login"
+      log_in_message_html: "Please %{href} to view content."
+      register_message: "Please register this course to see lesson details"

@@ -5,9 +5,7 @@ class RegistersController < ApplicationController
     @register = Register.create(course_id: params[:course_id], user_id: current_user.id)
     @course = Course.find params[:course_id]
     @registers = @course.registers.order('created_at DESC')
-    respond_to do |format|
-      format.js
-    end
+    redirect_to @course
   end
 
   def login_before_register

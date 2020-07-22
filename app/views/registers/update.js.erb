@@ -5,7 +5,7 @@ lesson = $(".lessons-list .card-lesson-show").get(<%= @lesson.lesson_sequence %>
   $(lesson).find(".card-body").addClass("active");
 <% if @lesson.video?%>
   $(".lesson-content").html("<%= j render 'lessons/video'%>");
-  $("iframe").attr("src", "<%= @lesson.video_url %>");
+  $("#iframe-lesson iframe").attr("src", "<%= @lesson.video_url %>");
 <% elsif @lesson.quiz? %>
   $(".lesson-content").html("<%= j render 'lessons/quiz'%>");
 <% end %>

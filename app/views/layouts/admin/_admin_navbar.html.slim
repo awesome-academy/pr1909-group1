@@ -15,5 +15,5 @@ nav.main-header.navbar.navbar-expand.navbar-white.navbar-light
         = image_tag(current_user.avatar.url(:thumb), class: "admin-avatar")
         = current_user.full_name.capitalize
       .dropdown-menu[aria-labelledby="navbarDropdownXL"]
-        = link_to t("layouts.header.account_setting"), edit_user_registration_path, class: "dropdown-item" 
+        = link_to t("layouts.header.account_setting"), edit_admin_user_path(current_user), class: "dropdown-item" 
         = link_to t("layouts.header.log_out"), admin_logout_path, method: :delete, class: "dropdown-item"

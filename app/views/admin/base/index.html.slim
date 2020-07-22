@@ -42,42 +42,43 @@
                         a.nav-link[href="#range" data-toggle="tab"]
                           = t("charts.range")
                 .card-body
-                  .tab-content.p-0
-                    #all.chart.tab-pane.active
-                      = pie_chart admin_charts_all_users_provider_path,
-                        donut: true, title: t("charts.all_users"), height: "400px"
-                    #week.chart.tab-pane
-                      = area_chart admin_charts_users_registered_by_path(period: "day", start_time: Time.zone.now.beginning_of_week, end_time: Time.zone.now.end_of_week, format: "%a"),
-                        xtitle: t("charts.time"), ytitle: t("charts.number_of_user"),
-                        title: t("charts.day_week"), height: "400px"
-                        / refresh: 60
-                    #month.chart.tab-pane
-                      = area_chart admin_charts_users_registered_by_path(period: "day_of_month", start_time: Time.zone.now.beginning_of_month, end_time: Time.zone.now.end_of_month, format: "%d"),
-                        xtitle: t("charts.time"), ytitle: t("charts.number_of_user"),
-                        title: t("charts.day_month"), height: "400px"
-                    #year.chart.tab-pane
-                      = area_chart admin_charts_users_registered_by_path(period: "month_of_year",start_time: Time.zone.now.beginning_of_year, end_time: Time.zone.now.end_of_year, format: "%B"),
-                        xtitle: t("charts.time"), ytitle: t("charts.number_of_user"),
-                        title: t("charts.month_year"), height: "400px"
-                    #range.chart.tab-pane
-                      #show-form
-                        = form_with(url: admin_range_path, method: :get) do |form|
-                          .form-group
-                          label = t("charts.date_range")
-                          .input-group
-                            span.input-group-text
-                              i.far.fa-calendar-alt
-                            .col-4
-                              = form.text_field :first_day, class: "form-control"
-                            .col-1
-                              .to-date = t("charts.to")
-                            .col-4
-                              = form.text_field :last_day, class: "form-control"
-                            .col-2
-                              = submit_tag t("charts.check"), class: "btn btn-success"
-                        #show-chart-range
-                          h6 
-                            = t("charts.noti_range")
+                  .tab-charts
+                    .tab-content.p-0
+                      #all.chart.tab-pane.active
+                        = pie_chart admin_charts_all_users_provider_path,
+                          donut: true, title: t("charts.all_users"), height: "400px"
+                      #week.chart.tab-pane
+                        = area_chart admin_charts_users_registered_by_path(period: "day", start_time: Time.zone.now.beginning_of_week, end_time: Time.zone.now.end_of_week, format: "%a"),
+                          xtitle: t("charts.time"), ytitle: t("charts.number_of_user"),
+                          title: t("charts.day_week"), height: "400px"
+                          / refresh: 60
+                      #month.chart.tab-pane
+                        = area_chart admin_charts_users_registered_by_path(period: "day_of_month", start_time: Time.zone.now.beginning_of_month, end_time: Time.zone.now.end_of_month, format: "%d"),
+                          xtitle: t("charts.time"), ytitle: t("charts.number_of_user"),
+                          title: t("charts.day_month"), height: "400px"
+                      #year.chart.tab-pane
+                        = area_chart admin_charts_users_registered_by_path(period: "month_of_year",start_time: Time.zone.now.beginning_of_year, end_time: Time.zone.now.end_of_year, format: "%B"),
+                          xtitle: t("charts.time"), ytitle: t("charts.number_of_user"),
+                          title: t("charts.month_year"), height: "400px"
+                      #range.chart.tab-pane
+                        #show-form
+                          = form_with(url: admin_range_path, method: :get) do |form|
+                            .form-group
+                            label = t("charts.date_range")
+                            .input-group
+                              span.input-group-text
+                                i.far.fa-calendar-alt
+                              .col-4
+                                = form.text_field :first_day, class: "form-control"
+                              .col-1
+                                .to-date = t("charts.to")
+                              .col-4
+                                = form.text_field :last_day, class: "form-control"
+                              .col-2
+                                = submit_tag t("charts.check"), class: "btn btn-success"
+                          #show-chart-range
+                            h6 
+                              = t("charts.noti_range")
         .col-lg-5
           .card
             .card-header

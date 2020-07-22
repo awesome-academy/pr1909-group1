@@ -1,10 +1,12 @@
 <h5 class="lesson-name"> <%= @lesson.lesson_name %></h5>
-<iframe src="https://player.vimeo.com/video/76979871" width="640" height="360" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+<div id="iframe-lesson">
+  <iframe src="https://player.vimeo.com/video/76979871" width="640" height="360" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+</div>
 <script src="https://player.vimeo.com/api/player.js"></script>
 <script>
     var step = <%= @register.lesson_step%>;
-    $("iframe").on("load", function () {
-      var iframe = $('iframe');
+    $("#iframe-lesson iframe").on("load", function () {
+      var iframe = $('#iframe-lesson iframe');
       var player = new Vimeo.Player(iframe);
       player.on('ended', function() {
         <% if @lesson.video? && (@register.lesson_step == @lesson.lesson_sequence) %>

@@ -1,2 +1,3 @@
 $('#reviews').html('<%= j render "review_courses/comments"%>');
-$('.pagination a').attr('data-remote', 'true');
+$('#students-registered').html('<%= j render "courses/show_student"%>');
+$('.paginate-comment a, .paginate-register a').attr('data-remote', 'true');

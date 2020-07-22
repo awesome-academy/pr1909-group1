@@ -25,8 +25,7 @@
                     <span id="registers-count"> <%= @course.total_registers_count %> </span>
                   </div>
                   <div class="item-icon">
-
-                  <% unless signed_in? %>
+                  <% unless signed_in? && course_registered_by_user?(@course.id) %>
                     <i class="fa fa-heart fa-2x"></i>
                   <% else %>
                     <i class="fa fa-heart fa-2x course-like like-<%= @course.id %> <%= 'active' if course_liked_by_user?(@course.id)%>" data-id="<%= @course.id %>"></i>
@@ -56,8 +55,11 @@
                 <%= @course.course_title %>
               </h3>
             </div>
-            <div class="course-overview">
+            <div class="course-overview webkit-box-2">
               <%= @course.course_overview %>
+            </div>
+            <div class="course-video-overview">
+              <iframe src=" <%= @course.overview_video_url%> " width="400" height="220" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
             </div>
             <nav>
               <div id="nav-tab" class="nav nav-tabs nav-fill" role="tablist">
@@ -89,12 +91,17 @@
             </div>
             <div id="nav-lesson" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-profile-tab">
               <div class="row col-sm-12">
-                <div class="col-sm-4 lessons-list">
-                  <%= render "lessons/lesson_unlock", lessons_unlock: @lessons_unlock%>
-                  <%= render @lessons_locked%>
-                </div>
-                <div class="col-sm-8 offset-sm-4 lesson-content">
-                </div>
+                <% if course_registered_by_user?(@course.id) %>
+                  <div class="col-sm-4 lessons-list">
+                    <%= render "lessons/lesson_unlock", lessons_unlock: @lessons_unlock%>
+                    <%= render @lessons_locked%>
+                  </div>
+                  <div class="col-sm-8 offset-sm-4 lesson-content"></div>
+                <% elsif signed_in? %>
+                  <div class="inform"><%= t("message.register_message")%></div>
+                <% else %>
+                  <div class="inform"><%= t("message.log_in_message_html", href: link_to(t("message.log_in"), new_user_session_path))%></div>
+                <% end %>
               </div>
             </div>
             <div id="nav-comment" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-contact-tab">
@@ -112,9 +119,7 @@
                     <%= render "review_courses/comments" %>
                   </div>
                 <% else %>
-                  <div class="inform">
-                    <div class="inform">Please <%= link_to "Login", new_user_session_path %> to continue.  </div>
-                  </div>
+                  <div class="inform"><%= t("message.log_in_message_html", href: link_to(t("message.log_in"), new_user_session_path))%></div>
                 <% end %>
               </div>
             </div>
@@ -123,7 +128,7 @@
                 <% if signed_in? %>
                   <%= render "show_student" %>
                 <% else %>
-                  <div class="inform">Please <%= link_to "Login", new_user_session_path %> to continue. </div>
+                  <div class="inform"><%= t("message.log_in_message_html", href: link_to(t("message.log_in"), new_user_session_path))%></div>
                 <% end %>
               </div>
             </div>
