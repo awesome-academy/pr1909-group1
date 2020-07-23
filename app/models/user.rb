@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   mount_uploader :avatar, AvatarUploader
   attr_readonly :email
-  has_many :courses, dependent: :destroy
+  has_many :courses
   has_many :registers, dependent: :destroy
   has_many :courses, through: :registers
   has_many :review_courses, dependent: :destroy
@@ -17,7 +17,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :confirmable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
-  validates :full_name, presence: true, format: { with: /\A[A-Za-z\s]+\z/ }
+  validates :full_name, presence: true,
+                        length: { maximum: Settings.user.max_length_full_name },
+                        format: { with: Settings.user.fullname_regex }
+  validates :email, presence: true,
+                    format: { with: Settings.user.email_regex },
+                    uniqueness: { case_sensitive: false }
   validates :is_admin, inclusion: { in: [true, false] }
 
   def self.from_omniauth(auth)
