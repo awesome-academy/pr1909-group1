@@ -8,7 +8,7 @@ $(window).on("turbolinks:load", function(){
   if ($("#sortable .lesson-box").length == 1) {
     $(".remove-lesson").hide();
   }
-  lesson_box = $("#sortable").first().html();
+  lesson_box = $("#sortable .lesson-box").first().html();
   question_box = $(".quiz-form").find(".list .quiz-element").first().html();
   answer = $(question_box).find(".input-choice").last().html();
   add_remove_answer_btn($(".list-answer"));

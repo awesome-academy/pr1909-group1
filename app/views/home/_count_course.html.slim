@@ -4,7 +4,7 @@ section#counts.counts.section-bg
       .col-lg-3.col-3.text-center
         i.fas.fa-users
         span.num
-          | 1232
+          = @number_students
           /TODO user.apply_course.count
         p
           = t('count.students')
@@ -17,14 +17,14 @@ section#counts.counts.section-bg
       .col-lg-3.col-3.text-center
         i.fas.fa-photo-video
         span.num
-          | 80
+          = @number_video
           /TODO Lesson[lesson_type = video ].count
         p
           | Videos
       .col-lg-3.col-3.text-center
         i.fas.fa-file-invoice
         span.num
-          | 42
+          = @number_quiz
         p
           = t('count.tests')
           /TODO Lesson[lesson_type = test].count

@@ -77,10 +77,9 @@ class CoursesController < ApplicationController
   end
 
   def search
-    @courses = Course.search(params[:query], operator: "or",
-      fields: [:course_title, :course_type], match: :word_start, match: :word_middle,
-      highlight: { fields: [:course_title, :course_type], tag: "<mark>" },
-      page: params[:page], per_page: Settings.search.per_page)
+    @courses = Course.search(params[:query], operator: "or", fields: [:course_title, :course_type],
+                                             match: :word_start, highlight: { tag: "<mark>" },
+                                             page: params[:page], per_page: Settings.search.per_page)
   end
 
   private

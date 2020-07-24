@@ -117,6 +117,7 @@ number_course.times do |n|
       course_id: course_ids[n],
       lesson_name: Faker::Educator.course_name,
       lesson_type: rand(1..2),
+      min_point: rand(12..20),
       lesson_sequence: m +1,
       video_url: video_urls.sample
       )
@@ -130,9 +131,9 @@ number_quiz.times do |n|
     QuizQuestion.create!(
     lesson_id: quiz[n],
     quiz_question: "question #{m}",
-    quiz_choice: { "0"=>{ label: "A", text: "answer A", is_answer: rand(0..1).to_s },
-                   "1"=>{ label: "B", text: "answer B", is_answer: rand(0..1).to_s },
-                   "2"=>{ label: "C", text: "answer C", is_answer: rand(0..1).to_s },
-                   "3"=>{ label: "D", text: "answer D", is_answer: rand(0..1).to_s }})
+    quiz_choice: { "0"=>{ label: "A", text: "answer A", is_answer: "1" },
+                   "1"=>{ label: "B", text: "answer B", is_answer: "0" },
+                   "2"=>{ label: "C", text: "answer C", is_answer: "0" },
+                   "3"=>{ label: "D", text: "answer D", is_answer: "0" }})
   end
 end

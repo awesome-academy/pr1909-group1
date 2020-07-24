@@ -31,12 +31,17 @@
                     = t("lesson.lesson_name")
                 .col-sm-10
                   = lesson.text_field :lesson_name, class: "form-control input-lesson-name"
-            .form-group
-              .lesson-name.row
-                .form-input-label.col-sm-2
+            .form-group.row
+              .video-url.row.col-sm-8
+                .form-input-label.col-sm-3.label-video-url
                   = lesson.label :video_url
-                .col-sm-10
+                .col-sm-9
                   = lesson.text_field :video_url, class: "form-control input-video-url"
+              .col-sm-4.row.form-min_point
+                .col-sm-5.label-point
+                  = lesson.label :min_point
+                .col-sm-7.min-point
+                  = lesson.number_field :min_point, min: 0, class: "form-control input-min-point"
           .card.quiz-form
             .card-header
               = t("lesson.quiz")

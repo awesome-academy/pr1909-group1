@@ -4,6 +4,7 @@
     .container
       .row
         .col-lg-10.offset-lg-1
+          = render "shared/error_messages", object: @course
           = simple_form_for [:admin, @course] do |f|
             = f.error_notification
             = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?

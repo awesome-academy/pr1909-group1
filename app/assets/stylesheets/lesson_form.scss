@@ -100,8 +100,9 @@
 }
 
 .lessons-list{
-  height: 80vh;
+  height: 480px;
   overflow: scroll;
+  margin-top: 30px;
 }
 
 .radio-lesson-type{
@@ -194,4 +195,33 @@ input:checked + .slider:before {
 
 .btn-new-lesson{
   margin-left: 5px;
+}
+
+.label-point, .label-video-url, .label-lesson-name, .label-max-point{
+  margin-top: 7px;
+}
+
+.label-point{
+  text-align: right;
+}
+
+.label-video-url{
+  padding-left: 15px;
+}
+
+.label-max-point{
+  text-align: left;
+}
+
+.input-min-point{
+  text-align: center;
+}
+
+.form-min_point{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.min-point{
+  padding-right: 0px;
 }

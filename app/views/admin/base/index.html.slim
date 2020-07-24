@@ -65,7 +65,7 @@
                           = form_with(url: admin_range_path, method: :get) do |form|
                             .form-group
                             label = t("charts.date_range")
-                            .input-group
+                            .input-group.form-select-date
                               span.input-group-text
                                 i.far.fa-calendar-alt
                               .col-4
@@ -77,7 +77,7 @@
                               .col-2
                                 = submit_tag t("charts.check"), class: "btn btn-success"
                           #show-chart-range
-                            h6 
+                            h6
                               = t("charts.noti_range")
         .col-lg-5
           .card

@@ -1,6 +1,6 @@
 <h5 class="lesson-name"> <%= @lesson.lesson_name %></h5>
 <div id="iframe-lesson">
-  <iframe src="https://player.vimeo.com/video/76979871" width="640" height="360" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+  <iframe class="lesson-video" src="<%= @lesson.video_url %>" width="720" height="480" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
 </div>
 <script src="https://player.vimeo.com/api/player.js"></script>
 <script>

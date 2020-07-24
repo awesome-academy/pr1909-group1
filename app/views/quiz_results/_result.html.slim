@@ -5,6 +5,7 @@
   .card-body
     h2.mark
       = t("lesson.your_mark")
+      | :
       = @result.mark
       |/
       = @max_point
@@ -16,7 +17,7 @@
         - quiz.quiz_choice.each_with_index do |answer, idx|
           .answer.row
             .correct-icon.col-sm-1
-              - if answer.last["is_answer"] == 1
+              - if answer.last["is_answer"] == "1"
                 .correct-answer-icon.fa.fa-check
             .col-sm-11.offset-sm-1.row.answer
               .label-ans

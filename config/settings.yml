@@ -15,6 +15,7 @@ lesson_step:
   default: 1
 mark:
   min: 5
+  max: 10
 comment:
   per_page: 10
 register:
