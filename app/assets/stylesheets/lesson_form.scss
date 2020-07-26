@@ -46,7 +46,6 @@
 
 .remove-lesson{
   text-align: right;
-  margin-top: 5px;
 }
 
 .correct-answer{
@@ -203,6 +202,8 @@ input:checked + .slider:before {
 
 .label-point{
   text-align: right;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .label-video-url{
@@ -224,4 +225,8 @@ input:checked + .slider:before {
 
 .min-point{
   padding-right: 0px;
+}
+
+.view-lesson-name{
+  margin-top: 8px;
 }

@@ -150,7 +150,10 @@ en:
       test_failed: "Test Failed"
       your_mark: "Your mark"
       close: "Close"
-    
+      min_point: "Min Point"
+      confirm: "Confirm Delete"
+      are_you_sure: "Are you sure?"
+
     search:
       search_user: "Search by name"
       provider: "Select provider"

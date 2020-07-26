@@ -18,7 +18,7 @@
                     = t("lesson.quiz")
                 .radio-quiz.form-check-input
                   = lesson.radio_button :lesson_type, :quiz, class: "radio-lesson-type quiz"
-            .col-sm-7
+            .col-sm-7.view-lesson-name
               .lesson-name-collapse
             .col-sm-1
               .btn.remove-lesson.col-sm-1 ×
@@ -38,7 +38,7 @@
                   = lesson.text_field :video_url, class: "form-control input-video-url"
               .col-sm-4.row.form-min_point
                 .col-sm-5.label-point
-                  = lesson.label :min_point
+                  = lesson.label t("lesson.min_point")
                 .col-sm-7.min-point
                   = lesson.number_field :min_point, min: 0, class: "form-control input-min-point"
           .card.quiz-form

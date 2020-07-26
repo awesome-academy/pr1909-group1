@@ -165,7 +165,7 @@ function change_name_lesson(lesson, number_lesson, number_question, number_answe
       $(this).attr("name", $(this).attr("name").replace($(this).attr("name").substring(0,$(this).attr("name").indexOf(']', 26)),
       "course[lessons_attributes][" + number_lesson));
     }
-    if ($(this).attr("type") == "text") {
+    if (($(this).attr("type") == "text")||($(this).attr("type") == "number")) {
       $(this).val("");
     } else if ($(this).attr("type") == "checkbox") {
       $(this).removeAttr("checked");

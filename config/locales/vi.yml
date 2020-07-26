@@ -162,6 +162,9 @@ vi:
       test_failed: "Bạn không qua bài kiểm tra"
       your_mark: "Điểm của bạn"
       close: "Đóng"
+      min_point: "Điểm tối thiểu"
+      confirm: "Xác nhận xóa"
+      are_you_sure: "Bạn có chắc muốn xóa?"
 
     charts:
       all: "Tất cả"

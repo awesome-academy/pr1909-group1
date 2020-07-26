@@ -11,4 +11,11 @@ class Lesson < ApplicationRecord
   enum lesson_type: Settings.lesson_type.to_h
   accepts_nested_attributes_for :quiz_questions,
                                 reject_if: proc { |attribute| attribute["quiz_question"].blank? }, allow_destroy: true
+  validate :max_point
+
+  def max_point
+    if min_point && min_point > quiz_questions.length
+      errors.add(:min_point, "can't greater than number of questions")
+    end
+  end
 end
