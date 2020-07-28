@@ -5,7 +5,7 @@ class Register < ApplicationRecord
   validates :course_id, :user_id, presence: true, numericality: { only_integer: true }
   validates :user_id, uniqueness: { scope: :course_id }
 
-  after_save :increase_counter_register
+  after_create :increase_counter_register
 
   private
 

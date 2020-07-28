@@ -141,7 +141,6 @@
 <script type="text/javascript">
   $(window).on("turbolinks:load", function () {
   <% if @register %>
-  <%byebug%>
     lesson = $(".lesson-unlock").last();
     $("#nav-tab #nav-profile-tab").tab("show");
     lesson.find(".card-body").addClass("active");

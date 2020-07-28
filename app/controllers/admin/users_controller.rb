@@ -4,7 +4,7 @@ class Admin::UsersController < Admin::BaseController
   def index
     @q = User.ransack params[:q]
     @users = @q.result(distinct: true).order(created_at: :desc).not_admin.
-      paginate(page: params[:page], per_page: Settings.per_page)
+      paginate(page: params[:page], per_page: Settings.users.per_page)
     respond_to do |format|
       format.html
       format.js
