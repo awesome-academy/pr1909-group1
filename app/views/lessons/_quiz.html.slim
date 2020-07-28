@@ -1,4 +1,4 @@
-- if @result
+- if @result || current_user.is_admin?
   = render "quiz_results/result"
 - else
   = render "lessons/quiz_form"

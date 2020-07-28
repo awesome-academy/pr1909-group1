@@ -117,7 +117,7 @@ en:
   # button
     btn:
       edit: "Edit"
-      destroy: "Destroy"
+      destroy: "Delete"
 
     review_course:
       comment: "Comment"

@@ -1,3 +1,4 @@
+<script src="https://player.vimeo.com/api/player.js"></script>
 <div class="container-fuild">
   <div class="container">
     <div class="show-course">
@@ -37,9 +38,9 @@
                   <div id="register-course">
                     <% if course_registered_by_user?(@course.id) %>
                       <%= render "registered" %>
-                    <% elsif signed_in?  %>
+                    <% elsif signed_in? && !current_user.is_admin?  %>
                       <%= render "register_course" %>
-                    <% else %>
+                    <% elsif !current_user %>
                       <%= render "register_not_login" %>
                     <% end %>
                   </div>
@@ -93,8 +94,21 @@
               <div class="row col-sm-12">
                 <% if course_registered_by_user?(@course.id) %>
                   <div class="col-sm-4 lessons-list">
-                    <%= render "lessons/lesson_unlock", lessons_unlock: @lessons_unlock%>
+                    <%= render "lessons/lesson_unlock", lessons_unlock: @lessons_unlock %>
                     <%= render @lessons_locked%>
+                  </div>
+                  <div class="col-sm-8 offset-sm-4 lesson-content"></div>
+                <% elsif current_user && current_user.is_admin? %>
+                  <div class="col-sm-4 lessons-list">
+                    <% @lessons.each do |lesson| %>
+                      <div class="card card-lesson-show lesson-unlock">
+                        <div class="card-body">
+                          <div class="lesson-name-show row">
+                            <%= link_to lesson.lesson_name, lesson, remote: true, class: "btn btn-link lesson-item"%>
+                          </div>
+                        </div>
+                      </div>
+                    <% end %>
                   </div>
                   <div class="col-sm-8 offset-sm-4 lesson-content"></div>
                 <% elsif signed_in? %>
@@ -106,7 +120,7 @@
             </div>
             <div id="nav-comment" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-contact-tab">
               <div id="student-review">
-                <% if course_registered_by_user?(@course.id) %>
+                <% if course_registered_by_user?(@course.id) || (current_user && current_user.is_admin?) %>
                   <div id="review-form">
                     <%= render "review_courses/review_form" %>
                   </div>
@@ -140,7 +154,7 @@
 </div>
 <script type="text/javascript">
   $(window).on("turbolinks:load", function () {
-  <% if @register %>
+  <% if @register || (current_user && current_user.is_admin?) %>
     lesson = $(".lesson-unlock").last();
     $("#nav-tab #nav-profile-tab").tab("show");
     lesson.find(".card-body").addClass("active");
