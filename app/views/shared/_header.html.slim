@@ -6,11 +6,7 @@ header#header.fixed-top
         .cover
           = form_tag "/search", method: "get", class: "forms-group" do
             = text_field_tag :query, params[:query], class: "input-search-course", placeholder: t("course.search_placeholder")
-<<<<<<< HEAD
             = button_tag class: "btn-search-course" do
-=======
-            = button_tag class: "btn-search" do
->>>>>>> add mark to lesson and fix bug
               i.fa.fa-search
       button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarSupportedContentXL" aria-controls="navbarSupportedContentXL" aria-expanded="false" aria-label="Toggle navigation"]
         span.navbar-toggler-icon
