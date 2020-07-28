@@ -1,9 +1,14 @@
-iframe{
-  margin-left: 5%;
-  margin-top: 5%;
-  height: 60vh;
+#iframe-lesson{
+  margin-top: auto;
+  vertical-align: middle;
+  width: auto;
+  height: auto;
 }
 
 .lesson-name{
   text-align: center;
+}
+
+.lesson-video{
+  width: 100%;
 }

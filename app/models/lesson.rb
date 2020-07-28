@@ -5,7 +5,17 @@ class Lesson < ApplicationRecord
 
   validates :lesson_type, :lesson_sequence, :lesson_name, presence: true
   validates :lesson_name, length: { maximum: Settings.length.lesson_name.maximum }
-  validates :course_id, uniqueness: { scope: :lesson_sequence }
+  validates :min_point, numericality: { only_integer: true, greater_than_or_equal_to: Settings.mark.min },
+                        presence: true, if: Proc.new { |lesson| lesson.quiz? }
+  validates :video_url, presence: true, if: Proc.new { |lesson| lesson.video? }
   enum lesson_type: Settings.lesson_type.to_h
-  accepts_nested_attributes_for :quiz_questions, reject_if: proc { |attribute| attribute["quiz_question"].blank? }
+  accepts_nested_attributes_for :quiz_questions,
+                                reject_if: proc { |attribute| attribute["quiz_question"].blank? }, allow_destroy: true
+  validate :max_point
+
+  def max_point
+    if min_point && min_point > quiz_questions.length
+      errors.add(:min_point, "can't greater than number of questions")
+    end
+  end
 end

@@ -1,5 +1,5 @@
 var old_element = $(".lessons-list .card-lesson-show").get(parseInt("<%= @register.lesson_step%>") -1);
-$(old_element).replaceWith("<%= j render 'lessons/show_lesson'%>");
+$(old_element).replaceWith("<%= j render 'lessons/show_lesson', current_test: @lesson %>");
 lesson = $(".lessons-list .card-lesson-show").get(<%= @lesson.lesson_sequence %> - 1);
   $(".lessons-list").find(".card-body").removeClass("active");
   $(lesson).find(".card-body").addClass("active");

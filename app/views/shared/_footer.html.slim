@@ -6,7 +6,7 @@ footer#footer
           h3
             | Athena
           p
-            = t('layouts.footer.addr')  
+            = t('layouts.footer.addr')
             br
             strong
               = t('layouts.footer.phone')
@@ -26,15 +26,6 @@ footer#footer
             li
               i.fas.fa-angle-right
               = link_to t('layouts.footer.about'), about_path
-            li
-              i.fas.fa-angle-right
-              = link_to t('layouts.footer.service')
-            li
-              i.fas.fa-angle-right
-              = link_to t('layouts.footer.term')
-            li
-              i.fas.fa-angle-right
-              = link_to t('layouts.footer.policy')
         .col-lg-3.col-md-6.footer-links
           h4
             = t('layouts.footer.our_course')
@@ -51,17 +42,11 @@ footer#footer
             li
               i.fas.fa-angle-right
               = link_to "Marketing"
-            li
-              i.fas.fa-angle-right
-              = link_to "Graphic Design"
         .col-lg-4.col-md-6.footer-newsletter
           h4
             = t('layouts.footer.about')
           p
             = t('layouts.footer.about_cont')
-          form[action="" method="post"]
-            input[type="email" name="email"]
-            input[type="submit" value="Subscribe"]
   .container.d-md-flex.py-4
     .mr-md-auto.text-center.text-md-left
       .copyright

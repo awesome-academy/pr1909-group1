@@ -79,14 +79,14 @@ end
 
 number_users = user_ids.length
 
-# number_users.times do |n|
-#   10.times do |m|
-#     Like.create!(
-#       user_id: user_ids[n],
-#       course_id: course_ids[m]
-#   )
-#   end
-# end
+number_users.times do |n|
+  10.times do |m|
+    Like.create!(
+      user_id: user_ids[n],
+      course_id: course_ids[m]
+  )
+  end
+end
 
 number_users.times do |n|
   sample = course_ids.sample(16)
@@ -117,22 +117,44 @@ number_course.times do |n|
       course_id: course_ids[n],
       lesson_name: Faker::Educator.course_name,
       lesson_type: rand(1..2),
+      min_point: rand(3..5),
       lesson_sequence: m +1,
-      video_url: video_urls.sample
+      video_url: video_urls.sample,
+      quiz_questions_attributes: [{
+        quiz_question: "question 1",
+        quiz_choice: { "0"=>{ label: "A", text: "answer A", is_answer: "1" },
+                       "1"=>{ label: "B", text: "answer B", is_answer: "0" },
+                       "2"=>{ label: "C", text: "answer C", is_answer: "0" },
+                       "3"=>{ label: "D", text: "answer D", is_answer: "0" }} },
+      {
+        quiz_question: "question 2",
+        quiz_choice: { "0"=>{ label: "A", text: "answer A", is_answer: "1" },
+                       "1"=>{ label: "B", text: "answer B", is_answer: "0" },
+                       "2"=>{ label: "C", text: "answer C", is_answer: "0" },
+                       "3"=>{ label: "D", text: "answer D", is_answer: "0" }}
+                     },
+      {
+        quiz_question: "question 3",
+        quiz_choice: { "0"=>{ label: "A", text: "answer A", is_answer: "1" },
+                       "1"=>{ label: "B", text: "answer B", is_answer: "0" },
+                       "2"=>{ label: "C", text: "answer C", is_answer: "0" },
+                       "3"=>{ label: "D", text: "answer D", is_answer: "0" }}
+                     },
+      {
+        quiz_question: "question 4",
+        quiz_choice: { "0"=>{ label: "A", text: "answer A", is_answer: "1" },
+                       "1"=>{ label: "B", text: "answer B", is_answer: "0" },
+                       "2"=>{ label: "C", text: "answer C", is_answer: "0" },
+                       "3"=>{ label: "D", text: "answer D", is_answer: "0" }}
+                     },
+      {
+        quiz_question: "question 5",
+        quiz_choice: { "0"=>{ label: "A", text: "answer A", is_answer: "1" },
+                       "1"=>{ label: "B", text: "answer B", is_answer: "0" },
+                       "2"=>{ label: "C", text: "answer C", is_answer: "0" },
+                       "3"=>{ label: "D", text: "answer D", is_answer: "0" }}
+                     }]
       )
     quiz<<lesson.id if lesson.quiz?
-  end
-end
-
-number_quiz = quiz.length
-number_quiz.times do |n|
-  20.times do |m|
-    QuizQuestion.create!(
-    lesson_id: quiz[n],
-    quiz_question: "question #{m}",
-    quiz_choice: { "0"=>{ label: "A", text: "answer A", is_answer: rand(0..1) },
-                   "1"=>{ label: "B", text: "answer B", is_answer: rand(0..1) },
-                   "2"=>{ label: "C", text: "answer C", is_answer: rand(0..1) },
-                   "3"=>{ label: "D", text: "answer D", is_answer: rand(0..1) }})
   end
 end

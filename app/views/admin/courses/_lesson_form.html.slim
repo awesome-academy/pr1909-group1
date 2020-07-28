@@ -3,37 +3,44 @@
     .lesson-box.lesson-field
       .new-lesson
         .card
-          .col-sm-12.row
-            .col-sm-11
-              .btn.btn-link.lesson-name-collapse
-            .btn.remove-lesson.col-sm-1 ×
-          .card-header.row.field
-            .form-check.form-check-inline
-              = lesson.hidden_field :lesson_sequence, value: 1, class: "lesson_seq"
-              .form-check-label
-                = lesson.label :lesson_type, "Video"
-              .radio-video.form-check-input
-                = lesson.radio_button :lesson_type, :video, class: "radio-lesson-type"
-            .form-check.form-check-inline
-              .form-check-label
-                = lesson.label :lesson_type
-                  = t("lesson.quiz")
-              .radio-quiz.form-check-input
-                = lesson.radio_button :lesson_type, :quiz, class: "radio-lesson-type"
+          .card-header.row.field.header-lesson
+            .col-sm-4.container
+              .btn.btn-collapse.fa.fa-angle-double-up
+              .form-check.form-check-inline.form-check-lesson-type
+                = lesson.hidden_field :lesson_sequence, value: 1, class: "lesson_seq"
+                .form-check-label
+                  = lesson.label :lesson_type, "Video"
+                .radio-video.form-check-input
+                  = lesson.radio_button :lesson_type, :video, class: "radio-lesson-type video"
+              .form-check.form-check-inline.form-check-lesson-type
+                .form-check-label
+                  = lesson.label :lesson_type
+                    = t("lesson.quiz")
+                .radio-quiz.form-check-input
+                  = lesson.radio_button :lesson_type, :quiz, class: "radio-lesson-type quiz"
+            .col-sm-7.view-lesson-name
+              .lesson-name-collapse
+            .col-sm-1
+              .btn.remove-lesson.col-sm-1 ×
           .card-body
             .form-group
               .lesson-name.row
-                .form-input-label.col-sm-2
+                .form-input-label.col-sm-2.label-lesson-name
                   = lesson.label :lesson_name
                     = t("lesson.lesson_name")
                 .col-sm-10
                   = lesson.text_field :lesson_name, class: "form-control input-lesson-name"
-            .form-group
-              .lesson-name.row
-                .form-input-label.col-sm-2
+            .form-group.row
+              .video-url.row.col-sm-8
+                .form-input-label.col-sm-3.label-video-url
                   = lesson.label :video_url
-                .col-sm-10
+                .col-sm-9
                   = lesson.text_field :video_url, class: "form-control input-video-url"
+              .col-sm-4.row.form-min_point
+                .col-sm-5.label-point
+                  = lesson.label t("lesson.min_point")
+                .col-sm-7.min-point
+                  = lesson.number_field :min_point, min: 0, class: "form-control input-min-point"
           .card.quiz-form
             .card-header
               = t("lesson.quiz")

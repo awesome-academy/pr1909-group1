@@ -1,32 +1,36 @@
 <h5 class="lesson-name"> <%= @lesson.lesson_name %></h5>
 <div id="iframe-lesson">
-  <iframe src="https://player.vimeo.com/video/76979871" width="640" height="360" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+  <iframe class="lesson-video" src="<%= @lesson.video_url %>" width="720" height="480" frameborder="0" allowfullscreen allow="encrypted-media"></iframe>
 </div>
-<script src="https://player.vimeo.com/api/player.js"></script>
-<script>
-    var step = <%= @register.lesson_step%>;
-    $("#iframe-lesson iframe").on("load", function () {
-      var iframe = $('#iframe-lesson iframe');
-      var player = new Vimeo.Player(iframe);
-      player.on('ended', function() {
-        <% if @lesson.video? && (@register.lesson_step == @lesson.lesson_sequence) %>
+<script type="text/javascript">
+  <% if @register %>
+    var step = <%= @register.lesson_step %>;
+  <% end %>
+  $("#iframe-lesson iframe").on("load", function () {
+    var iframe = $('#iframe-lesson iframe');
+    var player = new Vimeo.Player(iframe);
+
+    player.on('ended', function() {
+      var next_element = $(".lessons-list .card-lesson-show").get(<%= @lesson.lesson_sequence %>);
+      <% if @register && @lesson.video? && (@register.lesson_step == @lesson.lesson_sequence) %>
+        if (next_element != undefined ) {
           $.ajax({
             method: "PATCH",
             url: "/registers/" + <%= @register.id %>,
             data: { register: { lesson_step: step + 1 } }
           });
-        <% end %>
-        <% if (@register.lesson_step > @lesson.lesson_sequence) %>
-        var next_element = $(".lessons-list .card-lesson-show").get(parseInt("<%= @lesson.lesson_sequence%>"));
-          $.ajax({
-            method: "GET",
-            url: $(next_element).find("a").attr("href"),
-            success: function () {
-              $(".lessons-list").find(".card-body").removeClass("active");
-              $(next_element).find(".card-body").addClass("active");
-            }
-          });
-        <% end %>
-      });
-    })
+        }
+      <% end %>
+      <% if ((@register && @register.lesson_step > @lesson.lesson_sequence) || current_user.is_admin?) %>
+        $.ajax({
+          method: "GET",
+          url: $(next_element).find("a").attr("href"),
+          success: function () {
+            $(".lessons-list").find(".card-body").removeClass("active");
+            $(next_element).find(".card-body").addClass("active");
+          }
+        });
+      <% end %>
+    });
+  })
 </script>

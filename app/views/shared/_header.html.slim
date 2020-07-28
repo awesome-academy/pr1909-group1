@@ -2,7 +2,7 @@ header#header.fixed-top
   .container
     nav.navbar.navbar-expand-xl
       = link_to  "Athena", root_path, class: "navbar-brand logo"
-      .col-sm-7.search
+      .col-sm-5.search-course
         .cover
           = form_tag "/search", method: "get", class: "forms-group" do
             = text_field_tag :query, params[:query], class: "input-search-course", placeholder: t("course.search_placeholder")

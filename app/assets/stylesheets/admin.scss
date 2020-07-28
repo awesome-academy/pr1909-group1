@@ -18,12 +18,12 @@
   color: #fff;
 }
 
-// common 
+// common
 .nav-item .nav-link {
   padding: 0.5rem 1rem !important;
 }
 
-// range 
+// range
 .to-date {
   text-align: center;
   padding-top: 6px;
@@ -44,7 +44,7 @@
 
 // charts
 .tab-charts .tab-pane {
-  position: relative; 
+  position: relative;
   height: 490px;
 }
 
@@ -64,4 +64,8 @@
 }
 .content-header {
   background: #f4f6f9;
+}
+
+.form-select-date{
+  margin-left: 0px !important;
 }

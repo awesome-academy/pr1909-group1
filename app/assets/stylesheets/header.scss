@@ -96,16 +96,18 @@ li.flag {
 .input-search-course {
   margin-left: 10%;
   overflow: hidden;
-  width: 70%;
-  border: 1px solid #f1f1f1;
+  width: 75%;
+  border: 1px solid #dad9d9;
   outline: none;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
   height: 35px;
   padding-left: 20px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 
-.search{
+.search-course{
   border-radius: 20px;
   width: auto;
 }
@@ -113,7 +115,7 @@ li.flag {
 .btn-search-course {
   height: 35px;
   background: white !important;
-  border: 1px solid #f1f1f1;
+  border: 1px solid #dad9d9;
   border-left: none;
   outline: none;
   border-top-right-radius: 15px;

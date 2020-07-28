@@ -4,6 +4,7 @@
     .container
       .row
         .col-lg-10.offset-lg-1
+          = render "shared/error_messages", object: @course
           = simple_form_for [:admin, @course] do |f|
             = f.error_notification
             = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
@@ -23,5 +24,4 @@
                   = f.input :course_description, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' }}  , label: t('course.course_description')
               = f.input :course_image, label: t('course.course_image')
               = f.input :overview_video_url, label: t('course.course_video')
-            .form-actions
-              = f.button :submit, class: "btn btn-success"
+            = render "edit_lesson", f:f

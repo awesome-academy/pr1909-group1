@@ -6,6 +6,7 @@ class CreateLessons < ActiveRecord::Migration[6.0]
       t.integer :lesson_type, null: false, default: Settings.default.lesson_type
       t.integer :lesson_sequence, null: false, default: Settings.default.lesson_sequence
       t.string :video_url
+      t.integer :min_point
 
       t.timestamps
     end

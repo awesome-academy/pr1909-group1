@@ -65,7 +65,7 @@
                           = form_with(url: admin_range_path, method: :get) do |form|
                             .form-group
                             label = t("charts.date_range")
-                            .input-group
+                            .input-group.form-select-date
                               span.input-group-text
                                 i.far.fa-calendar-alt
                               .col-4
@@ -77,7 +77,7 @@
                               .col-2
                                 = submit_tag t("charts.check"), class: "btn btn-success"
                           #show-chart-range
-                            h6 
+                            h6
                               = t("charts.noti_range")
         .col-lg-5
           .card
@@ -95,7 +95,7 @@
               = column_chart admin_charts_users_registered_by_path(period: "day", start_time: Time.zone.now.beginning_of_day, end_time: Time.zone.now.end_of_day),
                 messages: { empty: t("charts.no_data") }
           .row
-            .col-lg-12
+            .col-lg-12.col-md-12
               .card.card-info
                 .card-header
                   h3.card-title
@@ -111,8 +111,6 @@
                           = t("user.full_name")
                         th
                           = t("user.email")
-                        th
-                          = t("user.created_at")
                     tbody
                     - @sum_lesson.each do |sum_lesson|
                       tr
@@ -120,8 +118,6 @@
                           = link_to sum_lesson.user.full_name, admin_user_path(sum_lesson.user_id)
                         td
                           = sum_lesson.user.email
-                        td
-                          = sum_lesson.user.created_at.strftime("%d-%m-%Y")
       .row
         .col-lg-12
           .card
