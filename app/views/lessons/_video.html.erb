@@ -22,7 +22,6 @@
         }
       <% end %>
       <% if ((@register && @register.lesson_step > @lesson.lesson_sequence) || current_user.is_admin?) %>
-        debugger
         $.ajax({
           method: "GET",
           url: $(next_element).find("a").attr("href"),

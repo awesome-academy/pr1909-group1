@@ -5,7 +5,7 @@ class Admin::CoursesController < Admin::BaseController
   # GET /courses
   # GET /courses.json
   def index
-    @courses = Course.all.paginate(page: params[:page], per_page: Settings.per_page).order(created_at: :desc)
+    @courses = Course.all.paginate(page: params[:page], per_page: Settings.search.per_page).order(created_at: :desc)
   end
 
   # GET /courses/1
