@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <% @registers.each do |register| %>
+      <div class="col-md-2 pb-3">
+        <%= image_tag(register.user.avatar.url(:thumb), class: "image-avatar") %>
+        <span><%= register.user.full_name %></span>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="row">
+  <div class="paginate-register">
+    <%= will_paginate @registers, param_name: 'register_page' %>
+  </div>
+</div>

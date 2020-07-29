@@ -22,3 +22,26 @@
     width: 200px;
   }
 }
+
+.form-admin-search-courses{
+  display: flex;
+}
+
+.btn-admin-search-course{
+  border-left: none;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.input-admin-search-course{
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+
+.course-video-overview{
+  text-align: center;
+}
+
+.show-question{
+  margin-left: 30px;
+}

@@ -188,14 +188,6 @@ function addLesson(new_box) {
   var parent = "<div class='lesson-box lesson-field ui-sortable-handle'></div>"
   var input_video = new_box.find(".input-video-url");
   var quiz_form = new_box.find(".quiz-form");
-  lesson_type = new_box.find(".radio-lesson-type").val();
-  if (lesson_type == "quiz") {
-    input_video.prop("disabled", true);
-    quiz_form.show()
-  }else if(lesson_type == "video"){
-    input_video.prop("disabled", false);
-    quiz_form.hide()
-  }
   new_box.find(".lesson_seq").val(number_lesson +1);
   change_name_lesson(new_box, number_lesson, 0, 0);
   $("#sortable").append(parent);

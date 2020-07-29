@@ -153,6 +153,7 @@ en:
       min_point: "Min Point"
       confirm: "Confirm Delete"
       are_you_sure: "Are you sure?"
+      lesson_type: "Lesson type"
 
     search:
       search_user: "Search by name"
