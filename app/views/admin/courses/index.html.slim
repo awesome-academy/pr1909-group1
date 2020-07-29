@@ -2,9 +2,18 @@
 .content-wrapper
   .content
     .container-fluid
-      = render  "layouts/messages" 
-      = link_to t('course.new_course'), new_admin_course_path, class: "btn btn-outline-success"
-      br
-      br
+      = render  "layouts/messages"
+      .row.action-user
+        .ml-4
+          = link_to new_admin_course_path, class: "action-new" do
+            i.fas.fa-book-medical
+              span.tooltiptext = t("admin.new_course")
+        .col-md-8
+          = form_tag "/admin/courses", method: "get", remote: true, class: "form-admin-search-courses" do
+            .input-group.input-group-sm
+              = text_field_tag :query, params[:query], class: "input-search", placeholder: t("course.search_placeholder")
+              .input-group-append
+                = button_tag class: "btn btn-outline-success" do
+                  i.fa.fa-search
       #show-courses
-        = render  "admin/courses/courses_all" 
+        = render  "admin/courses/courses_all"

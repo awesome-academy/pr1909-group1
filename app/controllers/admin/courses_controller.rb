@@ -5,13 +5,23 @@ class Admin::CoursesController < Admin::BaseController
   # GET /courses
   # GET /courses.json
   def index
-    @courses = Course.all.paginate(page: params[:page], per_page: Settings.search.per_page).order(created_at: :desc)
+    @courses = Course.search(params[:query], operator: "or", fields: [:course_title, :course_type],
+                                             match: :word_start, highlight: { tag: "<mark>" },
+                                             page: params[:page], per_page: Settings.search.per_page)
+    if @courses.results.blank?
+      @courses = Course.all.paginate(page: params[:page], per_page: Settings.search.per_page).order(created_at: :desc)
+    end
   end
 
   # GET /courses/1
   # GET /courses/1.json
   def show
-    @lesson = Lesson.new
+    @lessons = @course.lessons
+    @course_type = @course.course_type.course_type
+    @review_courses = @course.review_courses.order('created_at DESC').
+      paginate(page: params[:comment_page], per_page: Settings.comment.per_page)
+    @registers = @course.registers.order('created_at DESC').
+      paginate(page: params[:register_page], per_page: Settings.register.per_page)
   end
 
   # GET /courses/new

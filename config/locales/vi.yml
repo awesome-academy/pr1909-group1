@@ -157,7 +157,7 @@ vi:
       question: "Câu hỏi"
       add_question: "Thêm câu hỏi"
       add_lesson: "Thêm bài học"
-      lesson_name: "Tên khóa học"
+      lesson_name: "Tên bài học"
       submit: "Nộp bài"
       test_failed: "Bạn không qua bài kiểm tra"
       your_mark: "Điểm của bạn"
@@ -165,6 +165,7 @@ vi:
       min_point: "Điểm tối thiểu"
       confirm: "Xác nhận xóa"
       are_you_sure: "Bạn có chắc muốn xóa?"
+      lesson_type: "Loại bài học"
 
     charts:
       all: "Tất cả"
