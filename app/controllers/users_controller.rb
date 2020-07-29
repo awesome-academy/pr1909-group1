@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :get_user, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
   before_action :check_authorization, only: [:show, :edit, :update]
+  before_action :not_provider_athena, only: :edit
 
   # GET /users
   # GET /users.json
@@ -14,7 +15,7 @@ class UsersController < ApplicationController
   def show
     @courses = Course.joins(:registers).
       where(registers: { user_id: @user.id }).
-      paginate(page: params[:page], per_page: Settings.per_page)
+      paginate(page: params[:page], per_page: Settings.search.per_page)
     @registers = @user.registers
     respond_to do |format|
       format.html
@@ -66,5 +67,9 @@ class UsersController < ApplicationController
 
   def authorization
     (current_user.id == @user.id) || current_user.is_admin?
+  end
+
+  def not_provider_athena
+    redirect_to user_path(@user) if @user.provider != "athena"
   end
 end

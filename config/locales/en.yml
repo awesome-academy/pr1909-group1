@@ -193,6 +193,7 @@ en:
       need_login: "You need to log in to continue. "
       leave_blank: "Leave blank if you don't want to change password"
       current_password: "We need your current password to confirm password change"
+      not_access: "You cannot access this page"
 
   # Login message
     message:

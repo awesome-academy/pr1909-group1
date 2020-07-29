@@ -29,7 +29,7 @@ class Admin::BaseController < ApplicationController
   def check_admin
     unless current_user.is_admin?
       redirect_to root_path
-      flash[:alert] = "You cannot access this page"
+      flash[:alert] = t("alert.not_access")
     end
   end
 end

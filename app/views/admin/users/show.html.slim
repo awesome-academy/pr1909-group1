@@ -24,7 +24,7 @@
                 = t('admin.created_at')
                 |:
                 = @user.created_at.strftime("%d-%m-%Y")
-              = link_to t('user.edit'), edit_admin_user_path(@user), class: "btn btn-outline-success"
+              = link_to t('user.edit'), edit_admin_user_path(@user), class: "btn btn-outline-success" if @user.provider == "athena"
     #modalIMG.modal.fade[aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1"]
       .modal-dialog.modal-lg[role="document"]
         .modal-content

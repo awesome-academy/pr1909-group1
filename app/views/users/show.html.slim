@@ -21,8 +21,7 @@
           = @user.email
     .col-md-2
       .btn-edit
-        if current_user.id == @user.id
-        = link_to t('user.edit'), edit_user_path(@user), class: "btn btn-primary  btn-block"
+        = link_to t('user.edit'), edit_user_path(@user), class: "btn btn-primary  btn-block" if @user.provider == "athena"
 
   #show-registered
     = render "courses/courses_registered"

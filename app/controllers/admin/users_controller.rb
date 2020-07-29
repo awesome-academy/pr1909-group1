@@ -1,5 +1,6 @@
 class Admin::UsersController < Admin::BaseController
   before_action :get_user, only: [:show, :edit, :update, :destroy]
+  before_action :not_provider_athena, only: :edit
 
   def index
     @q = User.ransack params[:q]
@@ -64,5 +65,12 @@ class Admin::UsersController < Admin::BaseController
   # Only allow a list of trusted parameters through.
   def user_params
     params.require(:user).permit(:full_name, :email, :password, :confirmed_at, :avatar)
+  end
+
+  def not_provider_athena
+    if @user.provider != "athena"
+      redirect_to admin_user_path(@user)
+      flash[:alert] = t("alert.not_access")
+    end
   end
 end

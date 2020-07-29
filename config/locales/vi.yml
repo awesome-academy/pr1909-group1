@@ -204,6 +204,7 @@ vi:
       need_login: "Bạn cần đăng nhập để  tiếp tục. "
       leave_blank: "Để trống nếu bạn không muốn thay đổi mật khẩu"
       current_password: "Chúng tôi cần mật khẩu hiện tại để xác nhận thay đổi mật khẩu"
+      not_access: "Bạn không thể truy cập trang này"
 
   # Login message
     message:

@@ -5,7 +5,6 @@ section#counts.counts.section-bg
         i.fas.fa-users
         span.num
           = @number_students
-          /TODO user.apply_course.count
         p
           = t('count.students')
       .col-lg-3.col-3.text-center
@@ -18,7 +17,6 @@ section#counts.counts.section-bg
         i.fas.fa-photo-video
         span.num
           = @number_video
-          /TODO Lesson[lesson_type = video ].count
         p
           | Videos
       .col-lg-3.col-3.text-center
@@ -27,4 +25,3 @@ section#counts.counts.section-bg
           = @number_quiz
         p
           = t('count.tests')
-          /TODO Lesson[lesson_type = test].count
