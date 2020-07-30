@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    return course_path(id: params[:user][:course_id]) unless params[:user][:course_id].blank?
+    return course_path(id: params[:user][:course_id]) if params[:user] && !params[:user][:course_id].blank?
     root_path
   end
 end
