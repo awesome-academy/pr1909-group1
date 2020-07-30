@@ -34,6 +34,7 @@
                         </div>
                       <% end %>
           <%= f.input :remember_me, label: t("user.remember_me"), as: :boolean if devise_mapping.rememberable? %>
+          <%= f.hidden_field :course_id, value: @course_id %>
           <div class="btn-sign-in">
             <%= f.button :submit, t("user.log_in"), class: "btn btn-success btn-block" %>
             <%= link_to user_google_oauth2_omniauth_authorize_path, class: "btn btn-block google-btn" do %>

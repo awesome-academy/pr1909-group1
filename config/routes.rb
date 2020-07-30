@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     get "/search", to: "courses#search"
     resources :courses
     resources :review_courses, except: [:new, :show]
-    devise_for :users, skip: :omniauth_callbacks
+    devise_for :users, skip: :omniauth_callbacks, controllers: { sessions: "sessions" }
     resources :users, except: [:new, :create]
     resources :lessons, only: :show
     resources :registers, only: [:edit, :update]
