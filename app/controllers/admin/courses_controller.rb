@@ -48,6 +48,7 @@ class Admin::CoursesController < Admin::BaseController
         format.json { render :show, status: :created, location: @course }
       else
         format.html { render :new }
+        format.js
         format.json { render json: @course.errors, status: :unprocessable_entity }
       end
     end
@@ -62,6 +63,7 @@ class Admin::CoursesController < Admin::BaseController
         format.json { render :show, status: :ok, location: @course }
       else
         format.html { render :edit }
+        format.js
         format.json { render json: @course.errors, status: :unprocessable_entity }
       end
     end
