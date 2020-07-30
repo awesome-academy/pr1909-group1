@@ -93,8 +93,7 @@ number_users.times do |n|
   16.times do |m|
     Register.create!(
       user_id: user_ids[n],
-      course_id: sample[m],
-      lesson_step: rand(1..18)
+      course_id: sample[m]
     )
   end
 end
