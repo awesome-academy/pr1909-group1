@@ -1,8 +1,8 @@
-<% if object.errors.any? %>
-  <div id="error_explanation">
-    <ul>
-      <% object.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<% if @course.errors.any? %>
+  <div id="error_explanation col-md-12">
+    <ul class="row">
+      <% @course.errors.full_messages.each do |message| %>
+        <li class="col-md-6"><%= message %></li>
       <% end %>
     </ul>
   </div>

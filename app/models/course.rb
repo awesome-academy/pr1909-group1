@@ -12,9 +12,20 @@ class Course < ApplicationRecord
 
   validates :user_id, :course_title, :course_overview, :course_description, :course_type_id, presence: true
   validates :course_type_id, :user_id, numericality: { only_integer: true }
+  validate :at_least_one_quiz
 
   accepts_nested_attributes_for :lessons, allow_destroy: true
   after_commit :reindex_course, if: -> (model) { model.previous_changes.key?("course_title") }
+
+  def at_least_one_quiz
+    check = 0
+    lessons.each do |lesson|
+      if lesson.quiz? && lesson.quiz_questions.length > 0
+        check = 1
+      end
+    end
+    errors.add(:lessons, "must be have at least one quiz") if check == 0
+  end
 
   def reindex_course
     Course.search_index.delete
