@@ -1,6 +1,9 @@
 CarrierWave.configure do |config|
   if Rails.env.development? || Rails.env.test?
-    config.storage    = :file
+    config.storage = :file
+    config.ignore_integrity_errors = false
+    config.ignore_processing_errors = false
+    config.ignore_download_errors = false
   else
     config.storage    = :aws
     config.aws_bucket = ENV.fetch('S3_BUCKET_NAME')

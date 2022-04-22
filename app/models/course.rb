@@ -1,5 +1,5 @@
 class Course < ApplicationRecord
-  searchkick  word_start: [:course_title, :course_type], highlight: [:course_title, :course_type], callbacks: false
+  searchkick word_start: [:course_title, :course_type], highlight: [:course_title, :course_type], callbacks: false
   belongs_to :user
   belongs_to :course_type
   mount_uploader :course_image, CourseImageUploader

@@ -2,6 +2,7 @@ FROM ruby:2.6.5
 RUN apt-get update && \
   apt-get install -y nodejs npm nano vim \
   && curl -o- -L https://yarnpkg.com/install.sh | bash
+RUN gem install bundler
 RUN mkdir /project2_group1
 WORKDIR /project2_group1
 COPY Gemfile /project2_group1/Gemfile

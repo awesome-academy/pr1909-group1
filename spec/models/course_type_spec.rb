@@ -12,7 +12,7 @@ RSpec.describe CourseType, type: :model do
     it { expect(subject).to be_valid }
 
     it { is_expected.to validate_presence_of(:course_type).with_message("can't be blank") }
-    it { is_expected.to validate_length_of(:course_type).is_at_most(Settings.length.course_type.maximum ) }
+    it { is_expected.to validate_length_of(:course_type).is_at_most(Settings.length.course_type.maximum) }
   end
 
   # Test associations
