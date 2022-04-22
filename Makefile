@@ -1,0 +1,2 @@
+app-install:
+	bundle install

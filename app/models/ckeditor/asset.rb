@@ -2,8 +2,9 @@
 
 class Ckeditor::Asset < ActiveRecord::Base
   include Ckeditor::Orm::ActiveRecord::AssetBase
+  include Ckeditor::Backend::ActiveStorage
 
-  delegate :url, :current_path, :content_type, to: :data
+  attr_accessor :data
 
-  validates :data, presence: true
+  has_one_attached :storage_data
 end

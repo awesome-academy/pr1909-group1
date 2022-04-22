@@ -34,7 +34,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'figaro'
 gem 'simple_form'
 gem 'bootstrap-sass'
-gem 'font-awesome-sass'
+gem 'font-awesome-sass', '~> 6.1.1'
 gem 'rails-i18n'
 gem 'devise'
 gem 'slim-rails'

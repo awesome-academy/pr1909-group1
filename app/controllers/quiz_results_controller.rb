@@ -18,7 +18,7 @@ class QuizResultsController < ApplicationController
     respond_to do |format|
       if @point >= @current_test.min_point
         @result.save && (@register.update(lesson_step: @register.lesson_step + 1) if @lesson)
-        @lesson = @current_test unless @lesson
+        @lesson ||= @current_test
         format.html
         format.js
       else
